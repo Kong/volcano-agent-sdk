@@ -1,4 +1,4 @@
-import { agent, llmOpenAI, mcpStdio } from "../dist/volcano-sdk.js";
+import { agent, llmOpenAI, mcpStdio } from "@volcano/agent";
 
 // stdio servers run as separate processes (not HTTP)
 // This is how MCP was originally designed - for local/native tools

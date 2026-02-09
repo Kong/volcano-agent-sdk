@@ -11,8 +11,8 @@ function InteractiveExamplesPage() {
   return (
     <>
       <SEOHead
-        title="Interactive Examples - Volcano SDK Documentation"
-        description="Interactive demos and advanced workflow examples for Volcano SDK."
+        title="Interactive Examples - Volcano Agent SDK Documentation"
+        description="Interactive demos and advanced workflow examples for Volcano Agent SDK."
         canonicalUrl="/docs/examples/interactive"
       />
       <DocsLayout>
@@ -55,7 +55,7 @@ function InteractiveExamplesPage() {
           <p>Create dynamic workflows that adapt based on results:</p>
 
           <CodeBlock language="typescript" title="Conditional Branching">
-            {`import { agent, llmOpenAI, branch } from "volcano-sdk";
+            {`import { agent, llmOpenAI, branch } from "@volcano/agent";
 
 const results = await agent({ llm })
   .then({ 
@@ -83,7 +83,7 @@ const results = await agent({ llm })
           <p>Repeat steps until a condition is met:</p>
 
           <CodeBlock language="typescript" title="Looping Workflows">
-            {`import { agent, llmOpenAI, loop } from "volcano-sdk";
+            {`import { agent, llmOpenAI, loop } from "@volcano/agent";
 
 let attemptCount = 0;
 const maxAttempts = 5;
@@ -138,7 +138,7 @@ const marketAnalysis = await agent({ llm })
           <p>Use different LLM strengths for different tasks:</p>
 
           <CodeBlock language="typescript" title="Multi-Provider Pipeline">
-            {`import { agent, llmOpenAI, llmAnthropic, llmMistral } from "volcano-sdk";
+            {`import { agent, llmOpenAI, llmAnthropic, llmMistral } from "@volcano/agent";
 
 const openai = llmOpenAI({ model: "gpt-4o" });      // Good for analysis
 const claude = llmAnthropic({ model: "claude-3-5-sonnet-20241022" }); // Excellent for writing
@@ -263,7 +263,7 @@ function AnalysisDashboard() {
           <p>Coordinate multiple MCP servers for complex workflows:</p>
 
           <CodeBlock language="typescript" title="MCP Tool Orchestration">
-            {`import { agent, llmOpenAI, mcp } from "volcano-sdk";
+            {`import { agent, llmOpenAI, mcp } from "@volcano/agent";
 
 // Connect to multiple MCP servers
 const weather = mcp("http://localhost:3000/weather");

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent, llmOpenAI, llmVertexStudio } from '../dist/volcano-sdk.js';
+import { agent, llmOpenAI, llmVertexStudio } from '../dist/volcano-agent-sdk.js';
 
 describe('agent run() with onStep callback (live APIs)', () => {
   it('provides OpenAI workflow results in real-time via onStep', async () => {

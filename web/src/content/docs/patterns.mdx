@@ -1,5 +1,5 @@
 ---
-title: "Advanced Patterns - Volcano SDK"
+title: "Advanced Patterns - Volcano Agent SDK"
 ---
 
 # Advanced Patterns
@@ -15,7 +15,7 @@ One of Volcano's most powerful features: use different LLM providers for differe
 ### Basic Multi-Provider Workflow
 
 ```typescript
-import { agent, llmOpenAI, llmAnthropic, llmMistral } from "volcano-sdk";
+import { agent, llmOpenAI, llmAnthropic, llmMistral } from "@volcano/agent";
 
 const gpt = llmOpenAI({
   apiKey: process.env.OPENAI_API_KEY!,
@@ -47,7 +47,7 @@ await agent()
 Use local models for preprocessing, expensive models for critical tasks:
 
 ```typescript
-import { agent, llmLlama, llmOpenAI } from "volcano-sdk";
+import { agent, llmLlama, llmOpenAI } from "@volcano/agent";
 
 const llama = llmLlama({
   baseURL: "http://127.0.0.1:11434",

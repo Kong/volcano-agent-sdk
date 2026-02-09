@@ -7,7 +7,7 @@ import { describe, it, expect } from 'vitest';
  * by testing the decision logic in isolation (without needing to run actual agents).
  */
 
-// We'll export the function from volcano-sdk for testing
+// We'll export the function from volcano-agent-sdk for testing
 // For now, we'll test it indirectly through agent behavior
 
 describe('Tool Parallelization Logic', () => {

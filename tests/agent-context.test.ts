@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { agent, AgentBuilder, AgentResults, StepResult } from '../src/volcano-sdk.js';
+import { agent, AgentBuilder, AgentResults, StepResult } from '../src/volcano-agent-sdk.js';
 
 // Mock LLM for predictable testing
 const createMockLLM = (responses: string[]) => {

@@ -1,5 +1,5 @@
 ---
-title: "Observability - Volcano SDK"
+title: "Observability - Volcano Agent SDK"
 ---
 
 # Observability
@@ -10,7 +10,7 @@ Production-ready observability with OpenTelemetry traces and metrics. Monitor ag
 
 ## OpenTelemetry Integration
 
-Volcano SDK uses OpenTelemetry (OTEL), the industry-standard observability framework. Export traces and metrics to any OTEL-compatible backend.
+Volcano Agent SDK uses OpenTelemetry (OTEL), the industry-standard observability framework. Export traces and metrics to any OTEL-compatible backend.
 
 ### Quick Start
 
@@ -19,7 +19,7 @@ Volcano SDK uses OpenTelemetry (OTEL), the industry-standard observability frame
 Just pass an `endpoint` and Volcano auto-configures OpenTelemetry for you:
 
 ```typescript
-import { agent, llmOpenAI, createVolcanoTelemetry } from "volcano-sdk";
+import { agent, llmOpenAI, createVolcanoTelemetry } from "@volcano/agent";
 
 // Create telemetry with endpoint - auto-configures everything!
 const telemetry = createVolcanoTelemetry({
@@ -136,7 +136,7 @@ npm install @opentelemetry/exporter-otlp-grpc   # For gRPC
 
 ## Comprehensive Metrics
 
-Volcano SDK provides detailed metrics to answer critical questions about your AI agents:
+Volcano Agent SDK provides detailed metrics to answer critical questions about your AI agents:
 
 ### Questions You Can Answer
 
@@ -384,7 +384,7 @@ Volcano works with any OpenTelemetry-compatible backend.
 ```typescript
 import { NodeSDK } from "@opentelemetry/sdk-node";
 import { JaegerExporter } from "@opentelemetry/exporter-jaeger";
-import { createVolcanoTelemetry } from "volcano-sdk";
+import { createVolcanoTelemetry } from "@volcano/agent";
 
 // Setup OTEL SDK
 const sdk = new NodeSDK({
@@ -433,7 +433,7 @@ sdk.start();
 **Option 1: Auto-configuration with endpoint**
 
 ```typescript
-import { createVolcanoTelemetry } from "volcano-sdk";
+import { createVolcanoTelemetry } from "@volcano/agent";
 
 const telemetry = createVolcanoTelemetry({
   serviceName: "my-agent",
@@ -498,7 +498,7 @@ Provide your own OTEL tracer and meter instances:
 
 ```typescript
 import { trace, metrics } from "@opentelemetry/api";
-import { createVolcanoTelemetry } from "volcano-sdk";
+import { createVolcanoTelemetry } from "@volcano/agent";
 
 const tracer = trace.getTracer("my-custom-tracer");
 const meter = metrics.getMeter("my-custom-meter");

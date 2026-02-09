@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent, llmOpenAI, llmBedrock, type TokenMetadata } from '../src/volcano-sdk.js';
+import { agent, llmOpenAI, llmBedrock, type TokenMetadata } from '../src/volcano-agent-sdk.js';
 
 describe('Token streaming e2e (live APIs)', () => {
   it('validates per-step onToken with live OpenAI', async () => {

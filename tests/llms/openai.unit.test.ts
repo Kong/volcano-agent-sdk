@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { llmOpenAI } from '../../dist/volcano-sdk.js';
+import { llmOpenAI } from '../../dist/volcano-agent-sdk.js';
 
 const calls: any[] = [];
 

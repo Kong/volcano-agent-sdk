@@ -13,7 +13,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { createVolcanoTelemetry, agent } from '../dist/volcano-sdk.js';
+import { createVolcanoTelemetry, agent } from '../dist/volcano-agent-sdk.js';
 import { NodeTracerProvider } from '@opentelemetry/sdk-trace-node';
 import { InMemorySpanExporter, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base';
 

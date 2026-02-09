@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll, afterAll, beforeEach } from 'vitest';
 import { spawn } from 'node:child_process';
-import { agent, createVolcanoTelemetry, mcp } from '../src/volcano-sdk.js';
+import { agent, createVolcanoTelemetry, mcp } from '../src/volcano-agent-sdk.js';
 import { NodeTracerProvider } from '@opentelemetry/sdk-trace-node';
 import { InMemorySpanExporter, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base';
 
@@ -45,7 +45,7 @@ async function resetCollector() {
   await fetch('http://localhost:4318/test/reset', { method: 'POST' });
 }
 
-describe('Volcano SDK Observability', () => {
+describe('Volcano Agent SDK Observability', () => {
   it('accepts endpoint parameter for auto-configuration', () => {
     const telemetry = createVolcanoTelemetry({
       serviceName: 'test-endpoint',

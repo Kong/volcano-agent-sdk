@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll, afterAll, beforeEach } from 'vitest';
-import { agent, mcp, llmOpenAI, llmAnthropic, llmMistral, llmBedrock, llmVertexStudio, llmAzure, _clearMCPPool } from '../src/volcano-sdk.js';
+import { agent, mcp, llmOpenAI, llmAnthropic, llmMistral, llmBedrock, llmVertexStudio, llmAzure, _clearMCPPool } from '../src/volcano-agent-sdk.js';
 import { spawn } from 'node:child_process';
 import type { ChildProcess } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -94,7 +94,7 @@ describe.sequential('Parallel Tool Execution - All Providers', () => {
       name: 'Azure AI',
       make: () => llmAzure({
         apiKey: process.env.AZURE_AI_API_KEY!,
-        endpoint: 'https://volcano-sdk.openai.azure.com/openai/responses',
+        endpoint: 'https://volcano-agent-sdk.openai.azure.com/openai/responses',
         model: 'gpt-5-mini',
         apiVersion: '2025-04-01-preview'
       }),

@@ -83,7 +83,7 @@ export function Footer() {
             <h3 className="mb-4 font-semibold">Community</h3>
             <div className="flex space-x-4">
               <a
-                href="https://github.com/Kong/volcano-sdk"
+                href="https://github.com/Kong/volcano-agent-sdk"
                 target="_blank"
                 rel="noopener noreferrer"
               >

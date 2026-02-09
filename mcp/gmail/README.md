@@ -1,6 +1,6 @@
 # Gmail MCP Server
 
-MCP server for Gmail integration with Volcano SDK. Enables AI agents to read, analyze, and manage Gmail emails.
+MCP server for Gmail integration with Volcano Agent SDK. Enables AI agents to read, analyze, and manage Gmail emails.
 
 ## Features
 
@@ -97,12 +97,12 @@ The script will:
 PORT=3800 node mcp/gmail/server.mjs
 ```
 
-## Usage with Volcano SDK
+## Usage with Volcano Agent SDK
 
 ### Basic Usage (Access Token Only)
 
 ```typescript
-import { agent, llmOpenAI, mcp } from "volcano-sdk";
+import { agent, llmOpenAI, mcp } from "@volcano/agent";
 
 const llm = llmOpenAI({ 
   apiKey: process.env.OPENAI_API_KEY!, 

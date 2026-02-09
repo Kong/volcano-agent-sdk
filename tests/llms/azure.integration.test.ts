@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { llmAzure } from '../../dist/volcano-sdk.js';
+import { llmAzure } from '../../dist/volcano-agent-sdk.js';
 
 describe('Azure AI provider (integration)', () => {
   it('calls Azure AI with live API when AZURE_AI_API_KEY is set', async () => {
@@ -9,7 +9,7 @@ describe('Azure AI provider (integration)', () => {
     
     const llm = llmAzure({ 
       model: 'gpt-5-mini',
-      endpoint: 'https://volcano-sdk.openai.azure.com/openai/responses',
+      endpoint: 'https://volcano-agent-sdk.openai.azure.com/openai/responses',
       apiKey: process.env.AZURE_AI_API_KEY!,
       apiVersion: '2025-04-01-preview'
     });
@@ -28,7 +28,7 @@ describe('Azure AI provider (integration)', () => {
     
     const llm = llmAzure({ 
       model: 'gpt-5-mini',
-      endpoint: 'https://volcano-sdk.openai.azure.com/openai/responses',
+      endpoint: 'https://volcano-agent-sdk.openai.azure.com/openai/responses',
       apiKey: process.env.AZURE_AI_API_KEY!,
       apiVersion: '2025-04-01-preview'
     });
@@ -46,7 +46,7 @@ describe('Azure AI provider (integration)', () => {
     
     const llm = llmAzure({ 
       model: 'gpt-5-mini',
-      endpoint: 'https://volcano-sdk.openai.azure.com/openai/responses',
+      endpoint: 'https://volcano-agent-sdk.openai.azure.com/openai/responses',
       apiKey: process.env.AZURE_AI_API_KEY!,
       apiVersion: '2025-04-01-preview'
     });
@@ -87,7 +87,7 @@ describe('Azure AI provider (integration)', () => {
     
     const llm = llmAzure({ 
       model: 'gpt-5-mini',
-      endpoint: 'https://volcano-sdk.openai.azure.com/openai/responses',
+      endpoint: 'https://volcano-agent-sdk.openai.azure.com/openai/responses',
       apiKey: process.env.AZURE_AI_API_KEY!,
       apiVersion: '2025-04-01-preview'
     });

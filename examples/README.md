@@ -1,6 +1,6 @@
 # Examples
 
-Learn Volcano SDK through hands-on examples, from simple to advanced.
+Learn Volcano Agent SDK through hands-on examples, from simple to advanced.
 
 ## Getting Started
 

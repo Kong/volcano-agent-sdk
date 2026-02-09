@@ -15,7 +15,7 @@ export interface NavigationDoc {
 
 export const generatedNavigation: NavigationDoc[] = [
   {
-    "title": "API Reference - Volcano SDK",
+    "title": "API Reference - Volcano Agent SDK",
     "path": "/docs/api",
     "headings": [
       {
@@ -131,7 +131,7 @@ export const generatedNavigation: NavigationDoc[] = [
     ]
   },
   {
-    "title": "Examples - Volcano SDK",
+    "title": "Examples - Volcano Agent SDK",
     "path": "/docs/examples",
     "headings": [
       {
@@ -242,7 +242,7 @@ export const generatedNavigation: NavigationDoc[] = [
     ]
   },
   {
-    "title": "Features - Volcano SDK",
+    "title": "Features - Volcano Agent SDK",
     "path": "/docs/features",
     "headings": [
       {
@@ -458,13 +458,13 @@ export const generatedNavigation: NavigationDoc[] = [
     ]
   },
   {
-    "title": "Volcano SDK - Build MCP-powered AI Agents",
+    "title": "Volcano Agent SDK - Build MCP-powered AI Agents",
     "path": "/docs",
     "headings": [
       {
         "level": 1,
-        "text": "Volcano SDK 🌋",
-        "id": "volcano-sdk"
+        "text": "Volcano Agent SDK 🌋",
+        "id": "volcano-agent-sdk"
       },
       {
         "level": 2,
@@ -649,7 +649,7 @@ export const generatedNavigation: NavigationDoc[] = [
     ]
   },
   {
-    "title": "MCP Tools - Volcano SDK",
+    "title": "MCP Tools - Volcano Agent SDK",
     "path": "/docs/mcp-tools",
     "headings": [
       {
@@ -760,7 +760,7 @@ export const generatedNavigation: NavigationDoc[] = [
     ]
   },
   {
-    "title": "Observability - Volcano SDK",
+    "title": "Observability - Volcano Agent SDK",
     "path": "/docs/observability",
     "headings": [
       {
@@ -866,7 +866,7 @@ export const generatedNavigation: NavigationDoc[] = [
     ]
   },
   {
-    "title": "Advanced Patterns - Volcano SDK",
+    "title": "Advanced Patterns - Volcano Agent SDK",
     "path": "/docs/patterns",
     "headings": [
       {
@@ -1007,7 +1007,7 @@ export const generatedNavigation: NavigationDoc[] = [
     ]
   },
   {
-    "title": "LLM Providers - Volcano SDK",
+    "title": "LLM Providers - Volcano Agent SDK",
     "path": "/docs/providers",
     "headings": [
       {

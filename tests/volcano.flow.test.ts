@@ -1,6 +1,6 @@
 import { spawn } from 'node:child_process';
 import { describe, it, beforeAll, afterAll, expect } from 'vitest';
-import { agent, mcp, llmOpenAI, llmAnthropic, llmMistral, llmLlama, llmBedrock, llmVertexStudio, llmAzure } from '../dist/volcano-sdk.js';
+import { agent, mcp, llmOpenAI, llmAnthropic, llmMistral, llmLlama, llmBedrock, llmVertexStudio, llmAzure } from '../dist/volcano-agent-sdk.js';
 
 function waitForOutput(proc: any, match: RegExp, timeoutMs = 15000) {
   return new Promise<void>((resolve, reject) => {
@@ -35,7 +35,7 @@ function startServer(cmd: string, args: string[], env: Record<string, string | u
   return proc;
 }
 
-describe('volcano-sdk flow (automatic tool selection) across providers', () => {
+describe('volcano-agent-sdk flow (automatic tool selection) across providers', () => {
   let astroProc: any;
   let favProc: any;
 
@@ -131,7 +131,7 @@ describe('volcano-sdk flow (automatic tool selection) across providers', () => {
         }
         return llmAzure({ 
           model: 'gpt-5-mini',
-          endpoint: 'https://volcano-sdk.openai.azure.com/openai/responses',
+          endpoint: 'https://volcano-agent-sdk.openai.azure.com/openai/responses',
           apiKey: process.env.AZURE_AI_API_KEY!,
           apiVersion: '2025-04-01-preview'
         });

@@ -1,17 +1,17 @@
 ---
-title: "API Reference - Volcano SDK"
+title: "API Reference - Volcano Agent SDK"
 ---
 
 # API Reference
 
-API documentation for Volcano SDK: agent creation, step types, results, and utility functions.
+API documentation for Volcano Agent SDK: agent creation, step types, results, and utility functions.
 
 ## agent(options?): AgentBuilder
 
 Create an agent workflow builder.
 
 ```typescript
-import { agent, llmOpenAI } from "volcano-sdk";
+import { agent, llmOpenAI } from "@volcano/agent";
 
 const llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 
@@ -137,7 +137,7 @@ const nextSteps = await results.ask(summaryLlm, "What should I do next?");
 
 ## Step Types
 
-Volcano SDK supports three types of steps:
+Volcano Agent SDK supports three types of steps:
 
 ### LLM-Only Step
 
@@ -428,7 +428,7 @@ type RetryConfig = {
 Create an MCP handle for a tool server with optional authentication:
 
 ```typescript
-import { mcp } from "volcano-sdk";
+import { mcp } from "@volcano/agent";
 
 // No authentication
 const astro = mcp("http://localhost:3211/mcp");
@@ -459,7 +459,7 @@ const bearerMcp = mcp("https://api.example.com/mcp", {
 Manually discover tools from MCP servers:
 
 ```typescript
-import { discoverTools, mcp } from "volcano-sdk";
+import { discoverTools, mcp } from "@volcano/agent";
 
 const handles = [
   mcp("http://localhost:3211/mcp"),

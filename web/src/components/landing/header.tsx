@@ -11,7 +11,7 @@ export function Header() {
         <Link to="/" className="flex items-center space-x-2">
           <img src="/volcano__icn.png" alt="Volcano" className="h-8 w-8" />
           <span className="font-space-mono text-stroke-white-hover text-xl font-bold">
-            Volcano SDK
+            Volcano Agent SDK
           </span>
         </Link>
 
@@ -39,7 +39,7 @@ export function Header() {
             Docs
           </Link>
           <a
-            href="https://github.com/Kong/volcano-sdk"
+            href="https://github.com/Kong/volcano-agent-sdk"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 transition-all hover:font-bold"
@@ -47,7 +47,7 @@ export function Header() {
             <Github className="icon-stroke-white-hover h-5 w-5 hover:stroke-3" />
           </a>
           <a
-            href="https://www.npmjs.com/package/volcano-sdk"
+            href="https://www.npmjs.com/package/@volcano/agent"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-btn-primary text-primary-foreground font-space-mono inline-flex items-center rounded-none border-2 border-black px-4 py-2 text-sm font-bold transition-colors hover:opacity-85"
@@ -93,7 +93,7 @@ export function Header() {
               Docs
             </Link>
             <a
-              href="https://github.com/Kong/volcano-sdk"
+              href="https://github.com/Kong/volcano-agent-sdk"
               target="_blank"
               rel="noopener noreferrer"
               className="font-space-mono icon-stroke-white-hover flex items-center gap-2 px-3 py-2 transition-all hover:font-bold hover:text-gray-400"
@@ -102,7 +102,7 @@ export function Header() {
               GitHub
             </a>
             <a
-              href="https://www.npmjs.com/package/volcano-sdk"
+              href="https://www.npmjs.com/package/@volcano/agent"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-btn-primary text-primary-foreground font-space-mono mx-3 inline-flex items-center justify-center rounded-none border-2 border-black px-4 py-2 text-sm font-medium transition-colors hover:opacity-85"

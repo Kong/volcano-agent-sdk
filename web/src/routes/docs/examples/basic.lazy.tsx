@@ -11,20 +11,20 @@ function BasicExamplesPage() {
   return (
     <>
       <SEOHead
-        title="Basic Examples - Volcano SDK Documentation"
-        description="Learn Volcano SDK with simple, practical examples."
+        title="Basic Examples - Volcano Agent SDK Documentation"
+        description="Learn Volcano Agent SDK with simple, practical examples."
         canonicalUrl="/docs/examples/basic"
       />
       <DocsLayout>
         <div className="prose prose-lg dark:prose-invert max-w-none">
           <h1>Basic Usage Examples</h1>
-          <p>Learn Volcano SDK with these simple, practical examples.</p>
+          <p>Learn Volcano Agent SDK with these simple, practical examples.</p>
 
           <h2>Hello World Agent</h2>
           <p>The simplest possible agent with OpenAI:</p>
 
           <CodeBlock language="typescript" title="Hello World Agent">
-            {`import { agent, llmOpenAI } from "volcano-sdk";
+            {`import { agent, llmOpenAI } from "@volcano/agent";
 
 const llm = llmOpenAI({ 
   apiKey: process.env.OPENAI_API_KEY!,
@@ -65,7 +65,7 @@ results.forEach((step, i) => {
           <p>Switch between LLM providers in the same workflow:</p>
 
           <CodeBlock language="typescript" title="Using Different Providers">
-            {`import { agent, llmOpenAI, llmAnthropic } from "volcano-sdk";
+            {`import { agent, llmOpenAI, llmAnthropic } from "@volcano/agent";
 
 const openai = llmOpenAI({ 
   apiKey: process.env.OPENAI_API_KEY!,
@@ -95,7 +95,7 @@ const results = await agent()
           </p>
 
           <CodeBlock language="typescript" title="Simple MCP Tool Usage">
-            {`import { agent, llmOpenAI, mcp } from "volcano-sdk";
+            {`import { agent, llmOpenAI, mcp } from "@volcano/agent";
 
 const llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 const weather = mcp("http://localhost:3000/weather");

@@ -1,7 +1,7 @@
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { agent, mcp } from '../dist/volcano-sdk.js';
+import { agent, mcp } from '../dist/volcano-agent-sdk.js';
 
 function waitForOutput(proc: any, match: RegExp, timeoutMs = 8000) {
   return new Promise<void>((resolve, reject) => {
@@ -36,7 +36,7 @@ function startServer(cmd: string, args: string[], env: Record<string, string | u
   return proc;
 }
 
-describe('volcano-sdk e2e with mock MCP servers', () => {
+describe('volcano-agent-sdk e2e with mock MCP servers', () => {
   let astroProc: any;
   let favProc: any;
 

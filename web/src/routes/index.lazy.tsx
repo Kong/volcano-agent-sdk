@@ -19,7 +19,7 @@ function HomePage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "Volcano SDK",
+    name: "Volcano Agent SDK",
     description:
       "The TypeScript SDK for Multi‑Provider AI Agents. Build agents that chain LLM reasoning with MCP tools.",
     applicationCategory: "DeveloperApplication",
@@ -41,7 +41,7 @@ function HomePage() {
   return (
     <>
       <SEOHead
-        title="Volcano SDK — Build MCP-powered AI agents in minutes"
+        title="Volcano Agent SDK — Build MCP-powered AI agents in minutes"
         description="TypeScript SDK for building production-ready AI agents. Chain LLM reasoning with MCP tools. Mix OpenAI, Claude, Mistral in one workflow. Parallel execution, streaming, retries, and OpenTelemetry observability."
         canonicalUrl="/"
       />

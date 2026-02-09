@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { agent, llmOpenAI, AgentBuilder, LLMHandle } from '../src/volcano-sdk.js';
+import { agent, llmOpenAI, AgentBuilder, LLMHandle } from '../src/volcano-agent-sdk.js';
 
 // Create a mock LLM that records all prompts it receives
 const createRecordingLLM = (): LLMHandle & { getPrompts: () => string[], getLastPrompt: () => string } => {

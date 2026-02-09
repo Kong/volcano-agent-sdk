@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { mcpStdio, MCPStdioConfig } from '../src/volcano-sdk.js';
+import { mcpStdio, MCPStdioConfig } from '../src/volcano-agent-sdk.js';
 
 describe('MCP stdio transport', () => {
   it('should create stdio MCP handle with correct configuration', () => {

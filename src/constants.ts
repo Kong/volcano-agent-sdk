@@ -23,7 +23,7 @@ export const OAUTH_TOKEN_EXPIRY_BUFFER_MS = 60_000; // 60s buffer
 
 // Telemetry
 export const VOLCANO_SDK_VERSION = '1.0.1';
-export const DEFAULT_TELEMETRY_SERVICE_NAME = 'volcano-sdk';
+export const DEFAULT_TELEMETRY_SERVICE_NAME = 'volcano-agent-sdk';
 export const DEFAULT_TELEMETRY_VERSION = '0.1.0';
 export const DEFAULT_OTLP_EXPORT_INTERVAL_MS = 5_000; // 5 seconds
 export const DEFAULT_OTLP_EXPORT_TIMEOUT_MS = 5_000; // 5 seconds

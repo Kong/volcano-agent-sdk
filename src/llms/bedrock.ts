@@ -92,7 +92,7 @@ export function llmBedrock(cfg: BedrockConfig): LLMHandle {
           else if (cfg.roleArn) {
             const { fromTemporaryCredentials } = await import('@aws-sdk/credential-providers' as any);
             clientConfig.credentials = fromTemporaryCredentials({
-              params: { RoleArn: cfg.roleArn, RoleSessionName: 'volcano-sdk-session' }
+              params: { RoleArn: cfg.roleArn, RoleSessionName: 'volcano-agent-sdk-session' }
             });
           }
           // Method 5: Default credential chain (environment vars, instance profiles, etc.)

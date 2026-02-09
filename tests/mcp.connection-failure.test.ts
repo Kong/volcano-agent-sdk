@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent, mcp, MCPConnectionError } from '../src/volcano-sdk.js';
+import { agent, mcp, MCPConnectionError } from '../src/volcano-agent-sdk.js';
 
 function makeMockLLM() {
   return {

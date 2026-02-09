@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { llmVertexStudio } from '../../dist/volcano-sdk.js';
+import { llmVertexStudio } from '../../dist/volcano-agent-sdk.js';
 
 describe('Vertex Studio provider (integration)', () => {
   it('calls Google AI Studio with live API when GCP_VERTEX_API_KEY is set', async () => {

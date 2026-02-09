@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent } from '../dist/volcano-sdk.js';
+import { agent } from '../dist/volcano-agent-sdk.js';
 
 describe('agent pre/post hooks', () => {
   it('executes pre and post hooks for LLM-only steps', async () => {

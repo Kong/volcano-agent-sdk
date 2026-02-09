@@ -5,7 +5,7 @@ export function GitHubCTA() {
   const [stars, setStars] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch("https://api.github.com/repos/kong/volcano-sdk")
+    fetch("https://api.github.com/repos/kong/volcano-agent-sdk")
       .then((res) => res.json())
       .then((data) => setStars(data.stargazers_count || 0))
       .catch(() => {});
@@ -24,7 +24,7 @@ export function GitHubCTA() {
           </p>
 
           <a
-            href="https://github.com/kong/volcano-sdk"
+            href="https://github.com/kong/volcano-agent-sdk"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-btn-primary inline-flex items-center justify-center gap-3 border-2 border-black px-6 py-3 text-base font-medium transition-transform hover:scale-105"

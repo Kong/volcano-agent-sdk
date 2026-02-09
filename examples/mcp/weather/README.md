@@ -51,7 +51,7 @@ Get 3-day weather forecast.
 ## Example Usage
 
 ```typescript
-import { agent, llmOpenAI, mcp } from "volcano-sdk";
+import { agent, llmOpenAI, mcp } from "@volcano/agent";
 
 const weather = mcp("http://localhost:8001/mcp");
 

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { agent, mcp, __internal_getMcpPoolStats, __internal_setPoolConfig, __internal_forcePoolCleanup, __internal_clearDiscoveryCache, __internal_setDiscoveryTtl, discoverTools } from '../dist/volcano-sdk.js';
+import { agent, mcp, __internal_getMcpPoolStats, __internal_setPoolConfig, __internal_forcePoolCleanup, __internal_clearDiscoveryCache, __internal_setDiscoveryTtl, discoverTools } from '../dist/volcano-agent-sdk.js';
 
 function makeLLM() {
   return {

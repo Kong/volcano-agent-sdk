@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent, llmOpenAI } from '../src/volcano-sdk.js';
+import { agent, llmOpenAI } from '../src/volcano-agent-sdk.js';
 
 describe('Multi-agent crews e2e (live APIs)', () => {
   it('validates autonomous agent selection with live OpenAI', { timeout: 30000 }, async () => {

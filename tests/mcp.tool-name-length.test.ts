@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { mcp } from '../src/volcano-sdk.js';
+import { mcp } from '../src/volcano-agent-sdk.js';
 import { createHash } from 'node:crypto';
 
 describe('MCP Tool Name Length Validation', () => {

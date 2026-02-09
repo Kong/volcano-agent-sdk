@@ -1,4 +1,4 @@
-import type { StepResult, AgentBuilder } from "./volcano-sdk.js";
+import type { StepResult, AgentBuilder } from "./volcano-agent-sdk.js";
 
 export async function executeParallel(
   stepsOrDict: any[] | Record<string, any>,

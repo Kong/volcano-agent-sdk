@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent } from '../dist/volcano-sdk.js';
+import { agent } from '../dist/volcano-agent-sdk.js';
 
 describe('agent run() with onStep callbacks', () => {
   it('provides step results via onStep callback as they complete', async () => {

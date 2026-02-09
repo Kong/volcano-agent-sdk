@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { llmOpenAI, llmAnthropic, llmAzure, llmBedrock, llmLlama, llmMistral, llmVertexStudio } from '../../dist/volcano-sdk.js';
+import { llmOpenAI, llmAnthropic, llmAzure, llmBedrock, llmLlama, llmMistral, llmVertexStudio } from '../../dist/volcano-agent-sdk.js';
 
 describe('LLM Provider Options (E2E)', () => {
   it('OpenAI: uses optional parameters correctly', async () => {
@@ -64,7 +64,7 @@ describe('LLM Provider Options (E2E)', () => {
     // See: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
     const llm = llmAzure({
       model: 'gpt-5-mini',
-      endpoint: 'https://volcano-sdk.openai.azure.com/openai/responses',
+      endpoint: 'https://volcano-agent-sdk.openai.azure.com/openai/responses',
       apiKey: process.env.AZURE_AI_API_KEY!,
       // Note: Azure Responses API rejects all option parameters
       // options: {} would work but testing without to show Azure has no configurable options

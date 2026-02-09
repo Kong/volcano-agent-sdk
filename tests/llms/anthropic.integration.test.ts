@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { llmAnthropic } from '../../dist/volcano-sdk.js';
+import { llmAnthropic } from '../../dist/volcano-agent-sdk.js';
 
 describe('Anthropic provider (integration)', () => {
   it('calls Anthropic with live API when ANTHROPIC_API_KEY is set', async () => {

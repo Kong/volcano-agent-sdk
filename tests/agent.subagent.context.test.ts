@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent } from '../dist/volcano-sdk.js';
+import { agent } from '../dist/volcano-agent-sdk.js';
 
 /**
  * Test suite to verify that context (conversation history, tool results, etc.)

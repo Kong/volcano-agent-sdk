@@ -1,4 +1,4 @@
-import { agent, llmOpenAI, createVolcanoTelemetry } from "../dist/volcano-sdk.js";
+import { agent, llmOpenAI, createVolcanoTelemetry } from "@volcano/agent";
 
 // Start the observability stack first:
 // cd observability-demo && docker-compose -f docker-compose.observability.yml up

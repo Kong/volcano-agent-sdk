@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll, afterAll, beforeEach } from 'vitest';
 import { spawn } from 'node:child_process';
-import { agent, createVolcanoTelemetry, mcp } from '../src/volcano-sdk.js';
+import { agent, createVolcanoTelemetry, mcp } from '../src/volcano-agent-sdk.js';
 import { NodeTracerProvider } from '@opentelemetry/sdk-trace-node';
 import { InMemorySpanExporter, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base';
 

@@ -1,10 +1,10 @@
-# Contributing to Volcano SDK
+# Contributing to Volcano Agent SDK
 
 Please take a moment to review this document in order to make the contribution process easy and effective for everyone involved.
 
 ## Using the issue tracker
 
-[GitHub Issues](https://github.com/Kong/volcano-sdk/issues) is the preferred channel for [bug reports](#bug-reports), [features requests](#feature-requests) and [submitting pull requests](#pull-requests).
+[GitHub Issues](https://github.com/Kong/volcano-agent-sdk/issues) is the preferred channel for [bug reports](#bug-reports), [features requests](#feature-requests) and [submitting pull requests](#pull-requests).
 
 Please respect the following restrictions:
 
@@ -26,7 +26,7 @@ A good bug report should not leave others needing to chase you up for more infor
 
 If you're comfortable implementing the idea yourself, **we strongly encourage opening a pull request (PR) rather than just a feature request.** Even a draft or partial implementation helps start a concrete discussion and speeds up review and decision-making. Proposals backed by working code are much more likely to be accepted and refined collaboratively.
 
-You can also use [GitHub Discussions](https://github.com/Kong/volcano-sdk/discussions) to discuss ideas and ask questions before submitting a formal feature request.
+You can also use [GitHub Discussions](https://github.com/Kong/volcano-agent-sdk/discussions) to discuss ideas and ask questions before submitting a formal feature request.
 
 ## Pull Requests
 
@@ -93,5 +93,5 @@ Examples:
 If you have questions or need help, please:
 
 - Check the [documentation](https://volcano.dev/docs)
-- Open a [discussion](https://github.com/Kong/volcano-sdk/discussions)
-- File an [issue](https://github.com/Kong/volcano-sdk/issues) if you've found a bug
+- Open a [discussion](https://github.com/Kong/volcano-agent-sdk/discussions)
+- File an [issue](https://github.com/Kong/volcano-agent-sdk/issues) if you've found a bug

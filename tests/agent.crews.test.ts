@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent } from '../src/volcano-sdk.js';
+import { agent } from '../src/volcano-agent-sdk.js';
 import type { LLMHandle } from '../src/llms/types.js';
 
 describe('Multi-agent crews (automatic agent selection)', () => {

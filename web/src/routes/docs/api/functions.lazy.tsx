@@ -11,15 +11,15 @@ function ApiFunctionsPage() {
   return (
     <>
       <SEOHead
-        title="API Functions - Volcano SDK Documentation"
-        description="Complete function reference for Volcano SDK APIs."
+        title="API Functions - Volcano Agent SDK Documentation"
+        description="Complete function reference for Volcano Agent SDK APIs."
         canonicalUrl="/docs/api/functions"
       />
       <DocsLayout>
         <div className="prose prose-lg dark:prose-invert max-w-none">
           <h1>API Functions</h1>
           <p>
-            Complete reference for all Volcano SDK functions and their
+            Complete reference for all Volcano Agent SDK functions and their
             parameters.
           </p>
 
@@ -260,7 +260,7 @@ await agent({ llm }).then({ prompt: "..." }).run({
           <h3>
             <InlineCode>VolcanoError</InlineCode>
           </h3>
-          <p>Base error class for all Volcano SDK errors.</p>
+          <p>Base error class for all Volcano Agent SDK errors.</p>
 
           <h3>
             <InlineCode>TimeoutError</InlineCode>

@@ -1,23 +1,23 @@
 ---
-title: "MCP Tools - Volcano SDK"
+title: "MCP Tools - Volcano Agent SDK"
 ---
 
 # MCP Tools
 
-The Model Context Protocol (MCP) enables AI agents to securely interact with external tools and data sources. Volcano SDK provides first-class MCP integration with automatic tool discovery, selection, and authentication.
+The Model Context Protocol (MCP) enables AI agents to securely interact with external tools and data sources. Volcano Agent SDK provides first-class MCP integration with automatic tool discovery, selection, and authentication.
 
 **What is MCP?** The Model Context Protocol is an open standard for connecting AI systems to external data sources and tools. It enables LLMs to safely interact with databases, APIs, file systems, and other services through a unified interface.
 
 ## Transport Types
 
-Volcano SDK supports two MCP transport types:
+Volcano Agent SDK supports two MCP transport types:
 
 ### HTTP/SSE Transport
 
 Connect to remote MCP servers over HTTP with Server-Sent Events (SSE):
 
 ```typescript
-import { mcp } from "volcano-sdk";
+import { mcp } from "@volcano/agent";
 
 // Basic HTTP connection
 const remoteMcp = mcp("https://api.example.com/mcp");
@@ -48,7 +48,7 @@ const authMcp = mcp("https://api.example.com/mcp", {
 Connect to local MCP servers via standard input/output:
 
 ```typescript
-import { mcpStdio } from "volcano-sdk";
+import { mcpStdio } from "@volcano/agent";
 
 // Basic stdio connection
 const localMcp = mcpStdio({
@@ -91,7 +91,7 @@ await configuredMcp.cleanup?.();
 Use both stdio and HTTP in the same workflow:
 
 ```typescript
-import { agent, llmOpenAI, mcpStdio, mcp } from "volcano-sdk";
+import { agent, llmOpenAI, mcpStdio, mcp } from "@volcano/agent";
 
 const llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 
@@ -130,7 +130,7 @@ await filesMcp.cleanup?.();
 Let the LLM intelligently choose which tools to call based on the prompt. This is the recommended approach for most use cases.
 
 ```typescript
-import { agent, llmOpenAI, mcp } from "volcano-sdk";
+import { agent, llmOpenAI, mcp } from "@volcano/agent";
 
 const weather = mcp("http://localhost:3000/mcp");
 const notifications = mcp("http://localhost:4000/mcp");
@@ -280,7 +280,7 @@ This flexible approach works with any MCP tool and naming convention without har
 Track parallel vs sequential execution via telemetry:
 
 ```typescript
-import { createVolcanoTelemetry } from "volcano-sdk";
+import { createVolcanoTelemetry } from "@volcano/agent";
 
 const telemetry = createVolcanoTelemetry({ /* config */ });
 
@@ -392,7 +392,7 @@ await agent({ llm })
 
 ## MCP Authentication
 
-Volcano SDK supports OAuth 2.1 and Bearer token authentication per the MCP specification. Authentication can be configured at the MCP handle level or centrally at the agent level.
+Volcano Agent SDK supports OAuth 2.1 and Bearer token authentication per the MCP specification. Authentication can be configured at the MCP handle level or centrally at the agent level.
 
 ### Handle-Level Authentication
 
@@ -671,7 +671,7 @@ type MCPAuthConfig = {
 
 ## Connection Pooling & Performance
 
-Volcano SDK automatically manages MCP connections for optimal performance.
+Volcano Agent SDK automatically manages MCP connections for optimal performance.
 
 ### Connection Pooling
 
@@ -726,7 +726,7 @@ import {
   __internal_setDiscoveryTtl,
   __internal_clearDiscoveryCache,
   __internal_clearOAuthTokenCache,
-} from "volcano-sdk";
+} from "@volcano/agent";
 
 // Configure connection pool
 __internal_setPoolConfig(32, 60_000); // max 32 connections, 60s idle

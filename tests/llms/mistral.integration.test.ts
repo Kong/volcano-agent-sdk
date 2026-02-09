@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { llmMistral } from '../../dist/volcano-sdk.js';
+import { llmMistral } from '../../dist/volcano-agent-sdk.js';
 
 describe('Mistral provider (integration)', () => {
   it('calls Mistral Cloud with live API when MISTRAL_API_KEY is set', async () => {

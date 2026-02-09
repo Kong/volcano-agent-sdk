@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent, llmOpenAI, llmAnthropic, llmMistral, llmLlama, llmBedrock, llmVertexStudio, llmAzure, createVolcanoTelemetry } from '../src/volcano-sdk.js';
+import { agent, llmOpenAI, llmAnthropic, llmMistral, llmLlama, llmBedrock, llmVertexStudio, llmAzure, createVolcanoTelemetry } from '../src/volcano-agent-sdk.js';
 
 describe('Telemetry E2E - All Providers with Live Observability', () => {
   function createMockTelemetry() {
@@ -159,7 +159,7 @@ describe('Telemetry E2E - All Providers with Live Observability', () => {
     const mock = createMockTelemetry();
     const llm = llmAzure({
       model: 'gpt-5-mini',
-      endpoint: 'https://volcano-sdk.openai.azure.com/openai/responses',
+      endpoint: 'https://volcano-agent-sdk.openai.azure.com/openai/responses',
       apiKey: process.env.AZURE_AI_API_KEY!
     });
     

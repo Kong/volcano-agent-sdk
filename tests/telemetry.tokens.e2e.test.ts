@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent, llmOpenAI, llmAnthropic, llmMistral, llmLlama, llmBedrock, llmVertexStudio, llmAzure, createVolcanoTelemetry } from '../src/volcano-sdk.js';
+import { agent, llmOpenAI, llmAnthropic, llmMistral, llmLlama, llmBedrock, llmVertexStudio, llmAzure, createVolcanoTelemetry } from '../src/volcano-agent-sdk.js';
 
 describe('Telemetry - Token Tracking (E2E)', () => {
   it('OpenAI tracks tokens correctly', async () => {
@@ -121,7 +121,7 @@ describe('Telemetry - Token Tracking (E2E)', () => {
     
     const llm = llmAzure({
       model: 'gpt-5-mini',
-      endpoint: 'https://volcano-sdk.openai.azure.com/openai/responses',
+      endpoint: 'https://volcano-agent-sdk.openai.azure.com/openai/responses',
       apiKey: process.env.AZURE_AI_API_KEY!
     });
     
