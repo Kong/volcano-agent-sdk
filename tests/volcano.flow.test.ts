@@ -131,7 +131,7 @@ describe('volcano-agent-sdk flow (automatic tool selection) across providers', (
         }
         return llmAzure({ 
           model: 'gpt-5-mini',
-          endpoint: 'https://volcano-agent-sdk.openai.azure.com/openai/responses',
+          endpoint: 'https://volcano-sdk.openai.azure.com/openai/responses',
           apiKey: process.env.AZURE_AI_API_KEY!,
           apiVersion: '2025-04-01-preview'
         });

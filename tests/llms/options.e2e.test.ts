@@ -64,7 +64,7 @@ describe('LLM Provider Options (E2E)', () => {
     // See: https://learn.microsoft.com/en-us/azure/ai-services/openai/reference
     const llm = llmAzure({
       model: 'gpt-5-mini',
-      endpoint: 'https://volcano-agent-sdk.openai.azure.com/openai/responses',
+      endpoint: 'https://volcano-sdk.openai.azure.com/openai/responses',
       apiKey: process.env.AZURE_AI_API_KEY!,
       // Note: Azure Responses API rejects all option parameters
       // options: {} would work but testing without to show Azure has no configurable options
