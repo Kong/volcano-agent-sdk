@@ -1,6 +1,6 @@
 import { spawn } from 'node:child_process';
 import { describe, it, beforeAll, afterAll, expect } from 'vitest';
-import { agent, mcp, llmOpenAI, llmAnthropic, llmMistral, llmLlama, llmBedrock, llmVertexStudio, llmAzure } from '../dist/volcano-sdk.js';
+import { agent, mcp, llmOpenAI, llmAnthropic, llmMistral, llmLlama, llmBedrock, llmVertexStudio, llmAzure } from '../dist/volcano-agent-sdk.js';
 
 function waitForOutput(proc: any, match: RegExp, timeoutMs = 15000) {
   return new Promise<void>((resolve, reject) => {
@@ -35,7 +35,7 @@ function startServer(cmd: string, args: string[], env: Record<string, string | u
   return proc;
 }
 
-describe('volcano-sdk flow (automatic tool selection) across providers', () => {
+describe('volcano-agent-sdk flow (automatic tool selection) across providers', () => {
   let astroProc: any;
   let favProc: any;
 
@@ -116,9 +116,12 @@ describe('volcano-sdk flow (automatic tool selection) across providers', () => {
         if (!process.env.GCP_VERTEX_API_KEY) {
           throw new Error('GCP_VERTEX_API_KEY is required for this test');
         }
-        return llmVertexStudio({ 
+        return llmVertexStudio({
           apiKey: process.env.GCP_VERTEX_API_KEY!,
-          model: 'gemini-2.5-flash-lite'
+          model: 'gemini-2.5-flash-lite',
+          clientOptions: {
+            retryOnRateLimit: { maxRetries: 5, initialDelayMs: 5000, maxDelayMs: 60000 }
+          }
         });
       },
       requireEnv: ['GCP_VERTEX_API_KEY'],

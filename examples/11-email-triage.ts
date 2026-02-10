@@ -1,4 +1,4 @@
-import { agent, llmOpenAI, mcp } from "../dist/volcano-sdk.js";
+import { agent, llmOpenAI, mcp } from "@volcano/agent";
 
 // Real-world use case: automatically triage and respond to customer emails
 // Start MCP servers first: tsx examples/mcp/tasks/server.ts

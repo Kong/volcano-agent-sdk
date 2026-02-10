@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
-import { agent, llmOpenAI, mcp } from '../src/volcano-sdk.js';
+import { agent, llmOpenAI, mcp } from '../src/volcano-agent-sdk.js';
 import express from 'express';
 import cors from 'cors';
 import { randomUUID } from 'node:crypto';

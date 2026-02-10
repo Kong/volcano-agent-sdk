@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { llmOpenAI, llmAnthropic, llmAzure, llmBedrock, llmLlama, llmMistral, llmVertexStudio } from '../../dist/volcano-sdk.js';
+import { llmOpenAI, llmAnthropic, llmAzure, llmBedrock, llmLlama, llmMistral, llmVertexStudio } from '../../dist/volcano-agent-sdk.js';
 
 describe('LLM Provider Options (E2E)', () => {
   it('OpenAI: uses optional parameters correctly', async () => {
@@ -183,14 +183,20 @@ describe('LLM Provider Options (E2E)', () => {
         max_output_tokens: 30, // Very limited
         top_p: 0.95,
         top_k: 40,
+      },
+      clientOptions: {
+        retryOnRateLimit: { maxRetries: 5, initialDelayMs: 5000, maxDelayMs: 60000 }
       }
     });
-    
+
     const llmLong = llmVertexStudio({
       model: process.env.VERTEX_MODEL || 'gemini-2.5-flash-lite',
       apiKey: process.env.GCP_VERTEX_API_KEY!,
       options: {
         max_output_tokens: 200,
+      },
+      clientOptions: {
+        retryOnRateLimit: { maxRetries: 5, initialDelayMs: 5000, maxDelayMs: 60000 }
       }
     });
     

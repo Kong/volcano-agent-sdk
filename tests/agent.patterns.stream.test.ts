@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent, llmOpenAI } from '../src/volcano-sdk.js';
+import { agent, llmOpenAI } from '../src/volcano-agent-sdk.js';
 
 // Mock LLM for testing
 const mockLlm = {

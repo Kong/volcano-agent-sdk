@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { llmAzure } from '../../dist/volcano-sdk.js';
+import { llmAzure } from '../../dist/volcano-agent-sdk.js';
 
 describe('Azure AI provider (integration)', () => {
   it('calls Azure AI with live API when AZURE_AI_API_KEY is set', async () => {

@@ -14,8 +14,8 @@ function PatternsPage() {
   return (
     <>
       <SEOHead
-        title="Advanced Patterns - Volcano SDK | Parallel, Branching, Loops"
-        description="Master advanced AI agent patterns with Volcano SDK: parallel execution, conditional branching, loops, sub-agent composition, and multi-LLM workflows for complex agent systems."
+        title="Advanced Patterns - Volcano Agent SDK | Parallel, Branching, Loops"
+        description="Master advanced AI agent patterns with Volcano Agent SDK: parallel execution, conditional branching, loops, sub-agent composition, and multi-LLM workflows for complex agent systems."
         keywords="AI agent patterns, parallel execution, conditional branching, agent loops, sub-agents, multi-LLM workflow, complex AI systems, agent orchestration, TypeScript patterns"
         canonicalUrl="/docs/patterns"
       />

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { agent } from '../dist/volcano-sdk.js';
+import { agent } from '../dist/volcano-agent-sdk.js';
 
 function makeFlakyLlm(failures: number, delayMs = 0) {
   let count = 0;

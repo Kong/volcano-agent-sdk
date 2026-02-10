@@ -31,7 +31,7 @@ export function Hero() {
   }, []);
 
   const handleCopy = async () => {
-    navigator.clipboard.writeText("npm install volcano-sdk");
+    navigator.clipboard.writeText("npm install @volcano/agent");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
 
@@ -120,7 +120,7 @@ export function Hero() {
               <div className="bg-terminal inline-flex w-fit items-center justify-between gap-2 border-2 border-black px-3 py-3 text-sm font-light text-white sm:text-base">
                 <div className="flex w-fit items-center gap-2">
                   $ npm i{" "}
-                  <span className="text-color-primary">volcano-sdk</span>
+                  <span className="text-color-primary">@volcano/agent</span>
                 </div>
                 <button
                   className="text-color-primary cursor-pointer pl-2 transition-opacity hover:opacity-60"

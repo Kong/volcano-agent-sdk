@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent, llmOpenAIResponses } from '../../dist/volcano-sdk.js';
+import { agent, llmOpenAIResponses } from '../../dist/volcano-agent-sdk.js';
 
 describe('OpenAI Structured Outputs (Responses API)', () => {
   it('returns valid JSON matching the schema', async () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent, llmOpenAI, llmAnthropic, llmMistral, llmLlama, llmBedrock, llmVertexStudio, llmAzure, createVolcanoTelemetry } from '../src/volcano-sdk.js';
+import { agent, llmOpenAI, llmAnthropic, llmMistral, llmLlama, llmBedrock, llmVertexStudio, llmAzure, createVolcanoTelemetry } from '../src/volcano-agent-sdk.js';
 
 describe('Telemetry - Token Tracking (E2E)', () => {
   it('OpenAI tracks tokens correctly', async () => {
@@ -103,7 +103,10 @@ describe('Telemetry - Token Tracking (E2E)', () => {
     
     const llm = llmVertexStudio({
       model: process.env.VERTEX_MODEL || 'gemini-2.5-flash-lite',
-      apiKey: process.env.GCP_VERTEX_API_KEY!
+      apiKey: process.env.GCP_VERTEX_API_KEY!,
+      clientOptions: {
+        retryOnRateLimit: { maxRetries: 5, initialDelayMs: 5000, maxDelayMs: 60000 }
+      }
     });
     
     await agent({ llm, hideProgress: true })

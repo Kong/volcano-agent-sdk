@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll, afterAll, beforeEach } from 'vitest';
-import { agent, llmOpenAI, mcp, _clearMCPPool } from '../src/volcano-sdk.js';
+import { agent, llmOpenAI, mcp, _clearMCPPool } from '../src/volcano-agent-sdk.js';
 import { spawn } from 'node:child_process';
 import type { ChildProcess } from 'node:child_process';
 import { fileURLToPath } from 'node:url';

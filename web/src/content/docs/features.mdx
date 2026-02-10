@@ -1,5 +1,5 @@
 ---
-title: "Features - Volcano SDK"
+title: "Features - Volcano Agent SDK"
 ---
 
 # Features
@@ -347,7 +347,7 @@ Define agents with names and descriptions, then let the LLM coordinator intellig
 ### How It Works
 
 ```typescript
-import { agent, llmOpenAI } from "volcano-sdk";
+import { agent, llmOpenAI } from "@volcano/agent";
 
 const llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 
@@ -451,7 +451,7 @@ agent({ llm, hideProgress: true })
 
 **Output:**
 ```
-[2025-11-16T10:30:00.123Z agent="data-analyzer" status=init] 🌋 running Volcano agent [volcano-sdk v1.0.1] • docs at https://volcano.dev
+[2025-11-16T10:30:00.123Z agent="data-analyzer" status=init] 🌋 running Volcano agent [volcano-agent-sdk v1.0.1] • docs at https://volcano.dev
 [2025-11-16T10:30:00.125Z agent="data-analyzer" step=1 status=init] Analyze data
 [2025-11-16T10:30:02.456Z agent="data-analyzer" step=1 status=complete] ✔ Complete | 127 tokens | 0 tool calls | 2.3s | OpenAI-gpt-4o-mini
 
@@ -819,7 +819,7 @@ await agent({
 Track parallel vs sequential execution via telemetry metrics:
 
 ```typescript
-import { createVolcanoTelemetry } from "volcano-sdk";
+import { createVolcanoTelemetry } from "@volcano/agent";
 
 const telemetry = createVolcanoTelemetry({ /* config */ });
 

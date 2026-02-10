@@ -4,25 +4,25 @@
       "label": "Quick Start",
       "query": "quick start",
       "path": "/docs#quick-start",
-      "description": "Get started with Volcano SDK in minutes"
+      "description": "Get started with Volcano Agent SDK in minutes"
     },
     {
-      "label": "API Reference - Volcano SDK",
+      "label": "API Reference - Volcano Agent SDK",
       "query": "api",
       "path": "/docs/api"
     },
     {
-      "label": "Features - Volcano SDK",
+      "label": "Features - Volcano Agent SDK",
       "query": "features",
       "path": "/docs/features"
     },
     {
-      "label": "LLM Providers - Volcano SDK",
+      "label": "LLM Providers - Volcano Agent SDK",
       "query": "providers",
       "path": "/docs/providers"
     },
     {
-      "label": "MCP Tools - Volcano SDK",
+      "label": "MCP Tools - Volcano Agent SDK",
       "query": "mcp-tools",
       "path": "/docs/mcp-tools"
     }

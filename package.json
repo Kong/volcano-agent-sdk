@@ -1,5 +1,5 @@
 {
-  "name": "volcano-sdk",
+  "name": "@volcano/agent",
   "version": "1.1.0",
   "description": "Build AI agents that seamlessly combine LLM reasoning with real-world actions via MCP tools — in just a few lines of TypeScript.",
   "author": "Kong <office@konghq.com>",
@@ -7,20 +7,20 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kong/volcano-sdk.git"
+    "url": "git+https://github.com/Kong/volcano-agent-sdk.git"
   },
-  "homepage": "https://github.com/Kong/volcano-sdk",
+  "homepage": "https://github.com/Kong/volcano-agent-sdk",
   "bugs": {
-    "url": "https://github.com/Kong/volcano-sdk/issues"
+    "url": "https://github.com/Kong/volcano-agent-sdk/issues"
   },
   "exports": {
     ".": {
-      "types": "./dist/volcano-sdk.d.ts",
-      "import": "./dist/volcano-sdk.js"
+      "types": "./dist/volcano-agent-sdk.d.ts",
+      "import": "./dist/volcano-agent-sdk.js"
     }
   },
-  "main": "./dist/volcano-sdk.js",
-  "types": "./dist/volcano-sdk.d.ts",
+  "main": "./dist/volcano-agent-sdk.js",
+  "types": "./dist/volcano-agent-sdk.d.ts",
   "files": [
     "dist",
     "LICENSE",

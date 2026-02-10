@@ -14,7 +14,7 @@ interface SEOHeadProps {
 }
 
 const defaultMeta = {
-  title: "Volcano SDK — Build MCP-powered AI agents in minutes",
+  title: "Volcano Agent SDK — Build MCP-powered AI agents in minutes",
   description:
     "TypeScript SDK for building production-ready AI agents. Chain LLM reasoning with MCP tools. Mix OpenAI, Claude, Mistral in one workflow. Parallel execution, streaming, retries, and OpenTelemetry observability.",
   keywords:

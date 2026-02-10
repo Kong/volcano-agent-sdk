@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { llmAnthropic } from '../../dist/volcano-sdk.js';
+import { llmAnthropic } from '../../dist/volcano-agent-sdk.js';
 
 describe('Anthropic LLM provider (unit)', () => {
   it('calls messages.create and returns text', async () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { llmBedrock } from '../../dist/volcano-sdk.js';
+import { llmBedrock } from '../../dist/volcano-agent-sdk.js';
 
 describe('Bedrock provider (integration)', () => {
   it('calls Bedrock with live API when AWS credentials are available', async () => {

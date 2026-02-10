@@ -1,10 +1,10 @@
 ---
-title: "LLM Providers - Volcano SDK"
+title: "LLM Providers - Volcano Agent SDK"
 ---
 
 # LLM Providers
 
-Volcano SDK supports 100s of models from 7 providers with function calling and MCP integration. Providers can be mixed within a single workflow.
+Volcano Agent SDK supports 100s of models from 7 providers with function calling and MCP integration. Providers can be mixed within a single workflow.
 
 ## Provider Support Matrix
 
@@ -25,7 +25,7 @@ Volcano SDK supports 100s of models from 7 providers with function calling and M
 Full support for OpenAI's GPT models with function calling and streaming.
 
 ```typescript
-import { llmOpenAI } from "volcano-sdk";
+import { llmOpenAI } from "@volcano/agent";
 
 const openai = llmOpenAI({
   apiKey: process.env.OPENAI_API_KEY!,
@@ -75,7 +75,7 @@ const openai = llmOpenAI({
 Use `llmOpenAIResponses()` for guaranteed JSON output that matches your schema exactly. Unlike basic JSON mode, structured outputs enforce strict schema compliance.
 
 ```typescript
-import { llmOpenAIResponses } from "volcano-sdk";
+import { llmOpenAIResponses } from "@volcano/agent";
 
 const llm = llmOpenAIResponses({
   apiKey: process.env.OPENAI_API_KEY!,
@@ -171,7 +171,7 @@ results.forEach((step) => {
 Native support for Claude models with tool calling.
 
 ```typescript
-import { llmAnthropic } from "volcano-sdk";
+import { llmAnthropic } from "@volcano/agent";
 
 const claude = llmAnthropic({
   apiKey: process.env.ANTHROPIC_API_KEY!,
@@ -220,7 +220,7 @@ const claude = llmAnthropic({
 Support for Mistral's open and proprietary models via OpenAI-compatible API.
 
 ```typescript
-import { llmMistral } from "volcano-sdk";
+import { llmMistral } from "@volcano/agent";
 
 const mistral = llmMistral({
   apiKey: process.env.MISTRAL_API_KEY!,
@@ -268,7 +268,7 @@ const mistral = llmMistral({
 Run Llama models locally with Ollama or via OpenAI-compatible endpoints.
 
 ```typescript
-import { llmLlama } from "volcano-sdk";
+import { llmLlama } from "@volcano/agent";
 
 // Local Ollama setup
 const llama = llmLlama({
@@ -322,7 +322,7 @@ const llama = llmLlama({
 Access foundation models via AWS Bedrock with native tool calling support using the Converse API.
 
 ```typescript
-import { llmBedrock } from "volcano-sdk";
+import { llmBedrock } from "@volcano/agent";
 
 const bedrock = llmBedrock({
   model: "anthropic.claude-3-sonnet-20240229-v1:0",
@@ -412,7 +412,7 @@ const bedrock5 = llmBedrock({
 Google's Gemini models with function calling via AI Studio API.
 
 ```typescript
-import { llmVertexStudio } from "volcano-sdk";
+import { llmVertexStudio } from "@volcano/agent";
 
 const vertex = llmVertexStudio({
   model: "gemini-2.0-flash-exp",
@@ -464,7 +464,7 @@ const vertex = llmVertexStudio({
 Azure OpenAI Service with enterprise authentication via the Responses API.
 
 ```typescript
-import { llmAzure } from "volcano-sdk";
+import { llmAzure } from "@volcano/agent";
 
 const azure = llmAzure({
   model: "gpt-4o-mini",
@@ -546,7 +546,7 @@ type LLMHandle = {
 ### Example: Custom Provider
 
 ```typescript
-import type { LLMHandle, ToolDefinition, LLMToolResult } from "volcano-sdk";
+import type { LLMHandle, ToolDefinition, LLMToolResult } from "@volcano/agent";
 
 export function llmCustom(config: {
   apiKey: string;
@@ -643,7 +643,7 @@ export function llmCustom(config: {
 ### Using Your Custom Provider
 
 ```typescript
-import { agent } from "volcano-sdk";
+import { agent } from "@volcano/agent";
 import { llmCustom } from "./my-custom-provider";
 
 const customLLM = llmCustom({

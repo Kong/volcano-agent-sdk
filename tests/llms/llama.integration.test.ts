@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { llmLlama } from '../../dist/volcano-sdk.js';
+import { llmLlama } from '../../dist/volcano-agent-sdk.js';
 
 // Skip Llama tests in CI - too slow even with optimizations (45s+ per call)
 // Run locally with: npm test -- llama.integration

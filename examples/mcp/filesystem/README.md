@@ -12,7 +12,7 @@ This is how MCP was originally designed - for **local, native tools**.
 ## Usage
 
 ```typescript
-import { mcpStdio } from "volcano-sdk";
+import { mcpStdio } from "@volcano/agent";
 
 const fs = mcpStdio({
   command: "tsx",

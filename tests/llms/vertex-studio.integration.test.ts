@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { llmVertexStudio } from '../../dist/volcano-sdk.js';
+import { llmVertexStudio } from '../../dist/volcano-agent-sdk.js';
 
 describe('Vertex Studio provider (integration)', () => {
   it('calls Google AI Studio with live API when GCP_VERTEX_API_KEY is set', async () => {
@@ -7,9 +7,12 @@ describe('Vertex Studio provider (integration)', () => {
       throw new Error('GCP_VERTEX_API_KEY is required for this test');
     }
     
-    const llm = llmVertexStudio({ 
+    const llm = llmVertexStudio({
       apiKey: process.env.GCP_VERTEX_API_KEY!,
-      model: 'gemini-2.5-flash-lite'
+      model: 'gemini-2.5-flash-lite',
+      clientOptions: {
+        retryOnRateLimit: { maxRetries: 5, initialDelayMs: 5000, maxDelayMs: 60000 }
+      }
     });
     
     const prompt = 'Reply ONLY with VERTEX_OK';
@@ -24,9 +27,12 @@ describe('Vertex Studio provider (integration)', () => {
       throw new Error('GCP_VERTEX_API_KEY is required for this test');
     }
     
-    const llm = llmVertexStudio({ 
+    const llm = llmVertexStudio({
       apiKey: process.env.GCP_VERTEX_API_KEY!,
-      model: 'gemini-2.5-flash-lite'
+      model: 'gemini-2.5-flash-lite',
+      clientOptions: {
+        retryOnRateLimit: { maxRetries: 5, initialDelayMs: 5000, maxDelayMs: 60000 }
+      }
     });
     
     const prompt = 'Reply ONLY with VERTEX_ECHO_OK';
@@ -40,9 +46,12 @@ describe('Vertex Studio provider (integration)', () => {
       throw new Error('GCP_VERTEX_API_KEY is required for this test');
     }
     
-    const llm = llmVertexStudio({ 
+    const llm = llmVertexStudio({
       apiKey: process.env.GCP_VERTEX_API_KEY!,
-      model: 'gemini-2.5-flash-lite'
+      model: 'gemini-2.5-flash-lite',
+      clientOptions: {
+        retryOnRateLimit: { maxRetries: 5, initialDelayMs: 5000, maxDelayMs: 60000 }
+      }
     });
     
     const tools = [{
@@ -75,9 +84,12 @@ describe('Vertex Studio provider (integration)', () => {
       throw new Error('GCP_VERTEX_API_KEY is required for this test');
     }
     
-    const llm = llmVertexStudio({ 
+    const llm = llmVertexStudio({
       apiKey: process.env.GCP_VERTEX_API_KEY!,
-      model: 'gemini-2.5-flash-lite'
+      model: 'gemini-2.5-flash-lite',
+      clientOptions: {
+        retryOnRateLimit: { maxRetries: 5, initialDelayMs: 5000, maxDelayMs: 60000 }
+      }
     });
     
     const prompt = 'Count from 1 to 3, saying each number separately';

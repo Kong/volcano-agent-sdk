@@ -14,7 +14,7 @@ function ObservabilityPage() {
   return (
     <>
       <SEOHead
-        title="Observability - Volcano SDK | OpenTelemetry Tracing & Metrics"
+        title="Observability - Volcano Agent SDK | OpenTelemetry Tracing & Metrics"
         description="Production-ready observability for AI agents with OpenTelemetry. Distributed tracing, metrics, and monitoring for agent workflows. Export to Jaeger, Prometheus, DataDog, and NewRelic. Debug failures and optimize performance."
         keywords="OpenTelemetry, AI observability, distributed tracing, agent monitoring, performance metrics, Jaeger, Prometheus, DataDog, NewRelic, AI agent debugging, workflow monitoring"
         canonicalUrl="/docs/observability"

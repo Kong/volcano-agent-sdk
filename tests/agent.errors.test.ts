@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent, mcp, ValidationError, AgentConcurrencyError, TimeoutError, RetryExhaustedError, LLMError, MCPToolError } from '../dist/volcano-sdk.js';
+import { agent, mcp, ValidationError, AgentConcurrencyError, TimeoutError, RetryExhaustedError, LLMError, MCPToolError } from '../dist/volcano-agent-sdk.js';
 
 describe('typed errors', () => {
   it('concurrency guard throws AgentConcurrencyError', async () => {

@@ -11,19 +11,19 @@ function InstallationPage() {
   return (
     <>
       <SEOHead
-        title="Installation Guide - Volcano SDK | Quick Setup for TypeScript"
-        description="Install Volcano SDK in minutes. Single npm package includes OpenAI, Claude, Mistral, Llama, and MCP support. Optional packages for AWS Bedrock, Azure AI, and OpenTelemetry. Requires Node.js 18.17+."
-        keywords="install Volcano SDK, npm install, TypeScript setup, Node.js AI SDK, quick start, package installation, AI agent setup, SDK configuration"
+        title="Installation Guide - Volcano Agent SDK | Quick Setup for TypeScript"
+        description="Install Volcano Agent SDK in minutes. Single npm package includes OpenAI, Claude, Mistral, Llama, and MCP support. Optional packages for AWS Bedrock, Azure AI, and OpenTelemetry. Requires Node.js 18.17+."
+        keywords="install Volcano Agent SDK, npm install, TypeScript setup, Node.js AI SDK, quick start, package installation, AI agent setup, SDK configuration"
         canonicalUrl="/docs/installation"
       />
       <DocsLayout>
         <div className="prose prose-lg dark:prose-invert">
           <h1>Installation</h1>
-          <p>Get Volcano SDK up and running in your project.</p>
+          <p>Get Volcano Agent SDK up and running in your project.</p>
 
           <h2>Package Installation</h2>
-          <CodeBlock language="bash" title="Install Volcano SDK">
-            {`npm install volcano-sdk`}
+          <CodeBlock language="bash" title="Install Volcano Agent SDK">
+            {`npm install @volcano/agent`}
           </CodeBlock>
 
           <h2>Requirements</h2>
@@ -46,7 +46,7 @@ function InstallationPage() {
 
           <h2>TypeScript Configuration</h2>
           <p>
-            Volcano SDK is written in TypeScript and provides full type
+            Volcano Agent SDK is written in TypeScript and provides full type
             definitions. No additional configuration is needed.
           </p>
         </div>

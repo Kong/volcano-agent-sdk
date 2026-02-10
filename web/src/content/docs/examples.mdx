@@ -1,10 +1,10 @@
 ---
-title: "Examples - Volcano SDK"
+title: "Examples - Volcano Agent SDK"
 ---
 
 # Examples
 
-Learn Volcano SDK through hands-on examples, from simple to advanced. [View all examples on GitHub →](https://github.com/Kong/volcano-sdk/tree/main/examples)
+Learn Volcano Agent SDK through hands-on examples, from simple to advanced. [View all examples on GitHub →](https://github.com/Kong/volcano-agent-sdk/tree/main/examples)
 
 Start with the basics, then explore composition, patterns, and production features.
 
@@ -27,7 +27,7 @@ const results = await agent({ llm })
   .run();
 ```
 
-[View source →](https://github.com/Kong/volcano-sdk/blob/main/examples/01-hello-world.ts)
+[View source →](https://github.com/Kong/volcano-agent-sdk/blob/main/examples/01-hello-world.ts)
 
 ### 02-with-tools.ts
 
@@ -45,7 +45,7 @@ tsx examples/mcp/weather/server.ts
 tsx examples/mcp/tasks/server.ts
 ```
 
-[View source →](https://github.com/Kong/volcano-sdk/blob/main/examples/02-with-tools.ts)
+[View source →](https://github.com/Kong/volcano-agent-sdk/blob/main/examples/02-with-tools.ts)
 
 ### 02b-with-stdio.ts
 
@@ -57,7 +57,7 @@ npx tsx examples/02b-with-stdio.ts
 
 **Demonstrates:** `mcpStdio()` for subprocess-based MCP servers
 
-[View source →](https://github.com/Kong/volcano-sdk/blob/main/examples/02b-with-stdio.ts)
+[View source →](https://github.com/Kong/volcano-agent-sdk/blob/main/examples/02b-with-stdio.ts)
 
 ### 03-streaming.ts
 
@@ -69,7 +69,7 @@ npx tsx examples/03-streaming.ts
 
 **Demonstrates:** Token-level streaming with `onToken` callback
 
-[View source →](https://github.com/Kong/volcano-sdk/blob/main/examples/03-streaming.ts)
+[View source →](https://github.com/Kong/volcano-agent-sdk/blob/main/examples/03-streaming.ts)
 
 ### 04-structured-outputs.ts
 
@@ -81,7 +81,7 @@ npx tsx examples/04-structured-outputs.ts
 
 **Demonstrates:** OpenAI Responses API for structured outputs
 
-[View source →](https://github.com/Kong/volcano-sdk/blob/main/examples/04-structured-outputs.ts)
+[View source →](https://github.com/Kong/volcano-agent-sdk/blob/main/examples/04-structured-outputs.ts)
 
 ## Composition
 
@@ -106,7 +106,7 @@ await agent({ llm })
   .run();
 ```
 
-[View source →](https://github.com/Kong/volcano-sdk/blob/main/examples/05-sub-agents.ts)
+[View source →](https://github.com/Kong/volcano-agent-sdk/blob/main/examples/05-sub-agents.ts)
 
 ### 06-multi-agent.ts
 
@@ -140,7 +140,7 @@ await agent({ llm })
   .run();
 ```
 
-[View source →](https://github.com/Kong/volcano-sdk/blob/main/examples/06-multi-agent.ts)
+[View source →](https://github.com/Kong/volcano-agent-sdk/blob/main/examples/06-multi-agent.ts)
 
 ### 07-patterns.ts
 
@@ -152,7 +152,7 @@ npx tsx examples/07-patterns.ts
 
 **Demonstrates:** All control flow patterns in one example
 
-[View source →](https://github.com/Kong/volcano-sdk/blob/main/examples/07-patterns.ts)
+[View source →](https://github.com/Kong/volcano-agent-sdk/blob/main/examples/07-patterns.ts)
 
 ## Production
 
@@ -166,7 +166,7 @@ npx tsx examples/08-context.ts
 
 **Demonstrates:** Context flow, accessing previous step results
 
-[View source →](https://github.com/Kong/volcano-sdk/blob/main/examples/08-context.ts)
+[View source →](https://github.com/Kong/volcano-agent-sdk/blob/main/examples/08-context.ts)
 
 ### 09-observability.ts
 
@@ -184,7 +184,7 @@ cd observability-demo
 docker-compose -f docker-compose.observability.yml up
 ```
 
-[View source →](https://github.com/Kong/volcano-sdk/blob/main/examples/09-observability.ts)
+[View source →](https://github.com/Kong/volcano-agent-sdk/blob/main/examples/09-observability.ts)
 
 ### 10-providers.ts
 
@@ -196,7 +196,7 @@ npx tsx examples/10-providers.ts
 
 **Demonstrates:** OpenAI, Anthropic, Mistral, Bedrock, Azure, Vertex integration
 
-[View source →](https://github.com/Kong/volcano-sdk/blob/main/examples/10-providers.ts)
+[View source →](https://github.com/Kong/volcano-agent-sdk/blob/main/examples/10-providers.ts)
 
 ### 11-email-triage.ts
 
@@ -213,14 +213,14 @@ npx tsx examples/11-email-triage.ts
 tsx examples/mcp/tasks/server.ts
 ```
 
-[View source →](https://github.com/Kong/volcano-sdk/blob/main/examples/11-email-triage.ts)
+[View source →](https://github.com/Kong/volcano-agent-sdk/blob/main/examples/11-email-triage.ts)
 
 ### Prerequisites
 
 ```bash
 # Clone the repository
-git clone https://github.com/Kong/volcano-sdk.git
-cd volcano-sdk
+git clone https://github.com/Kong/volcano-agent-sdk.git
+cd volcano-agent-sdk
 
 # Install dependencies
 yarn install
@@ -265,8 +265,8 @@ tsx examples/mcp/tasks/server.ts      # Port 8002
 # Used automatically by examples/02b-with-stdio.ts
 ```
 
-See [examples/mcp/README.md](https://github.com/Kong/volcano-sdk/tree/main/examples/mcp) for details.
+See [examples/mcp/README.md](https://github.com/Kong/volcano-agent-sdk/tree/main/examples/mcp) for details.
 
 ## Contributing
 
-Have a great use case? [Submit a PR](https://github.com/Kong/volcano-sdk/pulls) with your example!
+Have a great use case? [Submit a PR](https://github.com/Kong/volcano-agent-sdk/pulls) with your example!

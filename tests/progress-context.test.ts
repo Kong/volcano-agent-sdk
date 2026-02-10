@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { agent } from '../src/volcano-sdk.js';
+import { agent } from '../src/volcano-agent-sdk.js';
 
 describe('Progress and Context for Ask/Summary', () => {
   let logs: string[] = [];

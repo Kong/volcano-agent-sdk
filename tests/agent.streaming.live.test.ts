@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent, llmOpenAI, llmVertexStudio } from '../dist/volcano-sdk.js';
+import { agent, llmOpenAI, llmVertexStudio } from '../dist/volcano-agent-sdk.js';
 
 describe('agent run() with onStep callback (live APIs)', () => {
   it('provides OpenAI workflow results in real-time via onStep', async () => {
@@ -33,9 +33,12 @@ describe('agent run() with onStep callback (live APIs)', () => {
       throw new Error('GCP_VERTEX_API_KEY is required for this test');
     }
 
-    const llm = llmVertexStudio({ 
-      apiKey: process.env.GCP_VERTEX_API_KEY!, 
-      model: 'gemini-2.5-flash-lite' 
+    const llm = llmVertexStudio({
+      apiKey: process.env.GCP_VERTEX_API_KEY!,
+      model: 'gemini-2.5-flash-lite',
+      clientOptions: {
+        retryOnRateLimit: { maxRetries: 5, initialDelayMs: 5000, maxDelayMs: 60000 }
+      }
     });
     const stepResults: any[] = [];
 

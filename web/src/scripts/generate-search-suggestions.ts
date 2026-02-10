@@ -20,7 +20,7 @@ interface SearchSuggestions {
 function extractAPIMethods(content: string): string[] {
   const methods: Set<string> = new Set();
 
-  // Common Volcano SDK methods - prioritize these
+  // Common Volcano Agent SDK methods - prioritize these
   const priorityMethods = [
     "runAgentWorkflow",
     "createTool",
@@ -185,7 +185,7 @@ async function generateSearchSuggestions() {
     label: "Quick Start",
     query: "quick start",
     path: "/docs#quick-start",
-    description: "Get started with Volcano SDK in minutes",
+    description: "Get started with Volcano Agent SDK in minutes",
   });
 
   // Build the suggestions object

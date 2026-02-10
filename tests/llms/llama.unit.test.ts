@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { llmLlama } from '../../dist/volcano-sdk.js';
+import { llmLlama } from '../../dist/volcano-agent-sdk.js';
 
 describe('Llama LLM provider (unit)', () => {
   it('calls OpenAI-compatible client and returns content', async () => {

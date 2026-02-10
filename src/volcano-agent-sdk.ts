@@ -1,4 +1,4 @@
-// src/volcano-sdk.ts
+// src/volcano-agent-sdk.ts
 import { Client as MCPClient } from "@modelcontextprotocol/sdk/client/index.js";
 import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
@@ -23,7 +23,7 @@ export type { AnthropicConfig, AnthropicOptions } from "./llms/anthropic.js";
 export type { LlamaConfig, LlamaOptions } from "./llms/llama.js";
 export type { MistralConfig, MistralOptions } from "./llms/mistral.js";
 export type { BedrockConfig, BedrockOptions } from "./llms/bedrock.js";
-export type { VertexStudioConfig, VertexStudioOptions } from "./llms/vertex-studio.js";
+export type { VertexStudioConfig, VertexStudioOptions, VertexStudioClientOptions } from "./llms/vertex-studio.js";
 export type { AzureConfig, AzureOptions } from "./llms/azure.js";
 import type { LLMHandle, ToolDefinition, LLMToolResult } from "./llms/types.js";
 import Ajv from "ajv";
@@ -423,7 +423,7 @@ async function getPooledClient(url: string, auth?: MCPAuthConfig): Promise<MCPPo
   // Create transport
   const transport = new StreamableHTTPClientTransport(new URL(url));
   
-  const client = new MCPClient({ name: "volcano-sdk", version: "0.0.1" });
+  const client = new MCPClient({ name: "volcano-agent-sdk", version: "0.0.1" });
   
   // Connect with auth if needed
   if (auth) {
@@ -549,7 +549,7 @@ async function getPooledStdioClient(key: string, config: MCPStdioConfig): Promis
       env: config.env
     });
     
-    const client = new MCPClient({ name: "volcano-sdk", version: "0.0.1" });
+    const client = new MCPClient({ name: "volcano-agent-sdk", version: "0.0.1" });
     
     // Connect to the spawned process
     await client.connect(transport);
@@ -1408,7 +1408,7 @@ class ProgressTracker {
       this.logEvent({
         agent: this.agentDisplayName,
         status: 'init',
-        message: `🌋 running Volcano agent [volcano-sdk v${CONSTANTS.VOLCANO_SDK_VERSION}] • docs at https://volcano.dev`
+        message: `🌋 running Volcano agent [volcano-agent-sdk v${CONSTANTS.VOLCANO_SDK_VERSION}] • docs at https://volcano.dev`
       });
     }
   }

@@ -1,10 +1,10 @@
 import { describe, it, expect, beforeAll, afterAll, beforeEach } from 'vitest';
-import { agent } from '../src/volcano-sdk';
+import { agent } from '../src/volcano-agent-sdk';
 import { createVolcanoTelemetry } from '../src/telemetry';
 import { InMemorySpanExporter, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-node';
 import { NodeTracerProvider } from '@opentelemetry/sdk-trace-node';
 
-describe('Volcano SDK - Step and Agent Naming', () => {
+describe('Volcano Agent SDK - Step and Agent Naming', () => {
   let spanExporter: InMemorySpanExporter;
   let provider: NodeTracerProvider;
 

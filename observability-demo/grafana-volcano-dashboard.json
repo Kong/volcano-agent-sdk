@@ -1542,8 +1542,8 @@
   "time": {"from": "now-15m", "to": "now"},
   "timepicker": {},
   "timezone": "browser",
-  "title": "Volcano SDK - Comprehensive Analytics",
-  "uid": "volcano-sdk-main",
+  "title": "Volcano Agent SDK - Comprehensive Analytics",
+  "uid": "volcano-agent-sdk-main",
   "version": 0,
   "weekStart": ""
 }

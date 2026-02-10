@@ -14,9 +14,9 @@ function ApiPage() {
   return (
     <>
       <SEOHead
-        title="API Reference - Volcano SDK | Complete TypeScript API Documentation"
-        description="Complete TypeScript API reference for Volcano SDK. Detailed documentation for agent(), llm providers, MCP integration, step configuration, results handling, error types, and utility functions. Full IntelliSense support."
-        keywords="API reference, TypeScript API, API documentation, Volcano SDK API, agent API, LLM provider API, MCP API, function reference, type definitions, IntelliSense, TypeScript types"
+        title="API Reference - Volcano Agent SDK | Complete TypeScript API Documentation"
+        description="Complete TypeScript API reference for Volcano Agent SDK. Detailed documentation for agent(), llm providers, MCP integration, step configuration, results handling, error types, and utility functions. Full IntelliSense support."
+        keywords="API reference, TypeScript API, API documentation, Volcano Agent SDK API, agent API, LLM provider API, MCP API, function reference, type definitions, IntelliSense, TypeScript types"
         canonicalUrl="/docs/api"
       />
       <DocsLayout>

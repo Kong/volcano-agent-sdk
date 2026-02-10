@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent, llmOpenAI } from '../src/volcano-sdk.js';
+import { agent, llmOpenAI } from '../src/volcano-agent-sdk.js';
 
 describe('Progress output e2e with structured logs (live APIs)', () => {
   it('validates default progress works for basic LLM steps', async () => {
@@ -42,7 +42,7 @@ describe('Progress output e2e with structured logs (live APIs)', () => {
       
       // Check for header with structured log format
       expect(output).toMatch(/\[.*agent="untitled" status=init\] 🌋 running Volcano agent/);
-      expect(output).toContain('volcano-sdk v');
+      expect(output).toContain('volcano-agent-sdk v');
       expect(output).toContain('https://volcano.dev');
       
       // Check for step indicator with structured log
@@ -168,7 +168,7 @@ describe('Progress output e2e with structured logs (live APIs)', () => {
       
       // Verify header with structured log
       expect(output).toMatch(/\[.*agent="untitled" status=init\] 🌋 running Volcano agent/);
-      expect(output).toContain('volcano-sdk v');
+      expect(output).toContain('volcano-agent-sdk v');
       expect(output).toContain('https://volcano.dev');
       
       // Verify step shown with structured log

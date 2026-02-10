@@ -3,7 +3,7 @@ import { customThemeLight } from "./code-theme";
 import { Check, Copy } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
-const codeDemo = `import { agent, llmOpenAI, mcp } from "volcano-sdk";
+const codeDemo = `import { agent, llmOpenAI, mcp } from "@volcano/agent";
 
 const llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY!, model: "gpt-5-mini" });
 const astro = mcp("http://localhost:3211/mcp");

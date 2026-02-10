@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent } from '../src/volcano-sdk.js';
+import { agent } from '../src/volcano-agent-sdk.js';
 
 function createMockLLM(responses: string[] = ['response']) {
   let callIndex = 0;

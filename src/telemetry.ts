@@ -1,5 +1,5 @@
 import { createRequire } from 'node:module';
-import type { StepResult, LLMHandle, MCPHandle } from './volcano-sdk.js';
+import type { StepResult, LLMHandle, MCPHandle } from './volcano-agent-sdk.js';
 
 type Tracer = any;
 type Span = any;
@@ -143,7 +143,7 @@ export function createVolcanoTelemetry(config: VolcanoTelemetryConfig = {}): Vol
     };
   }
   
-  const serviceName = config.serviceName || 'volcano-sdk';
+  const serviceName = config.serviceName || 'volcano-agent-sdk';
   const enableTraces = config.traces !== false;
   const enableMetrics = config.metrics !== false;
   

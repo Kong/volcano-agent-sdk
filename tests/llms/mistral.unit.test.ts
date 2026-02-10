@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { llmMistral } from '../../dist/volcano-sdk.js';
+import { llmMistral } from '../../dist/volcano-agent-sdk.js';
 
 describe('Mistral LLM provider (unit)', () => {
   it('calls OpenAI-compatible client and returns content', async () => {

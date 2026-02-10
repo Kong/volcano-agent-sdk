@@ -1,10 +1,10 @@
-# Volcano SDK
+# Volcano Agent SDK
 
 > TypeScript SDK for building production-ready AI agents. Chain LLM reasoning with MCP tools. Mix OpenAI, Claude, Mistral in one workflow. Parallel execution, streaming, retries, and OpenTelemetry observability.
 
 ## Overview
 
-Volcano SDK is a TypeScript framework for building AI agents that:
+Volcano Agent SDK is a TypeScript framework for building AI agents that:
 - Integrates with Model Context Protocol (MCP) tools for real-world actions
 - Supports multiple LLM providers (OpenAI, Anthropic, Mistral, Llama, AWS Bedrock, Google Vertex AI, Azure)
 - Provides chainable API for building complex multi-step workflows
@@ -27,7 +27,7 @@ Volcano SDK is a TypeScript framework for building AI agents that:
 ## Installation
 
 ```bash
-npm install volcano-sdk
+npm install @volcano/agent
 ```
 
 Requires Node.js 18.17 or later.
@@ -91,7 +91,7 @@ Main documentation: https://volcano.dev/docs
 
 ### Hello World
 ```typescript
-import { agent, llmOpenAI } from "volcano-sdk";
+import { agent, llmOpenAI } from "@volcano/agent";
 
 const llm = llmOpenAI({
   apiKey: process.env.OPENAI_API_KEY!,
@@ -108,7 +108,7 @@ console.log(results[0].llmOutput);
 
 ### Two-Step Agent with MCP Tools
 ```typescript
-import { agent, llmOpenAI, mcp } from "volcano-sdk";
+import { agent, llmOpenAI, mcp } from "@volcano/agent";
 
 const llm = llmOpenAI({
   apiKey: process.env.OPENAI_API_KEY!,
@@ -134,7 +134,7 @@ console.log(steps[1].llmOutput); // Fortune based on the sign
 
 ### Multi-Provider Workflow
 ```typescript
-import { agent, llmOpenAI, llmAnthropic, llmMistral } from "volcano-sdk";
+import { agent, llmOpenAI, llmAnthropic, llmMistral } from "@volcano/agent";
 
 const openai = llmOpenAI({
   apiKey: process.env.OPENAI_API_KEY!,
@@ -160,9 +160,9 @@ const results = await agent()
 
 ## Community
 
-- GitHub: https://github.com/Kong/volcano-sdk
-- Questions & Feature Requests: https://github.com/Kong/volcano-sdk/discussions
-- Report Issues: https://github.com/Kong/volcano-sdk/issues
+- GitHub: https://github.com/Kong/volcano-agent-sdk
+- Questions & Feature Requests: https://github.com/Kong/volcano-agent-sdk/discussions
+- Report Issues: https://github.com/Kong/volcano-agent-sdk/issues
 
 ## License
 

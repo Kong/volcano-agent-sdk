@@ -1,6 +1,6 @@
 import { spawn } from 'node:child_process';
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
-import { agent, mcp } from '../dist/volcano-sdk.js';
+import { agent, mcp } from '../dist/volcano-agent-sdk.js';
 
 function waitForOutput(proc: any, match: RegExp, timeoutMs = 10000) {
   return new Promise<void>((resolve, reject) => {

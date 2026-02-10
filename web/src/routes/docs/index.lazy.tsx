@@ -14,7 +14,7 @@ function DocsPage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    headline: "Volcano SDK Documentation",
+    headline: "Volcano Agent SDK Documentation",
     description:
       "Complete documentation for building multi-provider AI agents with TypeScript. Learn about MCP tools, LLM providers, and advanced patterns.",
     author: {
@@ -23,7 +23,7 @@ function DocsPage() {
     },
     publisher: {
       "@type": "Organization",
-      name: "Volcano SDK",
+      name: "Volcano Agent SDK",
     },
     datePublished: "2025-01-01",
     dateModified: "2025-01-15",
@@ -32,9 +32,9 @@ function DocsPage() {
   return (
     <>
       <SEOHead
-        title="Documentation - Volcano SDK | Complete Guide for AI Agents"
-        description="Complete documentation for Volcano SDK. Learn how to build production-ready AI agents with TypeScript, integrate MCP tools, and use multiple LLM providers."
-        keywords="Volcano SDK docs, AI agent documentation, TypeScript AI tutorial, MCP tools guide, LLM integration, agent framework documentation"
+        title="Documentation - Volcano Agent SDK | Complete Guide for AI Agents"
+        description="Complete documentation for Volcano Agent SDK. Learn how to build production-ready AI agents with TypeScript, integrate MCP tools, and use multiple LLM providers."
+        keywords="Volcano Agent SDK docs, AI agent documentation, TypeScript AI tutorial, MCP tools guide, LLM integration, agent framework documentation"
         canonicalUrl="/docs"
       />
       <script
