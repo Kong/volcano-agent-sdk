@@ -16,12 +16,21 @@ export type VertexStudioOptions = {
   response_mime_type?: string; // e.g., "application/json"
 };
 
+export type VertexStudioClientOptions = {
+  retryOnRateLimit?: {
+    maxRetries: number;
+    initialDelayMs?: number; // default: 1000
+    maxDelayMs?: number;     // cap for exponential backoff
+  };
+};
+
 export type VertexStudioConfig = {
   model: string; // Required: "gemini-1.5-pro", "gemini-2.5-flash-lite", etc.
   apiKey: string; // Google AI Studio API key
   baseURL?: string; // Default: "https://aiplatform.googleapis.com/v1"
   client?: VertexStudioClient;
   options?: VertexStudioOptions;
+  clientOptions?: VertexStudioClientOptions;
 };
 
 export function llmVertexStudio(cfg: VertexStudioConfig): LLMHandle {
@@ -43,6 +52,8 @@ export function llmVertexStudio(cfg: VertexStudioConfig): LLMHandle {
   const model = cfg.model;
   const baseURL = (cfg.baseURL || "https://aiplatform.googleapis.com/v1").replace(/\/$/, "");
   const options = cfg.options || {};
+  const clientOptions = cfg.clientOptions || {};
+  const retryConfig = clientOptions.retryOnRateLimit;
   let lastUsage: import('./types').TokenUsage | null = null;
   let client = cfg.client;
 
@@ -50,24 +61,46 @@ export function llmVertexStudio(cfg: VertexStudioConfig): LLMHandle {
     client = {
       generateContent: async (params: any) => {
         const endpoint = `${baseURL}/publishers/google/models/${model}:generateContent?key=${cfg.apiKey}`;
-        
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(params),
-        });
+        const maxRetries = retryConfig?.maxRetries || 0;
+        const initialDelayMs = retryConfig?.initialDelayMs || 1000;
+        const maxDelayMs = retryConfig?.maxDelayMs || 30000;
+        let lastError: any;
 
-        if (!response.ok) {
+        for (let attempt = 0; attempt <= maxRetries; attempt++) {
+          const response = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(params),
+          });
+
+          if (response.ok) {
+            return await response.json();
+          }
+
           const text = await response.text();
+
+          // Retry on rate limit (429) with exponential backoff
+          if (response.status === 429 && attempt < maxRetries) {
+            const exponentialDelay = Math.pow(2, attempt) * initialDelayMs;
+            const delay = Math.min(exponentialDelay, maxDelayMs) + Math.random() * 1000;
+            await new Promise(resolve => setTimeout(resolve, delay));
+            lastError = { status: response.status, body: text };
+            continue;
+          }
+
           const err: any = new Error(`Vertex Studio HTTP ${response.status}`);
           err.status = response.status;
           err.body = text;
           throw err;
         }
 
-        return await response.json();
+        // Exhausted retries
+        const err: any = new Error(`Vertex Studio HTTP ${lastError?.status || 429} after ${maxRetries} retries`);
+        err.status = lastError?.status || 429;
+        err.body = lastError?.body;
+        throw err;
       },
     } as VertexStudioClient;
   }

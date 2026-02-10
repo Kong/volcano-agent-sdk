@@ -86,7 +86,10 @@ describe.sequential('Parallel Tool Execution - All Providers', () => {
       name: 'Google Vertex AI',
       make: () => llmVertexStudio({
         apiKey: process.env.GCP_VERTEX_API_KEY!,
-        model: 'gemini-2.0-flash-exp'
+        model: 'gemini-2.0-flash-exp',
+        clientOptions: {
+          retryOnRateLimit: { maxRetries: 3, initialDelayMs: 1000 }
+        }
       }),
       requireEnv: ['GCP_VERTEX_API_KEY']
     },

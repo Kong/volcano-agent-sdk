@@ -33,9 +33,12 @@ describe('agent run() with onStep callback (live APIs)', () => {
       throw new Error('GCP_VERTEX_API_KEY is required for this test');
     }
 
-    const llm = llmVertexStudio({ 
-      apiKey: process.env.GCP_VERTEX_API_KEY!, 
-      model: 'gemini-2.5-flash-lite' 
+    const llm = llmVertexStudio({
+      apiKey: process.env.GCP_VERTEX_API_KEY!,
+      model: 'gemini-2.5-flash-lite',
+      clientOptions: {
+        retryOnRateLimit: { maxRetries: 3, initialDelayMs: 1000 }
+      }
     });
     const stepResults: any[] = [];
 

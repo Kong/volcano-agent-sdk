@@ -116,9 +116,12 @@ describe('volcano-agent-sdk flow (automatic tool selection) across providers', (
         if (!process.env.GCP_VERTEX_API_KEY) {
           throw new Error('GCP_VERTEX_API_KEY is required for this test');
         }
-        return llmVertexStudio({ 
+        return llmVertexStudio({
           apiKey: process.env.GCP_VERTEX_API_KEY!,
-          model: 'gemini-2.5-flash-lite'
+          model: 'gemini-2.5-flash-lite',
+          clientOptions: {
+            retryOnRateLimit: { maxRetries: 3, initialDelayMs: 1000 }
+          }
         });
       },
       requireEnv: ['GCP_VERTEX_API_KEY'],

@@ -23,7 +23,7 @@ export type { AnthropicConfig, AnthropicOptions } from "./llms/anthropic.js";
 export type { LlamaConfig, LlamaOptions } from "./llms/llama.js";
 export type { MistralConfig, MistralOptions } from "./llms/mistral.js";
 export type { BedrockConfig, BedrockOptions } from "./llms/bedrock.js";
-export type { VertexStudioConfig, VertexStudioOptions } from "./llms/vertex-studio.js";
+export type { VertexStudioConfig, VertexStudioOptions, VertexStudioClientOptions } from "./llms/vertex-studio.js";
 export type { AzureConfig, AzureOptions } from "./llms/azure.js";
 import type { LLMHandle, ToolDefinition, LLMToolResult } from "./llms/types.js";
 import Ajv from "ajv";

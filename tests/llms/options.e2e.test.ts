@@ -183,14 +183,20 @@ describe('LLM Provider Options (E2E)', () => {
         max_output_tokens: 30, // Very limited
         top_p: 0.95,
         top_k: 40,
+      },
+      clientOptions: {
+        retryOnRateLimit: { maxRetries: 3, initialDelayMs: 1000 }
       }
     });
-    
+
     const llmLong = llmVertexStudio({
       model: process.env.VERTEX_MODEL || 'gemini-2.5-flash-lite',
       apiKey: process.env.GCP_VERTEX_API_KEY!,
       options: {
         max_output_tokens: 200,
+      },
+      clientOptions: {
+        retryOnRateLimit: { maxRetries: 3, initialDelayMs: 1000 }
       }
     });
     
