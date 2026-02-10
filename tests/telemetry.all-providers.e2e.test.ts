@@ -143,7 +143,7 @@ describe('Telemetry E2E - All Providers with Live Observability', () => {
       model: process.env.VERTEX_MODEL || 'gemini-2.5-flash-lite',
       apiKey: process.env.GCP_VERTEX_API_KEY!,
       clientOptions: {
-        retryOnRateLimit: { maxRetries: 3, initialDelayMs: 1000 }
+        retryOnRateLimit: { maxRetries: 5, initialDelayMs: 5000, maxDelayMs: 60000 }
       }
     });
     

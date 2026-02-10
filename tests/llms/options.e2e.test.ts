@@ -185,7 +185,7 @@ describe('LLM Provider Options (E2E)', () => {
         top_k: 40,
       },
       clientOptions: {
-        retryOnRateLimit: { maxRetries: 3, initialDelayMs: 1000 }
+        retryOnRateLimit: { maxRetries: 5, initialDelayMs: 5000, maxDelayMs: 60000 }
       }
     });
 
@@ -196,7 +196,7 @@ describe('LLM Provider Options (E2E)', () => {
         max_output_tokens: 200,
       },
       clientOptions: {
-        retryOnRateLimit: { maxRetries: 3, initialDelayMs: 1000 }
+        retryOnRateLimit: { maxRetries: 5, initialDelayMs: 5000, maxDelayMs: 60000 }
       }
     });
     

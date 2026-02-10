@@ -120,7 +120,7 @@ describe('volcano-agent-sdk flow (automatic tool selection) across providers', (
           apiKey: process.env.GCP_VERTEX_API_KEY!,
           model: 'gemini-2.5-flash-lite',
           clientOptions: {
-            retryOnRateLimit: { maxRetries: 3, initialDelayMs: 1000 }
+            retryOnRateLimit: { maxRetries: 5, initialDelayMs: 5000, maxDelayMs: 60000 }
           }
         });
       },

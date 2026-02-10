@@ -88,7 +88,7 @@ describe.sequential('Parallel Tool Execution - All Providers', () => {
         apiKey: process.env.GCP_VERTEX_API_KEY!,
         model: 'gemini-2.0-flash-exp',
         clientOptions: {
-          retryOnRateLimit: { maxRetries: 3, initialDelayMs: 1000 }
+          retryOnRateLimit: { maxRetries: 5, initialDelayMs: 5000, maxDelayMs: 60000 }
         }
       }),
       requireEnv: ['GCP_VERTEX_API_KEY']

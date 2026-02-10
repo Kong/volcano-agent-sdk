@@ -81,28 +81,10 @@ export function llmVertexStudio(cfg: VertexStudioConfig): LLMHandle {
 
           const text = await response.text();
 
-          // Retry on rate limit (429) with Retry-After header or exponential backoff
+          // Retry on rate limit (429) with exponential backoff
           if (response.status === 429 && attempt < maxRetries) {
-            let delay: number;
-            const retryAfter = response.headers.get('Retry-After');
-
-            if (retryAfter) {
-              // Retry-After can be seconds or an HTTP-date
-              const seconds = parseInt(retryAfter, 10);
-              if (!isNaN(seconds)) {
-                delay = seconds * 1000;
-              } else {
-                // Try parsing as HTTP-date
-                const date = Date.parse(retryAfter);
-                delay = isNaN(date) ? initialDelayMs : Math.max(0, date - Date.now());
-              }
-              delay = Math.min(delay, maxDelayMs);
-            } else {
-              // Fallback to exponential backoff
-              const exponentialDelay = Math.pow(2, attempt) * initialDelayMs;
-              delay = Math.min(exponentialDelay, maxDelayMs) + Math.random() * 1000;
-            }
-
+            const exponentialDelay = Math.pow(2, attempt) * initialDelayMs;
+            const delay = Math.min(exponentialDelay, maxDelayMs) + Math.random() * 1000;
             await new Promise(resolve => setTimeout(resolve, delay));
             lastError = { status: response.status, body: text };
             continue;
