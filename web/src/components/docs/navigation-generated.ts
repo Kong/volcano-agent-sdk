@@ -50,6 +50,41 @@ export const generatedNavigation: NavigationDoc[] = [
       },
       {
         "level": 2,
+        "text": "AgentResults",
+        "id": "agentresults"
+      },
+      {
+        "level": 3,
+        "text": "Methods",
+        "id": "methods-1"
+      },
+      {
+        "level": 4,
+        "text": "`ask(llm, question): Promise<string>`",
+        "id": "askllm-question-promisestring"
+      },
+      {
+        "level": 4,
+        "text": "`summary(llm): Promise<string>`",
+        "id": "summaryllm-promisestring"
+      },
+      {
+        "level": 4,
+        "text": "`toolsUsed(llm): Promise<string>`",
+        "id": "toolsusedllm-promisestring"
+      },
+      {
+        "level": 4,
+        "text": "`errors(llm): Promise<string>`",
+        "id": "errorsllm-promisestring"
+      },
+      {
+        "level": 3,
+        "text": "Usage Example",
+        "id": "usage-example"
+      },
+      {
+        "level": 2,
         "text": "Step Types",
         "id": "step-types"
       },
@@ -70,8 +105,28 @@ export const generatedNavigation: NavigationDoc[] = [
       },
       {
         "level": 3,
+        "text": "Multi-Agent Coordination",
+        "id": "multi-agent-coordination"
+      },
+      {
+        "level": 3,
         "text": "Common Step Fields",
         "id": "common-step-fields"
+      },
+      {
+        "level": 3,
+        "text": "Real-Time Callbacks",
+        "id": "real-time-callbacks"
+      },
+      {
+        "level": 4,
+        "text": "`onToken` - LLM Streaming",
+        "id": "ontoken-llm-streaming"
+      },
+      {
+        "level": 4,
+        "text": "`onToolCall` - Tool Progress",
+        "id": "ontoolcall-tool-progress"
       },
       {
         "level": 2,
@@ -141,78 +196,78 @@ export const generatedNavigation: NavigationDoc[] = [
       },
       {
         "level": 2,
-        "text": "Basic Examples",
-        "id": "basic-examples"
+        "text": "Basics",
+        "id": "basics"
       },
       {
         "level": 3,
-        "text": "basic.ts",
-        "id": "basicts"
+        "text": "01-hello-world.ts",
+        "id": "01-hello-worldts"
       },
       {
         "level": 3,
-        "text": "automatic.ts",
-        "id": "automaticts"
+        "text": "02-with-tools.ts",
+        "id": "02-with-toolsts"
       },
       {
         "level": 3,
-        "text": "providers.ts",
-        "id": "providersts"
+        "text": "02b-with-stdio.ts",
+        "id": "02b-with-stdiots"
+      },
+      {
+        "level": 3,
+        "text": "03-streaming.ts",
+        "id": "03-streamingts"
+      },
+      {
+        "level": 3,
+        "text": "04-structured-outputs.ts",
+        "id": "04-structured-outputsts"
       },
       {
         "level": 2,
-        "text": "Advanced Patterns",
-        "id": "advanced-patterns"
+        "text": "Composition",
+        "id": "composition"
       },
       {
         "level": 3,
-        "text": "parallel.ts",
-        "id": "parallelts"
+        "text": "05-sub-agents.ts",
+        "id": "05-sub-agentsts"
       },
       {
         "level": 3,
-        "text": "branching.ts & branching-simple.ts",
-        "id": "branchingts-branching-simplets"
+        "text": "06-multi-agent.ts",
+        "id": "06-multi-agentts"
       },
       {
         "level": 3,
-        "text": "loops.ts & loops-simple.ts",
-        "id": "loopsts-loops-simplets"
-      },
-      {
-        "level": 3,
-        "text": "sub-agents.ts & composition.ts",
-        "id": "sub-agentsts-compositionts"
-      },
-      {
-        "level": 3,
-        "text": "advanced-patterns.ts",
-        "id": "advanced-patternsts"
+        "text": "07-patterns.ts",
+        "id": "07-patternsts"
       },
       {
         "level": 2,
-        "text": "Special Features",
-        "id": "special-features"
+        "text": "Production",
+        "id": "production"
       },
       {
         "level": 3,
-        "text": "streaming.ts",
-        "id": "streamingts"
+        "text": "08-context.ts",
+        "id": "08-contextts"
       },
       {
         "level": 3,
-        "text": "token-streaming.ts",
-        "id": "token-streamingts"
+        "text": "09-observability.ts",
+        "id": "09-observabilityts"
       },
       {
         "level": 3,
-        "text": "multi-agent-crew.ts",
-        "id": "multi-agent-crewts"
+        "text": "10-providers.ts",
+        "id": "10-providersts"
       },
       {
-        "level": 2,
-        "text": "Running Examples",
-        "id": "running-examples"
+        "level": 3,
+        "text": "11-email-triage.ts",
+        "id": "11-email-triagets"
       },
       {
         "level": 3,
@@ -231,13 +286,13 @@ export const generatedNavigation: NavigationDoc[] = [
       },
       {
         "level": 2,
-        "text": "More Examples",
-        "id": "more-examples"
+        "text": "MCP Servers",
+        "id": "mcp-servers"
       },
       {
-        "level": 3,
-        "text": "Contributing Examples",
-        "id": "contributing-examples"
+        "level": 2,
+        "text": "Contributing",
+        "id": "contributing"
       }
     ]
   },
@@ -257,8 +312,8 @@ export const generatedNavigation: NavigationDoc[] = [
       },
       {
         "level": 3,
-        "text": "With Logging Callback",
-        "id": "with-logging-callback"
+        "text": "With Step and Token Callbacks",
+        "id": "with-step-and-token-callbacks"
       },
       {
         "level": 3,
@@ -277,48 +332,78 @@ export const generatedNavigation: NavigationDoc[] = [
       },
       {
         "level": 2,
-        "text": "stream() Method",
-        "id": "stream-method"
+        "text": "Conversational Results",
+        "id": "conversational-results"
       },
       {
         "level": 3,
-        "text": "Streaming with Progress Tracking",
-        "id": "streaming-with-progress-tracking"
+        "text": "Basic Usage",
+        "id": "basic-usage"
       },
       {
         "level": 3,
-        "text": "When to Use Streaming",
-        "id": "when-to-use-streaming"
+        "text": "Available Methods",
+        "id": "available-methods"
       },
       {
         "level": 4,
-        "text": "Use `stream()` for:",
-        "id": "use-stream-for"
+        "text": "`results.ask(llm, question)`",
+        "id": "resultsaskllm-question"
       },
       {
         "level": 4,
-        "text": "Use `run()` for:",
-        "id": "use-run-for"
+        "text": "`results.summary(llm)`",
+        "id": "resultssummaryllm"
+      },
+      {
+        "level": 4,
+        "text": "`results.toolsUsed(llm)`",
+        "id": "resultstoolsusedllm"
+      },
+      {
+        "level": 4,
+        "text": "`results.errors(llm)`",
+        "id": "resultserrorsllm"
       },
       {
         "level": 3,
-        "text": "Characteristics",
-        "id": "characteristics-1"
+        "text": "Cost Optimization",
+        "id": "cost-optimization"
       },
       {
         "level": 3,
+        "text": "Real-World Example: Gmail Spam Detector",
+        "id": "real-world-example-gmail-spam-detector"
+      },
+      {
+        "level": 3,
+        "text": "Benefits",
+        "id": "benefits"
+      },
+      {
+        "level": 3,
+        "text": "How It Works",
+        "id": "how-it-works"
+      },
+      {
+        "level": 2,
         "text": "Token-Level Streaming",
         "id": "token-level-streaming"
       },
       {
-        "level": 4,
+        "level": 3,
         "text": "Per-Step Token Streaming",
         "id": "per-step-token-streaming"
       },
       {
-        "level": 4,
-        "text": "Stream-Level Token Streaming with Metadata",
-        "id": "stream-level-token-streaming-with-metadata"
+        "level": 3,
+        "text": "Run-Level Token Streaming with Metadata",
+        "id": "run-level-token-streaming-with-metadata"
+      },
+      {
+        "level": 3,
+        "text": "Tool Call Progress with `onToolCall`",
+        "id": "tool-call-progress-with-ontoolcall"
       },
       {
         "level": 2,
@@ -328,7 +413,7 @@ export const generatedNavigation: NavigationDoc[] = [
       {
         "level": 3,
         "text": "How It Works",
-        "id": "how-it-works"
+        "id": "how-it-works-1"
       },
       {
         "level": 3,
@@ -352,23 +437,8 @@ export const generatedNavigation: NavigationDoc[] = [
       },
       {
         "level": 3,
-        "text": "Custom Event Handlers",
-        "id": "custom-event-handlers"
-      },
-      {
-        "level": 4,
-        "text": "Agent Lifecycle Events",
-        "id": "agent-lifecycle-events"
-      },
-      {
-        "level": 4,
-        "text": "Token-Level Events with Agent Context",
-        "id": "token-level-events-with-agent-context"
-      },
-      {
-        "level": 4,
-        "text": "Combining Progress + Custom Events",
-        "id": "combining-progress-custom-events"
+        "text": "Custom Streaming Integration",
+        "id": "custom-streaming-integration"
       },
       {
         "level": 3,
@@ -454,6 +524,41 @@ export const generatedNavigation: NavigationDoc[] = [
         "level": 3,
         "text": "Metadata Fields",
         "id": "metadata-fields"
+      },
+      {
+        "level": 2,
+        "text": "Parallel Tool Execution ⚡",
+        "id": "parallel-tool-execution"
+      },
+      {
+        "level": 3,
+        "text": "How It Works",
+        "id": "how-it-works-2"
+      },
+      {
+        "level": 3,
+        "text": "Performance Impact",
+        "id": "performance-impact"
+      },
+      {
+        "level": 3,
+        "text": "Safety Guarantees",
+        "id": "safety-guarantees"
+      },
+      {
+        "level": 3,
+        "text": "When Parallelization Happens",
+        "id": "when-parallelization-happens"
+      },
+      {
+        "level": 3,
+        "text": "Disabling Parallel Execution",
+        "id": "disabling-parallel-execution"
+      },
+      {
+        "level": 3,
+        "text": "Observability",
+        "id": "observability"
       }
     ]
   },
@@ -473,13 +578,18 @@ export const generatedNavigation: NavigationDoc[] = [
       },
       {
         "level": 3,
-        "text": "Chainable API",
-        "id": "chainable-api"
+        "text": "Automatic Tool Selection",
+        "id": "automatic-tool-selection"
       },
       {
         "level": 3,
-        "text": "Automatic Tool Selection",
-        "id": "automatic-tool-selection"
+        "text": "Multi-Agent Crews",
+        "id": "multi-agent-crews"
+      },
+      {
+        "level": 3,
+        "text": "Conversational Results",
+        "id": "conversational-results"
       },
       {
         "level": 3,
@@ -488,28 +598,13 @@ export const generatedNavigation: NavigationDoc[] = [
       },
       {
         "level": 3,
-        "text": "Autonomous Multi-Agent Crews",
-        "id": "autonomous-multi-agent-crews"
-      },
-      {
-        "level": 3,
         "text": "Advanced Patterns",
         "id": "advanced-patterns"
       },
       {
         "level": 3,
-        "text": "Retries & Timeouts",
-        "id": "retries-timeouts"
-      },
-      {
-        "level": 3,
-        "text": "Streaming Workflows",
-        "id": "streaming-workflows"
-      },
-      {
-        "level": 3,
-        "text": "MCP Integration",
-        "id": "mcp-integration"
+        "text": "Streaming",
+        "id": "streaming"
       },
       {
         "level": 3,
@@ -518,18 +613,13 @@ export const generatedNavigation: NavigationDoc[] = [
       },
       {
         "level": 3,
-        "text": "OpenTelemetry Observability",
-        "id": "opentelemetry-observability"
+        "text": "Observability",
+        "id": "observability"
       },
       {
         "level": 3,
-        "text": "MCP OAuth Authentication",
-        "id": "mcp-oauth-authentication"
-      },
-      {
-        "level": 3,
-        "text": "Performance Optimized",
-        "id": "performance-optimized"
+        "text": "Production-Ready",
+        "id": "production-ready"
       },
       {
         "level": 2,
@@ -659,6 +749,26 @@ export const generatedNavigation: NavigationDoc[] = [
       },
       {
         "level": 2,
+        "text": "Transport Types",
+        "id": "transport-types"
+      },
+      {
+        "level": 3,
+        "text": "HTTP/SSE Transport",
+        "id": "httpsse-transport"
+      },
+      {
+        "level": 3,
+        "text": "Stdio Transport",
+        "id": "stdio-transport"
+      },
+      {
+        "level": 3,
+        "text": "Combining Transports",
+        "id": "combining-transports"
+      },
+      {
+        "level": 2,
         "text": "Automatic Tool Selection",
         "id": "automatic-tool-selection"
       },
@@ -666,6 +776,11 @@ export const generatedNavigation: NavigationDoc[] = [
         "level": 3,
         "text": "How It Works",
         "id": "how-it-works"
+      },
+      {
+        "level": 3,
+        "text": "Parallel Tool Execution",
+        "id": "parallel-tool-execution"
       },
       {
         "level": 3,
@@ -724,8 +839,33 @@ export const generatedNavigation: NavigationDoc[] = [
       },
       {
         "level": 3,
+        "text": "Automatic Token Refresh",
+        "id": "automatic-token-refresh"
+      },
+      {
+        "level": 3,
         "text": "Mixed Authentication",
         "id": "mixed-authentication"
+      },
+      {
+        "level": 3,
+        "text": "Authentication Configuration Reference",
+        "id": "authentication-configuration-reference"
+      },
+      {
+        "level": 4,
+        "text": "`MCPAuthConfig` Type",
+        "id": "mcpauthconfig-type"
+      },
+      {
+        "level": 4,
+        "text": "Field Descriptions",
+        "id": "field-descriptions"
+      },
+      {
+        "level": 4,
+        "text": "Configuration Examples",
+        "id": "configuration-examples"
       },
       {
         "level": 3,
@@ -756,6 +896,51 @@ export const generatedNavigation: NavigationDoc[] = [
         "level": 3,
         "text": "Configuration",
         "id": "configuration"
+      },
+      {
+        "level": 2,
+        "text": "Stdio Transport API Reference",
+        "id": "stdio-transport-api-reference"
+      },
+      {
+        "level": 3,
+        "text": "`mcpStdio(config)` Function",
+        "id": "mcpstdioconfig-function"
+      },
+      {
+        "level": 4,
+        "text": "`MCPStdioConfig` Type",
+        "id": "mcpstdioconfig-type"
+      },
+      {
+        "level": 4,
+        "text": "Field Descriptions",
+        "id": "field-descriptions-1"
+      },
+      {
+        "level": 4,
+        "text": "Return Value",
+        "id": "return-value"
+      },
+      {
+        "level": 4,
+        "text": "Example Configurations",
+        "id": "example-configurations"
+      },
+      {
+        "level": 3,
+        "text": "Lifecycle Management",
+        "id": "lifecycle-management"
+      },
+      {
+        "level": 3,
+        "text": "Process Pooling",
+        "id": "process-pooling"
+      },
+      {
+        "level": 3,
+        "text": "Common Patterns",
+        "id": "common-patterns"
       }
     ]
   },
@@ -780,8 +965,38 @@ export const generatedNavigation: NavigationDoc[] = [
       },
       {
         "level": 3,
+        "text": "Naming Agents and Steps",
+        "id": "naming-agents-and-steps"
+      },
+      {
+        "level": 3,
+        "text": "Advanced: Manual SDK Configuration",
+        "id": "advanced-manual-sdk-configuration"
+      },
+      {
+        "level": 3,
         "text": "Installation",
         "id": "installation"
+      },
+      {
+        "level": 2,
+        "text": "Comprehensive Metrics",
+        "id": "comprehensive-metrics"
+      },
+      {
+        "level": 3,
+        "text": "Questions You Can Answer",
+        "id": "questions-you-can-answer"
+      },
+      {
+        "level": 3,
+        "text": "Available Metrics",
+        "id": "available-metrics"
+      },
+      {
+        "level": 3,
+        "text": "Example Prometheus Queries",
+        "id": "example-prometheus-queries"
       },
       {
         "level": 2,
@@ -811,12 +1026,17 @@ export const generatedNavigation: NavigationDoc[] = [
       {
         "level": 3,
         "text": "Available Metrics",
-        "id": "available-metrics"
+        "id": "available-metrics-1"
       },
       {
         "level": 3,
         "text": "Metric Labels",
         "id": "metric-labels"
+      },
+      {
+        "level": 3,
+        "text": "Parallel Tool Execution Metrics",
+        "id": "parallel-tool-execution-metrics"
       },
       {
         "level": 2,
@@ -993,6 +1213,11 @@ export const generatedNavigation: NavigationDoc[] = [
         "level": 3,
         "text": "Complex Composition",
         "id": "complex-composition"
+      },
+      {
+        "level": 3,
+        "text": "Context Propagation Example",
+        "id": "context-propagation-example"
       },
       {
         "level": 3,

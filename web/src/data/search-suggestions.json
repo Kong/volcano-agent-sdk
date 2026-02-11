@@ -75,18 +75,18 @@
       "description": "API Method"
     },
     {
-      "label": "metrics",
-      "query": "metrics",
+      "label": "summary",
+      "query": "summary",
       "description": "API Method"
     },
     {
-      "label": "results",
-      "query": "results",
+      "label": "toolsUsed",
+      "query": "toolsUsed",
       "description": "API Method"
     },
     {
-      "label": "calls",
-      "query": "calls",
+      "label": "errors",
+      "query": "errors",
       "description": "API Method"
     },
     {
