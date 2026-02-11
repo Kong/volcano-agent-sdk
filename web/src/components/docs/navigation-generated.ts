@@ -2,1449 +2,1449 @@
 // Run: npm run generate-toc
 
 export interface NavigationHeading {
-  level: number;
-  text: string;
-  id: string;
+  level: number
+  text: string
+  id: string
 }
 
 export interface NavigationDoc {
-  title: string;
-  path: string;
-  headings: NavigationHeading[];
+  title: string
+  path: string
+  headings: NavigationHeading[]
 }
 
 export const generatedNavigation: NavigationDoc[] = [
   {
-    title: "API Reference - Volcano Agent SDK",
-    path: "/docs/api",
-    headings: [
+    "title": "API Reference - Volcano Agent SDK",
+    "path": "/docs/api",
+    "headings": [
       {
-        level: 1,
-        text: "API Reference",
-        id: "api-reference",
+        "level": 1,
+        "text": "API Reference",
+        "id": "api-reference"
       },
       {
-        level: 2,
-        text: "agent(options?): AgentBuilder",
-        id: "agentoptions-agentbuilder",
+        "level": 2,
+        "text": "agent(options?): AgentBuilder",
+        "id": "agentoptions-agentbuilder"
       },
       {
-        level: 3,
-        text: "Options",
-        id: "options",
+        "level": 3,
+        "text": "Options",
+        "id": "options"
       },
       {
-        level: 3,
-        text: "Methods",
-        id: "methods",
+        "level": 3,
+        "text": "Methods",
+        "id": "methods"
       },
       {
-        level: 4,
-        text: "Basic Methods",
-        id: "basic-methods",
+        "level": 4,
+        "text": "Basic Methods",
+        "id": "basic-methods"
       },
       {
-        level: 4,
-        text: "Advanced Pattern Methods",
-        id: "advanced-pattern-methods",
+        "level": 4,
+        "text": "Advanced Pattern Methods",
+        "id": "advanced-pattern-methods"
       },
       {
-        level: 2,
-        text: "AgentResults",
-        id: "agentresults",
+        "level": 2,
+        "text": "AgentResults",
+        "id": "agentresults"
       },
       {
-        level: 3,
-        text: "Methods",
-        id: "methods-1",
+        "level": 3,
+        "text": "Methods",
+        "id": "methods-1"
       },
       {
-        level: 4,
-        text: "`ask(llm, question): Promise<string>`",
-        id: "askllm-question-promisestring",
+        "level": 4,
+        "text": "`ask(llm, question): Promise<string>`",
+        "id": "askllm-question-promisestring"
       },
       {
-        level: 4,
-        text: "`summary(llm): Promise<string>`",
-        id: "summaryllm-promisestring",
+        "level": 4,
+        "text": "`summary(llm): Promise<string>`",
+        "id": "summaryllm-promisestring"
       },
       {
-        level: 4,
-        text: "`toolsUsed(llm): Promise<string>`",
-        id: "toolsusedllm-promisestring",
+        "level": 4,
+        "text": "`toolsUsed(llm): Promise<string>`",
+        "id": "toolsusedllm-promisestring"
       },
       {
-        level: 4,
-        text: "`errors(llm): Promise<string>`",
-        id: "errorsllm-promisestring",
+        "level": 4,
+        "text": "`errors(llm): Promise<string>`",
+        "id": "errorsllm-promisestring"
       },
       {
-        level: 3,
-        text: "Usage Example",
-        id: "usage-example",
+        "level": 3,
+        "text": "Usage Example",
+        "id": "usage-example"
       },
       {
-        level: 2,
-        text: "Step Types",
-        id: "step-types",
+        "level": 2,
+        "text": "Step Types",
+        "id": "step-types"
       },
       {
-        level: 3,
-        text: "LLM-Only Step",
-        id: "llm-only-step",
+        "level": 3,
+        "text": "LLM-Only Step",
+        "id": "llm-only-step"
       },
       {
-        level: 3,
-        text: "Automatic MCP Tool Selection",
-        id: "automatic-mcp-tool-selection",
+        "level": 3,
+        "text": "Automatic MCP Tool Selection",
+        "id": "automatic-mcp-tool-selection"
       },
       {
-        level: 3,
-        text: "Explicit MCP Tool Call",
-        id: "explicit-mcp-tool-call",
+        "level": 3,
+        "text": "Explicit MCP Tool Call",
+        "id": "explicit-mcp-tool-call"
       },
       {
-        level: 3,
-        text: "Multi-Agent Coordination",
-        id: "multi-agent-coordination",
+        "level": 3,
+        "text": "Multi-Agent Coordination",
+        "id": "multi-agent-coordination"
       },
       {
-        level: 3,
-        text: "Common Step Fields",
-        id: "common-step-fields",
+        "level": 3,
+        "text": "Common Step Fields",
+        "id": "common-step-fields"
       },
       {
-        level: 3,
-        text: "Real-Time Callbacks",
-        id: "real-time-callbacks",
+        "level": 3,
+        "text": "Real-Time Callbacks",
+        "id": "real-time-callbacks"
       },
       {
-        level: 4,
-        text: "`onToken` - LLM Streaming",
-        id: "ontoken-llm-streaming",
+        "level": 4,
+        "text": "`onToken` - LLM Streaming",
+        "id": "ontoken-llm-streaming"
       },
       {
-        level: 4,
-        text: "`onToolCall` - Tool Progress",
-        id: "ontoolcall-tool-progress",
+        "level": 4,
+        "text": "`onToolCall` - Tool Progress",
+        "id": "ontoolcall-tool-progress"
       },
       {
-        level: 2,
-        text: "Step Results",
-        id: "step-results",
+        "level": 2,
+        "text": "Step Results",
+        "id": "step-results"
       },
       {
-        level: 3,
-        text: "Example Usage",
-        id: "example-usage",
+        "level": 3,
+        "text": "Example Usage",
+        "id": "example-usage"
       },
       {
-        level: 2,
-        text: "RetryConfig",
-        id: "retryconfig",
+        "level": 2,
+        "text": "RetryConfig",
+        "id": "retryconfig"
       },
       {
-        level: 3,
-        text: "Examples",
-        id: "examples",
+        "level": 3,
+        "text": "Examples",
+        "id": "examples"
       },
       {
-        level: 2,
-        text: "Utility Functions",
-        id: "utility-functions",
+        "level": 2,
+        "text": "Utility Functions",
+        "id": "utility-functions"
       },
       {
-        level: 3,
-        text: "mcp(url, options?): MCPHandle",
-        id: "mcpurl-options-mcphandle",
+        "level": 3,
+        "text": "mcp(url, options?): MCPHandle",
+        "id": "mcpurl-options-mcphandle"
       },
       {
-        level: 3,
-        text: "discoverTools(handles): Promise\\<ToolDefinition\\[\\]\\>",
-        id: "discovertoolshandles-promisetooldefinition",
+        "level": 3,
+        "text": "discoverTools(handles): Promise\\<ToolDefinition\\[\\]\\>",
+        "id": "discovertoolshandles-promisetooldefinition"
       },
       {
-        level: 2,
-        text: "Type Reference",
-        id: "type-reference",
+        "level": 2,
+        "text": "Type Reference",
+        "id": "type-reference"
       },
       {
-        level: 3,
-        text: "LLMHandle",
-        id: "llmhandle",
+        "level": 3,
+        "text": "LLMHandle",
+        "id": "llmhandle"
       },
       {
-        level: 3,
-        text: "MCPHandle",
-        id: "mcphandle",
+        "level": 3,
+        "text": "MCPHandle",
+        "id": "mcphandle"
       },
       {
-        level: 3,
-        text: "ToolDefinition",
-        id: "tooldefinition",
-      },
-    ],
+        "level": 3,
+        "text": "ToolDefinition",
+        "id": "tooldefinition"
+      }
+    ]
   },
   {
-    title: "Examples - Volcano Agent SDK",
-    path: "/docs/examples",
-    headings: [
+    "title": "Examples - Volcano Agent SDK",
+    "path": "/docs/examples",
+    "headings": [
       {
-        level: 1,
-        text: "Examples",
-        id: "examples",
+        "level": 1,
+        "text": "Examples",
+        "id": "examples"
       },
       {
-        level: 2,
-        text: "Basics",
-        id: "basics",
+        "level": 2,
+        "text": "Basics",
+        "id": "basics"
       },
       {
-        level: 3,
-        text: "01-hello-world.ts",
-        id: "01-hello-worldts",
+        "level": 3,
+        "text": "01-hello-world.ts",
+        "id": "01-hello-worldts"
       },
       {
-        level: 3,
-        text: "02-with-tools.ts",
-        id: "02-with-toolsts",
+        "level": 3,
+        "text": "02-with-tools.ts",
+        "id": "02-with-toolsts"
       },
       {
-        level: 3,
-        text: "02b-with-stdio.ts",
-        id: "02b-with-stdiots",
+        "level": 3,
+        "text": "02b-with-stdio.ts",
+        "id": "02b-with-stdiots"
       },
       {
-        level: 3,
-        text: "03-streaming.ts",
-        id: "03-streamingts",
+        "level": 3,
+        "text": "03-streaming.ts",
+        "id": "03-streamingts"
       },
       {
-        level: 3,
-        text: "04-structured-outputs.ts",
-        id: "04-structured-outputsts",
+        "level": 3,
+        "text": "04-structured-outputs.ts",
+        "id": "04-structured-outputsts"
       },
       {
-        level: 2,
-        text: "Composition",
-        id: "composition",
+        "level": 2,
+        "text": "Composition",
+        "id": "composition"
       },
       {
-        level: 3,
-        text: "05-sub-agents.ts",
-        id: "05-sub-agentsts",
+        "level": 3,
+        "text": "05-sub-agents.ts",
+        "id": "05-sub-agentsts"
       },
       {
-        level: 3,
-        text: "06-multi-agent.ts",
-        id: "06-multi-agentts",
+        "level": 3,
+        "text": "06-multi-agent.ts",
+        "id": "06-multi-agentts"
       },
       {
-        level: 3,
-        text: "07-patterns.ts",
-        id: "07-patternsts",
+        "level": 3,
+        "text": "07-patterns.ts",
+        "id": "07-patternsts"
       },
       {
-        level: 2,
-        text: "Production",
-        id: "production",
+        "level": 2,
+        "text": "Production",
+        "id": "production"
       },
       {
-        level: 3,
-        text: "08-context.ts",
-        id: "08-contextts",
+        "level": 3,
+        "text": "08-context.ts",
+        "id": "08-contextts"
       },
       {
-        level: 3,
-        text: "09-observability.ts",
-        id: "09-observabilityts",
+        "level": 3,
+        "text": "09-observability.ts",
+        "id": "09-observabilityts"
       },
       {
-        level: 3,
-        text: "10-providers.ts",
-        id: "10-providersts",
+        "level": 3,
+        "text": "10-providers.ts",
+        "id": "10-providersts"
       },
       {
-        level: 3,
-        text: "11-email-triage.ts",
-        id: "11-email-triagets",
+        "level": 3,
+        "text": "11-email-triage.ts",
+        "id": "11-email-triagets"
       },
       {
-        level: 3,
-        text: "Prerequisites",
-        id: "prerequisites",
+        "level": 3,
+        "text": "Prerequisites",
+        "id": "prerequisites"
       },
       {
-        level: 3,
-        text: "Set Environment Variables",
-        id: "set-environment-variables",
+        "level": 3,
+        "text": "Set Environment Variables",
+        "id": "set-environment-variables"
       },
       {
-        level: 3,
-        text: "Run an Example",
-        id: "run-an-example",
+        "level": 3,
+        "text": "Run an Example",
+        "id": "run-an-example"
       },
       {
-        level: 2,
-        text: "MCP Servers",
-        id: "mcp-servers",
+        "level": 2,
+        "text": "MCP Servers",
+        "id": "mcp-servers"
       },
       {
-        level: 2,
-        text: "Contributing",
-        id: "contributing",
-      },
-    ],
+        "level": 2,
+        "text": "Contributing",
+        "id": "contributing"
+      }
+    ]
   },
   {
-    title: "Features - Volcano Agent SDK",
-    path: "/docs/features",
-    headings: [
+    "title": "Features - Volcano Agent SDK",
+    "path": "/docs/features",
+    "headings": [
       {
-        level: 1,
-        text: "Features",
-        id: "features",
+        "level": 1,
+        "text": "Features",
+        "id": "features"
       },
       {
-        level: 2,
-        text: "run() Method",
-        id: "run-method",
+        "level": 2,
+        "text": "run() Method",
+        "id": "run-method"
       },
       {
-        level: 3,
-        text: "With Step and Token Callbacks",
-        id: "with-step-and-token-callbacks",
+        "level": 3,
+        "text": "With Step and Token Callbacks",
+        "id": "with-step-and-token-callbacks"
       },
       {
-        level: 3,
-        text: "Return Value",
-        id: "return-value",
+        "level": 3,
+        "text": "Return Value",
+        "id": "return-value"
       },
       {
-        level: 3,
-        text: "Characteristics",
-        id: "characteristics",
+        "level": 3,
+        "text": "Characteristics",
+        "id": "characteristics"
       },
       {
-        level: 3,
-        text: "When to Use run()",
-        id: "when-to-use-run",
+        "level": 3,
+        "text": "When to Use run()",
+        "id": "when-to-use-run"
       },
       {
-        level: 2,
-        text: "Conversational Results",
-        id: "conversational-results",
+        "level": 2,
+        "text": "Conversational Results",
+        "id": "conversational-results"
       },
       {
-        level: 3,
-        text: "Basic Usage",
-        id: "basic-usage",
+        "level": 3,
+        "text": "Basic Usage",
+        "id": "basic-usage"
       },
       {
-        level: 3,
-        text: "Available Methods",
-        id: "available-methods",
+        "level": 3,
+        "text": "Available Methods",
+        "id": "available-methods"
       },
       {
-        level: 4,
-        text: "`results.ask(llm, question)`",
-        id: "resultsaskllm-question",
+        "level": 4,
+        "text": "`results.ask(llm, question)`",
+        "id": "resultsaskllm-question"
       },
       {
-        level: 4,
-        text: "`results.summary(llm)`",
-        id: "resultssummaryllm",
+        "level": 4,
+        "text": "`results.summary(llm)`",
+        "id": "resultssummaryllm"
       },
       {
-        level: 4,
-        text: "`results.toolsUsed(llm)`",
-        id: "resultstoolsusedllm",
+        "level": 4,
+        "text": "`results.toolsUsed(llm)`",
+        "id": "resultstoolsusedllm"
       },
       {
-        level: 4,
-        text: "`results.errors(llm)`",
-        id: "resultserrorsllm",
+        "level": 4,
+        "text": "`results.errors(llm)`",
+        "id": "resultserrorsllm"
       },
       {
-        level: 3,
-        text: "Cost Optimization",
-        id: "cost-optimization",
+        "level": 3,
+        "text": "Cost Optimization",
+        "id": "cost-optimization"
       },
       {
-        level: 3,
-        text: "Real-World Example: Gmail Spam Detector",
-        id: "real-world-example-gmail-spam-detector",
+        "level": 3,
+        "text": "Real-World Example: Gmail Spam Detector",
+        "id": "real-world-example-gmail-spam-detector"
       },
       {
-        level: 3,
-        text: "Benefits",
-        id: "benefits",
+        "level": 3,
+        "text": "Benefits",
+        "id": "benefits"
       },
       {
-        level: 3,
-        text: "How It Works",
-        id: "how-it-works",
+        "level": 3,
+        "text": "How It Works",
+        "id": "how-it-works"
       },
       {
-        level: 2,
-        text: "Token-Level Streaming",
-        id: "token-level-streaming",
+        "level": 2,
+        "text": "Token-Level Streaming",
+        "id": "token-level-streaming"
       },
       {
-        level: 3,
-        text: "Per-Step Token Streaming",
-        id: "per-step-token-streaming",
+        "level": 3,
+        "text": "Per-Step Token Streaming",
+        "id": "per-step-token-streaming"
       },
       {
-        level: 3,
-        text: "Run-Level Token Streaming with Metadata",
-        id: "run-level-token-streaming-with-metadata",
+        "level": 3,
+        "text": "Run-Level Token Streaming with Metadata",
+        "id": "run-level-token-streaming-with-metadata"
       },
       {
-        level: 3,
-        text: "Tool Call Progress with `onToolCall`",
-        id: "tool-call-progress-with-ontoolcall",
+        "level": 3,
+        "text": "Tool Call Progress with `onToolCall`",
+        "id": "tool-call-progress-with-ontoolcall"
       },
       {
-        level: 2,
-        text: "Autonomous Multi-Agent Crews ⭐",
-        id: "autonomous-multi-agent-crews",
+        "level": 2,
+        "text": "Autonomous Multi-Agent Crews ⭐",
+        "id": "autonomous-multi-agent-crews"
       },
       {
-        level: 3,
-        text: "How It Works",
-        id: "how-it-works-1",
+        "level": 3,
+        "text": "How It Works",
+        "id": "how-it-works-1"
       },
       {
-        level: 3,
-        text: "Why This Matters",
-        id: "why-this-matters",
+        "level": 3,
+        "text": "Why This Matters",
+        "id": "why-this-matters"
       },
       {
-        level: 3,
-        text: "Real-World Example",
-        id: "real-world-example",
+        "level": 3,
+        "text": "Real-World Example",
+        "id": "real-world-example"
       },
       {
-        level: 2,
-        text: "Events & Progress Tracking",
-        id: "events-progress-tracking",
+        "level": 2,
+        "text": "Events & Progress Tracking",
+        "id": "events-progress-tracking"
       },
       {
-        level: 3,
-        text: "Built-In Progress Output",
-        id: "built-in-progress-output",
+        "level": 3,
+        "text": "Built-In Progress Output",
+        "id": "built-in-progress-output"
       },
       {
-        level: 3,
-        text: "Custom Streaming Integration",
-        id: "custom-streaming-integration",
+        "level": 3,
+        "text": "Custom Streaming Integration",
+        "id": "custom-streaming-integration"
       },
       {
-        level: 3,
-        text: "SSE Integration Example",
-        id: "sse-integration-example",
+        "level": 3,
+        "text": "SSE Integration Example",
+        "id": "sse-integration-example"
       },
       {
-        level: 2,
-        text: "Retries & Timeouts",
-        id: "retries-timeouts",
+        "level": 2,
+        "text": "Retries & Timeouts",
+        "id": "retries-timeouts"
       },
       {
-        level: 3,
-        text: "Timeouts",
-        id: "timeouts",
+        "level": 3,
+        "text": "Timeouts",
+        "id": "timeouts"
       },
       {
-        level: 3,
-        text: "Retry Strategies",
-        id: "retry-strategies",
+        "level": 3,
+        "text": "Retry Strategies",
+        "id": "retry-strategies"
       },
       {
-        level: 4,
-        text: "Immediate Retry (Default)",
-        id: "immediate-retry-default",
+        "level": 4,
+        "text": "Immediate Retry (Default)",
+        "id": "immediate-retry-default"
       },
       {
-        level: 4,
-        text: "Delayed Retry",
-        id: "delayed-retry",
+        "level": 4,
+        "text": "Delayed Retry",
+        "id": "delayed-retry"
       },
       {
-        level: 4,
-        text: "Exponential Backoff",
-        id: "exponential-backoff",
+        "level": 4,
+        "text": "Exponential Backoff",
+        "id": "exponential-backoff"
       },
       {
-        level: 3,
-        text: "Per-Step Override",
-        id: "per-step-override",
+        "level": 3,
+        "text": "Per-Step Override",
+        "id": "per-step-override"
       },
       {
-        level: 3,
-        text: "Retry Semantics",
-        id: "retry-semantics",
+        "level": 3,
+        "text": "Retry Semantics",
+        "id": "retry-semantics"
       },
       {
-        level: 2,
-        text: "Step Hooks",
-        id: "step-hooks",
+        "level": 2,
+        "text": "Step Hooks",
+        "id": "step-hooks"
       },
       {
-        level: 3,
-        text: "Hook Execution Order",
-        id: "hook-execution-order",
+        "level": 3,
+        "text": "Hook Execution Order",
+        "id": "hook-execution-order"
       },
       {
-        level: 3,
-        text: "Hook Characteristics",
-        id: "hook-characteristics",
+        "level": 3,
+        "text": "Hook Characteristics",
+        "id": "hook-characteristics"
       },
       {
-        level: 3,
-        text: "Use Cases",
-        id: "use-cases",
+        "level": 3,
+        "text": "Use Cases",
+        "id": "use-cases"
       },
       {
-        level: 2,
-        text: "Error Handling",
-        id: "error-handling",
+        "level": 2,
+        "text": "Error Handling",
+        "id": "error-handling"
       },
       {
-        level: 3,
-        text: "Error Types",
-        id: "error-types",
+        "level": 3,
+        "text": "Error Types",
+        "id": "error-types"
       },
       {
-        level: 3,
-        text: "Error Metadata",
-        id: "error-metadata",
+        "level": 3,
+        "text": "Error Metadata",
+        "id": "error-metadata"
       },
       {
-        level: 3,
-        text: "Metadata Fields",
-        id: "metadata-fields",
+        "level": 3,
+        "text": "Metadata Fields",
+        "id": "metadata-fields"
       },
       {
-        level: 2,
-        text: "Parallel Tool Execution ⚡",
-        id: "parallel-tool-execution",
+        "level": 2,
+        "text": "Parallel Tool Execution ⚡",
+        "id": "parallel-tool-execution"
       },
       {
-        level: 3,
-        text: "How It Works",
-        id: "how-it-works-2",
+        "level": 3,
+        "text": "How It Works",
+        "id": "how-it-works-2"
       },
       {
-        level: 3,
-        text: "Performance Impact",
-        id: "performance-impact",
+        "level": 3,
+        "text": "Performance Impact",
+        "id": "performance-impact"
       },
       {
-        level: 3,
-        text: "Safety Guarantees",
-        id: "safety-guarantees",
+        "level": 3,
+        "text": "Safety Guarantees",
+        "id": "safety-guarantees"
       },
       {
-        level: 3,
-        text: "When Parallelization Happens",
-        id: "when-parallelization-happens",
+        "level": 3,
+        "text": "When Parallelization Happens",
+        "id": "when-parallelization-happens"
       },
       {
-        level: 3,
-        text: "Disabling Parallel Execution",
-        id: "disabling-parallel-execution",
+        "level": 3,
+        "text": "Disabling Parallel Execution",
+        "id": "disabling-parallel-execution"
       },
       {
-        level: 3,
-        text: "Observability",
-        id: "observability",
-      },
-    ],
+        "level": 3,
+        "text": "Observability",
+        "id": "observability"
+      }
+    ]
   },
   {
-    title: "Volcano Agent SDK - Build MCP-powered AI Agents",
-    path: "/docs",
-    headings: [
+    "title": "Volcano Agent SDK - Build MCP-powered AI Agents",
+    "path": "/docs",
+    "headings": [
       {
-        level: 1,
-        text: "Volcano Agent SDK 🌋",
-        id: "volcano-agent-sdk",
+        "level": 1,
+        "text": "Volcano Agent SDK 🌋",
+        "id": "volcano-agent-sdk"
       },
       {
-        level: 2,
-        text: "Key Features",
-        id: "key-features",
+        "level": 2,
+        "text": "Key Features",
+        "id": "key-features"
       },
       {
-        level: 3,
-        text: "Automatic Tool Selection",
-        id: "automatic-tool-selection",
+        "level": 3,
+        "text": "Automatic Tool Selection",
+        "id": "automatic-tool-selection"
       },
       {
-        level: 3,
-        text: "Multi-Agent Crews",
-        id: "multi-agent-crews",
+        "level": 3,
+        "text": "Multi-Agent Crews",
+        "id": "multi-agent-crews"
       },
       {
-        level: 3,
-        text: "Conversational Results",
-        id: "conversational-results",
+        "level": 3,
+        "text": "Conversational Results",
+        "id": "conversational-results"
       },
       {
-        level: 3,
-        text: "100s of Models",
-        id: "100s-of-models",
+        "level": 3,
+        "text": "100s of Models",
+        "id": "100s-of-models"
       },
       {
-        level: 3,
-        text: "Advanced Patterns",
-        id: "advanced-patterns",
+        "level": 3,
+        "text": "Advanced Patterns",
+        "id": "advanced-patterns"
       },
       {
-        level: 3,
-        text: "Streaming",
-        id: "streaming",
+        "level": 3,
+        "text": "Streaming",
+        "id": "streaming"
       },
       {
-        level: 3,
-        text: "TypeScript-First",
-        id: "typescript-first",
+        "level": 3,
+        "text": "TypeScript-First",
+        "id": "typescript-first"
       },
       {
-        level: 3,
-        text: "Observability",
-        id: "observability",
+        "level": 3,
+        "text": "Observability",
+        "id": "observability"
       },
       {
-        level: 3,
-        text: "Production-Ready",
-        id: "production-ready",
+        "level": 3,
+        "text": "Production-Ready",
+        "id": "production-ready"
       },
       {
-        level: 2,
-        text: "Installation",
-        id: "installation",
+        "level": 2,
+        "text": "Installation",
+        "id": "installation"
       },
       {
-        level: 3,
-        text: "Optional Provider Dependencies",
-        id: "optional-provider-dependencies",
+        "level": 3,
+        "text": "Optional Provider Dependencies",
+        "id": "optional-provider-dependencies"
       },
       {
-        level: 3,
-        text: "Optional Observability",
-        id: "optional-observability",
+        "level": 3,
+        "text": "Optional Observability",
+        "id": "optional-observability"
       },
       {
-        level: 2,
-        text: "Quick Start",
-        id: "quick-start",
+        "level": 2,
+        "text": "Quick Start",
+        "id": "quick-start"
       },
       {
-        level: 3,
-        text: "Hello World",
-        id: "hello-world",
+        "level": 3,
+        "text": "Hello World",
+        "id": "hello-world"
       },
       {
-        level: 3,
-        text: "Two-Step Agent with MCP Tools",
-        id: "two-step-agent-with-mcp-tools",
+        "level": 3,
+        "text": "Two-Step Agent with MCP Tools",
+        "id": "two-step-agent-with-mcp-tools"
       },
       {
-        level: 3,
-        text: "Multi-Provider Workflow",
-        id: "multi-provider-workflow",
+        "level": 3,
+        "text": "Multi-Provider Workflow",
+        "id": "multi-provider-workflow"
       },
       {
-        level: 3,
-        text: "Next Steps",
-        id: "next-steps",
+        "level": 3,
+        "text": "Next Steps",
+        "id": "next-steps"
       },
       {
-        level: 2,
-        text: "Use Cases",
-        id: "use-cases",
+        "level": 2,
+        "text": "Use Cases",
+        "id": "use-cases"
       },
       {
-        level: 3,
-        text: "Customer Support Automation",
-        id: "customer-support-automation",
+        "level": 3,
+        "text": "Customer Support Automation",
+        "id": "customer-support-automation"
       },
       {
-        level: 3,
-        text: "Content Moderation Pipeline",
-        id: "content-moderation-pipeline",
+        "level": 3,
+        "text": "Content Moderation Pipeline",
+        "id": "content-moderation-pipeline"
       },
       {
-        level: 3,
-        text: "Data Processing Workflows",
-        id: "data-processing-workflows",
+        "level": 3,
+        "text": "Data Processing Workflows",
+        "id": "data-processing-workflows"
       },
       {
-        level: 3,
-        text: "Multi-Step Research Agent",
-        id: "multi-step-research-agent",
+        "level": 3,
+        "text": "Multi-Step Research Agent",
+        "id": "multi-step-research-agent"
       },
       {
-        level: 2,
-        text: "Volcano vs Others",
-        id: "volcano-vs-others",
+        "level": 2,
+        "text": "Volcano vs Others",
+        "id": "volcano-vs-others"
       },
       {
-        level: 3,
-        text: "When to Choose Volcano",
-        id: "when-to-choose-volcano",
+        "level": 3,
+        "text": "When to Choose Volcano",
+        "id": "when-to-choose-volcano"
       },
       {
-        level: 2,
-        text: "Core Concepts",
-        id: "core-concepts",
+        "level": 2,
+        "text": "Core Concepts",
+        "id": "core-concepts"
       },
       {
-        level: 3,
-        text: "Agents",
-        id: "agents",
+        "level": 3,
+        "text": "Agents",
+        "id": "agents"
       },
       {
-        level: 3,
-        text: "Steps",
-        id: "steps",
+        "level": 3,
+        "text": "Steps",
+        "id": "steps"
       },
       {
-        level: 3,
-        text: "Context & History",
-        id: "context-history",
+        "level": 3,
+        "text": "Context & History",
+        "id": "context-history"
       },
       {
-        level: 3,
-        text: "Multi-Provider Workflows",
-        id: "multi-provider-workflows",
+        "level": 3,
+        "text": "Multi-Provider Workflows",
+        "id": "multi-provider-workflows"
       },
       {
-        level: 2,
-        text: "Questions or Feature Requests?",
-        id: "questions-or-feature-requests",
+        "level": 2,
+        "text": "Questions or Feature Requests?",
+        "id": "questions-or-feature-requests"
       },
       {
-        level: 3,
-        text: "GitHub Repository",
-        id: "github-repository",
+        "level": 3,
+        "text": "GitHub Repository",
+        "id": "github-repository"
       },
       {
-        level: 3,
-        text: "⭐ View on GitHub",
-        id: "view-on-github",
-      },
-    ],
+        "level": 3,
+        "text": "⭐ View on GitHub",
+        "id": "view-on-github"
+      }
+    ]
   },
   {
-    title: "MCP Tools - Volcano Agent SDK",
-    path: "/docs/mcp-tools",
-    headings: [
+    "title": "MCP Tools - Volcano Agent SDK",
+    "path": "/docs/mcp-tools",
+    "headings": [
       {
-        level: 1,
-        text: "MCP Tools",
-        id: "mcp-tools",
+        "level": 1,
+        "text": "MCP Tools",
+        "id": "mcp-tools"
       },
       {
-        level: 2,
-        text: "Transport Types",
-        id: "transport-types",
+        "level": 2,
+        "text": "Transport Types",
+        "id": "transport-types"
       },
       {
-        level: 3,
-        text: "HTTP/SSE Transport",
-        id: "httpsse-transport",
+        "level": 3,
+        "text": "HTTP/SSE Transport",
+        "id": "httpsse-transport"
       },
       {
-        level: 3,
-        text: "Stdio Transport",
-        id: "stdio-transport",
+        "level": 3,
+        "text": "Stdio Transport",
+        "id": "stdio-transport"
       },
       {
-        level: 3,
-        text: "Combining Transports",
-        id: "combining-transports",
+        "level": 3,
+        "text": "Combining Transports",
+        "id": "combining-transports"
       },
       {
-        level: 2,
-        text: "Automatic Tool Selection",
-        id: "automatic-tool-selection",
+        "level": 2,
+        "text": "Automatic Tool Selection",
+        "id": "automatic-tool-selection"
       },
       {
-        level: 3,
-        text: "How It Works",
-        id: "how-it-works",
+        "level": 3,
+        "text": "How It Works",
+        "id": "how-it-works"
       },
       {
-        level: 3,
-        text: "Parallel Tool Execution",
-        id: "parallel-tool-execution",
+        "level": 3,
+        "text": "Parallel Tool Execution",
+        "id": "parallel-tool-execution"
       },
       {
-        level: 3,
-        text: "Controlling Tool Iterations",
-        id: "controlling-tool-iterations",
+        "level": 3,
+        "text": "Controlling Tool Iterations",
+        "id": "controlling-tool-iterations"
       },
       {
-        level: 3,
-        text: "Iteration Trade-offs",
-        id: "iteration-trade-offs",
+        "level": 3,
+        "text": "Iteration Trade-offs",
+        "id": "iteration-trade-offs"
       },
       {
-        level: 3,
-        text: "Multiple MCP Servers",
-        id: "multiple-mcp-servers",
+        "level": 3,
+        "text": "Multiple MCP Servers",
+        "id": "multiple-mcp-servers"
       },
       {
-        level: 2,
-        text: "Explicit Tool Calling",
-        id: "explicit-tool-calling",
+        "level": 2,
+        "text": "Explicit Tool Calling",
+        "id": "explicit-tool-calling"
       },
       {
-        level: 3,
-        text: "With LLM Step",
-        id: "with-llm-step",
+        "level": 3,
+        "text": "With LLM Step",
+        "id": "with-llm-step"
       },
       {
-        level: 3,
-        text: "When to Use Explicit Calling",
-        id: "when-to-use-explicit-calling",
+        "level": 3,
+        "text": "When to Use Explicit Calling",
+        "id": "when-to-use-explicit-calling"
       },
       {
-        level: 2,
-        text: "MCP Authentication",
-        id: "mcp-authentication",
+        "level": 2,
+        "text": "MCP Authentication",
+        "id": "mcp-authentication"
       },
       {
-        level: 3,
-        text: "Handle-Level Authentication",
-        id: "handle-level-authentication",
+        "level": 3,
+        "text": "Handle-Level Authentication",
+        "id": "handle-level-authentication"
       },
       {
-        level: 3,
-        text: "Agent-Level Authentication",
-        id: "agent-level-authentication",
+        "level": 3,
+        "text": "Agent-Level Authentication",
+        "id": "agent-level-authentication"
       },
       {
-        level: 3,
-        text: "OAuth Authentication (Client Credentials)",
-        id: "oauth-authentication-client-credentials",
+        "level": 3,
+        "text": "OAuth Authentication (Client Credentials)",
+        "id": "oauth-authentication-client-credentials"
       },
       {
-        level: 3,
-        text: "Bearer Token Authentication",
-        id: "bearer-token-authentication",
+        "level": 3,
+        "text": "Bearer Token Authentication",
+        "id": "bearer-token-authentication"
       },
       {
-        level: 3,
-        text: "Automatic Token Refresh",
-        id: "automatic-token-refresh",
+        "level": 3,
+        "text": "Automatic Token Refresh",
+        "id": "automatic-token-refresh"
       },
       {
-        level: 3,
-        text: "Mixed Authentication",
-        id: "mixed-authentication",
+        "level": 3,
+        "text": "Mixed Authentication",
+        "id": "mixed-authentication"
       },
       {
-        level: 3,
-        text: "Authentication Configuration Reference",
-        id: "authentication-configuration-reference",
+        "level": 3,
+        "text": "Authentication Configuration Reference",
+        "id": "authentication-configuration-reference"
       },
       {
-        level: 4,
-        text: "`MCPAuthConfig` Type",
-        id: "mcpauthconfig-type",
+        "level": 4,
+        "text": "`MCPAuthConfig` Type",
+        "id": "mcpauthconfig-type"
       },
       {
-        level: 4,
-        text: "Field Descriptions",
-        id: "field-descriptions",
+        "level": 4,
+        "text": "Field Descriptions",
+        "id": "field-descriptions"
       },
       {
-        level: 4,
-        text: "Configuration Examples",
-        id: "configuration-examples",
+        "level": 4,
+        "text": "Configuration Examples",
+        "id": "configuration-examples"
       },
       {
-        level: 3,
-        text: "Authentication Features",
-        id: "authentication-features",
+        "level": 3,
+        "text": "Authentication Features",
+        "id": "authentication-features"
       },
       {
-        level: 2,
-        text: "Connection Pooling & Performance",
-        id: "connection-pooling-performance",
+        "level": 2,
+        "text": "Connection Pooling & Performance",
+        "id": "connection-pooling-performance"
       },
       {
-        level: 3,
-        text: "Connection Pooling",
-        id: "connection-pooling",
+        "level": 3,
+        "text": "Connection Pooling",
+        "id": "connection-pooling"
       },
       {
-        level: 3,
-        text: "Tool Discovery Cache",
-        id: "tool-discovery-cache",
+        "level": 3,
+        "text": "Tool Discovery Cache",
+        "id": "tool-discovery-cache"
       },
       {
-        level: 3,
-        text: "Schema Validation",
-        id: "schema-validation",
+        "level": 3,
+        "text": "Schema Validation",
+        "id": "schema-validation"
       },
       {
-        level: 3,
-        text: "Configuration",
-        id: "configuration",
+        "level": 3,
+        "text": "Configuration",
+        "id": "configuration"
       },
       {
-        level: 2,
-        text: "Stdio Transport API Reference",
-        id: "stdio-transport-api-reference",
+        "level": 2,
+        "text": "Stdio Transport API Reference",
+        "id": "stdio-transport-api-reference"
       },
       {
-        level: 3,
-        text: "`mcpStdio(config)` Function",
-        id: "mcpstdioconfig-function",
+        "level": 3,
+        "text": "`mcpStdio(config)` Function",
+        "id": "mcpstdioconfig-function"
       },
       {
-        level: 4,
-        text: "`MCPStdioConfig` Type",
-        id: "mcpstdioconfig-type",
+        "level": 4,
+        "text": "`MCPStdioConfig` Type",
+        "id": "mcpstdioconfig-type"
       },
       {
-        level: 4,
-        text: "Field Descriptions",
-        id: "field-descriptions-1",
+        "level": 4,
+        "text": "Field Descriptions",
+        "id": "field-descriptions-1"
       },
       {
-        level: 4,
-        text: "Return Value",
-        id: "return-value",
+        "level": 4,
+        "text": "Return Value",
+        "id": "return-value"
       },
       {
-        level: 4,
-        text: "Example Configurations",
-        id: "example-configurations",
+        "level": 4,
+        "text": "Example Configurations",
+        "id": "example-configurations"
       },
       {
-        level: 3,
-        text: "Lifecycle Management",
-        id: "lifecycle-management",
+        "level": 3,
+        "text": "Lifecycle Management",
+        "id": "lifecycle-management"
       },
       {
-        level: 3,
-        text: "Process Pooling",
-        id: "process-pooling",
+        "level": 3,
+        "text": "Process Pooling",
+        "id": "process-pooling"
       },
       {
-        level: 3,
-        text: "Common Patterns",
-        id: "common-patterns",
-      },
-    ],
+        "level": 3,
+        "text": "Common Patterns",
+        "id": "common-patterns"
+      }
+    ]
   },
   {
-    title: "Observability - Volcano Agent SDK",
-    path: "/docs/observability",
-    headings: [
+    "title": "Observability - Volcano Agent SDK",
+    "path": "/docs/observability",
+    "headings": [
       {
-        level: 1,
-        text: "Observability",
-        id: "observability",
+        "level": 1,
+        "text": "Observability",
+        "id": "observability"
       },
       {
-        level: 2,
-        text: "OpenTelemetry Integration",
-        id: "opentelemetry-integration",
+        "level": 2,
+        "text": "OpenTelemetry Integration",
+        "id": "opentelemetry-integration"
       },
       {
-        level: 3,
-        text: "Quick Start",
-        id: "quick-start",
+        "level": 3,
+        "text": "Quick Start",
+        "id": "quick-start"
       },
       {
-        level: 3,
-        text: "Naming Agents and Steps",
-        id: "naming-agents-and-steps",
+        "level": 3,
+        "text": "Naming Agents and Steps",
+        "id": "naming-agents-and-steps"
       },
       {
-        level: 3,
-        text: "Advanced: Manual SDK Configuration",
-        id: "advanced-manual-sdk-configuration",
+        "level": 3,
+        "text": "Advanced: Manual SDK Configuration",
+        "id": "advanced-manual-sdk-configuration"
       },
       {
-        level: 3,
-        text: "Installation",
-        id: "installation",
+        "level": 3,
+        "text": "Installation",
+        "id": "installation"
       },
       {
-        level: 2,
-        text: "Comprehensive Metrics",
-        id: "comprehensive-metrics",
+        "level": 2,
+        "text": "Comprehensive Metrics",
+        "id": "comprehensive-metrics"
       },
       {
-        level: 3,
-        text: "Questions You Can Answer",
-        id: "questions-you-can-answer",
+        "level": 3,
+        "text": "Questions You Can Answer",
+        "id": "questions-you-can-answer"
       },
       {
-        level: 3,
-        text: "Available Metrics",
-        id: "available-metrics",
+        "level": 3,
+        "text": "Available Metrics",
+        "id": "available-metrics"
       },
       {
-        level: 3,
-        text: "Example Prometheus Queries",
-        id: "example-prometheus-queries",
+        "level": 3,
+        "text": "Example Prometheus Queries",
+        "id": "example-prometheus-queries"
       },
       {
-        level: 2,
-        text: "Distributed Tracing",
-        id: "distributed-tracing",
+        "level": 2,
+        "text": "Distributed Tracing",
+        "id": "distributed-tracing"
       },
       {
-        level: 3,
-        text: "Trace Hierarchy",
-        id: "trace-hierarchy",
+        "level": 3,
+        "text": "Trace Hierarchy",
+        "id": "trace-hierarchy"
       },
       {
-        level: 3,
-        text: "Span Attributes",
-        id: "span-attributes",
+        "level": 3,
+        "text": "Span Attributes",
+        "id": "span-attributes"
       },
       {
-        level: 3,
-        text: "Error Tracking",
-        id: "error-tracking",
+        "level": 3,
+        "text": "Error Tracking",
+        "id": "error-tracking"
       },
       {
-        level: 2,
-        text: "Metrics",
-        id: "metrics",
+        "level": 2,
+        "text": "Metrics",
+        "id": "metrics"
       },
       {
-        level: 3,
-        text: "Available Metrics",
-        id: "available-metrics-1",
+        "level": 3,
+        "text": "Available Metrics",
+        "id": "available-metrics-1"
       },
       {
-        level: 3,
-        text: "Metric Labels",
-        id: "metric-labels",
+        "level": 3,
+        "text": "Metric Labels",
+        "id": "metric-labels"
       },
       {
-        level: 3,
-        text: "Parallel Tool Execution Metrics",
-        id: "parallel-tool-execution-metrics",
+        "level": 3,
+        "text": "Parallel Tool Execution Metrics",
+        "id": "parallel-tool-execution-metrics"
       },
       {
-        level: 2,
-        text: "Observability Backends",
-        id: "observability-backends",
+        "level": 2,
+        "text": "Observability Backends",
+        "id": "observability-backends"
       },
       {
-        level: 3,
-        text: "Jaeger (Distributed Tracing)",
-        id: "jaeger-distributed-tracing",
+        "level": 3,
+        "text": "Jaeger (Distributed Tracing)",
+        "id": "jaeger-distributed-tracing"
       },
       {
-        level: 3,
-        text: "Prometheus (Metrics)",
-        id: "prometheus-metrics",
+        "level": 3,
+        "text": "Prometheus (Metrics)",
+        "id": "prometheus-metrics"
       },
       {
-        level: 3,
-        text: "DataDog / NewRelic / Grafana Cloud",
-        id: "datadog-newrelic-grafana-cloud",
+        "level": 3,
+        "text": "DataDog / NewRelic / Grafana Cloud",
+        "id": "datadog-newrelic-grafana-cloud"
       },
       {
-        level: 3,
-        text: "Environment Variables",
-        id: "environment-variables",
+        "level": 3,
+        "text": "Environment Variables",
+        "id": "environment-variables"
       },
       {
-        level: 2,
-        text: "Advanced Configuration",
-        id: "advanced-configuration",
+        "level": 2,
+        "text": "Advanced Configuration",
+        "id": "advanced-configuration"
       },
       {
-        level: 3,
-        text: "Custom Tracer and Meter",
-        id: "custom-tracer-and-meter",
+        "level": 3,
+        "text": "Custom Tracer and Meter",
+        "id": "custom-tracer-and-meter"
       },
       {
-        level: 3,
-        text: "Disable Traces or Metrics",
-        id: "disable-traces-or-metrics",
+        "level": 3,
+        "text": "Disable Traces or Metrics",
+        "id": "disable-traces-or-metrics"
       },
       {
-        level: 2,
-        text: "Best Practices",
-        id: "best-practices",
-      },
-    ],
+        "level": 2,
+        "text": "Best Practices",
+        "id": "best-practices"
+      }
+    ]
   },
   {
-    title: "Advanced Patterns - Volcano Agent SDK",
-    path: "/docs/patterns",
-    headings: [
+    "title": "Advanced Patterns - Volcano Agent SDK",
+    "path": "/docs/patterns",
+    "headings": [
       {
-        level: 1,
-        text: "Advanced Patterns",
-        id: "advanced-patterns",
+        "level": 1,
+        "text": "Advanced Patterns",
+        "id": "advanced-patterns"
       },
       {
-        level: 2,
-        text: "Multi-LLM Workflows",
-        id: "multi-llm-workflows",
+        "level": 2,
+        "text": "Multi-LLM Workflows",
+        "id": "multi-llm-workflows"
       },
       {
-        level: 3,
-        text: "Basic Multi-Provider Workflow",
-        id: "basic-multi-provider-workflow",
+        "level": 3,
+        "text": "Basic Multi-Provider Workflow",
+        "id": "basic-multi-provider-workflow"
       },
       {
-        level: 3,
-        text: "Cost-Optimized Pipeline",
-        id: "cost-optimized-pipeline",
+        "level": 3,
+        "text": "Cost-Optimized Pipeline",
+        "id": "cost-optimized-pipeline"
       },
       {
-        level: 3,
-        text: "Multi-Provider with MCP Tools",
-        id: "multi-provider-with-mcp-tools",
+        "level": 3,
+        "text": "Multi-Provider with MCP Tools",
+        "id": "multi-provider-with-mcp-tools"
       },
       {
-        level: 3,
-        text: "Conditional Provider Switching",
-        id: "conditional-provider-switching",
+        "level": 3,
+        "text": "Conditional Provider Switching",
+        "id": "conditional-provider-switching"
       },
       {
-        level: 3,
-        text: "Global Default with Per-Step Overrides",
-        id: "global-default-with-per-step-overrides",
+        "level": 3,
+        "text": "Global Default with Per-Step Overrides",
+        "id": "global-default-with-per-step-overrides"
       },
       {
-        level: 3,
-        text: "Benefits",
-        id: "benefits",
+        "level": 3,
+        "text": "Benefits",
+        "id": "benefits"
       },
       {
-        level: 2,
-        text: "Parallel Execution",
-        id: "parallel-execution",
+        "level": 2,
+        "text": "Parallel Execution",
+        "id": "parallel-execution"
       },
       {
-        level: 3,
-        text: "Array Mode",
-        id: "array-mode",
+        "level": 3,
+        "text": "Array Mode",
+        "id": "array-mode"
       },
       {
-        level: 3,
-        text: "Named Dictionary Mode",
-        id: "named-dictionary-mode",
+        "level": 3,
+        "text": "Named Dictionary Mode",
+        "id": "named-dictionary-mode"
       },
       {
-        level: 3,
-        text: "Benefits",
-        id: "benefits-1",
+        "level": 3,
+        "text": "Benefits",
+        "id": "benefits-1"
       },
       {
-        level: 2,
-        text: "Conditional Branching",
-        id: "conditional-branching",
+        "level": 2,
+        "text": "Conditional Branching",
+        "id": "conditional-branching"
       },
       {
-        level: 3,
-        text: "If/Else Branching",
-        id: "ifelse-branching",
+        "level": 3,
+        "text": "If/Else Branching",
+        "id": "ifelse-branching"
       },
       {
-        level: 3,
-        text: "Switch/Case Branching",
-        id: "switchcase-branching",
+        "level": 3,
+        "text": "Switch/Case Branching",
+        "id": "switchcase-branching"
       },
       {
-        level: 3,
-        text: "Use Cases",
-        id: "use-cases",
+        "level": 3,
+        "text": "Use Cases",
+        "id": "use-cases"
       },
       {
-        level: 2,
-        text: "Loops",
-        id: "loops",
+        "level": 2,
+        "text": "Loops",
+        "id": "loops"
       },
       {
-        level: 3,
-        text: "While Loop",
-        id: "while-loop",
+        "level": 3,
+        "text": "While Loop",
+        "id": "while-loop"
       },
       {
-        level: 3,
-        text: "For-Each Loop",
-        id: "for-each-loop",
+        "level": 3,
+        "text": "For-Each Loop",
+        "id": "for-each-loop"
       },
       {
-        level: 3,
-        text: "Retry Until Success",
-        id: "retry-until-success",
+        "level": 3,
+        "text": "Retry Until Success",
+        "id": "retry-until-success"
       },
       {
-        level: 3,
-        text: "Use Cases",
-        id: "use-cases-1",
+        "level": 3,
+        "text": "Use Cases",
+        "id": "use-cases-1"
       },
       {
-        level: 2,
-        text: "Sub-Agent Composition",
-        id: "sub-agent-composition",
+        "level": 2,
+        "text": "Sub-Agent Composition",
+        "id": "sub-agent-composition"
       },
       {
-        level: 3,
-        text: "Defining Reusable Sub-Agents",
-        id: "defining-reusable-sub-agents",
+        "level": 3,
+        "text": "Defining Reusable Sub-Agents",
+        "id": "defining-reusable-sub-agents"
       },
       {
-        level: 3,
-        text: "Composing Sub-Agents",
-        id: "composing-sub-agents",
+        "level": 3,
+        "text": "Composing Sub-Agents",
+        "id": "composing-sub-agents"
       },
       {
-        level: 3,
-        text: "Complex Composition",
-        id: "complex-composition",
+        "level": 3,
+        "text": "Complex Composition",
+        "id": "complex-composition"
       },
       {
-        level: 3,
-        text: "Context Propagation Example",
-        id: "context-propagation-example",
+        "level": 3,
+        "text": "Context Propagation Example",
+        "id": "context-propagation-example"
       },
       {
-        level: 3,
-        text: "Benefits",
-        id: "benefits-2",
+        "level": 3,
+        "text": "Benefits",
+        "id": "benefits-2"
       },
       {
-        level: 2,
-        text: "Combined Patterns",
-        id: "combined-patterns",
-      },
-    ],
+        "level": 2,
+        "text": "Combined Patterns",
+        "id": "combined-patterns"
+      }
+    ]
   },
   {
-    title: "LLM Providers - Volcano Agent SDK",
-    path: "/docs/providers",
-    headings: [
+    "title": "LLM Providers - Volcano Agent SDK",
+    "path": "/docs/providers",
+    "headings": [
       {
-        level: 1,
-        text: "LLM Providers",
-        id: "llm-providers",
+        "level": 1,
+        "text": "LLM Providers",
+        "id": "llm-providers"
       },
       {
-        level: 2,
-        text: "Provider Support Matrix",
-        id: "provider-support-matrix",
+        "level": 2,
+        "text": "Provider Support Matrix",
+        "id": "provider-support-matrix"
       },
       {
-        level: 2,
-        text: "OpenAI Provider",
-        id: "openai-provider",
+        "level": 2,
+        "text": "OpenAI Provider",
+        "id": "openai-provider"
       },
       {
-        level: 3,
-        text: "Authentication",
-        id: "authentication",
+        "level": 3,
+        "text": "Authentication",
+        "id": "authentication"
       },
       {
-        level: 3,
-        text: "Configuration",
-        id: "configuration",
+        "level": 3,
+        "text": "Configuration",
+        "id": "configuration"
       },
       {
-        level: 3,
-        text: "Options Parameters",
-        id: "options-parameters",
+        "level": 3,
+        "text": "Options Parameters",
+        "id": "options-parameters"
       },
       {
-        level: 3,
-        text: "Structured Outputs (JSON Schema Validation)",
-        id: "structured-outputs-json-schema-validation",
+        "level": 3,
+        "text": "Structured Outputs (JSON Schema Validation)",
+        "id": "structured-outputs-json-schema-validation"
       },
       {
-        level: 4,
-        text: "Why Use Structured Outputs?",
-        id: "why-use-structured-outputs",
+        "level": 4,
+        "text": "Why Use Structured Outputs?",
+        "id": "why-use-structured-outputs"
       },
       {
-        level: 4,
-        text: "Supported Models",
-        id: "supported-models",
+        "level": 4,
+        "text": "Supported Models",
+        "id": "supported-models"
       },
       {
-        level: 4,
-        text: "In Agent Workflows",
-        id: "in-agent-workflows",
+        "level": 4,
+        "text": "In Agent Workflows",
+        "id": "in-agent-workflows"
       },
       {
-        level: 4,
-        text: "Structured Outputs vs Regular JSON Mode",
-        id: "structured-outputs-vs-regular-json-mode",
+        "level": 4,
+        "text": "Structured Outputs vs Regular JSON Mode",
+        "id": "structured-outputs-vs-regular-json-mode"
       },
       {
-        level: 2,
-        text: "Anthropic (Claude) Provider",
-        id: "anthropic-claude-provider",
+        "level": 2,
+        "text": "Anthropic (Claude) Provider",
+        "id": "anthropic-claude-provider"
       },
       {
-        level: 3,
-        text: "Authentication",
-        id: "authentication-1",
+        "level": 3,
+        "text": "Authentication",
+        "id": "authentication-1"
       },
       {
-        level: 3,
-        text: "Configuration",
-        id: "configuration-1",
+        "level": 3,
+        "text": "Configuration",
+        "id": "configuration-1"
       },
       {
-        level: 3,
-        text: "Options Parameters",
-        id: "options-parameters-1",
+        "level": 3,
+        "text": "Options Parameters",
+        "id": "options-parameters-1"
       },
       {
-        level: 2,
-        text: "Mistral Provider",
-        id: "mistral-provider",
+        "level": 2,
+        "text": "Mistral Provider",
+        "id": "mistral-provider"
       },
       {
-        level: 3,
-        text: "Authentication",
-        id: "authentication-2",
+        "level": 3,
+        "text": "Authentication",
+        "id": "authentication-2"
       },
       {
-        level: 3,
-        text: "Configuration",
-        id: "configuration-2",
+        "level": 3,
+        "text": "Configuration",
+        "id": "configuration-2"
       },
       {
-        level: 3,
-        text: "Options Parameters",
-        id: "options-parameters-2",
+        "level": 3,
+        "text": "Options Parameters",
+        "id": "options-parameters-2"
       },
       {
-        level: 2,
-        text: "Llama Provider",
-        id: "llama-provider",
+        "level": 2,
+        "text": "Llama Provider",
+        "id": "llama-provider"
       },
       {
-        level: 3,
-        text: "Authentication",
-        id: "authentication-3",
+        "level": 3,
+        "text": "Authentication",
+        "id": "authentication-3"
       },
       {
-        level: 3,
-        text: "Configuration",
-        id: "configuration-3",
+        "level": 3,
+        "text": "Configuration",
+        "id": "configuration-3"
       },
       {
-        level: 3,
-        text: "Options Parameters",
-        id: "options-parameters-3",
+        "level": 3,
+        "text": "Options Parameters",
+        "id": "options-parameters-3"
       },
       {
-        level: 2,
-        text: "AWS Bedrock Provider",
-        id: "aws-bedrock-provider",
+        "level": 2,
+        "text": "AWS Bedrock Provider",
+        "id": "aws-bedrock-provider"
       },
       {
-        level: 3,
-        text: "Authentication",
-        id: "authentication-4",
+        "level": 3,
+        "text": "Authentication",
+        "id": "authentication-4"
       },
       {
-        level: 3,
-        text: "Authentication Examples",
-        id: "authentication-examples",
+        "level": 3,
+        "text": "Authentication Examples",
+        "id": "authentication-examples"
       },
       {
-        level: 3,
-        text: "Configuration",
-        id: "configuration-4",
+        "level": 3,
+        "text": "Configuration",
+        "id": "configuration-4"
       },
       {
-        level: 3,
-        text: "Options Parameters",
-        id: "options-parameters-4",
+        "level": 3,
+        "text": "Options Parameters",
+        "id": "options-parameters-4"
       },
       {
-        level: 2,
-        text: "Google Vertex Studio Provider",
-        id: "google-vertex-studio-provider",
+        "level": 2,
+        "text": "Google Vertex Studio Provider",
+        "id": "google-vertex-studio-provider"
       },
       {
-        level: 3,
-        text: "Authentication",
-        id: "authentication-5",
+        "level": 3,
+        "text": "Authentication",
+        "id": "authentication-5"
       },
       {
-        level: 3,
-        text: "Configuration",
-        id: "configuration-5",
+        "level": 3,
+        "text": "Configuration",
+        "id": "configuration-5"
       },
       {
-        level: 3,
-        text: "Options Parameters",
-        id: "options-parameters-5",
+        "level": 3,
+        "text": "Options Parameters",
+        "id": "options-parameters-5"
       },
       {
-        level: 2,
-        text: "Azure AI Provider",
-        id: "azure-ai-provider",
+        "level": 2,
+        "text": "Azure AI Provider",
+        "id": "azure-ai-provider"
       },
       {
-        level: 3,
-        text: "Authentication",
-        id: "authentication-6",
+        "level": 3,
+        "text": "Authentication",
+        "id": "authentication-6"
       },
       {
-        level: 3,
-        text: "Authentication Examples",
-        id: "authentication-examples-1",
+        "level": 3,
+        "text": "Authentication Examples",
+        "id": "authentication-examples-1"
       },
       {
-        level: 3,
-        text: "Configuration",
-        id: "configuration-6",
+        "level": 3,
+        "text": "Configuration",
+        "id": "configuration-6"
       },
       {
-        level: 3,
-        text: "Options Parameters",
-        id: "options-parameters-6",
+        "level": 3,
+        "text": "Options Parameters",
+        "id": "options-parameters-6"
       },
       {
-        level: 2,
-        text: "Creating a Custom Provider",
-        id: "creating-a-custom-provider",
+        "level": 2,
+        "text": "Creating a Custom Provider",
+        "id": "creating-a-custom-provider"
       },
       {
-        level: 3,
-        text: "LLMHandle Interface",
-        id: "llmhandle-interface",
+        "level": 3,
+        "text": "LLMHandle Interface",
+        "id": "llmhandle-interface"
       },
       {
-        level: 3,
-        text: "Example: Custom Provider",
-        id: "example-custom-provider",
+        "level": 3,
+        "text": "Example: Custom Provider",
+        "id": "example-custom-provider"
       },
       {
-        level: 3,
-        text: "Using Your Custom Provider",
-        id: "using-your-custom-provider",
+        "level": 3,
+        "text": "Using Your Custom Provider",
+        "id": "using-your-custom-provider"
       },
       {
-        level: 3,
-        text: "Requirements",
-        id: "requirements",
-      },
-    ],
-  },
-];
+        "level": 3,
+        "text": "Requirements",
+        "id": "requirements"
+      }
+    ]
+  }
+]
