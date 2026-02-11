@@ -347,7 +347,7 @@ Define agents with names and descriptions, then let the LLM coordinator intellig
 ### How It Works
 
 ```typescript
-import { agent, llmOpenAI } from "@volcano/agent";
+import { agent, llmOpenAI } from "@volcano.dev/agent";
 
 const llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 
@@ -819,7 +819,7 @@ await agent({
 Track parallel vs sequential execution via telemetry metrics:
 
 ```typescript
-import { createVolcanoTelemetry } from "@volcano/agent";
+import { createVolcanoTelemetry } from "@volcano.dev/agent";
 
 const telemetry = createVolcanoTelemetry({ /* config */ });
 

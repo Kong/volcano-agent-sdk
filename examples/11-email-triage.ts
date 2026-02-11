@@ -1,4 +1,4 @@
-import { agent, llmOpenAI, mcp } from "@volcano/agent";
+import { agent, llmOpenAI, mcp } from "@volcano.dev/agent";
 
 // Real-world use case: automatically triage and respond to customer emails
 // Start MCP servers first: tsx examples/mcp/tasks/server.ts

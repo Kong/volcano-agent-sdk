@@ -1,4 +1,4 @@
-import { agent, llmOpenAIResponses } from "@volcano/agent";
+import { agent, llmOpenAIResponses } from "@volcano.dev/agent";
 
 // Use OpenAI Responses API for guaranteed structured outputs
 const llm = llmOpenAIResponses({ 

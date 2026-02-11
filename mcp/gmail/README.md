@@ -102,7 +102,7 @@ PORT=3800 node mcp/gmail/server.mjs
 ### Basic Usage (Access Token Only)
 
 ```typescript
-import { agent, llmOpenAI, mcp } from "@volcano/agent";
+import { agent, llmOpenAI, mcp } from "@volcano.dev/agent";
 
 const llm = llmOpenAI({ 
   apiKey: process.env.OPENAI_API_KEY!, 

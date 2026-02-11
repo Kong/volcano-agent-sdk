@@ -13,7 +13,7 @@ import { Highlight } from "prism-react-renderer";
 import { customThemeDark } from "./code-theme";
 import { useState, useEffect, useRef } from "react";
 
-const codeExample = `import { agent, llmOpenAI, llmAnthropic, llmMistral } from "@volcano/agent";
+const codeExample = `import { agent, llmOpenAI, llmAnthropic, llmMistral } from "@volcano.dev/agent";
 
 const gpt = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 const claude = llmAnthropic({ apiKey: process.env.ANTHROPIC_API_KEY! });

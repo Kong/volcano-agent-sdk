@@ -24,7 +24,7 @@ function BasicExamplesPage() {
           <p>The simplest possible agent with OpenAI:</p>
 
           <CodeBlock language="typescript" title="Hello World Agent">
-            {`import { agent, llmOpenAI } from "@volcano/agent";
+            {`import { agent, llmOpenAI } from "@volcano.dev/agent";
 
 const llm = llmOpenAI({ 
   apiKey: process.env.OPENAI_API_KEY!,
@@ -65,7 +65,7 @@ results.forEach((step, i) => {
           <p>Switch between LLM providers in the same workflow:</p>
 
           <CodeBlock language="typescript" title="Using Different Providers">
-            {`import { agent, llmOpenAI, llmAnthropic } from "@volcano/agent";
+            {`import { agent, llmOpenAI, llmAnthropic } from "@volcano.dev/agent";
 
 const openai = llmOpenAI({ 
   apiKey: process.env.OPENAI_API_KEY!,
@@ -95,7 +95,7 @@ const results = await agent()
           </p>
 
           <CodeBlock language="typescript" title="Simple MCP Tool Usage">
-            {`import { agent, llmOpenAI, mcp } from "@volcano/agent";
+            {`import { agent, llmOpenAI, mcp } from "@volcano.dev/agent";
 
 const llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 const weather = mcp("http://localhost:3000/weather");

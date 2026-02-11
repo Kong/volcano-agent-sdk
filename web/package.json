@@ -1,5 +1,5 @@
 {
-  "name": "@volcano/agent-site",
+  "name": "@volcano.dev/agent-site",
   "private": true,
   "version": "0.0.0",
   "type": "module",

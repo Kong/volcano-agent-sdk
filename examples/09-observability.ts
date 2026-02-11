@@ -1,4 +1,4 @@
-import { agent, llmOpenAI, createVolcanoTelemetry } from "@volcano/agent";
+import { agent, llmOpenAI, createVolcanoTelemetry } from "@volcano.dev/agent";
 
 // Start the observability stack first:
 // cd observability-demo && docker-compose -f docker-compose.observability.yml up

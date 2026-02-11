@@ -63,7 +63,7 @@ Mark a task as completed.
 ## Example Usage
 
 ```typescript
-import { agent, llmOpenAI, mcp } from "@volcano/agent";
+import { agent, llmOpenAI, mcp } from "@volcano.dev/agent";
 
 const tasks = mcp("http://localhost:8002/mcp");
 

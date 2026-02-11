@@ -2,7 +2,7 @@ import {
   agent, 
   llmOpenAI, 
   llmAnthropic
-} from "@volcano/agent";
+} from "@volcano.dev/agent";
 
 // Use different providers for different tasks
 const gpt = llmOpenAI({ 

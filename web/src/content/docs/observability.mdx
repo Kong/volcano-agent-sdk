@@ -19,7 +19,7 @@ Volcano Agent SDK uses OpenTelemetry (OTEL), the industry-standard observability
 Just pass an `endpoint` and Volcano auto-configures OpenTelemetry for you:
 
 ```typescript
-import { agent, llmOpenAI, createVolcanoTelemetry } from "@volcano/agent";
+import { agent, llmOpenAI, createVolcanoTelemetry } from "@volcano.dev/agent";
 
 // Create telemetry with endpoint - auto-configures everything!
 const telemetry = createVolcanoTelemetry({
@@ -384,7 +384,7 @@ Volcano works with any OpenTelemetry-compatible backend.
 ```typescript
 import { NodeSDK } from "@opentelemetry/sdk-node";
 import { JaegerExporter } from "@opentelemetry/exporter-jaeger";
-import { createVolcanoTelemetry } from "@volcano/agent";
+import { createVolcanoTelemetry } from "@volcano.dev/agent";
 
 // Setup OTEL SDK
 const sdk = new NodeSDK({
@@ -433,7 +433,7 @@ sdk.start();
 **Option 1: Auto-configuration with endpoint**
 
 ```typescript
-import { createVolcanoTelemetry } from "@volcano/agent";
+import { createVolcanoTelemetry } from "@volcano.dev/agent";
 
 const telemetry = createVolcanoTelemetry({
   serviceName: "my-agent",
@@ -498,7 +498,7 @@ Provide your own OTEL tracer and meter instances:
 
 ```typescript
 import { trace, metrics } from "@opentelemetry/api";
-import { createVolcanoTelemetry } from "@volcano/agent";
+import { createVolcanoTelemetry } from "@volcano.dev/agent";
 
 const tracer = trace.getTracer("my-custom-tracer");
 const meter = metrics.getMeter("my-custom-meter");

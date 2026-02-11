@@ -17,7 +17,7 @@ Volcano Agent SDK supports two MCP transport types:
 Connect to remote MCP servers over HTTP with Server-Sent Events (SSE):
 
 ```typescript
-import { mcp } from "@volcano/agent";
+import { mcp } from "@volcano.dev/agent";
 
 // Basic HTTP connection
 const remoteMcp = mcp("https://api.example.com/mcp");
@@ -48,7 +48,7 @@ const authMcp = mcp("https://api.example.com/mcp", {
 Connect to local MCP servers via standard input/output:
 
 ```typescript
-import { mcpStdio } from "@volcano/agent";
+import { mcpStdio } from "@volcano.dev/agent";
 
 // Basic stdio connection
 const localMcp = mcpStdio({
@@ -91,7 +91,7 @@ await configuredMcp.cleanup?.();
 Use both stdio and HTTP in the same workflow:
 
 ```typescript
-import { agent, llmOpenAI, mcpStdio, mcp } from "@volcano/agent";
+import { agent, llmOpenAI, mcpStdio, mcp } from "@volcano.dev/agent";
 
 const llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 
@@ -130,7 +130,7 @@ await filesMcp.cleanup?.();
 Let the LLM intelligently choose which tools to call based on the prompt. This is the recommended approach for most use cases.
 
 ```typescript
-import { agent, llmOpenAI, mcp } from "@volcano/agent";
+import { agent, llmOpenAI, mcp } from "@volcano.dev/agent";
 
 const weather = mcp("http://localhost:3000/mcp");
 const notifications = mcp("http://localhost:4000/mcp");
@@ -280,7 +280,7 @@ This flexible approach works with any MCP tool and naming convention without har
 Track parallel vs sequential execution via telemetry:
 
 ```typescript
-import { createVolcanoTelemetry } from "@volcano/agent";
+import { createVolcanoTelemetry } from "@volcano.dev/agent";
 
 const telemetry = createVolcanoTelemetry({ /* config */ });
 
@@ -726,7 +726,7 @@ import {
   __internal_setDiscoveryTtl,
   __internal_clearDiscoveryCache,
   __internal_clearOAuthTokenCache,
-} from "@volcano/agent";
+} from "@volcano.dev/agent";
 
 // Configure connection pool
 __internal_setPoolConfig(32, 60_000); // max 32 connections, 60s idle
