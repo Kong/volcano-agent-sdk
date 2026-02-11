@@ -201,7 +201,10 @@ function ApiFunctionsPage() {
           <h3>
             <InlineCode>.run()</InlineCode>
           </h3>
-          <p>Executes the workflow and returns all results. Accepts optional callbacks for real-time updates.</p>
+          <p>
+            Executes the workflow and returns all results. Accepts optional
+            callbacks for real-time updates.
+          </p>
 
           <h4>Parameters</h4>
           <p>Can be called with a simple callback or options object:</p>

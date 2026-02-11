@@ -17,20 +17,26 @@ const IS_PRODUCTION = import.meta.env.PROD;
  */
 export function initializeAnalytics(): void {
   // Only load GA in production and when measurement ID is configured
-  if (!IS_PRODUCTION || !GA_MEASUREMENT_ID || GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') {
-    console.log('[Analytics] Skipping GA initialization (dev mode or no measurement ID)');
+  if (
+    !IS_PRODUCTION ||
+    !GA_MEASUREMENT_ID ||
+    GA_MEASUREMENT_ID === "G-XXXXXXXXXX"
+  ) {
+    console.log(
+      "[Analytics] Skipping GA initialization (dev mode or no measurement ID)"
+    );
     return;
   }
 
   // Check if already initialized
   if (window.gtag) {
-    console.log('[Analytics] GA already initialized');
+    console.log("[Analytics] GA already initialized");
     return;
   }
 
   try {
     // Load GA script
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     script.async = true;
     script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
     document.head.appendChild(script);
@@ -42,14 +48,14 @@ export function initializeAnalytics(): void {
     };
 
     // Configure GA
-    window.gtag('js', new Date());
-    window.gtag('config', GA_MEASUREMENT_ID, {
+    window.gtag("js", new Date());
+    window.gtag("config", GA_MEASUREMENT_ID, {
       send_page_view: false, // We'll handle page views manually for SPA
     });
 
-    console.log('[Analytics] GA initialized successfully');
+    console.log("[Analytics] GA initialized successfully");
   } catch (error) {
-    console.error('[Analytics] Failed to initialize GA:', error);
+    console.error("[Analytics] Failed to initialize GA:", error);
   }
 }
 
@@ -64,14 +70,14 @@ export function trackPageView(path: string, title?: string): void {
   }
 
   try {
-    window.gtag('event', 'page_view', {
+    window.gtag("event", "page_view", {
       page_path: path,
       page_title: title || document.title,
       page_location: window.location.href,
     });
-    console.log('[Analytics] Page view tracked:', path);
+    console.log("[Analytics] Page view tracked:", path);
   } catch (error) {
-    console.error('[Analytics] Failed to track page view:', error);
+    console.error("[Analytics] Failed to track page view:", error);
   }
 }
 
@@ -80,16 +86,19 @@ export function trackPageView(path: string, title?: string): void {
  * @param eventName - Name of the event
  * @param parameters - Optional event parameters
  */
-export function trackEvent(eventName: string, parameters?: Record<string, unknown>): void {
+export function trackEvent(
+  eventName: string,
+  parameters?: Record<string, unknown>
+): void {
   if (!IS_PRODUCTION || !GA_MEASUREMENT_ID || !window.gtag) {
     return;
   }
 
   try {
-    window.gtag('event', eventName, parameters);
-    console.log('[Analytics] Event tracked:', eventName, parameters);
+    window.gtag("event", eventName, parameters);
+    console.log("[Analytics] Event tracked:", eventName, parameters);
   } catch (error) {
-    console.error('[Analytics] Failed to track event:', error);
+    console.error("[Analytics] Failed to track event:", error);
   }
 }
 
@@ -97,5 +106,7 @@ export function trackEvent(eventName: string, parameters?: Record<string, unknow
  * Check if analytics is enabled
  */
 export function isAnalyticsEnabled(): boolean {
-  return IS_PRODUCTION && !!GA_MEASUREMENT_ID && GA_MEASUREMENT_ID !== 'G-XXXXXXXXXX';
+  return (
+    IS_PRODUCTION && !!GA_MEASUREMENT_ID && GA_MEASUREMENT_ID !== "G-XXXXXXXXXX"
+  );
 }

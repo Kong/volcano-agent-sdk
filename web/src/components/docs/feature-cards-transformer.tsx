@@ -46,12 +46,18 @@ export function FeatureCardsTransformer() {
             if (nextP && nextP.tagName === "P") {
               // Extract icon and title - support both "icon title" and "title" formats
               // Match emoji/special char followed by space, or treat entire text as title
-              const iconMatch = h3Text.match(/^([\p{Emoji}\p{Symbol}])\s+(.+)$/u);
+              const iconMatch = h3Text.match(
+                /^([\p{Emoji}\p{Symbol}])\s+(.+)$/u
+              );
 
               if (iconMatch) {
                 // Has emoji icon: "🔗 Chainable API"
                 const [, icon, title] = iconMatch;
-                features.push({ icon, title, description: nextP.textContent || "" });
+                features.push({
+                  icon,
+                  title,
+                  description: nextP.textContent || "",
+                });
               } else {
                 // No icon: "Chainable API" or "TypeScript-First"
                 features.push({

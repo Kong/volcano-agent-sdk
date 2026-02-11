@@ -6,7 +6,10 @@ function Features() {
           All you need for production agents
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <a href="/docs/patterns" className="group flex flex-col border-1 border-black p-6 hover:outline-[3px] hover:outline-offset-[-3px] hover:outline-black">
+          <a
+            href="/docs/patterns"
+            className="group flex flex-col border-1 border-black p-6 hover:outline-[3px] hover:outline-offset-[-3px] hover:outline-black"
+          >
             <div className="flex h-3/5 items-center justify-center">
               <img
                 src="/01_mcp_selection.svg"
@@ -22,7 +25,10 @@ function Features() {
               composition for complex workflows.
             </p>
           </a>
-          <a href="/docs/features#retries-timeouts" className="group flex flex-col border-1 border-black p-6 hover:outline-[3px] hover:outline-offset-[-3px] hover:outline-black">
+          <a
+            href="/docs/features#retries-timeouts"
+            className="group flex flex-col border-1 border-black p-6 hover:outline-[3px] hover:outline-offset-[-3px] hover:outline-black"
+          >
             <div className="flex h-3/5 items-center justify-center">
               <img
                 src="/02_retriest_timeouts.svg"
@@ -38,7 +44,10 @@ function Features() {
               backoff. Per-step timeout configuration.
             </p>
           </a>
-          <a href="/docs/providers" className="group flex flex-col border-1 border-black p-6 hover:outline-[3px] hover:outline-offset-[-3px] hover:outline-black">
+          <a
+            href="/docs/providers"
+            className="group flex flex-col border-1 border-black p-6 hover:outline-[3px] hover:outline-offset-[-3px] hover:outline-black"
+          >
             <div className="flex h-3/5 items-center justify-center">
               <img src="/03_models.svg" alt="Models" className="mb-4 h-full" />
             </div>
@@ -50,7 +59,10 @@ function Features() {
               Azure. Switch providers per-step.
             </p>
           </a>
-          <a href="/docs/observability" className="group flex flex-col border-1 border-black p-6 hover:outline-[3px] hover:outline-offset-[-3px] hover:outline-black">
+          <a
+            href="/docs/observability"
+            className="group flex flex-col border-1 border-black p-6 hover:outline-[3px] hover:outline-offset-[-3px] hover:outline-black"
+          >
             <div className="flex h-3/5 items-center justify-center">
               <img
                 src="/04_latency_graph.svg"

@@ -20,7 +20,8 @@ export function GitHubCTA() {
           </h2>
 
           <p className="mb-8 text-base text-gray-700 sm:text-lg">
-            Fully open source and community-driven. Explore the code, contribute, and help shape the future of AI agent development.
+            Fully open source and community-driven. Explore the code,
+            contribute, and help shape the future of AI agent development.
           </p>
 
           <a

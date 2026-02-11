@@ -70,7 +70,9 @@ function Demo2() {
             MCP Native
           </div>
           <p className="py-2 text-base sm:text-xl">
-            With automatic MCP tool selection, building MCP-powered workflows is easy as advertising which MCP servers you would like to use for each step.
+            With automatic MCP tool selection, building MCP-powered workflows is
+            easy as advertising which MCP servers you would like to use for each
+            step.
           </p>
 
           {/* Code Block */}

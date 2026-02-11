@@ -546,7 +546,11 @@ type LLMHandle = {
 ### Example: Custom Provider
 
 ```typescript
-import type { LLMHandle, ToolDefinition, LLMToolResult } from "@volcano.dev/agent";
+import type {
+  LLMHandle,
+  ToolDefinition,
+  LLMToolResult,
+} from "@volcano.dev/agent";
 
 export function llmCustom(config: {
   apiKey: string;

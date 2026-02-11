@@ -8,338 +8,346 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router";
 
-import { Route as rootRouteImport } from './routes/__root'
+import { Route as rootRouteImport } from "./routes/__root";
 
-const IndexLazyRouteImport = createFileRoute('/')()
-const DocsIndexLazyRouteImport = createFileRoute('/docs/')()
-const DocsProvidersLazyRouteImport = createFileRoute('/docs/providers')()
-const DocsPatternsLazyRouteImport = createFileRoute('/docs/patterns')()
+const IndexLazyRouteImport = createFileRoute("/")();
+const DocsIndexLazyRouteImport = createFileRoute("/docs/")();
+const DocsProvidersLazyRouteImport = createFileRoute("/docs/providers")();
+const DocsPatternsLazyRouteImport = createFileRoute("/docs/patterns")();
 const DocsObservabilityLazyRouteImport = createFileRoute(
-  '/docs/observability',
-)()
-const DocsMcpToolsLazyRouteImport = createFileRoute('/docs/mcp-tools')()
-const DocsInstallationLazyRouteImport = createFileRoute('/docs/installation')()
-const DocsFeaturesLazyRouteImport = createFileRoute('/docs/features')()
-const DocsExamplesLazyRouteImport = createFileRoute('/docs/examples')()
-const DocsApiLazyRouteImport = createFileRoute('/docs/api')()
+  "/docs/observability"
+)();
+const DocsMcpToolsLazyRouteImport = createFileRoute("/docs/mcp-tools")();
+const DocsInstallationLazyRouteImport = createFileRoute("/docs/installation")();
+const DocsFeaturesLazyRouteImport = createFileRoute("/docs/features")();
+const DocsExamplesLazyRouteImport = createFileRoute("/docs/examples")();
+const DocsApiLazyRouteImport = createFileRoute("/docs/api")();
 const DocsExamplesInteractiveLazyRouteImport = createFileRoute(
-  '/docs/examples/interactive',
-)()
+  "/docs/examples/interactive"
+)();
 const DocsExamplesBasicLazyRouteImport = createFileRoute(
-  '/docs/examples/basic',
-)()
-const DocsApiFunctionsLazyRouteImport = createFileRoute('/docs/api/functions')()
+  "/docs/examples/basic"
+)();
+const DocsApiFunctionsLazyRouteImport = createFileRoute(
+  "/docs/api/functions"
+)();
 
 const IndexLazyRoute = IndexLazyRouteImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+} as any).lazy(() => import("./routes/index.lazy").then((d) => d.Route));
 const DocsIndexLazyRoute = DocsIndexLazyRouteImport.update({
-  id: '/docs/',
-  path: '/docs/',
+  id: "/docs/",
+  path: "/docs/",
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/docs/index.lazy').then((d) => d.Route))
+} as any).lazy(() => import("./routes/docs/index.lazy").then((d) => d.Route));
 const DocsProvidersLazyRoute = DocsProvidersLazyRouteImport.update({
-  id: '/docs/providers',
-  path: '/docs/providers',
+  id: "/docs/providers",
+  path: "/docs/providers",
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() =>
-  import('./routes/docs/providers.lazy').then((d) => d.Route),
-)
+  import("./routes/docs/providers.lazy").then((d) => d.Route)
+);
 const DocsPatternsLazyRoute = DocsPatternsLazyRouteImport.update({
-  id: '/docs/patterns',
-  path: '/docs/patterns',
+  id: "/docs/patterns",
+  path: "/docs/patterns",
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/docs/patterns.lazy').then((d) => d.Route))
+} as any).lazy(() =>
+  import("./routes/docs/patterns.lazy").then((d) => d.Route)
+);
 const DocsObservabilityLazyRoute = DocsObservabilityLazyRouteImport.update({
-  id: '/docs/observability',
-  path: '/docs/observability',
+  id: "/docs/observability",
+  path: "/docs/observability",
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() =>
-  import('./routes/docs/observability.lazy').then((d) => d.Route),
-)
+  import("./routes/docs/observability.lazy").then((d) => d.Route)
+);
 const DocsMcpToolsLazyRoute = DocsMcpToolsLazyRouteImport.update({
-  id: '/docs/mcp-tools',
-  path: '/docs/mcp-tools',
+  id: "/docs/mcp-tools",
+  path: "/docs/mcp-tools",
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() =>
-  import('./routes/docs/mcp-tools.lazy').then((d) => d.Route),
-)
+  import("./routes/docs/mcp-tools.lazy").then((d) => d.Route)
+);
 const DocsInstallationLazyRoute = DocsInstallationLazyRouteImport.update({
-  id: '/docs/installation',
-  path: '/docs/installation',
+  id: "/docs/installation",
+  path: "/docs/installation",
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() =>
-  import('./routes/docs/installation.lazy').then((d) => d.Route),
-)
+  import("./routes/docs/installation.lazy").then((d) => d.Route)
+);
 const DocsFeaturesLazyRoute = DocsFeaturesLazyRouteImport.update({
-  id: '/docs/features',
-  path: '/docs/features',
+  id: "/docs/features",
+  path: "/docs/features",
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/docs/features.lazy').then((d) => d.Route))
+} as any).lazy(() =>
+  import("./routes/docs/features.lazy").then((d) => d.Route)
+);
 const DocsExamplesLazyRoute = DocsExamplesLazyRouteImport.update({
-  id: '/docs/examples',
-  path: '/docs/examples',
+  id: "/docs/examples",
+  path: "/docs/examples",
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/docs/examples.lazy').then((d) => d.Route))
+} as any).lazy(() =>
+  import("./routes/docs/examples.lazy").then((d) => d.Route)
+);
 const DocsApiLazyRoute = DocsApiLazyRouteImport.update({
-  id: '/docs/api',
-  path: '/docs/api',
+  id: "/docs/api",
+  path: "/docs/api",
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/docs/api.lazy').then((d) => d.Route))
+} as any).lazy(() => import("./routes/docs/api.lazy").then((d) => d.Route));
 const DocsExamplesInteractiveLazyRoute =
   DocsExamplesInteractiveLazyRouteImport.update({
-    id: '/interactive',
-    path: '/interactive',
+    id: "/interactive",
+    path: "/interactive",
     getParentRoute: () => DocsExamplesLazyRoute,
   } as any).lazy(() =>
-    import('./routes/docs/examples/interactive.lazy').then((d) => d.Route),
-  )
+    import("./routes/docs/examples/interactive.lazy").then((d) => d.Route)
+  );
 const DocsExamplesBasicLazyRoute = DocsExamplesBasicLazyRouteImport.update({
-  id: '/basic',
-  path: '/basic',
+  id: "/basic",
+  path: "/basic",
   getParentRoute: () => DocsExamplesLazyRoute,
 } as any).lazy(() =>
-  import('./routes/docs/examples/basic.lazy').then((d) => d.Route),
-)
+  import("./routes/docs/examples/basic.lazy").then((d) => d.Route)
+);
 const DocsApiFunctionsLazyRoute = DocsApiFunctionsLazyRouteImport.update({
-  id: '/functions',
-  path: '/functions',
+  id: "/functions",
+  path: "/functions",
   getParentRoute: () => DocsApiLazyRoute,
 } as any).lazy(() =>
-  import('./routes/docs/api/functions.lazy').then((d) => d.Route),
-)
+  import("./routes/docs/api/functions.lazy").then((d) => d.Route)
+);
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexLazyRoute
-  '/docs/api': typeof DocsApiLazyRouteWithChildren
-  '/docs/examples': typeof DocsExamplesLazyRouteWithChildren
-  '/docs/features': typeof DocsFeaturesLazyRoute
-  '/docs/installation': typeof DocsInstallationLazyRoute
-  '/docs/mcp-tools': typeof DocsMcpToolsLazyRoute
-  '/docs/observability': typeof DocsObservabilityLazyRoute
-  '/docs/patterns': typeof DocsPatternsLazyRoute
-  '/docs/providers': typeof DocsProvidersLazyRoute
-  '/docs': typeof DocsIndexLazyRoute
-  '/docs/api/functions': typeof DocsApiFunctionsLazyRoute
-  '/docs/examples/basic': typeof DocsExamplesBasicLazyRoute
-  '/docs/examples/interactive': typeof DocsExamplesInteractiveLazyRoute
+  "/": typeof IndexLazyRoute;
+  "/docs/api": typeof DocsApiLazyRouteWithChildren;
+  "/docs/examples": typeof DocsExamplesLazyRouteWithChildren;
+  "/docs/features": typeof DocsFeaturesLazyRoute;
+  "/docs/installation": typeof DocsInstallationLazyRoute;
+  "/docs/mcp-tools": typeof DocsMcpToolsLazyRoute;
+  "/docs/observability": typeof DocsObservabilityLazyRoute;
+  "/docs/patterns": typeof DocsPatternsLazyRoute;
+  "/docs/providers": typeof DocsProvidersLazyRoute;
+  "/docs": typeof DocsIndexLazyRoute;
+  "/docs/api/functions": typeof DocsApiFunctionsLazyRoute;
+  "/docs/examples/basic": typeof DocsExamplesBasicLazyRoute;
+  "/docs/examples/interactive": typeof DocsExamplesInteractiveLazyRoute;
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexLazyRoute
-  '/docs/api': typeof DocsApiLazyRouteWithChildren
-  '/docs/examples': typeof DocsExamplesLazyRouteWithChildren
-  '/docs/features': typeof DocsFeaturesLazyRoute
-  '/docs/installation': typeof DocsInstallationLazyRoute
-  '/docs/mcp-tools': typeof DocsMcpToolsLazyRoute
-  '/docs/observability': typeof DocsObservabilityLazyRoute
-  '/docs/patterns': typeof DocsPatternsLazyRoute
-  '/docs/providers': typeof DocsProvidersLazyRoute
-  '/docs': typeof DocsIndexLazyRoute
-  '/docs/api/functions': typeof DocsApiFunctionsLazyRoute
-  '/docs/examples/basic': typeof DocsExamplesBasicLazyRoute
-  '/docs/examples/interactive': typeof DocsExamplesInteractiveLazyRoute
+  "/": typeof IndexLazyRoute;
+  "/docs/api": typeof DocsApiLazyRouteWithChildren;
+  "/docs/examples": typeof DocsExamplesLazyRouteWithChildren;
+  "/docs/features": typeof DocsFeaturesLazyRoute;
+  "/docs/installation": typeof DocsInstallationLazyRoute;
+  "/docs/mcp-tools": typeof DocsMcpToolsLazyRoute;
+  "/docs/observability": typeof DocsObservabilityLazyRoute;
+  "/docs/patterns": typeof DocsPatternsLazyRoute;
+  "/docs/providers": typeof DocsProvidersLazyRoute;
+  "/docs": typeof DocsIndexLazyRoute;
+  "/docs/api/functions": typeof DocsApiFunctionsLazyRoute;
+  "/docs/examples/basic": typeof DocsExamplesBasicLazyRoute;
+  "/docs/examples/interactive": typeof DocsExamplesInteractiveLazyRoute;
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/': typeof IndexLazyRoute
-  '/docs/api': typeof DocsApiLazyRouteWithChildren
-  '/docs/examples': typeof DocsExamplesLazyRouteWithChildren
-  '/docs/features': typeof DocsFeaturesLazyRoute
-  '/docs/installation': typeof DocsInstallationLazyRoute
-  '/docs/mcp-tools': typeof DocsMcpToolsLazyRoute
-  '/docs/observability': typeof DocsObservabilityLazyRoute
-  '/docs/patterns': typeof DocsPatternsLazyRoute
-  '/docs/providers': typeof DocsProvidersLazyRoute
-  '/docs/': typeof DocsIndexLazyRoute
-  '/docs/api/functions': typeof DocsApiFunctionsLazyRoute
-  '/docs/examples/basic': typeof DocsExamplesBasicLazyRoute
-  '/docs/examples/interactive': typeof DocsExamplesInteractiveLazyRoute
+  __root__: typeof rootRouteImport;
+  "/": typeof IndexLazyRoute;
+  "/docs/api": typeof DocsApiLazyRouteWithChildren;
+  "/docs/examples": typeof DocsExamplesLazyRouteWithChildren;
+  "/docs/features": typeof DocsFeaturesLazyRoute;
+  "/docs/installation": typeof DocsInstallationLazyRoute;
+  "/docs/mcp-tools": typeof DocsMcpToolsLazyRoute;
+  "/docs/observability": typeof DocsObservabilityLazyRoute;
+  "/docs/patterns": typeof DocsPatternsLazyRoute;
+  "/docs/providers": typeof DocsProvidersLazyRoute;
+  "/docs/": typeof DocsIndexLazyRoute;
+  "/docs/api/functions": typeof DocsApiFunctionsLazyRoute;
+  "/docs/examples/basic": typeof DocsExamplesBasicLazyRoute;
+  "/docs/examples/interactive": typeof DocsExamplesInteractiveLazyRoute;
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
+  fileRoutesByFullPath: FileRoutesByFullPath;
   fullPaths:
-    | '/'
-    | '/docs/api'
-    | '/docs/examples'
-    | '/docs/features'
-    | '/docs/installation'
-    | '/docs/mcp-tools'
-    | '/docs/observability'
-    | '/docs/patterns'
-    | '/docs/providers'
-    | '/docs'
-    | '/docs/api/functions'
-    | '/docs/examples/basic'
-    | '/docs/examples/interactive'
-  fileRoutesByTo: FileRoutesByTo
+    | "/"
+    | "/docs/api"
+    | "/docs/examples"
+    | "/docs/features"
+    | "/docs/installation"
+    | "/docs/mcp-tools"
+    | "/docs/observability"
+    | "/docs/patterns"
+    | "/docs/providers"
+    | "/docs"
+    | "/docs/api/functions"
+    | "/docs/examples/basic"
+    | "/docs/examples/interactive";
+  fileRoutesByTo: FileRoutesByTo;
   to:
-    | '/'
-    | '/docs/api'
-    | '/docs/examples'
-    | '/docs/features'
-    | '/docs/installation'
-    | '/docs/mcp-tools'
-    | '/docs/observability'
-    | '/docs/patterns'
-    | '/docs/providers'
-    | '/docs'
-    | '/docs/api/functions'
-    | '/docs/examples/basic'
-    | '/docs/examples/interactive'
+    | "/"
+    | "/docs/api"
+    | "/docs/examples"
+    | "/docs/features"
+    | "/docs/installation"
+    | "/docs/mcp-tools"
+    | "/docs/observability"
+    | "/docs/patterns"
+    | "/docs/providers"
+    | "/docs"
+    | "/docs/api/functions"
+    | "/docs/examples/basic"
+    | "/docs/examples/interactive";
   id:
-    | '__root__'
-    | '/'
-    | '/docs/api'
-    | '/docs/examples'
-    | '/docs/features'
-    | '/docs/installation'
-    | '/docs/mcp-tools'
-    | '/docs/observability'
-    | '/docs/patterns'
-    | '/docs/providers'
-    | '/docs/'
-    | '/docs/api/functions'
-    | '/docs/examples/basic'
-    | '/docs/examples/interactive'
-  fileRoutesById: FileRoutesById
+    | "__root__"
+    | "/"
+    | "/docs/api"
+    | "/docs/examples"
+    | "/docs/features"
+    | "/docs/installation"
+    | "/docs/mcp-tools"
+    | "/docs/observability"
+    | "/docs/patterns"
+    | "/docs/providers"
+    | "/docs/"
+    | "/docs/api/functions"
+    | "/docs/examples/basic"
+    | "/docs/examples/interactive";
+  fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
-  IndexLazyRoute: typeof IndexLazyRoute
-  DocsApiLazyRoute: typeof DocsApiLazyRouteWithChildren
-  DocsExamplesLazyRoute: typeof DocsExamplesLazyRouteWithChildren
-  DocsFeaturesLazyRoute: typeof DocsFeaturesLazyRoute
-  DocsInstallationLazyRoute: typeof DocsInstallationLazyRoute
-  DocsMcpToolsLazyRoute: typeof DocsMcpToolsLazyRoute
-  DocsObservabilityLazyRoute: typeof DocsObservabilityLazyRoute
-  DocsPatternsLazyRoute: typeof DocsPatternsLazyRoute
-  DocsProvidersLazyRoute: typeof DocsProvidersLazyRoute
-  DocsIndexLazyRoute: typeof DocsIndexLazyRoute
+  IndexLazyRoute: typeof IndexLazyRoute;
+  DocsApiLazyRoute: typeof DocsApiLazyRouteWithChildren;
+  DocsExamplesLazyRoute: typeof DocsExamplesLazyRouteWithChildren;
+  DocsFeaturesLazyRoute: typeof DocsFeaturesLazyRoute;
+  DocsInstallationLazyRoute: typeof DocsInstallationLazyRoute;
+  DocsMcpToolsLazyRoute: typeof DocsMcpToolsLazyRoute;
+  DocsObservabilityLazyRoute: typeof DocsObservabilityLazyRoute;
+  DocsPatternsLazyRoute: typeof DocsPatternsLazyRoute;
+  DocsProvidersLazyRoute: typeof DocsProvidersLazyRoute;
+  DocsIndexLazyRoute: typeof DocsIndexLazyRoute;
 }
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/docs/': {
-      id: '/docs/'
-      path: '/docs'
-      fullPath: '/docs'
-      preLoaderRoute: typeof DocsIndexLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/docs/providers': {
-      id: '/docs/providers'
-      path: '/docs/providers'
-      fullPath: '/docs/providers'
-      preLoaderRoute: typeof DocsProvidersLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/docs/patterns': {
-      id: '/docs/patterns'
-      path: '/docs/patterns'
-      fullPath: '/docs/patterns'
-      preLoaderRoute: typeof DocsPatternsLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/docs/observability': {
-      id: '/docs/observability'
-      path: '/docs/observability'
-      fullPath: '/docs/observability'
-      preLoaderRoute: typeof DocsObservabilityLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/docs/mcp-tools': {
-      id: '/docs/mcp-tools'
-      path: '/docs/mcp-tools'
-      fullPath: '/docs/mcp-tools'
-      preLoaderRoute: typeof DocsMcpToolsLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/docs/installation': {
-      id: '/docs/installation'
-      path: '/docs/installation'
-      fullPath: '/docs/installation'
-      preLoaderRoute: typeof DocsInstallationLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/docs/features': {
-      id: '/docs/features'
-      path: '/docs/features'
-      fullPath: '/docs/features'
-      preLoaderRoute: typeof DocsFeaturesLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/docs/examples': {
-      id: '/docs/examples'
-      path: '/docs/examples'
-      fullPath: '/docs/examples'
-      preLoaderRoute: typeof DocsExamplesLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/docs/api': {
-      id: '/docs/api'
-      path: '/docs/api'
-      fullPath: '/docs/api'
-      preLoaderRoute: typeof DocsApiLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/docs/examples/interactive': {
-      id: '/docs/examples/interactive'
-      path: '/interactive'
-      fullPath: '/docs/examples/interactive'
-      preLoaderRoute: typeof DocsExamplesInteractiveLazyRouteImport
-      parentRoute: typeof DocsExamplesLazyRoute
-    }
-    '/docs/examples/basic': {
-      id: '/docs/examples/basic'
-      path: '/basic'
-      fullPath: '/docs/examples/basic'
-      preLoaderRoute: typeof DocsExamplesBasicLazyRouteImport
-      parentRoute: typeof DocsExamplesLazyRoute
-    }
-    '/docs/api/functions': {
-      id: '/docs/api/functions'
-      path: '/functions'
-      fullPath: '/docs/api/functions'
-      preLoaderRoute: typeof DocsApiFunctionsLazyRouteImport
-      parentRoute: typeof DocsApiLazyRoute
-    }
+    "/": {
+      id: "/";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof IndexLazyRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/docs/": {
+      id: "/docs/";
+      path: "/docs";
+      fullPath: "/docs";
+      preLoaderRoute: typeof DocsIndexLazyRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/docs/providers": {
+      id: "/docs/providers";
+      path: "/docs/providers";
+      fullPath: "/docs/providers";
+      preLoaderRoute: typeof DocsProvidersLazyRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/docs/patterns": {
+      id: "/docs/patterns";
+      path: "/docs/patterns";
+      fullPath: "/docs/patterns";
+      preLoaderRoute: typeof DocsPatternsLazyRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/docs/observability": {
+      id: "/docs/observability";
+      path: "/docs/observability";
+      fullPath: "/docs/observability";
+      preLoaderRoute: typeof DocsObservabilityLazyRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/docs/mcp-tools": {
+      id: "/docs/mcp-tools";
+      path: "/docs/mcp-tools";
+      fullPath: "/docs/mcp-tools";
+      preLoaderRoute: typeof DocsMcpToolsLazyRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/docs/installation": {
+      id: "/docs/installation";
+      path: "/docs/installation";
+      fullPath: "/docs/installation";
+      preLoaderRoute: typeof DocsInstallationLazyRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/docs/features": {
+      id: "/docs/features";
+      path: "/docs/features";
+      fullPath: "/docs/features";
+      preLoaderRoute: typeof DocsFeaturesLazyRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/docs/examples": {
+      id: "/docs/examples";
+      path: "/docs/examples";
+      fullPath: "/docs/examples";
+      preLoaderRoute: typeof DocsExamplesLazyRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/docs/api": {
+      id: "/docs/api";
+      path: "/docs/api";
+      fullPath: "/docs/api";
+      preLoaderRoute: typeof DocsApiLazyRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/docs/examples/interactive": {
+      id: "/docs/examples/interactive";
+      path: "/interactive";
+      fullPath: "/docs/examples/interactive";
+      preLoaderRoute: typeof DocsExamplesInteractiveLazyRouteImport;
+      parentRoute: typeof DocsExamplesLazyRoute;
+    };
+    "/docs/examples/basic": {
+      id: "/docs/examples/basic";
+      path: "/basic";
+      fullPath: "/docs/examples/basic";
+      preLoaderRoute: typeof DocsExamplesBasicLazyRouteImport;
+      parentRoute: typeof DocsExamplesLazyRoute;
+    };
+    "/docs/api/functions": {
+      id: "/docs/api/functions";
+      path: "/functions";
+      fullPath: "/docs/api/functions";
+      preLoaderRoute: typeof DocsApiFunctionsLazyRouteImport;
+      parentRoute: typeof DocsApiLazyRoute;
+    };
   }
 }
 
 interface DocsApiLazyRouteChildren {
-  DocsApiFunctionsLazyRoute: typeof DocsApiFunctionsLazyRoute
+  DocsApiFunctionsLazyRoute: typeof DocsApiFunctionsLazyRoute;
 }
 
 const DocsApiLazyRouteChildren: DocsApiLazyRouteChildren = {
   DocsApiFunctionsLazyRoute: DocsApiFunctionsLazyRoute,
-}
+};
 
 const DocsApiLazyRouteWithChildren = DocsApiLazyRoute._addFileChildren(
-  DocsApiLazyRouteChildren,
-)
+  DocsApiLazyRouteChildren
+);
 
 interface DocsExamplesLazyRouteChildren {
-  DocsExamplesBasicLazyRoute: typeof DocsExamplesBasicLazyRoute
-  DocsExamplesInteractiveLazyRoute: typeof DocsExamplesInteractiveLazyRoute
+  DocsExamplesBasicLazyRoute: typeof DocsExamplesBasicLazyRoute;
+  DocsExamplesInteractiveLazyRoute: typeof DocsExamplesInteractiveLazyRoute;
 }
 
 const DocsExamplesLazyRouteChildren: DocsExamplesLazyRouteChildren = {
   DocsExamplesBasicLazyRoute: DocsExamplesBasicLazyRoute,
   DocsExamplesInteractiveLazyRoute: DocsExamplesInteractiveLazyRoute,
-}
+};
 
 const DocsExamplesLazyRouteWithChildren =
-  DocsExamplesLazyRoute._addFileChildren(DocsExamplesLazyRouteChildren)
+  DocsExamplesLazyRoute._addFileChildren(DocsExamplesLazyRouteChildren);
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
@@ -352,7 +360,7 @@ const rootRouteChildren: RootRouteChildren = {
   DocsPatternsLazyRoute: DocsPatternsLazyRoute,
   DocsProvidersLazyRoute: DocsProvidersLazyRoute,
   DocsIndexLazyRoute: DocsIndexLazyRoute,
-}
+};
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();

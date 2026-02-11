@@ -236,7 +236,7 @@ await agent({ llm: gpt4 })
   .then({ llm: mistral, prompt: "Write comprehensive report" })
   .run({
     onStep: (step) => updateUI(step), // Real-time progress
-    onToken: (token) => streamToClient(token) // Token streaming
+    onToken: (token) => streamToClient(token), // Token streaming
   });
 ```
 
@@ -244,7 +244,7 @@ await agent({ llm: gpt4 })
 
 Factual comparison with other AI frameworks:
 
-| Feature                      | Volcano Agent SDK                                              | AI SDK                | LangChain             |
+| Feature                      | Volcano Agent SDK                                        | AI SDK                | LangChain             |
 | ---------------------------- | -------------------------------------------------------- | --------------------- | --------------------- |
 | **API Style**                | Fluent, chainable `.then()`                              | Function-based        | Class-based chains    |
 | **MCP Integration**          | Native, first-class                                      | Via custom tools      | Via custom tools      |

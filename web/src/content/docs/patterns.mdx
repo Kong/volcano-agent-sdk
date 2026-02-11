@@ -365,19 +365,19 @@ Sub-agents automatically inherit context from their parent:
 ```typescript
 // Parent establishes context
 const results = await agent({ llm })
-  .then({ 
-    prompt: 'Get issue #123 from repo acme/project',
-    mcps: [githubMcp]
+  .then({
+    prompt: "Get issue #123 from repo acme/project",
+    mcps: [githubMcp],
   })
-  .then({ 
-    prompt: 'Analyze the issue and determine it needs security review'
+  .then({
+    prompt: "Analyze the issue and determine it needs security review",
   })
-  .runAgent(securityReviewAgent)  // ← Receives all parent context!
+  .runAgent(securityReviewAgent) // ← Receives all parent context!
   .run();
 
 // securityReviewAgent knows:
 // - Issue number (#123)
-// - Repository (acme/project)  
+// - Repository (acme/project)
 // - Issue details from the tool call
 // - The analysis from previous step
 ```

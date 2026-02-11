@@ -52,7 +52,7 @@ const results = await agent({ llm })
       // Stream tokens in real-time with metadata
       process.stdout.write(token);
       // meta includes: stepIndex, handledByStep, stepPrompt, llmProvider
-    }
+    },
   });
 
 // Callbacks are called as each step/token completes
@@ -118,6 +118,7 @@ console.log(tools);
 ### Available Methods
 
 #### `results.ask(llm, question)`
+
 Ask any question about the execution:
 
 ```typescript
@@ -129,6 +130,7 @@ await results.ask(llm, "Summarize in one sentence");
 ```
 
 #### `results.summary(llm)`
+
 Get a high-level overview:
 
 ```typescript
@@ -137,6 +139,7 @@ const summary = await results.summary(llm);
 ```
 
 #### `results.toolsUsed(llm)`
+
 Understand which tools were called:
 
 ```typescript
@@ -145,6 +148,7 @@ const tools = await results.toolsUsed(llm);
 ```
 
 #### `results.errors(llm)`
+
 Check for issues:
 
 ```typescript
@@ -157,8 +161,8 @@ const errors = await results.errors(llm);
 Use a cheaper model for analyzing results:
 
 ```typescript
-const workLlm = llmOpenAI({ model: "gpt-5" });  // Expensive, for actual work
-const summaryLlm = llmOpenAI({ model: "gpt-4o-mini" });  // Cheap, for summaries
+const workLlm = llmOpenAI({ model: "gpt-5" }); // Expensive, for actual work
+const summaryLlm = llmOpenAI({ model: "gpt-4o-mini" }); // Cheap, for summaries
 
 const results = await agent({ llm: workLlm })
   .then({ prompt: "Complex analysis", mcps: [tools] })
@@ -174,7 +178,7 @@ await results.ask(summaryLlm, "What were the key findings?");
 ```typescript
 // Before: 40 lines of manual result parsing
 const toolCalls = results[0].toolCalls || [];
-const spamMarked = toolCalls.filter(t => t.name.includes('mark_as_spam'));
+const spamMarked = toolCalls.filter((t) => t.name.includes("mark_as_spam"));
 // ... complex parsing logic ...
 
 // After: 2 lines with conversational API
@@ -257,19 +261,19 @@ await agent({ llm })
     mcps: [gmail],
     maxToolIterations: 20,
     onToolCall: (toolName, args, result) => {
-      const name = toolName.split('.').pop(); // Remove MCP prefix
-      
-      if (name === 'list_all_unread_emails') {
+      const name = toolName.split(".").pop(); // Remove MCP prefix
+
+      if (name === "list_all_unread_emails") {
         const emails = JSON.parse(result.content[0].text);
         console.log(`📬 Found ${emails.length} unread emails`);
-      } else if (name === 'get_message') {
+      } else if (name === "get_message") {
         processedCount++;
         const data = JSON.parse(result.content[0].text);
         console.log(`📧 [${processedCount}/50] Analyzing: ${data.subject}`);
-      } else if (name === 'add_label') {
+      } else if (name === "add_label") {
         console.log(`  🏷️  Marked as SPAM!`);
       }
-    }
+    },
   })
   .run();
 ```
@@ -277,6 +281,7 @@ await agent({ llm })
 **When it fires:** Immediately after each tool call completes
 
 **Benefits:**
+
 - See progress in real-time (don't wait for the entire step to finish)
 - Know exactly which items are being processed
 - Debug tool calls as they happen
@@ -286,10 +291,10 @@ await agent({ llm })
 
 ```typescript
 // Processing Aha ideas with progress tracking
-const ahaMcp = mcpStdio({ 
-  command: "node", 
+const ahaMcp = mcpStdio({
+  command: "node",
   args: ["build/index.js"],
-  env: { AHA_DOMAIN: "...", AHA_API_TOKEN: "..." }
+  env: { AHA_DOMAIN: "...", AHA_API_TOKEN: "..." },
 });
 
 let searchCount = 0;
@@ -301,18 +306,20 @@ await agent({ llm })
     mcps: [ahaMcp],
     maxToolIterations: 100,
     onToolCall: (toolName, args, result) => {
-      const name = toolName.split('.').pop();
-      
-      if (name === 'search_documents') {
+      const name = toolName.split(".").pop();
+
+      if (name === "search_documents") {
         searchCount++;
         const data = JSON.parse(result.content[0].text);
-        console.log(`🔍 Search ${searchCount}: Found ${data.documents?.length || 0} items`);
-      } else if (name === 'get_page') {
+        console.log(
+          `🔍 Search ${searchCount}: Found ${data.documents?.length || 0} items`
+        );
+      } else if (name === "get_page") {
         detailsCount++;
         const data = JSON.parse(result.content[0].text);
         console.log(`📄 [${detailsCount}] ${args.reference}: ${data.name}`);
       }
-    }
+    },
   })
   .run();
 
@@ -333,7 +340,7 @@ await agent({ llm })
     onToolCall: (toolName, args, result) => {
       // Tool progress: shows immediately when each completes
       console.log(`\n✓ Completed: ${toolName}`);
-    }
+    },
   })
   .run();
 ```
@@ -354,21 +361,23 @@ const llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 // 1. Define specialized agents with clear roles
 const researcher = agent({
   llm,
-  name: 'researcher',
-  description: 'Analyzes topics, gathers data, and provides factual information. Use when you need research or analysis.'
+  name: "researcher",
+  description:
+    "Analyzes topics, gathers data, and provides factual information. Use when you need research or analysis.",
 });
 
 const writer = agent({
   llm,
-  name: 'writer',
-  description: 'Creates engaging, well-structured articles and content. Use when you need creative writing.'
+  name: "writer",
+  description:
+    "Creates engaging, well-structured articles and content. Use when you need creative writing.",
 });
 
 // 2. Create a coordinator that autonomously delegates tasks
 const results = await agent({ llm })
   .then({
-    prompt: 'Create a comprehensive blog post about AI safety',
-    agents: [researcher, writer]  // Coordinator decides when complete
+    prompt: "Create a comprehensive blog post about AI safety",
+    agents: [researcher, writer], // Coordinator decides when complete
   })
   .run();
 
@@ -392,29 +401,31 @@ const results = await agent({ llm })
 ```typescript
 const dataAnalyst = agent({
   llm,
-  name: 'dataAnalyst',
-  description: 'Analyzes data, creates reports, extracts insights from numbers'
-}).then({ prompt: 'Load dataset' })
-  .then({ prompt: 'Run statistical analysis' })
-  .then({ prompt: 'Identify trends' });
+  name: "dataAnalyst",
+  description: "Analyzes data, creates reports, extracts insights from numbers",
+})
+  .then({ prompt: "Load dataset" })
+  .then({ prompt: "Run statistical analysis" })
+  .then({ prompt: "Identify trends" });
 
 const codeReviewer = agent({
   llm,
-  name: 'codeReviewer',  
-  description: 'Reviews code, finds bugs, suggests improvements'
+  name: "codeReviewer",
+  description: "Reviews code, finds bugs, suggests improvements",
 });
 
 const documentor = agent({
   llm,
-  name: 'documentor',
-  description: 'Writes clear documentation and technical guides'
+  name: "documentor",
+  description: "Writes clear documentation and technical guides",
 });
 
 // Coordinator handles complex task automatically
 await agent({ llm })
   .then({
-    prompt: 'Analyze our user data from Q4 and create a comprehensive report with recommendations',
-    agents: [dataAnalyst, codeReviewer, documentor]
+    prompt:
+      "Analyze our user data from Q4 and create a comprehensive report with recommendations",
+    agents: [dataAnalyst, codeReviewer, documentor],
   })
   .run();
 
@@ -444,12 +455,11 @@ agent({ llm })
 To disable progress output:
 
 ```typescript
-agent({ llm, hideProgress: true })
-  .then({ prompt: "Silent execution" })
-  .run();
+agent({ llm, hideProgress: true }).then({ prompt: "Silent execution" }).run();
 ```
 
 **Output:**
+
 ```
 [2025-11-16T10:30:00.123Z agent="data-analyzer" status=init] 🌋 running Volcano agent [volcano-agent-sdk v1.0.1] • docs at https://volcano.dev
 [2025-11-16T10:30:00.125Z agent="data-analyzer" step=1 status=init] Analyze data
@@ -472,6 +482,7 @@ agent({ llm, hideProgress: true })
 ```
 
 **Features:**
+
 - ✨ Structured log format with timestamps
 - 📊 Token counts and timing per step
 - 🧠 Multi-agent coordination visibility
@@ -490,18 +501,24 @@ await agent({ llm })
     prompt: "Analyze customer feedback and generate report",
     agents: [researcher, writer],
     mcps: [database],
-    
+
     onToken: (token, meta) => {
       // Stream LLM output in real-time
       console.log(`[${meta.llmProvider}] ${token}`);
-    }
+    },
   })
   .run({
     onStep: (stepResult, stepIndex) => {
       // Stream step completion updates
-      console.log(`✓ Step ${stepIndex + 1} complete in ${stepResult.durationMs}ms`);
-      sendToClient({ type: 'step_complete', step: stepIndex, result: stepResult });
-    }
+      console.log(
+        `✓ Step ${stepIndex + 1} complete in ${stepResult.durationMs}ms`
+      );
+      sendToClient({
+        type: "step_complete",
+        step: stepIndex,
+        result: stepResult,
+      });
+    },
   });
 ```
 
@@ -512,35 +529,39 @@ await agent({ llm })
 Perfect for real-time web UIs:
 
 ```typescript
-app.post('/api/create-content', async (req, res) => {
-  res.setHeader('Content-Type', 'text/event-stream');
-  
-  await agent({ llm, hideProgress: true })  // Disable default progress
+app.post("/api/create-content", async (req, res) => {
+  res.setHeader("Content-Type", "text/event-stream");
+
+  await agent({ llm, hideProgress: true }) // Disable default progress
     .then({
       prompt: req.body.prompt,
       agents: [researcher, writer],
-      
+
       onToken: (token, meta) => {
-        res.write(`data: ${JSON.stringify({ 
-          type: 'token',
-          token,
-          provider: meta.llmProvider,
-          step: meta.stepIndex
-        })}\n\n`);
-      }
+        res.write(
+          `data: ${JSON.stringify({
+            type: "token",
+            token,
+            provider: meta.llmProvider,
+            step: meta.stepIndex,
+          })}\n\n`
+        );
+      },
     })
     .run({
       onStep: (stepResult, stepIndex) => {
-        res.write(`data: ${JSON.stringify({ 
-          type: 'step_complete',
-          step: stepIndex,
-          duration: stepResult.durationMs,
-          tokens: stepResult.llmOutput?.length
-        })}\n\n`);
-      }
+        res.write(
+          `data: ${JSON.stringify({
+            type: "step_complete",
+            step: stepIndex,
+            duration: stepResult.durationMs,
+            tokens: stepResult.llmOutput?.length,
+          })}\n\n`
+        );
+      },
     });
-  
-  res.write('data: [DONE]\n\n');
+
+  res.write("data: [DONE]\n\n");
   res.end();
 });
 ```
@@ -722,24 +743,28 @@ Volcano automatically executes tool calls in parallel when it's safe to do so, p
 When the LLM requests multiple tool calls in a single iteration, Volcano analyzes them and executes in parallel if ALL these conditions are met:
 
 1. ✅ All calls are to the **same tool**
-2. ✅ All calls operate on **different resources** (different IDs)  
+2. ✅ All calls operate on **different resources** (different IDs)
 3. ✅ All arguments are **different** (no duplicate operations)
 
 If any condition isn't met, Volcano safely falls back to sequential execution.
 
 ```typescript
-const gmail = mcp("http://localhost:3800/mcp", { auth: { /* ... */ } });
+const gmail = mcp("http://localhost:3800/mcp", {
+  auth: {
+    /* ... */
+  },
+});
 
 await agent({ llm })
   .then({
     prompt: "Mark emails 123, 456, and 789 as spam",
-    mcps: [gmail]
+    mcps: [gmail],
   })
   .run();
 
 // If the LLM generates:
 // - mark_as_spam(emailId: "123")
-// - mark_as_spam(emailId: "456")  
+// - mark_as_spam(emailId: "456")
 // - mark_as_spam(emailId: "789")
 //
 // Volcano detects: same tool, different IDs → executes all 3 in parallel!
@@ -751,7 +776,7 @@ await agent({ llm })
 Real-world example: Gmail spam detector processing 50 emails
 
 - **Sequential execution:** ~110 seconds
-- **Parallel execution:** ~50 seconds  
+- **Parallel execution:** ~50 seconds
 - **Speedup:** 2x faster automatically! 🚀
 
 For bulk operations like processing hundreds of items, marking multiple records, or fetching data for many resources, parallelization can provide 2-10x speedups.
@@ -762,13 +787,14 @@ The implementation is **conservative by design**:
 
 - ✅ **Safe by default** - Only parallelizes obviously safe scenarios
 - ✅ **No configuration** - Works automatically, no setup needed
-- ✅ **No breaking changes** - Existing code works exactly as before  
+- ✅ **No breaking changes** - Existing code works exactly as before
 - ✅ **Provider agnostic** - Works with all LLM providers
 - ✅ **Type safe** - Full TypeScript support
 
 ### When Parallelization Happens
 
 **✅ Will parallelize:**
+
 ```typescript
 // Same tool, different email IDs
 mark_as_spam(emailId: "123")
@@ -777,6 +803,7 @@ mark_as_spam(emailId: "789")
 ```
 
 **❌ Will NOT parallelize:**
+
 ```typescript
 // Different tools (may have dependencies)
 list_emails(maxResults: 50)
@@ -796,9 +823,9 @@ send_notification(message: "World")
 If you need to force sequential execution for debugging or special cases:
 
 ```typescript
-await agent({ 
+await agent({
   llm,
-  disableParallelToolExecution: true  // Force sequential execution
+  disableParallelToolExecution: true, // Force sequential execution
 })
   .then({ prompt: "Bulk operation", mcps: [mcp] })
   .run();
@@ -807,6 +834,7 @@ await agent({
 ```
 
 **When to disable:**
+
 - Debugging tool execution order
 - Working with tools that have hidden dependencies
 - Compliance requirements for sequential processing
@@ -821,7 +849,9 @@ Track parallel vs sequential execution via telemetry metrics:
 ```typescript
 import { createVolcanoTelemetry } from "@volcano.dev/agent";
 
-const telemetry = createVolcanoTelemetry({ /* config */ });
+const telemetry = createVolcanoTelemetry({
+  /* config */
+});
 
 await agent({ llm, telemetry })
   .then({ prompt: "Bulk operation", mcps: [mcp] })

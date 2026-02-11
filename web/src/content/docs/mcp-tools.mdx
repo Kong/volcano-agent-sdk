@@ -25,19 +25,21 @@ const remoteMcp = mcp("https://api.example.com/mcp");
 // With authentication
 const authMcp = mcp("https://api.example.com/mcp", {
   auth: {
-    type: 'bearer',
-    token: process.env.API_TOKEN!
-  }
+    type: "bearer",
+    token: process.env.API_TOKEN!,
+  },
 });
 ```
 
 **Use cases:**
+
 - Cloud-based MCP servers (e.g., Atlassian Rovo)
 - Remote APIs and services
 - Production deployments
 - Shared infrastructure
 
 **Features:**
+
 - Connection pooling for performance
 - OAuth 2.1 and Bearer token auth
 - Automatic reconnection
@@ -54,7 +56,7 @@ import { mcpStdio } from "@volcano.dev/agent";
 const localMcp = mcpStdio({
   command: "node",
   args: ["dist/index.js"],
-  cwd: "/path/to/mcp-server"
+  cwd: "/path/to/mcp-server",
 });
 
 // With environment variables
@@ -64,8 +66,8 @@ const configuredMcp = mcpStdio({
   env: {
     API_KEY: process.env.API_KEY!,
     DATABASE_URL: process.env.DATABASE_URL!,
-    DEBUG: "true"
-  }
+    DEBUG: "true",
+  },
 });
 
 // Remember to cleanup when done
@@ -73,6 +75,7 @@ await configuredMcp.cleanup?.();
 ```
 
 **Use cases:**
+
 - Local development and testing
 - File system access
 - Command-line tools
@@ -80,6 +83,7 @@ await configuredMcp.cleanup?.();
 - Custom scripts and automation
 
 **Features:**
+
 - Process lifecycle management
 - Environment variable injection
 - No HTTP overhead (faster)
@@ -99,12 +103,12 @@ const llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 const filesMcp = mcpStdio({
   command: "npx",
   args: ["-y", "@modelcontextprotocol/server-filesystem"],
-  env: { ALLOWED_PATHS: process.cwd() }
+  env: { ALLOWED_PATHS: process.cwd() },
 });
 
 // Remote HTTP server for cloud services
 const cloudMcp = mcp("https://api.example.com/mcp", {
-  auth: { type: 'bearer', token: process.env.CLOUD_TOKEN! }
+  auth: { type: "bearer", token: process.env.CLOUD_TOKEN! },
 });
 
 // Use both in the same workflow
@@ -112,12 +116,12 @@ await agent({ llm })
   .then({
     prompt: "Read local files and analyze them",
     mcps: [filesMcp],
-    maxToolIterations: 3
+    maxToolIterations: 3,
   })
   .then({
     prompt: "Upload results to cloud storage",
     mcps: [cloudMcp],
-    maxToolIterations: 2
+    maxToolIterations: 2,
   })
   .run();
 
@@ -174,7 +178,11 @@ When the LLM requests multiple tool calls in a single iteration, Volcano analyze
 If any condition isn't met, Volcano safely falls back to sequential execution.
 
 ```typescript
-const gmail = mcp("http://localhost:3800/mcp", { auth: { /* ... */ } });
+const gmail = mcp("http://localhost:3800/mcp", {
+  auth: {
+    /* ... */
+  },
+});
 
 // The LLM might generate these tool calls:
 // mark_as_spam(emailId: "123")
@@ -185,7 +193,7 @@ const gmail = mcp("http://localhost:3800/mcp", { auth: { /* ... */ } });
 await agent({ llm })
   .then({
     prompt: "Mark emails 123, 456, and 789 as spam",
-    mcps: [gmail]
+    mcps: [gmail],
   })
   .run();
 
@@ -196,13 +204,17 @@ await agent({ llm })
 
 ```typescript
 // Gmail spam detection on 50 emails
-const gmail = mcp("http://localhost:3800/mcp", { auth: { /* ... */ } });
+const gmail = mcp("http://localhost:3800/mcp", {
+  auth: {
+    /* ... */
+  },
+});
 
 await agent({ llm })
   .then({
     prompt: "Get all unread emails, analyze for spam, mark any spam",
     mcps: [gmail],
-    maxToolIterations: 20
+    maxToolIterations: 20,
   })
   .run();
 
@@ -214,6 +226,7 @@ await agent({ llm })
 **Smart ID detection:**
 
 Volcano uses case-insensitive pattern matching to detect resource IDs automatically:
+
 - Any parameter named `id` (any case: `id`, `ID`, `Id`)
 - Any parameter ending with `id` (any case: `emailId`, `emailid`, `userId`, `customerId`, etc.)
 
@@ -226,20 +239,16 @@ This flexible approach works with any MCP tool and naming convention without har
 [
   { tool: "mark_as_spam", args: { emailId: "123" } },
   { tool: "mark_as_spam", args: { emailId: "456" } },
-  { tool: "mark_as_spam", args: { emailId: "789" } }
-]
-
-// ✅ Same tool, different user IDs
-[
-  { tool: "fetch_profile", args: { userId: "alice" } },
-  { tool: "fetch_profile", args: { userId: "bob" } }
-]
-
-// ✅ Same tool, different item IDs
-[
-  { tool: "archive_item", args: { itemId: "x" } },
-  { tool: "archive_item", args: { itemId: "y" } }
-]
+  { tool: "mark_as_spam", args: { emailId: "789" } },
+][
+  // ✅ Same tool, different user IDs
+  ({ tool: "fetch_profile", args: { userId: "alice" } },
+  { tool: "fetch_profile", args: { userId: "bob" } })
+][
+  // ✅ Same tool, different item IDs
+  ({ tool: "archive_item", args: { itemId: "x" } },
+  { tool: "archive_item", args: { itemId: "y" } })
+];
 ```
 
 **Unsafe scenarios (will NOT parallelize):**
@@ -248,22 +257,20 @@ This flexible approach works with any MCP tool and naming convention without har
 // ❌ Different tools
 [
   { tool: "list_emails", args: { maxResults: 50 } },
-  { tool: "mark_as_spam", args: { emailId: "123" } }
-]
-// → Sequential execution (different tools may have dependencies)
-
-// ❌ Duplicate resource IDs
-[
   { tool: "mark_as_spam", args: { emailId: "123" } },
-  { tool: "mark_as_spam", args: { emailId: "123" } }  // Same ID!
-]
-// → Sequential execution (prevents race conditions)
+][
+  // → Sequential execution (different tools may have dependencies)
 
-// ❌ No resource IDs
-[
-  { tool: "send_notification", args: { message: "Hello" } },
-  { tool: "send_notification", args: { message: "World" } }
-]
+  // ❌ Duplicate resource IDs
+  ({ tool: "mark_as_spam", args: { emailId: "123" } },
+  { tool: "mark_as_spam", args: { emailId: "123" } }) // Same ID!
+][
+  // → Sequential execution (prevents race conditions)
+
+  // ❌ No resource IDs
+  ({ tool: "send_notification", args: { message: "Hello" } },
+  { tool: "send_notification", args: { message: "World" } })
+];
 // → Sequential execution (can't determine independence)
 ```
 
@@ -282,7 +289,9 @@ Track parallel vs sequential execution via telemetry:
 ```typescript
 import { createVolcanoTelemetry } from "@volcano.dev/agent";
 
-const telemetry = createVolcanoTelemetry({ /* config */ });
+const telemetry = createVolcanoTelemetry({
+  /* config */
+});
 
 await agent({ llm, telemetry })
   .then({ prompt: "Bulk operation", mcps: [mcp] })
@@ -503,8 +512,8 @@ Volcano automatically refreshes expired OAuth tokens using refresh tokens. Perfe
 const gmail = mcp("https://api.gmail.com/mcp", {
   auth: {
     type: "bearer",
-    token: process.env.GMAIL_ACCESS_TOKEN,          // Can be expired!
-    refreshToken: process.env.GMAIL_REFRESH_TOKEN,  // Long-lived refresh token
+    token: process.env.GMAIL_ACCESS_TOKEN, // Can be expired!
+    refreshToken: process.env.GMAIL_REFRESH_TOKEN, // Long-lived refresh token
     tokenEndpoint: "https://oauth2.googleapis.com/token",
     clientId: process.env.GMAIL_CLIENT_ID,
     clientSecret: process.env.GMAIL_CLIENT_SECRET,
@@ -552,7 +561,7 @@ await agent({ llm })
 const gmail = mcp("http://localhost:3800/mcp", {
   auth: {
     type: "bearer",
-    token: "ya29.expired_token",  // Can be expired
+    token: "ya29.expired_token", // Can be expired
     refreshToken: "1//refresh_token_here",
     tokenEndpoint: "https://oauth2.googleapis.com/token",
     clientId: "your-app.apps.googleusercontent.com",
@@ -563,13 +572,13 @@ const gmail = mcp("http://localhost:3800/mcp", {
 // This can run for hours - tokens auto-refresh as needed
 while (true) {
   await agent({ llm })
-    .then({ 
-      prompt: "Check for spam in new emails", 
-      mcps: [gmail] 
+    .then({
+      prompt: "Check for spam in new emails",
+      mcps: [gmail],
     })
     .run();
-  
-  await new Promise(resolve => setTimeout(resolve, 300000)); // Every 5 min
+
+  await new Promise((resolve) => setTimeout(resolve, 300000)); // Every 5 min
 }
 ```
 
@@ -604,7 +613,7 @@ await agent({ llm })
 
 ```typescript
 type MCPAuthConfig = {
-  type: 'oauth' | 'bearer';
+  type: "oauth" | "bearer";
   token?: string;
   clientId?: string;
   clientSecret?: string;
@@ -616,19 +625,20 @@ type MCPAuthConfig = {
 
 #### Field Descriptions
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `type` | `'oauth'` \| `'bearer'` | ✅ Yes | Authentication type |
-| `token` | `string` | For `bearer` | Access token for Bearer auth. Can be expired if `refreshToken` is provided. |
-| `clientId` | `string` | For `oauth` | OAuth client ID from your OAuth provider |
-| `clientSecret` | `string` | For `oauth` | OAuth client secret from your OAuth provider |
-| `tokenEndpoint` | `string` | For `oauth` | OAuth token endpoint URL (e.g., `https://oauth2.googleapis.com/token`) |
-| `scope` | `string` | Optional | OAuth scopes to request (space-separated) |
-| `refreshToken` | `string` | Optional | Long-lived refresh token for automatic token renewal. When provided with `tokenEndpoint`, `clientId`, and `clientSecret`, Volcano will automatically refresh expired access tokens. |
+| Field           | Type                    | Required     | Description                                                                                                                                                                         |
+| --------------- | ----------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`          | `'oauth'` \| `'bearer'` | ✅ Yes       | Authentication type                                                                                                                                                                 |
+| `token`         | `string`                | For `bearer` | Access token for Bearer auth. Can be expired if `refreshToken` is provided.                                                                                                         |
+| `clientId`      | `string`                | For `oauth`  | OAuth client ID from your OAuth provider                                                                                                                                            |
+| `clientSecret`  | `string`                | For `oauth`  | OAuth client secret from your OAuth provider                                                                                                                                        |
+| `tokenEndpoint` | `string`                | For `oauth`  | OAuth token endpoint URL (e.g., `https://oauth2.googleapis.com/token`)                                                                                                              |
+| `scope`         | `string`                | Optional     | OAuth scopes to request (space-separated)                                                                                                                                           |
+| `refreshToken`  | `string`                | Optional     | Long-lived refresh token for automatic token renewal. When provided with `tokenEndpoint`, `clientId`, and `clientSecret`, Volcano will automatically refresh expired access tokens. |
 
 #### Configuration Examples
 
 **OAuth (Client Credentials):**
+
 ```typescript
 {
   type: 'oauth',
@@ -640,6 +650,7 @@ type MCPAuthConfig = {
 ```
 
 **Bearer Token (Simple):**
+
 ```typescript
 {
   type: 'bearer',
@@ -648,6 +659,7 @@ type MCPAuthConfig = {
 ```
 
 **Bearer Token (With Auto-Refresh):**
+
 ```typescript
 {
   type: 'bearer',
@@ -748,28 +760,28 @@ __internal_clearOAuthTokenCache();
 Creates an MCP handle for a stdio-based server.
 
 ```typescript
-function mcpStdio(config: MCPStdioConfig): MCPHandle
+function mcpStdio(config: MCPStdioConfig): MCPHandle;
 ```
 
 #### `MCPStdioConfig` Type
 
 ```typescript
 type MCPStdioConfig = {
-  command: string;              // Command to execute (e.g., "node", "npx", "python")
-  args?: string[];              // Command arguments
+  command: string; // Command to execute (e.g., "node", "npx", "python")
+  args?: string[]; // Command arguments
   env?: Record<string, string>; // Environment variables to pass to the process
-  cwd?: string;                 // Working directory for the process
+  cwd?: string; // Working directory for the process
 };
 ```
 
 #### Field Descriptions
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `command` | `string` | ✅ Yes | Executable command (e.g., `"node"`, `"npx"`, `"python3"`) |
-| `args` | `string[]` | Optional | Array of command-line arguments |
-| `env` | `Record<string, string>` | Optional | Environment variables (merged with `process.env`) |
-| `cwd` | `string` | Optional | Working directory path for the spawned process |
+| Field     | Type                     | Required | Description                                               |
+| --------- | ------------------------ | -------- | --------------------------------------------------------- |
+| `command` | `string`                 | ✅ Yes   | Executable command (e.g., `"node"`, `"npx"`, `"python3"`) |
+| `args`    | `string[]`               | Optional | Array of command-line arguments                           |
+| `env`     | `Record<string, string>` | Optional | Environment variables (merged with `process.env`)         |
+| `cwd`     | `string`                 | Optional | Working directory path for the spawned process            |
 
 #### Return Value
 
@@ -779,34 +791,37 @@ Returns an `MCPHandle` with these additional properties:
 type MCPHandle = {
   id: string;
   url: string;
-  transport: 'stdio' | 'http';
+  transport: "stdio" | "http";
   listTools: () => Promise<{ tools: Tool[] }>;
   callTool: (name: string, args: any) => Promise<any>;
-  cleanup?: () => Promise<void>;  // ⚠️ Important: Always call this when done!
+  cleanup?: () => Promise<void>; // ⚠️ Important: Always call this when done!
 };
 ```
 
 #### Example Configurations
 
 **Running a built server:**
+
 ```typescript
 const server = mcpStdio({
   command: "node",
   args: ["dist/index.js"],
-  cwd: "/Users/you/projects/my-mcp-server"
+  cwd: "/Users/you/projects/my-mcp-server",
 });
 ```
 
 **Using npx:**
+
 ```typescript
 const server = mcpStdio({
   command: "npx",
   args: ["-y", "@modelcontextprotocol/server-filesystem"],
-  env: { ALLOWED_PATHS: "/Users/you/documents" }
+  env: { ALLOWED_PATHS: "/Users/you/documents" },
 });
 ```
 
 **With environment variables:**
+
 ```typescript
 const ahaMcp = mcpStdio({
   command: "node",
@@ -815,12 +830,13 @@ const ahaMcp = mcpStdio({
   env: {
     AHA_DOMAIN: "yourcompany.aha.io",
     AHA_API_KEY: process.env.AHA_API_KEY!,
-    DEBUG: "true"
-  }
+    DEBUG: "true",
+  },
 });
 ```
 
 **Python-based MCP server:**
+
 ```typescript
 const pythonMcp = mcpStdio({
   command: "python3",
@@ -828,8 +844,8 @@ const pythonMcp = mcpStdio({
   cwd: "/path/to/python-project",
   env: {
     PYTHONPATH: "/path/to/python-project",
-    API_KEY: process.env.PYTHON_API_KEY!
-  }
+    API_KEY: process.env.PYTHON_API_KEY!,
+  },
 });
 ```
 
@@ -851,6 +867,7 @@ try {
 ```
 
 **In agent workflows:**
+
 ```typescript
 const localMcp = mcpStdio({ command: "node", args: ["server.js"] });
 
@@ -864,25 +881,26 @@ try {
 ```
 
 **Error handling:**
+
 ```typescript
 const server = mcpStdio({
   command: "node",
   args: ["server.js"],
-  cwd: "/path/to/server"
+  cwd: "/path/to/server",
 });
 
-server.process?.on('error', (err) => {
-  console.error('MCP server process error:', err);
+server.process?.on("error", (err) => {
+  console.error("MCP server process error:", err);
 });
 
-server.process?.stderr?.on('data', (data) => {
-  console.error('MCP server stderr:', data.toString());
+server.process?.stderr?.on("data", (data) => {
+  console.error("MCP server stderr:", data.toString());
 });
 
 try {
   const tools = await server.listTools();
 } catch (error) {
-  console.error('Failed to connect:', error);
+  console.error("Failed to connect:", error);
 } finally {
   await server.cleanup?.();
 }
@@ -914,6 +932,7 @@ await server.cleanup?.();
 ### Common Patterns
 
 **Single-use server:**
+
 ```typescript
 const server = mcpStdio({ command: "node", args: ["server.js"] });
 try {
@@ -925,11 +944,12 @@ try {
 ```
 
 **Long-running workflow:**
+
 ```typescript
-const server = mcpStdio({ 
-  command: "npx", 
+const server = mcpStdio({
+  command: "npx",
   args: ["-y", "@your/mcp-server"],
-  env: { API_KEY: process.env.API_KEY! }
+  env: { API_KEY: process.env.API_KEY! },
 });
 
 try {
@@ -945,6 +965,7 @@ try {
 ```
 
 **Multiple stdio servers:**
+
 ```typescript
 const server1 = mcpStdio({ command: "node", args: ["server1.js"] });
 const server2 = mcpStdio({ command: "node", args: ["server2.js"] });
@@ -955,9 +976,6 @@ try {
     .run();
 } finally {
   // Cleanup all servers
-  await Promise.all([
-    server1.cleanup?.(),
-    server2.cleanup?.()
-  ]);
+  await Promise.all([server1.cleanup?.(), server2.cleanup?.()]);
 }
 ```

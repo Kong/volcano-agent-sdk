@@ -40,6 +40,7 @@ npx tsx examples/02-with-tools.ts
 **Demonstrates:** Automatic tool discovery and selection with `mcps: [...]`
 
 **Prerequisites:** Start MCP servers first:
+
 ```bash
 tsx examples/mcp/weather/server.ts
 tsx examples/mcp/tasks/server.ts
@@ -102,7 +103,7 @@ const analyzer = agent({ llm })
 
 await agent({ llm })
   .then({ prompt: "Customer feedback: ..." })
-  .runAgent(analyzer)  // Compose explicitly
+  .runAgent(analyzer) // Compose explicitly
   .run();
 ```
 
@@ -119,23 +120,25 @@ npx tsx examples/06-multi-agent.ts
 **Demonstrates:** Autonomous agent delegation based on descriptions
 
 ```typescript
-const researcher = agent({ 
-  llm, 
-  name: 'researcher',
-  description: 'Expert at finding facts and data. Use for information gathering.'
-}).then({ prompt: "Research the topic." })
+const researcher = agent({
+  llm,
+  name: "researcher",
+  description:
+    "Expert at finding facts and data. Use for information gathering.",
+})
+  .then({ prompt: "Research the topic." })
   .then({ prompt: "Summarize the research." });
 
-const writer = agent({ 
-  llm, 
-  name: 'writer',
-  description: 'Creates engaging content. Use for writing tasks.'
+const writer = agent({
+  llm,
+  name: "writer",
+  description: "Creates engaging content. Use for writing tasks.",
 }).then({ prompt: "Write content." });
 
 await agent({ llm })
   .then({
     prompt: "Create a blog post about JWST discoveries",
-    agents: [researcher, writer]  // Coordinator decides which to use and when
+    agents: [researcher, writer], // Coordinator decides which to use and when
   })
   .run();
 ```
@@ -179,6 +182,7 @@ npx tsx examples/09-observability.ts
 **Demonstrates:** Telemetry integration, Jaeger traces, Prometheus metrics
 
 **Prerequisites:** Start observability stack:
+
 ```bash
 cd observability-demo
 docker-compose -f docker-compose.observability.yml up
@@ -209,6 +213,7 @@ npx tsx examples/11-email-triage.ts
 **Demonstrates:** Complete workflow combining multiple features
 
 **Prerequisites:** Start task server:
+
 ```bash
 tsx examples/mcp/tasks/server.ts
 ```
@@ -236,6 +241,7 @@ export OPENAI_API_KEY="your-key-here"
 ```
 
 Optional for multi-provider examples:
+
 ```bash
 export ANTHROPIC_API_KEY="your-anthropic-key"
 export MISTRAL_API_KEY="your-mistral-key"

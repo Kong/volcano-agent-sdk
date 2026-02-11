@@ -103,8 +103,8 @@ export function Hero() {
               Build agents that seamlessly combine LLM reasoning
             </p>
             <p className="text-stroke-white w-fit text-base sm:text-xl">
-              with real-world
-              actions via MCP tools &mdash; in just few lines of TypeScript.
+              with real-world actions via MCP tools &mdash; in just few lines of
+              TypeScript.
             </p>
           </div>
 

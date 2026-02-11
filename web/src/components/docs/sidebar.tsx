@@ -62,7 +62,6 @@ export function DocsSidebar({ onMobileClose }: DocsSidebarProps = {}) {
     };
   }, []);
 
-
   // Listen for scroll-based heading changes from right sidebar (table of contents)
   useEffect(() => {
     const handleHeadingActive = (e: Event) => {
