@@ -1,6 +1,6 @@
 [![CI](https://github.com/Kong/volcano-agent-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/Kong/volcano-agent-sdk/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
-[![npm](https://img.shields.io/npm/v/@volcano/agent.svg)](https://www.npmjs.com/package/@volcano/agent)
+[![npm](https://img.shields.io/npm/v/@volcano.dev/agent.svg)](https://www.npmjs.com/package/@volcano.dev/agent)
 
 # 🌋 Volcano Agent SDK
 
@@ -84,7 +84,7 @@ Built-in retries, timeouts, error handling, and connection pooling. Battle-teste
 ### Installation
 
 ```bash
-npm install @volcano/agent
+npm install @volcano.dev/agent
 ```
 
 That's it! Includes MCP support and all common LLM providers (OpenAI, Anthropic, Mistral, Llama, Vertex).
@@ -94,7 +94,7 @@ That's it! Includes MCP support and all common LLM providers (OpenAI, Anthropic,
 ### Hello World with Automatic Tool Selection
 
 ```ts
-import { agent, llmOpenAI, mcp } from "@volcano/agent";
+import { agent, llmOpenAI, mcp } from "@volcano.dev/agent";
 
 const llm = llmOpenAI({ 
   apiKey: process.env.OPENAI_API_KEY!, 
@@ -120,7 +120,7 @@ console.log(summary);
 ### Multi-Agent Coordinator
 
 ```ts
-import { agent, llmOpenAI } from "@volcano/agent";
+import { agent, llmOpenAI } from "@volcano.dev/agent";
 
 const llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 

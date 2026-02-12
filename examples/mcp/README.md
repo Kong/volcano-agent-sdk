@@ -48,7 +48,7 @@ tsx examples/02-with-tools.ts
 ### HTTP Servers
 
 ```typescript
-import { mcp } from "@volcano/agent";
+import { mcp } from "@volcano.dev/agent";
 
 const weather = mcp("http://localhost:8001/mcp");
 const tasks = mcp("http://localhost:8002/mcp");
@@ -64,7 +64,7 @@ await agent({ llm })
 ### stdio Servers
 
 ```typescript
-import { mcpStdio } from "@volcano/agent";
+import { mcpStdio } from "@volcano.dev/agent";
 
 const fs = mcpStdio({
   command: "tsx",

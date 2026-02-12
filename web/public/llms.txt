@@ -27,7 +27,7 @@ Volcano Agent SDK is a TypeScript framework for building AI agents that:
 ## Installation
 
 ```bash
-npm install @volcano/agent
+npm install @volcano.dev/agent
 ```
 
 Requires Node.js 18.17 or later.
@@ -91,7 +91,7 @@ Main documentation: https://volcano.dev/docs
 
 ### Hello World
 ```typescript
-import { agent, llmOpenAI } from "@volcano/agent";
+import { agent, llmOpenAI } from "@volcano.dev/agent";
 
 const llm = llmOpenAI({
   apiKey: process.env.OPENAI_API_KEY!,
@@ -108,7 +108,7 @@ console.log(results[0].llmOutput);
 
 ### Two-Step Agent with MCP Tools
 ```typescript
-import { agent, llmOpenAI, mcp } from "@volcano/agent";
+import { agent, llmOpenAI, mcp } from "@volcano.dev/agent";
 
 const llm = llmOpenAI({
   apiKey: process.env.OPENAI_API_KEY!,
@@ -134,7 +134,7 @@ console.log(steps[1].llmOutput); // Fortune based on the sign
 
 ### Multi-Provider Workflow
 ```typescript
-import { agent, llmOpenAI, llmAnthropic, llmMistral } from "@volcano/agent";
+import { agent, llmOpenAI, llmAnthropic, llmMistral } from "@volcano.dev/agent";
 
 const openai = llmOpenAI({
   apiKey: process.env.OPENAI_API_KEY!,

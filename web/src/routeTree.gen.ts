@@ -123,7 +123,7 @@ export interface FileRoutesByFullPath {
   '/docs/observability': typeof DocsObservabilityLazyRoute
   '/docs/patterns': typeof DocsPatternsLazyRoute
   '/docs/providers': typeof DocsProvidersLazyRoute
-  '/docs': typeof DocsIndexLazyRoute
+  '/docs/': typeof DocsIndexLazyRoute
   '/docs/api/functions': typeof DocsApiFunctionsLazyRoute
   '/docs/examples/basic': typeof DocsExamplesBasicLazyRoute
   '/docs/examples/interactive': typeof DocsExamplesInteractiveLazyRoute
@@ -171,7 +171,7 @@ export interface FileRouteTypes {
     | '/docs/observability'
     | '/docs/patterns'
     | '/docs/providers'
-    | '/docs'
+    | '/docs/'
     | '/docs/api/functions'
     | '/docs/examples/basic'
     | '/docs/examples/interactive'
@@ -232,7 +232,7 @@ declare module '@tanstack/react-router' {
     '/docs/': {
       id: '/docs/'
       path: '/docs'
-      fullPath: '/docs'
+      fullPath: '/docs/'
       preLoaderRoute: typeof DocsIndexLazyRouteImport
       parentRoute: typeof rootRouteImport
     }

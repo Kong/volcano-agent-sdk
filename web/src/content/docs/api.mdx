@@ -11,7 +11,7 @@ API documentation for Volcano Agent SDK: agent creation, step types, results, an
 Create an agent workflow builder.
 
 ```typescript
-import { agent, llmOpenAI } from "@volcano/agent";
+import { agent, llmOpenAI } from "@volcano.dev/agent";
 
 const llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 
@@ -25,31 +25,31 @@ const myAgent = agent({
 
 ### Options
 
-| Option                          | Type        | Default                      | Description                              |
-| ------------------------------- | ----------- | ---------------------------- | ---------------------------------------- |
-| `llm`                           | LLMHandle   | -                            | Default LLM provider for all steps       |
-| `instructions`                  | string      | -                            | Global system instructions               |
-| `timeout`                       | number      | 60                           | Default timeout per step (seconds)       |
-| `retry`                         | RetryConfig | `{ retries: 3, delay: 0 }`   | Retry configuration                      |
-| `contextMaxChars`               | number      | 20480                        | Soft cap for injected context size       |
-| `contextMaxToolResults`         | number      | 8                            | Number of recent tool results to include |
-| `maxToolIterations`             | number      | 4                            | Max tool calls per automatic step        |
-| `disableParallelToolExecution`  | boolean     | false                        | Disable automatic parallel tool execution (forces sequential) |
-| `hideProgress`                  | boolean     | false                        | Suppress progress output                 |
-| `telemetry`                     | object      | -                            | OpenTelemetry configuration              |
-| `mcpAuth`                       | object      | -                            | Agent-level MCP authentication           |
-| `name`                          | string      | -                            | Agent name (for crews/composition)       |
-| `description`                   | string      | -                            | Agent description (for crews)            |
+| Option                         | Type        | Default                    | Description                                                   |
+| ------------------------------ | ----------- | -------------------------- | ------------------------------------------------------------- |
+| `llm`                          | LLMHandle   | -                          | Default LLM provider for all steps                            |
+| `instructions`                 | string      | -                          | Global system instructions                                    |
+| `timeout`                      | number      | 60                         | Default timeout per step (seconds)                            |
+| `retry`                        | RetryConfig | `{ retries: 3, delay: 0 }` | Retry configuration                                           |
+| `contextMaxChars`              | number      | 20480                      | Soft cap for injected context size                            |
+| `contextMaxToolResults`        | number      | 8                          | Number of recent tool results to include                      |
+| `maxToolIterations`            | number      | 4                          | Max tool calls per automatic step                             |
+| `disableParallelToolExecution` | boolean     | false                      | Disable automatic parallel tool execution (forces sequential) |
+| `hideProgress`                 | boolean     | false                      | Suppress progress output                                      |
+| `telemetry`                    | object      | -                          | OpenTelemetry configuration                                   |
+| `mcpAuth`                      | object      | -                          | Agent-level MCP authentication                                |
+| `name`                         | string      | -                          | Agent name (for crews/composition)                            |
+| `description`                  | string      | -                          | Agent description (for crews)                                 |
 
 ### Methods
 
 #### Basic Methods
 
-| Method                 | Description                                                    |
-| ---------------------- | -------------------------------------------------------------- |
-| `.then(step)`          | Add a sequential step to the workflow                          |
-| `.resetHistory()`      | Clear context/history for subsequent steps                     |
-| `.run(options?)`       | Execute workflow and return all results (supports onStep, onToken callbacks) |
+| Method            | Description                                                                  |
+| ----------------- | ---------------------------------------------------------------------------- |
+| `.then(step)`     | Add a sequential step to the workflow                                        |
+| `.resetHistory()` | Clear context/history for subsequent steps                                   |
+| `.run(options?)`  | Execute workflow and return all results (supports onStep, onToken callbacks) |
 
 #### Advanced Pattern Methods
 
@@ -226,23 +226,31 @@ Let a coordinator LLM autonomously delegate to specialized agents:
 ```
 
 **How it works:**
+
 - The coordinator LLM reads agent `name` and `description` fields
 - Autonomously decides which agent to delegate to based on the task
 - Continues delegating until the overall task is complete
 - Context flows between coordinator and delegated agents
 
 **Example:**
-```typescript
-const researcher = agent({ llm, name: 'researcher', description: 'Expert researcher' })
-  .then({ prompt: "Research the topic." });
 
-const writer = agent({ llm, name: 'writer', description: 'Content creator' })
-  .then({ prompt: "Write content." });
+```typescript
+const researcher = agent({
+  llm,
+  name: "researcher",
+  description: "Expert researcher",
+}).then({ prompt: "Research the topic." });
+
+const writer = agent({
+  llm,
+  name: "writer",
+  description: "Content creator",
+}).then({ prompt: "Write content." });
 
 await agent({ llm })
   .then({
     prompt: "Create a blog post about AI",
-    agents: [researcher, writer]
+    agents: [researcher, writer],
   })
   .run();
 // Coordinator autonomously uses researcher, then writer, then finalizes
@@ -250,16 +258,16 @@ await agent({ llm })
 
 ### Common Step Fields
 
-| Field          | Type        | Description                                          |
-| -------------- | ----------- | ---------------------------------------------------- |
-| `llm`          | LLMHandle   | Override the LLM for this step                       |
-| `instructions` | string      | Override system instructions for this step           |
-| `timeout`      | number      | Step timeout in seconds (overrides agent default)    |
-| `retry`        | RetryConfig | Retry config for this step (overrides agent default) |
-| `pre`          | () => void  | Hook called before step execution                    |
-| `post`         | () => void  | Hook called after successful step execution          |
-| `onToken`      | (token: string) => void | Real-time callback for each LLM token (streaming) |
-| `onToolCall`   | (toolName: string, args: any, result: any) => void | Real-time callback when each tool completes |
+| Field          | Type                                               | Description                                          |
+| -------------- | -------------------------------------------------- | ---------------------------------------------------- |
+| `llm`          | LLMHandle                                          | Override the LLM for this step                       |
+| `instructions` | string                                             | Override system instructions for this step           |
+| `timeout`      | number                                             | Step timeout in seconds (overrides agent default)    |
+| `retry`        | RetryConfig                                        | Retry config for this step (overrides agent default) |
+| `pre`          | () => void                                         | Hook called before step execution                    |
+| `post`         | () => void                                         | Hook called after successful step execution          |
+| `onToken`      | (token: string) => void                            | Real-time callback for each LLM token (streaming)    |
+| `onToolCall`   | (toolName: string, args: any, result: any) => void | Real-time callback when each tool completes          |
 
 ### Real-Time Callbacks
 
@@ -275,7 +283,7 @@ await agent({ llm })
       process.stdout.write(token); // Stream to console
       // Or: websocket.send(token);
       // Or: res.write(`data: ${token}\n\n`); // SSE
-    }
+    },
   })
   .run();
 ```
@@ -294,15 +302,15 @@ await agent({ llm })
     maxToolIterations: 20,
     onToolCall: (toolName, args, result) => {
       // Extract tool name without MCP prefix
-      const name = toolName.split('.').pop();
-      
-      if (name === 'get_message') {
+      const name = toolName.split(".").pop();
+
+      if (name === "get_message") {
         const data = JSON.parse(result.content[0].text);
         console.log(`📧 Analyzing: ${data.subject}`);
-      } else if (name === 'add_label') {
+      } else if (name === "add_label") {
         console.log(`🏷️  Marked as spam!`);
       }
-    }
+    },
   })
   .run();
 ```
@@ -310,12 +318,14 @@ await agent({ llm })
 **When it fires:** Immediately after each tool call completes (real-time progress)
 
 **Use cases:**
+
 - Show which emails/files/items are being processed
 - Display progress bars or counters
 - Log tool activity for debugging
 - Stream progress updates to users
 
 **Combined usage:**
+
 ```typescript
 await agent({ llm })
   .then({
@@ -328,7 +338,7 @@ await agent({ llm })
     onToolCall: (toolName, args, result) => {
       // Tool progress: "Processing item 5 of 10..."
       console.log(`\n✓ ${toolName}(${JSON.stringify(args)})`);
-    }
+    },
   })
   .run();
 ```
@@ -428,7 +438,7 @@ type RetryConfig = {
 Create an MCP handle for a tool server with optional authentication:
 
 ```typescript
-import { mcp } from "@volcano/agent";
+import { mcp } from "@volcano.dev/agent";
 
 // No authentication
 const astro = mcp("http://localhost:3211/mcp");
@@ -459,7 +469,7 @@ const bearerMcp = mcp("https://api.example.com/mcp", {
 Manually discover tools from MCP servers:
 
 ```typescript
-import { discoverTools, mcp } from "@volcano/agent";
+import { discoverTools, mcp } from "@volcano.dev/agent";
 
 const handles = [
   mcp("http://localhost:3211/mcp"),

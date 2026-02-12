@@ -1,4 +1,4 @@
-import { agent, llmOpenAI } from "@volcano/agent";
+import { agent, llmOpenAI } from "@volcano.dev/agent";
 
 const llm = llmOpenAI({ 
   apiKey: process.env.OPENAI_API_KEY!, 

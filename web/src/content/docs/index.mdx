@@ -51,7 +51,7 @@ Built-in retries, timeouts, error handling, and connection pooling. Battle-teste
 Install Volcano Agent SDK - everything you need for OpenAI, Anthropic, Mistral, Llama, and Google Vertex providers:
 
 ```bash
-npm install @volcano/agent
+npm install @volcano.dev/agent
 ```
 
 That's it! The core SDK includes MCP support and all common LLM providers.
@@ -90,7 +90,7 @@ See the [Observability guide](observability) for complete setup and backend conf
 The simplest possible agent with a single LLM step:
 
 ```typescript
-import { agent, llmOpenAI } from "@volcano/agent";
+import { agent, llmOpenAI } from "@volcano.dev/agent";
 
 const llm = llmOpenAI({
   apiKey: process.env.OPENAI_API_KEY!,
@@ -110,7 +110,7 @@ console.log(results[0].llmOutput);
 Automatically discover and use MCP tools across multiple steps:
 
 ```typescript
-import { agent, llmOpenAI, mcp } from "@volcano/agent";
+import { agent, llmOpenAI, mcp } from "@volcano.dev/agent";
 
 const llm = llmOpenAI({
   apiKey: process.env.OPENAI_API_KEY!,
@@ -139,7 +139,7 @@ console.log(steps[1].llmOutput); // Fortune based on the sign
 Use different LLM providers for different steps in the same workflow:
 
 ```typescript
-import { agent, llmOpenAI, llmAnthropic, llmMistral } from "@volcano/agent";
+import { agent, llmOpenAI, llmAnthropic, llmMistral } from "@volcano.dev/agent";
 
 const openai = llmOpenAI({
   apiKey: process.env.OPENAI_API_KEY!,
@@ -236,7 +236,7 @@ await agent({ llm: gpt4 })
   .then({ llm: mistral, prompt: "Write comprehensive report" })
   .run({
     onStep: (step) => updateUI(step), // Real-time progress
-    onToken: (token) => streamToClient(token) // Token streaming
+    onToken: (token) => streamToClient(token), // Token streaming
   });
 ```
 
@@ -244,7 +244,7 @@ await agent({ llm: gpt4 })
 
 Factual comparison with other AI frameworks:
 
-| Feature                      | Volcano Agent SDK                                              | AI SDK                | LangChain             |
+| Feature                      | Volcano Agent SDK                                        | AI SDK                | LangChain             |
 | ---------------------------- | -------------------------------------------------------- | --------------------- | --------------------- |
 | **API Style**                | Fluent, chainable `.then()`                              | Function-based        | Class-based chains    |
 | **MCP Integration**          | Native, first-class                                      | Via custom tools      | Via custom tools      |
@@ -322,7 +322,7 @@ await agent({ llm })
 Different LLM providers can be used for different steps in the same workflow:
 
 ```typescript
-import { agent, llmOpenAI, llmAnthropic, llmMistral } from "@volcano/agent";
+import { agent, llmOpenAI, llmAnthropic, llmMistral } from "@volcano.dev/agent";
 
 const openai = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 const claude = llmAnthropic({ apiKey: process.env.ANTHROPIC_API_KEY! });
@@ -358,4 +358,4 @@ Visit our GitHub repository for:
 ### ⭐ View on GitHub
 
 - [View on GitHub](https://github.com/Kong/volcano-agent-sdk) - Source code, issues, and discussions
-- [NPM Package](https://www.npmjs.com/package/@volcano/agent) - Install via npm and view package details
+- [NPM Package](https://www.npmjs.com/package/@volcano.dev/agent) - Install via npm and view package details

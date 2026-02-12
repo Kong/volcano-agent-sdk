@@ -52,9 +52,11 @@ test.describe("Feature Cards Rendering", () => {
 
     for (const featureTitle of expectedFeatures) {
       // Check if a feature card with this title exists
-      const featureCard = page.locator(
-        `[data-feature-cards-transformed] a, [data-feature-cards-transformed] div`
-      ).filter({ hasText: featureTitle });
+      const featureCard = page
+        .locator(
+          `[data-feature-cards-transformed] a, [data-feature-cards-transformed] div`
+        )
+        .filter({ hasText: featureTitle });
 
       const count = await featureCard.count();
 
@@ -75,7 +77,7 @@ test.describe("Feature Cards Rendering", () => {
 
     // Additional check: verify TypeScript-First specifically (the bug we fixed)
     const typescriptCard = page
-      .locator('[data-feature-cards-transformed] a')
+      .locator("[data-feature-cards-transformed] a")
       .filter({ hasText: "TypeScript-First" })
       .first();
 
@@ -133,7 +135,9 @@ test.describe("Feature Cards Rendering", () => {
     const currentUrl = page.url();
     expect(currentUrl).toContain(href || "");
 
-    console.log(`   ✅ Clicked "${title?.trim()}" → navigated to ${currentUrl}`);
+    console.log(
+      `   ✅ Clicked "${title?.trim()}" → navigated to ${currentUrl}`
+    );
   });
 
   test("feature cards should have proper grid layout", async ({ page }) => {

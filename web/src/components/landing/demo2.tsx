@@ -3,7 +3,7 @@ import { customThemeLight } from "./code-theme";
 import { Check, Copy } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
-const codeDemo = `import { agent, llmOpenAI, mcp } from "@volcano/agent";
+const codeDemo = `import { agent, llmOpenAI, mcp } from "@volcano.dev/agent";
 
 const llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY!, model: "gpt-5-mini" });
 const astro = mcp("http://localhost:3211/mcp");
@@ -70,7 +70,9 @@ function Demo2() {
             MCP Native
           </div>
           <p className="py-2 text-base sm:text-xl">
-            With automatic MCP tool selection, building MCP-powered workflows is easy as advertising which MCP servers you would like to use for each step.
+            With automatic MCP tool selection, building MCP-powered workflows is
+            easy as advertising which MCP servers you would like to use for each
+            step.
           </p>
 
           {/* Code Block */}

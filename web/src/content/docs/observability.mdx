@@ -19,7 +19,7 @@ Volcano Agent SDK uses OpenTelemetry (OTEL), the industry-standard observability
 Just pass an `endpoint` and Volcano auto-configures OpenTelemetry for you:
 
 ```typescript
-import { agent, llmOpenAI, createVolcanoTelemetry } from "@volcano/agent";
+import { agent, llmOpenAI, createVolcanoTelemetry } from "@volcano.dev/agent";
 
 // Create telemetry with endpoint - auto-configures everything!
 const telemetry = createVolcanoTelemetry({
@@ -31,15 +31,15 @@ const telemetry = createVolcanoTelemetry({
 const results = await agent({
   llm: llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! }),
   telemetry,
-  name: "data-analyzer",  // Shows in traces and metrics!
+  name: "data-analyzer", // Shows in traces and metrics!
 })
-  .then({ 
-    name: "data-analysis",  // Shows as "Step 1: data-analysis" in Jaeger
-    prompt: "Analyze data" 
+  .then({
+    name: "data-analysis", // Shows as "Step 1: data-analysis" in Jaeger
+    prompt: "Analyze data",
   })
-  .then({ 
+  .then({
     name: "report-generation",
-    prompt: "Generate report" 
+    prompt: "Generate report",
   })
   .run();
 
@@ -53,16 +53,18 @@ const results = await agent({
 Use the optional `name` field to make traces and metrics more meaningful:
 
 **Agent Names:**
+
 ```typescript
 const results = await agent({
   llm,
   telemetry,
-  name: 'data-pipeline',        // ✨ Shows in metrics and traces
-  description: 'Analyzes data'  // For agent crews (LLM sees this)
-})
+  name: "data-pipeline", // ✨ Shows in metrics and traces
+  description: "Analyzes data", // For agent crews (LLM sees this)
+});
 ```
 
 **Step Names:**
+
 ```typescript
 .then({
   name: 'data-validation',   // ✨ Shows in Jaeger as "Step 1: data-validation"
@@ -71,12 +73,14 @@ const results = await agent({
 ```
 
 **Benefits:**
+
 - **Better debugging**: Jaeger shows "Step 1: data-validation" instead of generic "Step 1"
 - **Metrics filtering**: Query by agent name in Grafana (e.g., token usage by agent)
 - **Production monitoring**: Track which agents/steps are slow or failing
 - **Multi-agent visibility**: See parent-child relationships by name
 
 **When to use:**
+
 - Always use agent `name` when tracking costs or performance by workflow type
 - Use step `name` for complex workflows where you need to debug specific steps
 - Optional in simple one-off scripts
@@ -94,7 +98,7 @@ const sdk = new NodeSDK({
   serviceName: "my-agent-service",
   traceExporter: new OTLPTraceExporter({
     url: "http://localhost:4318/v1/traces",
-    headers: { 'Authorization': `Bearer ${process.env.API_KEY}` }
+    headers: { Authorization: `Bearer ${process.env.API_KEY}` },
   }),
 });
 
@@ -107,6 +111,7 @@ const telemetry = createVolcanoTelemetry({
 ```
 
 Use manual configuration when you need:
+
 - Custom headers for authentication
 - Multiple exporters
 - Custom resource attributes
@@ -141,29 +146,34 @@ Volcano Agent SDK provides detailed metrics to answer critical questions about y
 ### Questions You Can Answer
 
 **Agent Analytics:**
+
 - "Which agent is being used the most?" → `volcano_agent_executions_total`
-- "Which agent consumes the most tokens?" → `volcano_agent_tokens_total`  
+- "Which agent consumes the most tokens?" → `volcano_agent_tokens_total`
 - "What are the parent-child agent relationships?" → `volcano_agent_subagent_calls_total`
 - "How many times was agent X called by agent Y?" → Query by parent/child labels
 
 **Token Economics:**
+
 - "How many tokens am I using per provider?" → `volcano_llm_tokens_total` by provider
 - "Which model uses the most tokens?" → `volcano_llm_tokens_total` by model
 - "What's my input vs output token ratio?" → Compare `input` vs `output` metrics
 - "Which agent is the most expensive to run?" → `volcano_agent_tokens_total` by agent_name
 
 **Performance:**
+
 - "Which provider is fastest?" → `volcano_llm_duration` p95 by provider
 - "How long do workflows take?" → `volcano_agent_duration` histograms
 - "How many steps per workflow?" → `volcano_workflow_steps`
 
 **Tools:**
+
 - "Which MCP tool is called most?" → `volcano_mcp_calls_total` by server
 - "Which tool is slowest?" → `volcano_mcp_tool_duration` p95
 
 ### Available Metrics
 
 **Core Metrics:**
+
 - `volcano_agent_duration_ms` - Agent workflow duration (histogram)
 - `volcano_step_duration_ms` - Individual step duration (histogram)
 - `volcano_llm_calls_total` - LLM API calls (counter with provider, model labels)
@@ -171,16 +181,19 @@ Volcano Agent SDK provides detailed metrics to answer critical questions about y
 - `volcano_errors_total` - Errors (counter with error_type label)
 
 **Token Metrics (New in v1.0.3):**
+
 - `volcano_llm_tokens_input` - Input tokens (counter with provider, model, agent_name)
 - `volcano_llm_tokens_output` - Output tokens (counter with provider, model, agent_name)
 - `volcano_llm_tokens_total` - Total tokens (counter with provider, model, agent_name)
 
 **Agent Metrics (New in v1.0.3):**
+
 - `volcano_agent_executions_total` - Times each agent executed (counter with agent_name, parent_agent)
 - `volcano_agent_tokens_total` - Tokens consumed by agent (counter with agent_name)
 - `volcano_agent_subagent_calls_total` - Parent→child relationships (counter with parent_agent_name, agent_name)
 
 **Workflow Metrics (New in v1.0.3):**
+
 - `volcano_workflow_steps` - Steps per workflow (histogram with agent_name)
 
 **All metrics include provider, model, agent_name, and parent_agent labels where applicable for fine-grained filtering.**
@@ -188,6 +201,7 @@ Volcano Agent SDK provides detailed metrics to answer critical questions about y
 ### Example Prometheus Queries
 
 **Agent Analytics:**
+
 ```promql
 # Top 10 agents by execution count
 topk(10, sum(volcano_agent_executions_total) by (agent_name))
@@ -200,6 +214,7 @@ sum(volcano_agent_subagent_calls_total) by (parent_agent_name, agent_name)
 ```
 
 **Token Economics:**
+
 ```promql
 # Which model uses the most tokens?
 topk(5, sum(volcano_llm_tokens_total) by (model))
@@ -212,9 +227,10 @@ sum(increase(volcano_agent_tokens_total[1h])) by (agent_name)
 ```
 
 **Performance:**
+
 ```promql
 # Which provider is fastest? (p95 latency)
-histogram_quantile(0.95, 
+histogram_quantile(0.95,
   sum(volcano_agent_duration_milliseconds_bucket) by (le, provider)
 )
 
@@ -226,6 +242,7 @@ histogram_quantile(0.95, sum(volcano_workflow_steps_bucket) by (le))
 ```
 
 **Tools & Errors:**
+
 ```promql
 # Most-called MCP tools
 topk(10, sum(volcano_mcp_calls_total) by (server))
@@ -270,14 +287,15 @@ Trace: agent-run-abc123
 
 Each span includes rich attributes for debugging:
 
-| Span Type                  | Attributes                                                                                  |
-| -------------------------- | ------------------------------------------------------------------------------------------- |
-| **agent.run**              | `agent.name`, `agent.step_count`, `volcano.version`                                         |
+| Span Type                      | Attributes                                                                         |
+| ------------------------------ | ---------------------------------------------------------------------------------- |
+| **agent.run**                  | `agent.name`, `agent.step_count`, `volcano.version`                                |
 | **Step N** or **Step N: name** | `step.index`, `step.name`, `step.type`, `step.prompt`, `llm.provider`, `llm.model` |
-| **llm.generate**           | `llm.provider`, `llm.model`, `llm.prompt_length`                                            |
-| **mcp.\***                 | `mcp.endpoint`, `mcp.operation`, `mcp.has_auth`                                             |
+| **llm.generate**               | `llm.provider`, `llm.model`, `llm.prompt_length`                                   |
+| **mcp.\***                     | `mcp.endpoint`, `mcp.operation`, `mcp.has_auth`                                    |
 
 **New in v1.0.3:**
+
 - **Agent names**: Identify which agent is running in traces and metrics
 - **Step names**: Spans show as "Step 1: data-analysis" instead of generic "step.execute"
 - **LLM tags in steps**: Every step span includes `llm.provider` and `llm.model` tags
@@ -305,15 +323,15 @@ Volcano records metrics for dashboards and alerting.
 
 ### Available Metrics
 
-| Metric                            | Type      | Description                                               |
-| --------------------------------- | --------- | --------------------------------------------------------- |
-| `volcano.agent.duration`          | Histogram | Total agent execution time (ms)                           |
-| `volcano.step.duration`           | Histogram | Individual step duration (ms), labeled by type            |
-| `volcano.llm.calls.total`         | Counter   | Total LLM API calls, labeled by provider and error status |
-| `volcano.mcp.calls.total`         | Counter   | Total MCP tool calls                                      |
-| `volcano.errors.total`            | Counter   | Total errors by type and provider                         |
-| `volcano.tool.execution.parallel` | Counter   | Parallel tool execution batches (with count attribute)    |
-| `volcano.tool.execution.sequential` | Counter | Sequential tool execution batches (with count attribute)  |
+| Metric                              | Type      | Description                                               |
+| ----------------------------------- | --------- | --------------------------------------------------------- |
+| `volcano.agent.duration`            | Histogram | Total agent execution time (ms)                           |
+| `volcano.step.duration`             | Histogram | Individual step duration (ms), labeled by type            |
+| `volcano.llm.calls.total`           | Counter   | Total LLM API calls, labeled by provider and error status |
+| `volcano.mcp.calls.total`           | Counter   | Total MCP tool calls                                      |
+| `volcano.errors.total`              | Counter   | Total errors by type and provider                         |
+| `volcano.tool.execution.parallel`   | Counter   | Parallel tool execution batches (with count attribute)    |
+| `volcano.tool.execution.sequential` | Counter   | Sequential tool execution batches (with count attribute)  |
 
 ### Metric Labels
 
@@ -323,18 +341,20 @@ Metrics include labels for filtering and grouping:
 - `model` - Specific model used
 - `type` - Step type (llm, mcp_auto, mcp_explicit)
 - `error` - Boolean indicating success/failure
-- `count` - Number of items in batch (for tool.execution.* metrics)
+- `count` - Number of items in batch (for tool.execution.\* metrics)
 
 ### Parallel Tool Execution Metrics
 
 The `tool.execution.parallel` and `tool.execution.sequential` metrics track how tools are being executed:
 
 **`volcano.tool.execution.parallel`**
+
 - Incremented when multiple tools are executed simultaneously
 - `count` attribute shows how many tools were parallelized
 - Example: 5 emails marked as spam in one parallel batch → `count: 5`
 
 **`volcano.tool.execution.sequential`**
+
 - Incremented when tools are executed one-by-one
 - `count` attribute shows how many tools were in the sequential batch
 - Example: 3 different tools called sequentially → `count: 3`
@@ -345,11 +365,11 @@ The `tool.execution.parallel` and `tool.execution.sequential` metrics track how 
 # Total parallel executions
 sum(volcano_tool_execution_parallel_total)
 
-# Total sequential executions  
+# Total sequential executions
 sum(volcano_tool_execution_sequential_total)
 
 # Parallelization rate (percentage of executions that were parallel)
-sum(volcano_tool_execution_parallel_total) / 
+sum(volcano_tool_execution_parallel_total) /
   (sum(volcano_tool_execution_parallel_total) + sum(volcano_tool_execution_sequential_total)) * 100
 
 # Average batch size for parallel executions
@@ -363,12 +383,14 @@ sum(volcano_tool_execution_parallel_total * (count - 1))
 ```
 
 **Grafana dashboard panels:**
+
 - Parallelization rate over time (line graph)
 - Parallel vs Sequential execution ratio (pie chart)
 - Average parallel batch size (gauge)
 - Total time saved from parallelization (estimate)
 
 **Use these metrics to:**
+
 - Monitor parallelization effectiveness
 - Identify workflows that benefit most from parallel execution
 - Validate performance improvements
@@ -384,7 +406,7 @@ Volcano works with any OpenTelemetry-compatible backend.
 ```typescript
 import { NodeSDK } from "@opentelemetry/sdk-node";
 import { JaegerExporter } from "@opentelemetry/exporter-jaeger";
-import { createVolcanoTelemetry } from "@volcano/agent";
+import { createVolcanoTelemetry } from "@volcano.dev/agent";
 
 // Setup OTEL SDK
 const sdk = new NodeSDK({
@@ -433,7 +455,7 @@ sdk.start();
 **Option 1: Auto-configuration with endpoint**
 
 ```typescript
-import { createVolcanoTelemetry } from "@volcano/agent";
+import { createVolcanoTelemetry } from "@volcano.dev/agent";
 
 const telemetry = createVolcanoTelemetry({
   serviceName: "my-agent",
@@ -498,7 +520,7 @@ Provide your own OTEL tracer and meter instances:
 
 ```typescript
 import { trace, metrics } from "@opentelemetry/api";
-import { createVolcanoTelemetry } from "@volcano/agent";
+import { createVolcanoTelemetry } from "@volcano.dev/agent";
 
 const tracer = trace.getTracer("my-custom-tracer");
 const meter = metrics.getMeter("my-custom-meter");

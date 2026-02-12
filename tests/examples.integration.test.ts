@@ -215,13 +215,13 @@ describe('Examples Integration Tests', () => {
     ];
 
     for (const example of examples) {
-      // Verify file exists and has @volcano/agent imports
+      // Verify file exists and has @volcano.dev/agent imports
       const { stdout } = await execAsync(`head -10 examples/${example}`, {
         timeout: 5000
       });
 
       expect(stdout).toContain('import');
-      expect(stdout).toContain('@volcano/agent');
+      expect(stdout).toContain('@volcano.dev/agent');
     }
   }, 30000);
 

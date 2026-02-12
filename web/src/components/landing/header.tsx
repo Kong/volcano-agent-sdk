@@ -47,7 +47,7 @@ export function Header() {
             <Github className="icon-stroke-white-hover h-5 w-5 hover:stroke-3" />
           </a>
           <a
-            href="https://www.npmjs.com/package/@volcano/agent"
+            href="https://www.npmjs.com/package/@volcano.dev/agent"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-btn-primary text-primary-foreground font-space-mono inline-flex items-center rounded-none border-2 border-black px-4 py-2 text-sm font-bold transition-colors hover:opacity-85"
@@ -102,7 +102,7 @@ export function Header() {
               GitHub
             </a>
             <a
-              href="https://www.npmjs.com/package/@volcano/agent"
+              href="https://www.npmjs.com/package/@volcano.dev/agent"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-btn-primary text-primary-foreground font-space-mono mx-3 inline-flex items-center justify-center rounded-none border-2 border-black px-4 py-2 text-sm font-medium transition-colors hover:opacity-85"

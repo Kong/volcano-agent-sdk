@@ -1,4 +1,4 @@
-import { agent, llmOpenAI, mcp } from "@volcano/agent";
+import { agent, llmOpenAI, mcp } from "@volcano.dev/agent";
 
 // Start the MCP servers first:
 // tsx examples/mcp/weather/server.ts
