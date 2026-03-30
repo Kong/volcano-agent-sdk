@@ -6,7 +6,7 @@
 
 **The TypeScript SDK for Multi-Provider AI Agents**
 
-Build agents that chain LLM reasoning with MCP tools. Mix OpenAI, Claude, Mistral in one workflow. Parallel execution, branching, loops. Native retries, streaming, and typed errors.
+Build agents that chain LLM reasoning with MCP tools. Mix OpenAI, Claude, Gemini, Mistral and other providers in one workflow. Parallel execution, branching, loops. Native retries, streaming, and typed errors.
 
 📚 **[Read the full documentation at volcano.dev →](https://volcano.dev/)**
 
@@ -38,7 +38,7 @@ Ask questions about what your agent did. Use `.summary()` or `.ask()` instead of
 <td width="33%">
 
 ### 🔧 100s of Models
-OpenAI, Anthropic, Mistral, Bedrock, Vertex, Azure. Switch providers per-step or globally.
+OpenAI, Anthropic, Gemini, Mistral, Bedrock, Vertex, Azure. Switch providers per-step or globally.
 
 </td>
 <td width="33%">
@@ -87,7 +87,7 @@ Built-in retries, timeouts, error handling, and connection pooling. Battle-teste
 npm install @volcano.dev/agent
 ```
 
-That's it! Includes MCP support and all common LLM providers (OpenAI, Anthropic, Mistral, Llama, Vertex).
+That's it! Includes MCP support and all common LLM providers (OpenAI, Anthropic, Gemini, Mistral, Llama, Vertex).
 
 **[View installation guide →](https://volcano.dev/docs#installation)**
 
@@ -151,7 +151,7 @@ console.log(post);
 
 ### 📖 Comprehensive Guides
 - **[Getting Started](https://volcano.dev/docs)** - Installation, quick start, core concepts
-- **[LLM Providers](https://volcano.dev/docs/providers)** - OpenAI, Anthropic, Mistral, Llama, Bedrock, Vertex, Azure
+- **[LLM Providers](https://volcano.dev/docs/providers)** - OpenAI, Anthropic, Gemini, Mistral, Llama, Bedrock, Vertex, Azure
 - **[MCP Tools](https://volcano.dev/docs/mcp-tools)** - Automatic selection, OAuth authentication, connection pooling
 - **[Advanced Patterns](https://volcano.dev/docs/patterns)** - Parallel, branching, loops, multi-LLM workflows
 - **[Features](https://volcano.dev/docs/features)** - Streaming, retries, timeouts, hooks, error handling

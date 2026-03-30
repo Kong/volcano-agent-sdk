@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { agent, llmOpenAI, llmAnthropic, llmMistral, llmLlama, llmBedrock, llmVertexStudio, llmAzure, createVolcanoTelemetry } from '../src/volcano-agent-sdk.js';
+import { agent, llmOpenAI, llmAnthropic, llmMistral, llmLlama, llmBedrock, llmVertexStudio, llmGemini, llmAzure, createVolcanoTelemetry } from '../src/volcano-agent-sdk.js';
 
 describe('Telemetry E2E - All Providers with Live Observability', () => {
   function createMockTelemetry() {
@@ -154,6 +154,27 @@ describe('Telemetry E2E - All Providers with Live Observability', () => {
     const tokens = mock.recordedMetrics.filter(m => m.name.includes('tokens'));
     expect(tokens.length).toBeGreaterThanOrEqual(3);
     expect(tokens[0].attrs.provider).toContain('VertexStudio');
+  }, 15000);
+
+  it('Gemini: Full observability with tokens and metrics', async () => {
+    if (!process.env.GEMINI_API_KEY) throw new Error('GEMINI_API_KEY required');
+
+    const mock = createMockTelemetry();
+    const llm = llmGemini({
+      model: process.env.GEMINI_MODEL || 'gemini-3-flash-preview',
+      apiKey: process.env.GEMINI_API_KEY!,
+      clientOptions: {
+        retryOnRateLimit: { maxRetries: 5, initialDelayMs: 5000, maxDelayMs: 60000 }
+      }
+    });
+
+    await agent({ llm, telemetry: mock.telemetry, hideProgress: true })
+      .then({ prompt: 'Reply "OK"' })
+      .run();
+
+    const tokens = mock.recordedMetrics.filter(m => m.name.includes('tokens'));
+    expect(tokens.length).toBeGreaterThanOrEqual(3);
+    expect(tokens[0].attrs.provider).toContain('Gemini');
   }, 15000);
 
   it('Azure: Full observability with tokens and metrics', async () => {

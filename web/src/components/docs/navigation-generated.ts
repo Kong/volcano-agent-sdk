@@ -1377,8 +1377,8 @@ export const generatedNavigation: NavigationDoc[] = [
       },
       {
         "level": 2,
-        "text": "Google Vertex Studio Provider",
-        "id": "google-vertex-studio-provider"
+        "text": "Google Gemini Provider",
+        "id": "google-gemini-provider"
       },
       {
         "level": 3,
@@ -1396,19 +1396,24 @@ export const generatedNavigation: NavigationDoc[] = [
         "id": "options-parameters-5"
       },
       {
+        "level": 3,
+        "text": "Rate Limit Handling",
+        "id": "rate-limit-handling"
+      },
+      {
+        "level": 3,
+        "text": "Gemini vs Vertex Studio",
+        "id": "gemini-vs-vertex-studio"
+      },
+      {
         "level": 2,
-        "text": "Azure AI Provider",
-        "id": "azure-ai-provider"
+        "text": "Google Vertex Studio Provider",
+        "id": "google-vertex-studio-provider"
       },
       {
         "level": 3,
         "text": "Authentication",
         "id": "authentication-6"
-      },
-      {
-        "level": 3,
-        "text": "Authentication Examples",
-        "id": "authentication-examples-1"
       },
       {
         "level": 3,
@@ -1419,6 +1424,31 @@ export const generatedNavigation: NavigationDoc[] = [
         "level": 3,
         "text": "Options Parameters",
         "id": "options-parameters-6"
+      },
+      {
+        "level": 2,
+        "text": "Azure AI Provider",
+        "id": "azure-ai-provider"
+      },
+      {
+        "level": 3,
+        "text": "Authentication",
+        "id": "authentication-7"
+      },
+      {
+        "level": 3,
+        "text": "Authentication Examples",
+        "id": "authentication-examples-1"
+      },
+      {
+        "level": 3,
+        "text": "Configuration",
+        "id": "configuration-7"
+      },
+      {
+        "level": 3,
+        "text": "Options Parameters",
+        "id": "options-parameters-7"
       },
       {
         "level": 2,

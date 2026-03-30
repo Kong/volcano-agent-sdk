@@ -1,7 +1,8 @@
-import { 
-  agent, 
-  llmOpenAI, 
-  llmAnthropic
+import {
+  agent,
+  llmOpenAI,
+  llmAnthropic,
+  // llmGemini,
 } from "@volcano.dev/agent";
 
 // Use different providers for different tasks
@@ -10,10 +11,16 @@ const gpt = llmOpenAI({
   model: "gpt-4o-mini" 
 });
 
-const claude = llmAnthropic({ 
-  apiKey: process.env.ANTHROPIC_API_KEY!, 
-  model: "claude-3-haiku-20240307" 
+const claude = llmAnthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY!,
+  model: "claude-3-haiku-20240307"
 });
+
+// Google Gemini (Google AI Studio)
+// const gemini = llmGemini({
+//   apiKey: process.env.GEMINI_API_KEY!,
+//   model: "gemini-3-flash-preview"
+// });
 
 // Mix providers in a single workflow
 const results = await agent({ llm: gpt })

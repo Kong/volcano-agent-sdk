@@ -6,7 +6,7 @@
 
 Volcano Agent SDK is a TypeScript framework for building AI agents that:
 - Integrates with Model Context Protocol (MCP) tools for real-world actions
-- Supports multiple LLM providers (OpenAI, Anthropic, Mistral, Llama, AWS Bedrock, Google Vertex AI, Azure)
+- Supports multiple LLM providers (OpenAI, Anthropic, Google Gemini, Mistral, Llama, AWS Bedrock, Google Vertex AI, Azure)
 - Provides chainable API for building complex multi-step workflows
 - Includes production-ready observability with OpenTelemetry integration
 - Offers streaming and batch execution modes for real-time and complete results
@@ -46,10 +46,11 @@ Main documentation: https://volcano.dev/docs
 - Overview: https://volcano.dev/docs/providers
 - OpenAI: https://volcano.dev/docs/providers#openai-provider
 - Anthropic (Claude): https://volcano.dev/docs/providers#anthropic-claude-provider
+- Google Gemini: https://volcano.dev/docs/providers#google-gemini-provider
 - Mistral: https://volcano.dev/docs/providers#mistral-provider
 - Llama: https://volcano.dev/docs/providers#llama-provider
 - AWS Bedrock: https://volcano.dev/docs/providers#aws-bedrock-provider
-- Google Vertex AI: https://volcano.dev/docs/providers#google-vertex-ai-provider
+- Google Vertex AI: https://volcano.dev/docs/providers#google-vertex-studio-provider
 - Azure AI: https://volcano.dev/docs/providers#azure-ai-provider
 
 ### MCP Tools
