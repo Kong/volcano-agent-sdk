@@ -101,6 +101,7 @@
     "mistral",
     "bedrock",
     "vertex",
+    "gemini",
     "volcano"
   ],
   "dependencies": {

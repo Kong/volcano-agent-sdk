@@ -55,8 +55,8 @@ function Features() {
               Multi LLM Providers
             </div>
             <p className="text-sm sm:text-base">
-              Supports OpenAI, Anthropic, Mistral, Llama, Bedrock, Vertex, and
-              Azure. Switch providers per-step.
+              Supports OpenAI, Anthropic, Gemini, Mistral, Llama, Bedrock,
+              Vertex, and Azure. Switch providers per-step.
             </p>
           </a>
           <a

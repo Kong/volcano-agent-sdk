@@ -1,6 +1,6 @@
 export function Statistics() {
   const stats = [
-    { label: "LLM Providers", value: "7+" },
+    { label: "LLM Providers", value: "8+" },
     { label: "Control flow patterns", value: "6" },
     { label: "Retry strategies", value: "3" },
     { label: "MCP tools", value: "∞" },

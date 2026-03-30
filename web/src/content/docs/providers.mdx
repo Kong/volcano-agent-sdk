@@ -4,7 +4,7 @@ title: "LLM Providers - Volcano Agent SDK"
 
 # LLM Providers
 
-Volcano Agent SDK supports 100s of models from 7 providers with function calling and MCP integration. Providers can be mixed within a single workflow.
+Volcano Agent SDK supports 100s of models from 8 providers with function calling and MCP integration. Providers can be mixed within a single workflow.
 
 ## Provider Support Matrix
 
@@ -15,6 +15,7 @@ Volcano Agent SDK supports 100s of models from 7 providers with function calling
 | **Mistral**              | ✅ Full          | ✅ Native                    | ✅ Native | ✅ Complete     |
 | **Llama**                | ✅ Full          | ✅ Via Ollama                | ✅ Native | ✅ Complete     |
 | **AWS Bedrock**          | ✅ Full          | ✅ Native (Converse API)     | ✅ Native | ✅ Complete     |
+| **Google Gemini**        | ✅ Full          | ✅ Native (Function calling) | ✅ Native | ✅ Complete     |
 | **Google Vertex Studio** | ✅ Full          | ✅ Native (Function calling) | ✅ Native | ✅ Complete     |
 | **Azure AI**             | ✅ Full          | ✅ Native (Responses API)    | ✅ Native | ✅ Complete     |
 
@@ -407,9 +408,78 @@ const bedrock5 = llmBedrock({
 | `top_p`          | 0-1        | Nucleus sampling           |
 | `stop_sequences` | string\[\] | Array of stop sequences    |
 
+## Google Gemini Provider
+
+Google's Gemini models with function calling via the Google AI Studio API.
+
+```typescript
+import { llmGemini } from "@volcano.dev/agent";
+
+const gemini = llmGemini({
+  model: "gemini-3-flash-preview",
+  apiKey: process.env.GEMINI_API_KEY!,
+  baseURL: "https://generativelanguage.googleapis.com/v1beta", // Optional
+  options: {
+    temperature: 0.8,
+    max_output_tokens: 2048,
+    top_k: 40,
+    top_p: 0.95,
+    stop_sequences: ["\n\n"],
+    candidate_count: 1,
+    response_mime_type: "text/plain",
+  },
+});
+```
+
+### Authentication
+
+| Method    | Required     | Description                                                                        |
+| --------- | ------------ | ---------------------------------------------------------------------------------- |
+| `apiKey`  | **Required** | Google AI Studio API key from aistudio.google.com                                  |
+| `baseURL` | _Optional_   | Custom API endpoint (default: https://generativelanguage.googleapis.com/v1beta)    |
+
+### Configuration
+
+| Parameter       | Required     | Description                              |
+| --------------- | ------------ | ---------------------------------------- |
+| `model`         | **Required** | Gemini model identifier                  |
+| `apiKey`        | **Required** | Google AI Studio API key                 |
+| `options`       | _Optional_   | Model-specific parameters                |
+| `clientOptions` | _Optional_   | Client behavior (e.g., rate limit retry) |
+
+### Options Parameters
+
+| Parameter            | Type       | Description                               |
+| -------------------- | ---------- | ----------------------------------------- |
+| `temperature`        | 0-2        | Controls randomness                       |
+| `max_output_tokens`  | number     | Maximum tokens to generate                |
+| `top_p`              | 0-1        | Nucleus sampling                          |
+| `top_k`              | number     | Sample from top K options                 |
+| `stop_sequences`     | string\[\] | Array of stop sequences                   |
+| `candidate_count`    | number     | Number of response variations (usually 1) |
+| `response_mime_type` | string     | For JSON mode: "application/json"         |
+
+### Rate Limit Handling
+
+Built-in retry with exponential backoff for 429 errors:
+
+```typescript
+const gemini = llmGemini({
+  model: "gemini-3-flash-preview",
+  apiKey: process.env.GEMINI_API_KEY!,
+  clientOptions: {
+    retryOnRateLimit: {
+      maxRetries: 5,
+      initialDelayMs: 1000,  // Default
+      maxDelayMs: 30000,     // Cap for backoff
+    },
+  },
+});
+```
+
 ## Google Vertex Studio Provider
 
-Google's Gemini models with function calling via AI Studio API.
+Google's Gemini models with function calling via the Vertex AI API.
 
 ```typescript
 import { llmVertexStudio } from "@volcano.dev/agent";
