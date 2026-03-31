@@ -4,6 +4,7 @@ import {
   Check,
   ChevronRight,
   Copy,
+  ListTree,
   Radio,
   Repeat2,
   Rows3,
@@ -229,6 +230,35 @@ function Demo1() {
                 &nbsp;&nbsp;&nbsp;&nbsp;{'{ prompt: "Process item" }'}
                 <br />
                 &nbsp;&nbsp;).<span className="text-blue-600">run</span>();
+              </div>
+            </a>
+
+            <a
+              href="/docs/patterns#switchcase-branching"
+              className="group flex flex-col border-1 border-black hover:outline-[3px] hover:outline-offset-[-3px] hover:outline-black"
+            >
+              <div className="p-4">
+                <div className="mb-3 flex items-center gap-3">
+                  <ListTree className="text-color-primary h-8 w-8" />
+                  <code className="text-base font-semibold sm:text-lg">
+                    .switch()
+                  </code>
+                </div>
+                <p className="text-sm text-slate-600 sm:text-base">
+                  Route to multiple paths based on LLM output or conditions
+                </p>
+              </div>
+              <div className="h-full bg-slate-50 p-3 font-mono text-xs leading-relaxed text-slate-600">
+                <span className="text-purple-600">await</span>{" "}
+                <span className="text-blue-600">agent</span>({"{ llm }"})<br />
+                &nbsp;&nbsp;.<span className="text-blue-600">switch</span>(classify,
+                {"{"}
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;{"HIGH: a => a.then(escalate),"}
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;{"LOW: a => a.then(queue)"}
+                <br />
+                &nbsp;&nbsp;{"}"}).<span className="text-blue-600">run</span>();
               </div>
             </a>
 
