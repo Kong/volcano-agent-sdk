@@ -19,6 +19,7 @@ const DocsPatternsLazyRouteImport = createFileRoute('/docs/patterns')()
 const DocsObservabilityLazyRouteImport = createFileRoute(
   '/docs/observability',
 )()
+const DocsNativeToolsLazyRouteImport = createFileRoute('/docs/native-tools')()
 const DocsMcpToolsLazyRouteImport = createFileRoute('/docs/mcp-tools')()
 const DocsInstallationLazyRouteImport = createFileRoute('/docs/installation')()
 const DocsFeaturesLazyRouteImport = createFileRoute('/docs/features')()
@@ -60,6 +61,13 @@ const DocsObservabilityLazyRoute = DocsObservabilityLazyRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() =>
   import('./routes/docs/observability.lazy').then((d) => d.Route),
+)
+const DocsNativeToolsLazyRoute = DocsNativeToolsLazyRouteImport.update({
+  id: '/docs/native-tools',
+  path: '/docs/native-tools',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() =>
+  import('./routes/docs/native-tools.lazy').then((d) => d.Route),
 )
 const DocsMcpToolsLazyRoute = DocsMcpToolsLazyRouteImport.update({
   id: '/docs/mcp-tools',
@@ -120,6 +128,7 @@ export interface FileRoutesByFullPath {
   '/docs/features': typeof DocsFeaturesLazyRoute
   '/docs/installation': typeof DocsInstallationLazyRoute
   '/docs/mcp-tools': typeof DocsMcpToolsLazyRoute
+  '/docs/native-tools': typeof DocsNativeToolsLazyRoute
   '/docs/observability': typeof DocsObservabilityLazyRoute
   '/docs/patterns': typeof DocsPatternsLazyRoute
   '/docs/providers': typeof DocsProvidersLazyRoute
@@ -135,6 +144,7 @@ export interface FileRoutesByTo {
   '/docs/features': typeof DocsFeaturesLazyRoute
   '/docs/installation': typeof DocsInstallationLazyRoute
   '/docs/mcp-tools': typeof DocsMcpToolsLazyRoute
+  '/docs/native-tools': typeof DocsNativeToolsLazyRoute
   '/docs/observability': typeof DocsObservabilityLazyRoute
   '/docs/patterns': typeof DocsPatternsLazyRoute
   '/docs/providers': typeof DocsProvidersLazyRoute
@@ -151,6 +161,7 @@ export interface FileRoutesById {
   '/docs/features': typeof DocsFeaturesLazyRoute
   '/docs/installation': typeof DocsInstallationLazyRoute
   '/docs/mcp-tools': typeof DocsMcpToolsLazyRoute
+  '/docs/native-tools': typeof DocsNativeToolsLazyRoute
   '/docs/observability': typeof DocsObservabilityLazyRoute
   '/docs/patterns': typeof DocsPatternsLazyRoute
   '/docs/providers': typeof DocsProvidersLazyRoute
@@ -168,6 +179,7 @@ export interface FileRouteTypes {
     | '/docs/features'
     | '/docs/installation'
     | '/docs/mcp-tools'
+    | '/docs/native-tools'
     | '/docs/observability'
     | '/docs/patterns'
     | '/docs/providers'
@@ -183,6 +195,7 @@ export interface FileRouteTypes {
     | '/docs/features'
     | '/docs/installation'
     | '/docs/mcp-tools'
+    | '/docs/native-tools'
     | '/docs/observability'
     | '/docs/patterns'
     | '/docs/providers'
@@ -198,6 +211,7 @@ export interface FileRouteTypes {
     | '/docs/features'
     | '/docs/installation'
     | '/docs/mcp-tools'
+    | '/docs/native-tools'
     | '/docs/observability'
     | '/docs/patterns'
     | '/docs/providers'
@@ -214,6 +228,7 @@ export interface RootRouteChildren {
   DocsFeaturesLazyRoute: typeof DocsFeaturesLazyRoute
   DocsInstallationLazyRoute: typeof DocsInstallationLazyRoute
   DocsMcpToolsLazyRoute: typeof DocsMcpToolsLazyRoute
+  DocsNativeToolsLazyRoute: typeof DocsNativeToolsLazyRoute
   DocsObservabilityLazyRoute: typeof DocsObservabilityLazyRoute
   DocsPatternsLazyRoute: typeof DocsPatternsLazyRoute
   DocsProvidersLazyRoute: typeof DocsProvidersLazyRoute
@@ -255,6 +270,13 @@ declare module '@tanstack/react-router' {
       path: '/docs/observability'
       fullPath: '/docs/observability'
       preLoaderRoute: typeof DocsObservabilityLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/docs/native-tools': {
+      id: '/docs/native-tools'
+      path: '/docs/native-tools'
+      fullPath: '/docs/native-tools'
+      preLoaderRoute: typeof DocsNativeToolsLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/docs/mcp-tools': {
@@ -348,6 +370,7 @@ const rootRouteChildren: RootRouteChildren = {
   DocsFeaturesLazyRoute: DocsFeaturesLazyRoute,
   DocsInstallationLazyRoute: DocsInstallationLazyRoute,
   DocsMcpToolsLazyRoute: DocsMcpToolsLazyRoute,
+  DocsNativeToolsLazyRoute: DocsNativeToolsLazyRoute,
   DocsObservabilityLazyRoute: DocsObservabilityLazyRoute,
   DocsPatternsLazyRoute: DocsPatternsLazyRoute,
   DocsProvidersLazyRoute: DocsProvidersLazyRoute,

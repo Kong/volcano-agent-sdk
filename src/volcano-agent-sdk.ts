@@ -25,11 +25,11 @@ export type { MistralConfig, MistralOptions } from "./llms/mistral.js";
 export type { BedrockConfig, BedrockOptions } from "./llms/bedrock.js";
 export type { VertexStudioConfig, VertexStudioOptions, VertexStudioClientOptions } from "./llms/vertex-studio.js";
 export type { AzureConfig, AzureOptions } from "./llms/azure.js";
-import type { LLMHandle, ToolDefinition, LLMToolResult } from "./llms/types.js";
+import type { LLMHandle, ToolDefinition, LLMToolResult, ToolHandle, ToolConfig, ToolExecuteFn } from "./llms/types.js";
 import Ajv from "ajv";
 
 /* ---------- LLM ---------- */
-export type { LLMHandle, ToolDefinition, LLMToolResult };
+export type { LLMHandle, ToolDefinition, LLMToolResult, ToolHandle, ToolConfig, ToolExecuteFn };
 export const llmOpenAI = llmOpenAIProvider;
 export const llmOpenAIResponses = llmOpenAIResponsesProvider;
 
@@ -64,6 +64,7 @@ export class LLMError extends VolcanoError {}
 export class MCPError extends VolcanoError {}
 export class MCPConnectionError extends MCPError {}
 export class MCPToolError extends MCPError {}
+export class ToolError extends VolcanoError {}
 
 function isRetryableStatus(status?: number): boolean {
   if (!status && status !== 0) return false;
@@ -285,8 +286,67 @@ export function mcpStdio(config: MCPStdioConfig): MCPHandle {
   
   // Register the config so discoverTools can use it
   registerStdioConfig(handle, config);
-  
+
   return handle;
+}
+
+/* ---------- Native Tools ---------- */
+/**
+ * Create a native tool from a plain function.
+ * Defines a tool that can be called by the LLM during automatic tool selection,
+ * without requiring an MCP server.
+ *
+ * @param config - Tool configuration with name, description, JSON Schema parameters, and execute function
+ * @returns ToolHandle that can be passed to agent steps via the `tools` field
+ *
+ * @example
+ * // Basic usage
+ * const calculator = tool({
+ *   name: "calculate",
+ *   description: "Evaluate a math expression",
+ *   parameters: {
+ *     type: "object",
+ *     properties: { expression: { type: "string" } },
+ *     required: ["expression"]
+ *   },
+ *   execute: ({ expression }) => JSON.stringify({ result: Number(expression) })
+ * });
+ *
+ * await agent({ llm })
+ *   .then({ prompt: "What is 2 + 2?", tools: [calculator] })
+ *   .run();
+ *
+ * @example
+ * // Mixed with MCP tools
+ * const weather = mcp("http://localhost:3000/mcp");
+ * await agent({ llm })
+ *   .then({ prompt: "Check weather and calculate tip", tools: [calculator], mcps: [weather] })
+ *   .run();
+ */
+export function tool(config: ToolConfig): ToolHandle {
+  if (!config.name) throw new Error("tool(): 'name' is required");
+  if (!config.execute || typeof config.execute !== 'function') throw new Error("tool(): 'execute' must be a function");
+
+  const id = `tool_${createHash('md5').update(config.name).digest('hex').substring(0, 8)}`;
+
+  return {
+    id,
+    name: config.name,
+    description: config.description || `Tool: ${config.name}`,
+    parameters: config.parameters || { type: "object", properties: {} },
+    execute: config.execute
+  };
+}
+
+// Convert native ToolHandles to ToolDefinitions for the LLM tool loop.
+// Uses the same dotted namespacing as MCP tools (handleId.toolName).
+function nativeToolsToDefinitions(handles: ToolHandle[]): ToolDefinition[] {
+  return handles.map(h => ({
+    name: `${h.id}.${h.name}`,
+    description: h.description,
+    parameters: h.parameters,
+    toolHandle: h,
+  }));
 }
 
 // Ajv validator instance
@@ -965,6 +1025,9 @@ export type Step =
   | { mcp: MCPHandle; name?: string; tool: string; args?: Record<string, any>; timeout?: number; retry?: RetryConfig; contextMaxChars?: number; contextMaxToolResults?: number; pre?: () => void; post?: () => void; onToolCall?: (toolName: string, args: any, result: any) => void }
   | { prompt: string; name?: string; llm?: LLMHandle; mcp: MCPHandle; tool: string; args?: Record<string, any>; instructions?: string; timeout?: number; retry?: RetryConfig; contextMaxChars?: number; contextMaxToolResults?: number; pre?: () => void; post?: () => void; onToolCall?: (toolName: string, args: any, result: any) => void }
   | { prompt: string; name?: string; llm?: LLMHandle; mcps: MCPHandle[]; instructions?: string; timeout?: number; retry?: RetryConfig; contextMaxChars?: number; contextMaxToolResults?: number; maxToolIterations?: number; pre?: () => void; post?: () => void; onToken?: (token: string) => void; onToolCall?: (toolName: string, args: any, result: any) => void }
+  | { prompt: string; name?: string; llm?: LLMHandle; tools: ToolHandle[]; instructions?: string; timeout?: number; retry?: RetryConfig; contextMaxChars?: number; contextMaxToolResults?: number; maxToolIterations?: number; pre?: () => void; post?: () => void; onToken?: (token: string) => void; onToolCall?: (toolName: string, args: any, result: any) => void }
+  | { prompt: string; name?: string; llm?: LLMHandle; tools: ToolHandle[]; mcps: MCPHandle[]; instructions?: string; timeout?: number; retry?: RetryConfig; contextMaxChars?: number; contextMaxToolResults?: number; maxToolIterations?: number; pre?: () => void; post?: () => void; onToken?: (token: string) => void; onToolCall?: (toolName: string, args: any, result: any) => void }
+  | { tool: ToolHandle; name?: string; args?: Record<string, any>; timeout?: number; retry?: RetryConfig; contextMaxChars?: number; contextMaxToolResults?: number; pre?: () => void; post?: () => void; onToolCall?: (toolName: string, args: any, result: any) => void }
   | { prompt: string; name?: string; llm?: LLMHandle; agents: AgentBuilder[]; instructions?: string; timeout?: number; retry?: RetryConfig; contextMaxChars?: number; contextMaxToolResults?: number; pre?: () => void; post?: () => void };
 
 export type StepResult = {
@@ -1842,6 +1905,8 @@ type AgentOptions = {
   maxToolIterations?: number;
   // Disable parallel tool execution (parallel execution is enabled by default for performance)
   disableParallelToolExecution?: boolean;
+  // Native tools available to all steps (merged with step-level tools)
+  tools?: ToolHandle[];
 };
 
 /**
@@ -1864,6 +1929,7 @@ interface StepExecutionContext {
   capturedStreamOnToken?: (token: string, meta: TokenMetadata) => void;
   onToolCall?: (toolName: string, args: any, result: any) => void;
   disableParallelToolExecution?: boolean;
+  agentTools?: ToolHandle[];
 }
 
 /**
@@ -2044,11 +2110,12 @@ async function executeWithRetry(
 
 /**
  * Core step execution logic for run() method.
- * Handles all 4 step types:
- * 1. Automatic tool selection (mcps + prompt)
+ * Handles all step types:
+ * 1. Automatic tool selection (mcps and/or tools + prompt)
  * 2. Automatic agent delegation (agents + prompt)
  * 3. LLM-only step (prompt without tools/agents)
  * 4. Explicit MCP tool call (mcp + tool)
+ * 5. Explicit native tool call (tool + args)
  */
 async function executeStepCore(ctx: StepExecutionContext): Promise<StepResult> {
   const { 
@@ -2067,16 +2134,20 @@ async function executeStepCore(ctx: StepExecutionContext): Promise<StepResult> {
     progress,
     capturedStreamOnToken,
     onToolCall,
-    disableParallelToolExecution
+    disableParallelToolExecution,
+    agentTools
   } = ctx;
 
   safeExecuteHook('pre' in s ? s.pre : undefined, 'Pre-step');
-  
+
   // Determine step type for telemetry
   let stepType = 'unknown';
   if ("agents" in s) stepType = 'agent_crew';
+  else if ("tools" in s && "mcps" in s) stepType = 'mixed_tools';
+  else if ("tools" in s && "prompt" in s) stepType = 'native_tools';
   else if ("mcps" in s) stepType = 'mcp_auto';
   else if ("mcp" in s) stepType = 'mcp_explicit';
+  else if ("tool" in s && !("mcp" in s)) stepType = 'native_explicit';
   else if ("prompt" in s) stepType = 'llm';
   
   // Start step span
@@ -2090,10 +2161,10 @@ async function executeStepCore(ctx: StepExecutionContext): Promise<StepResult> {
   if (progress) progress.stepStart(stepIndex, stepPrompt);
   let llmTotalMs = 0;
   
-  // Automatic tool selection: LLM chooses and calls MCP tools
-  if ("mcps" in s && "prompt" in s) {
-    const step = s as Extract<Step, { mcps: MCPHandle[]; prompt: string }>;
-    
+  // Automatic tool selection: LLM chooses and calls tools (MCP and/or native)
+  if (("mcps" in s || "tools" in s) && "prompt" in s && !("agents" in s)) {
+    const step = s as { prompt: string; llm?: LLMHandle; mcps?: MCPHandle[]; tools?: ToolHandle[]; instructions?: string; contextMaxToolResults?: number; contextMaxChars?: number; maxToolIterations?: number };
+
     const usedLlm = step.llm ?? defaultLlm;
     if (!usedLlm) throw new Error("No LLM provided. Pass { llm } to agent(...) or specify per-step.");
     const stepInstructions = step.instructions ?? globalInstructions;
@@ -2101,9 +2172,14 @@ async function executeStepCore(ctx: StepExecutionContext): Promise<StepResult> {
     const maxContextChars = step.contextMaxChars ?? contextMaxChars;
     const promptWithHistory = step.prompt + buildHistoryContextChunked(contextHistory, maxToolResults, maxContextChars);
     r.prompt = step.prompt;
-    // Apply agent-level auth to all MCP handles
-    const mcpsWithAuth = step.mcps.map(applyAgentAuth);
-    const availableTools = await discoverTools(mcpsWithAuth);
+    // Discover MCP tools (if any mcps provided)
+    const mcpsWithAuth = (step.mcps || []).map(applyAgentAuth);
+    const mcpToolDefs = mcpsWithAuth.length > 0 ? await discoverTools(mcpsWithAuth) : [];
+    // Convert native tools to definitions (step-level + agent-level)
+    const allNativeTools = [...(agentTools || []), ...(step.tools || [])];
+    const nativeToolDefs = nativeToolsToDefinitions(allNativeTools);
+    // Merge all tool sources
+    const availableTools = [...mcpToolDefs, ...nativeToolDefs];
     if (availableTools.length === 0) {
       r.llmOutput = "No tools available for this request.";
     } else {
@@ -2160,47 +2236,67 @@ async function executeStepCore(ctx: StepExecutionContext): Promise<StepResult> {
           
           const toolPromises = toolPlan.toolCalls.map(async (call) => {
             const mapped = call;
-            let handle = mapped?.mcpHandle;
-            if (!handle) return null;
-            
-            // Apply agent-level auth
-            handle = applyAgentAuth(handle);
-            
+            const nativeHandle = mapped?.toolHandle;
+            let mcpHandle = mapped?.mcpHandle;
+
             // Validate args when schema known
-            try { 
-              validateWithSchema(
-                (availableTools.find(t => t.name === mapped.name) as any)?.parameters, 
-                mapped.arguments, 
-                `Tool ${mapped.name}`
-              ); 
-            } catch (e) { 
-              throw e; 
-            }
-            
-            const idx = mapped.name.indexOf('.');
-            const actualToolName = idx >= 0 ? mapped.name.slice(idx + 1) : mapped.name;
-            const mcpStart = Date.now();
-            
             try {
-              const result = await withMCPAny(
-                handle, 
-                (c) => c.callTool({ name: actualToolName, arguments: mapped.arguments || {} }), 
-                telemetry, 
-                'call_tool'
+              validateWithSchema(
+                (availableTools.find(t => t.name === mapped.name) as any)?.parameters,
+                mapped.arguments,
+                `Tool ${mapped.name}`
               );
-              const mcpMs = Date.now() - mcpStart;
-              
-              return {
-                name: mapped.name,
-                arguments: mapped.arguments,
-                endpoint: handle.url,
-                result,
-                ms: mcpMs
-              };
             } catch (e) {
-              const provider = classifyProviderFromMcp(handle);
-              throw normalizeError(e, 'mcp-tool', { stepId: stepIndex, provider });
+              throw e;
             }
+
+            if (nativeHandle) {
+              // NATIVE TOOL: execute function directly
+              const toolStart = Date.now();
+              try {
+                let result = await nativeHandle.execute(mapped.arguments || {});
+                if (typeof result !== 'string') result = JSON.stringify(result);
+                const toolMs = Date.now() - toolStart;
+                telemetry?.recordMetric('tool.native.call', 1, { tool: nativeHandle.name, error: false });
+                telemetry?.recordMetric('tool.native.duration', toolMs, { tool: nativeHandle.name });
+                return {
+                  name: mapped.name,
+                  arguments: mapped.arguments,
+                  endpoint: 'native',
+                  result,
+                  ms: toolMs
+                };
+              } catch (e) {
+                telemetry?.recordMetric('tool.native.call', 1, { tool: nativeHandle.name, error: true });
+                throw new ToolError(`Native tool '${nativeHandle.name}' failed: ${(e as Error).message}`, { stepId: stepIndex, retryable: false }, { cause: e });
+              }
+            } else if (mcpHandle) {
+              // MCP TOOL: existing logic
+              mcpHandle = applyAgentAuth(mcpHandle);
+              const idx = mapped.name.indexOf('.');
+              const actualToolName = idx >= 0 ? mapped.name.slice(idx + 1) : mapped.name;
+              const mcpStart = Date.now();
+
+              try {
+                const result = await withMCPAny(
+                  mcpHandle,
+                  (c) => c.callTool({ name: actualToolName, arguments: mapped.arguments || {} }),
+                  telemetry,
+                  'call_tool'
+                );
+                return {
+                  name: mapped.name,
+                  arguments: mapped.arguments,
+                  endpoint: mcpHandle.url,
+                  result,
+                  ms: Date.now() - mcpStart
+                };
+              } catch (e) {
+                const provider = classifyProviderFromMcp(mcpHandle);
+                throw normalizeError(e, 'mcp-tool', { stepId: stepIndex, provider });
+              }
+            }
+            return null;
           });
           
           const toolResults = await Promise.all(toolPromises);
@@ -2234,58 +2330,76 @@ async function executeStepCore(ctx: StepExecutionContext): Promise<StepResult> {
           
           for (const call of toolPlan.toolCalls) {
             const mapped = call;
-            let handle = mapped?.mcpHandle;
-            if (!handle) continue;
-            
-            // Apply agent-level auth
-            handle = applyAgentAuth(handle);
-            
+            const nativeHandle = mapped?.toolHandle;
+            let mcpHandle = mapped?.mcpHandle;
+
             // Validate args when schema known
-            try { 
-              validateWithSchema(
-                (availableTools.find(t => t.name === mapped.name) as any)?.parameters, 
-                mapped.arguments, 
-                `Tool ${mapped.name}`
-              ); 
-            } catch (e) { 
-              throw e; 
-            }
-            
-            const idx = mapped.name.indexOf('.');
-            const actualToolName = idx >= 0 ? mapped.name.slice(idx + 1) : mapped.name;
-            const mcpStart = Date.now();
-            let result: any;
-            
             try {
-              result = await withMCPAny(
-                handle, 
-                (c) => c.callTool({ name: actualToolName, arguments: mapped.arguments || {} }), 
-                telemetry, 
-                'call_tool'
+              validateWithSchema(
+                (availableTools.find(t => t.name === mapped.name) as any)?.parameters,
+                mapped.arguments,
+                `Tool ${mapped.name}`
               );
             } catch (e) {
-              const provider = classifyProviderFromMcp(handle);
-              throw normalizeError(e, 'mcp-tool', { stepId: stepIndex, provider });
+              throw e;
             }
-            
-            const mcpMs = Date.now() - mcpStart;
-            const toolCall: any = { 
-              name: mapped.name, 
-              arguments: mapped.arguments, 
-              endpoint: handle.url, 
-              result, 
-              ms: mcpMs 
+
+            let result: any;
+            let endpoint: string;
+            const toolStart = Date.now();
+
+            if (nativeHandle) {
+              // NATIVE TOOL: execute function directly
+              try {
+                result = await nativeHandle.execute(mapped.arguments || {});
+                if (typeof result !== 'string') result = JSON.stringify(result);
+                telemetry?.recordMetric('tool.native.call', 1, { tool: nativeHandle.name, error: false });
+              } catch (e) {
+                telemetry?.recordMetric('tool.native.call', 1, { tool: nativeHandle.name, error: true });
+                throw new ToolError(`Native tool '${nativeHandle.name}' failed: ${(e as Error).message}`, { stepId: stepIndex, retryable: false }, { cause: e });
+              }
+              endpoint = 'native';
+            } else if (mcpHandle) {
+              // MCP TOOL: existing logic
+              mcpHandle = applyAgentAuth(mcpHandle);
+              const idx = mapped.name.indexOf('.');
+              const actualToolName = idx >= 0 ? mapped.name.slice(idx + 1) : mapped.name;
+
+              try {
+                result = await withMCPAny(
+                  mcpHandle,
+                  (c) => c.callTool({ name: actualToolName, arguments: mapped.arguments || {} }),
+                  telemetry,
+                  'call_tool'
+                );
+              } catch (e) {
+                const provider = classifyProviderFromMcp(mcpHandle);
+                throw normalizeError(e, 'mcp-tool', { stepId: stepIndex, provider });
+              }
+              endpoint = mcpHandle.url;
+            } else {
+              continue;
+            }
+
+            const toolMs = Date.now() - toolStart;
+            if (nativeHandle) telemetry?.recordMetric('tool.native.duration', toolMs, { tool: nativeHandle.name });
+            const toolCall: any = {
+              name: mapped.name,
+              arguments: mapped.arguments,
+              endpoint,
+              result,
+              ms: toolMs
             };
             aggregated.push(toolCall);
             currentToolCallCount++;  // Increment counter
-            
+
             if (progress) {
               const rInternal = r as StepResultInternal;
               progress._tracker.updateTokens(rInternal.__tokenCount || 0, rInternal.__provider || '', currentToolCallCount);
             }
-            
+
             toolResultsAppend += `- ${mapped.name} -> ${typeof result === 'string' ? result : JSON.stringify(result)}\n`;
-            
+
             // Call onToolCall callback if provided
             if (onToolCall) {
               try {
@@ -2530,7 +2644,7 @@ async function executeStepCore(ctx: StepExecutionContext): Promise<StepResult> {
     }
   }
   // LLM-only step: Simple text generation
-  else if ("prompt" in s && !("mcp" in s) && !("mcps" in s) && !("agents" in s)) {
+  else if ("prompt" in s && !("mcp" in s) && !("mcps" in s) && !("tools" in s) && !("agents" in s)) {
     const step = s as Extract<Step, { prompt: string }> & { llm?: LLMHandle; instructions?: string; onToken?: (token: string) => void };
     
     const usedLlm = step.llm ?? defaultLlm;
@@ -2625,6 +2739,36 @@ async function executeStepCore(ctx: StepExecutionContext): Promise<StepResult> {
     const mcpMs = Date.now() - mcpStart;
     r.mcp = { endpoint: mcpHandle.url, tool: step.tool, result: res, ms: mcpMs };
   }
+  // Explicit native tool call: Direct invocation of a specific native tool
+  else if ("tool" in s && !("mcp" in s) && !("prompt" in s) && !("mcps" in s) && !("agents" in s)) {
+    const step = s as Extract<Step, { tool: ToolHandle }>;
+    const toolHandle = step.tool;
+
+    validateWithSchema(toolHandle.parameters, step.args ?? {}, `Tool ${toolHandle.name}`);
+    const toolStart = Date.now();
+    let result: string;
+    try {
+      const raw = await toolHandle.execute(step.args ?? {});
+      result = typeof raw === 'string' ? raw : JSON.stringify(raw);
+      telemetry?.recordMetric('tool.native.call', 1, { tool: toolHandle.name, error: false });
+    } catch (e) {
+      telemetry?.recordMetric('tool.native.call', 1, { tool: toolHandle.name, error: true });
+      throw new ToolError(`Native tool '${toolHandle.name}' failed: ${(e as Error).message}`, { stepId: stepIndex, retryable: false }, { cause: e });
+    }
+    const toolMs = Date.now() - toolStart;
+    telemetry?.recordMetric('tool.native.duration', toolMs, { tool: toolHandle.name });
+    r.mcp = { endpoint: 'native', tool: toolHandle.name, result, ms: toolMs };
+
+    // Call onToolCall callback if provided
+    if (onToolCall) {
+      try {
+        onToolCall(toolHandle.name, step.args, result);
+      } catch (err) {
+        // Don't let callback errors break execution
+        console.error('onToolCall callback error:', err);
+      }
+    }
+  }
 
   r.llmMs = llmTotalMs;
   r.durationMs = Date.now() - stepStart;
@@ -2679,7 +2823,7 @@ function countTotalSteps(steps: Array<Step>): number {
 }
 
 /**
- * Create an AI agent that chains LLM reasoning with MCP tool calls.
+ * Create an AI agent that chains LLM reasoning with tool calls (MCP and/or native).
  * 
  * @param opts - Optional configuration including LLM provider, instructions, timeout, retry policy, and observability
  * @returns AgentBuilder for chaining steps with .then() and run()
@@ -2859,7 +3003,8 @@ export function agent(opts?: AgentOptions): AgentBuilder {
               progress,
               capturedStreamOnToken,
               onToolCall: 'onToolCall' in s ? s.onToolCall : undefined,
-              disableParallelToolExecution: opts?.disableParallelToolExecution
+              disableParallelToolExecution: opts?.disableParallelToolExecution,
+              agentTools: opts?.tools
             });
           };
 

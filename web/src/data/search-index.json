@@ -21,7 +21,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "function mcpStdio(config: MCPStdioConfig): MCPHandle;\n"
     ],
@@ -51,7 +51,7 @@
       "demonstrates:",
       "creation,"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "codeBlocks": [
       "npx tsx examples/01-hello-world.ts\n",
       "const results = await agent({ llm })\n  .then({ prompt: \"Give me 3 random words\" })\n  .then({ prompt: \"Write a haiku using those words\" })\n  .run();\n"
@@ -82,7 +82,7 @@
       "tools",
       "automatically."
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "codeBlocks": [
       "npx tsx examples/02-with-tools.ts\n",
       "tsx examples/mcp/weather/server.ts\ntsx examples/mcp/tasks/server.ts\n"
@@ -113,7 +113,7 @@
       "demonstrates:",
       "mcpstdio()"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "codeBlocks": [
       "npx tsx examples/02b-with-stdio.ts\n"
     ],
@@ -143,7 +143,7 @@
       "demonstrates:",
       "token-level"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "codeBlocks": [
       "npx tsx examples/03-streaming.ts\n"
     ],
@@ -173,7 +173,7 @@
       "demonstrates:",
       "openai"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "codeBlocks": [
       "npx tsx examples/04-structured-outputs.ts\n"
     ],
@@ -203,7 +203,7 @@
       ".runagent().",
       "demonstrates:"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "codeBlocks": [
       "npx tsx examples/05-sub-agents.ts\n",
       "const analyzer = agent({ llm })\n  .then({ prompt: \"Analyze sentiment\" })\n  .then({ prompt: \"Extract topics\" });\n\nawait agent({ llm })\n  .then({ prompt: \"Customer feedback: ...\" })\n  .runAgent(analyzer) // Compose explicitly\n  .run();\n"
@@ -234,7 +234,7 @@
       "demonstrates:",
       "autonomous"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "codeBlocks": [
       "npx tsx examples/06-multi-agent.ts\n",
       "const researcher = agent({\n  llm,\n  name: \"researcher\",\n  description:\n    \"Expert at finding facts and data. Use for information gathering.\",\n})\n  .then({ prompt: \"Research the topic.\" })\n  .then({ prompt: \"Summarize the research.\" });\n\nconst writer = agent({\n  llm,\n  name: \"writer\",\n  description: \"Creates engaging content. Use for writing tasks.\",\n}).then({ prompt: \"Write content.\" });\n\nawait agent({ llm })\n  .then({\n    prompt: \"Create a blog post about JWST discoveries\",\n    agents: [researcher, writer], // Coordinator decides which to use and when\n  })\n  .run();\n"
@@ -265,7 +265,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "codeBlocks": [
       "npx tsx examples/07-patterns.ts\n"
     ],
@@ -295,7 +295,7 @@
       "block]",
       "demonstrates:"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "codeBlocks": [
       "npx tsx examples/08-context.ts\n"
     ],
@@ -325,7 +325,7 @@
       "demonstrates:",
       "telemetry"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "codeBlocks": [
       "npx tsx examples/09-observability.ts\n",
       "cd observability-demo\ndocker-compose -f docker-compose.observability.yml up\n"
@@ -356,7 +356,7 @@
       "demonstrates:",
       "openai,"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "codeBlocks": [
       "npx tsx examples/10-providers.ts\n"
     ],
@@ -386,12 +386,43 @@
       "emails.",
       "demonstrates:"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "codeBlocks": [
       "npx tsx examples/11-email-triage.ts\n",
       "tsx examples/mcp/tasks/server.ts\n"
     ],
     "anchor": "11-email-triagets",
+    "parentTitle": "Examples - Volcano Agent SDK"
+  },
+  {
+    "id": "Documentation-examples-12-native-toolsts",
+    "title": "12-native-tools.ts",
+    "description": "12-native-tools.ts Build agents with plain JavaScript functions — no MCP server needed. [code block] Demonstrates: Native tool creation with tool(), a",
+    "content": "12-native-tools.ts Build agents with plain JavaScript functions — no MCP server needed. [code block] Demonstrates: Native tool creation with tool(), automatic tool selection, multiple native tools [code block] View source →",
+    "headings": [
+      "12-native-tools.ts"
+    ],
+    "path": "/docs/examples#12-native-toolsts",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "12-native-tools.ts",
+      "[code",
+      "block]",
+      "native",
+      "build",
+      "agents",
+      "plain",
+      "javascript",
+      "functions",
+      "server"
+    ],
+    "lastModified": "2026-04-01T17:10:28.896Z",
+    "codeBlocks": [
+      "npx tsx examples/12-native-tools.ts\n",
+      "import { agent, llmOpenAI, tool } from \"@volcano.dev/agent\";\n\nconst calculator = tool({\n  name: \"calculate\",\n  description: \"Evaluate a math expression\",\n  parameters: {\n    type: \"object\",\n    properties: { expression: { type: \"string\" } },\n    required: [\"expression\"]\n  },\n  execute: ({ expression }) => {\n    const result = Function(`\"use strict\"; return (${expression})`)();\n    return JSON.stringify({ expression, result });\n  }\n});\n\nconst results = await agent({ llm })\n  .then({\n    prompt: \"What is 15% tip on $84.50?\",\n    tools: [calculator],\n  })\n  .run();\n"
+    ],
+    "anchor": "12-native-toolsts",
     "parentTitle": "Examples - Volcano Agent SDK"
   },
   {
@@ -409,7 +440,7 @@
       "advanced",
       "configuration"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "advanced-configuration",
     "parentTitle": "Observability - Volcano Agent SDK"
   },
@@ -465,7 +496,7 @@
       "models",
       "results"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "import { agent, llmOpenAI, llmAnthropic, llmMistral } from \"@volcano.dev/agent\";\n\nconst gpt = llmOpenAI({\n  apiKey: process.env.OPENAI_API_KEY!,\n  model: \"gpt-4o-mini\",\n});\n\nconst claude = llmAnthropic({\n  apiKey: process.env.ANTHROPIC_API_KEY!,\n  model: \"claude-3-5-haiku-20241022\",\n});\n\nconst mistral = llmMistral({\n  apiKey: process.env.MISTRAL_API_KEY!,\n  model: \"mistral-small-latest\",\n});\n\n// Each step uses a different LLM\nawait agent()\n  .then({ llm: gpt, prompt: \"Extract key data from this report...\" })\n  .then({ llm: claude, prompt: \"Analyze the extracted data for patterns\" })\n  .then({ llm: mistral, prompt: \"Write a creative summary in French\" })\n  .run();\n\n// Context flows automatically between steps, regardless of provider\n",
       "import { agent, llmLlama, llmOpenAI } from \"@volcano.dev/agent\";\n\nconst llama = llmLlama({\n  baseURL: \"http://127.0.0.1:11434\",\n  model: \"llama3.2:3b\", // Free, local\n});\n\nconst gpt4 = llmOpenAI({\n  apiKey: process.env.OPENAI_API_KEY!,\n  model: \"gpt-4o\", // Expensive, high-quality\n});\n\n// Process 100 documents\nawait agent()\n  .forEach(\n    documents,\n    (doc, a) => a.then({ llm: llama, prompt: `Summarize: ${doc}` }) // Cheap preprocessing\n  )\n  .then({ llm: gpt4, prompt: \"Analyze all summaries and create final report\" }) // Quality output\n  .run();\n",
@@ -509,7 +540,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "// app.ts or index.ts - run once at startup\nimport { NodeSDK } from \"@opentelemetry/sdk-node\";\nimport { OTLPTraceExporter } from \"@opentelemetry/exporter-trace-otlp-http\";\n\nconst sdk = new NodeSDK({\n  serviceName: \"my-agent-service\",\n  traceExporter: new OTLPTraceExporter({\n    url: \"http://localhost:4318/v1/traces\",\n    headers: { Authorization: `Bearer ${process.env.API_KEY}` },\n  }),\n});\n\nsdk.start();\n\n// Then create telemetry without endpoint (uses global SDK)\nconst telemetry = createVolcanoTelemetry({\n  serviceName: \"my-agent-service\",\n});\n"
     ],
@@ -539,12 +570,42 @@
       "multiple",
       "authenticated"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "// MCP handles without auth\nconst mcp1 = mcp(\"https://api.example.com/mcp\");\nconst mcp2 = mcp(\"https://api.other.com/mcp\");\n\n// Auth configured at agent level\nawait agent({\n  llm,\n  mcpAuth: {\n    \"https://api.example.com/mcp\": {\n      type: \"oauth\",\n      clientId: process.env.CLIENT_ID_1!,\n      clientSecret: process.env.CLIENT_SECRET_1!,\n      tokenEndpoint: \"https://api.example.com/oauth/token\",\n    },\n    \"https://api.other.com/mcp\": {\n      type: \"bearer\",\n      token: process.env.TOKEN_2!,\n    },\n  },\n})\n  .then({ prompt: \"Use tools from both servers\", mcps: [mcp1, mcp2] })\n  .run();\n"
     ],
     "anchor": "agent-level-authentication",
     "parentTitle": "MCP Tools - Volcano Agent SDK"
+  },
+  {
+    "id": "Documentation-native-tools-agent-level-tools",
+    "title": "Agent-Level Tools",
+    "description": "Agent-Level Tools Make tools available to every step in an agent without repeating them: [code block] Both tools are available in both steps automatic",
+    "content": "Agent-Level Tools Make tools available to every step in an agent without repeating them: [code block] Both tools are available in both steps automatically.",
+    "headings": [
+      "Agent-Level Tools"
+    ],
+    "path": "/docs/native-tools#agent-level-tools",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "agent-level",
+      "tools",
+      "available",
+      "every",
+      "agent",
+      "without",
+      "repeating",
+      "them:",
+      "[code",
+      "block]"
+    ],
+    "lastModified": "2026-04-01T19:30:50.630Z",
+    "codeBlocks": [
+      "const calculator = tool({ name: \"calculate\", ... });\nconst converter = tool({ name: \"convert_units\", ... });\n\nawait agent({ llm, tools: [calculator, converter] })\n  .then({ prompt: \"What is 15% of $84.50?\" })\n  .then({ prompt: \"Convert the result to euros at 0.92 rate\" })\n  .run();\n"
+    ],
+    "anchor": "agent-level-tools",
+    "parentTitle": "Native Tools - Volcano Agent SDK"
   },
   {
     "id": "Documentation-api-agentoptions-agentbuilder",
@@ -567,7 +628,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
       "import { agent, llmOpenAI } from \"@volcano.dev/agent\";\n\nconst llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });\n\nconst myAgent = agent({\n  llm,\n  instructions: \"You are a helpful assistant\",\n  timeout: 60,\n  retry: { retries: 3 },\n});\n"
     ],
@@ -597,7 +658,7 @@
       "methods.",
       "[code"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
       "interface AgentResults extends Array<StepResult> {\n  ask(llm: LLMHandle, question: string): Promise<string>;\n  summary(llm: LLMHandle): Promise<string>;\n  toolsUsed(llm: LLMHandle): Promise<string>;\n  errors(llm: LLMHandle): Promise<string>;\n}\n"
     ],
@@ -627,7 +688,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "codeBlocks": [
       "import { llmAnthropic } from \"@volcano.dev/agent\";\n\nconst claude = llmAnthropic({\n  apiKey: process.env.ANTHROPIC_API_KEY!,\n  model: \"claude-3-5-sonnet-20241022\",\n  baseURL: \"https://api.anthropic.com\", // Optional\n  version: \"2023-06-01\", // Optional\n  options: {\n    temperature: 0.7,\n    max_tokens: 2000,\n    top_k: 50,\n    top_p: 0.9,\n    stop_sequences: [\"\\n\\n\"],\n  },\n});\n"
     ],
@@ -637,7 +698,7 @@
   {
     "id": "Documentation-api",
     "title": "API Reference - Volcano Agent SDK",
-    "content": "API Reference API documentation for Volcano Agent SDK: agent creation, step types, results, and utility functions. agent(options?): AgentBuilder Create an agent workflow builder. [code block] Options Option Type Default Description ------------------------------ ----------- -------------------------- ------------------------------------------------------------- llm LLMHandle - Default LLM provider for all steps instructions string - Global system instructions timeout number 60 Default timeout per step (seconds) retry RetryConfig Retry configuration contextMaxChars number 20480 Soft cap for injected context size contextMaxToolResults number 8 Number of recent tool results to include maxToolIterations number 4 Max tool calls per automatic step disableParallelToolExecution boolean false Disable automatic parallel tool execution (forces sequential) hideProgress boolean false Suppress progress output telemetry object - OpenTelemetry configuration mcpAuth object - Agent-level MCP authentication name string - Agent name (for crews/composition) description string - Agent description (for crews) Methods Basic Methods Method Description ----------------- ---------------------------------------------------------------------------- .then(step) Add a sequential step to the workflow .resetHistory() Clear context/history for subsequent steps .run(options?) Execute workflow and return all results (supports onStep, onToken callbacks) Advanced Pattern Methods Method Description ----------------------------------- ----------------------------------------------- .parallel(steps) Execute steps concurrently (array or dict mode) .branch(condition, branches) Conditional if/else routing .switch(selector, cases) Multi-way branching with default .while(condition, body, opts?) Loop until condition is false .forEach(items, body) Iterate over array of items .retryUntil(body, success, opts?) Retry until success condition is met .runAgent(subAgent) Compose and run sub-agents AgentResults The run() method returns an enhanced array with conversational analysis methods. [code block] Methods ask(llm, question): Promise<string> Ask any natural language question about the workflow execution: [code block] The LLM analyzes all step results (prompts, outputs, tool calls, timing) and provides contextual answers. summary(llm): Promise<string> Get a high-level overview of what the agent accomplished: [code block] toolsUsed(llm): Promise<string> Understand which MCP tools were called and why: [code block] errors(llm): Promise<string> Check if there were any errors or issues: [code block] Usage Example [code block] Step Types Volcano Agent SDK supports three types of steps: LLM-Only Step Generate text with an LLM without tools: [code block] Automatic MCP Tool Selection Let the LLM automatically choose which tools to call: [code block] Callbacks: onToken: Called for each token streamed from the LLM (real-time text output) onToolCall: Called immediately when each tool completes (real-time tool progress) Explicit MCP Tool Call Call a specific tool directly: [code block] Multi-Agent Coordination Let a coordinator LLM autonomously delegate to specialized agents: [code block] How it works: The coordinator LLM reads agent name and description fields Autonomously decides which agent to delegate to based on the task Continues delegating until the overall task is complete Context flows between coordinator and delegated agents Example: [code block] Common Step Fields Field Type Description -------------- -------------------------------------------------- ---------------------------------------------------- llm LLMHandle Override the LLM for this step instructions string Override system instructions for this step timeout number Step timeout in seconds (overrides agent default) retry RetryConfig Retry config for this step (overrides agent default) pre () => void Hook called before step execution post () => void Hook called after successful step execution onToken (token: string) => void Real-time callback for each LLM token (streaming) onToolCall (toolName: string, args: any, result: any) => void Real-time callback when each tool completes Real-Time Callbacks onToken - LLM Streaming Called for each token as the LLM generates text. Perfect for showing real-time responses to users: [code block] When it fires: Only when the LLM is generating text (not during tool calls) onToolCall - Tool Progress Called immediately when each tool call completes. Perfect for showing progress during long operations: [code block] When it fires: Immediately after each tool call completes (real-time progress) Use cases: Show which emails/files/items are being processed Display progress bars or counters Log tool activity for debugging Stream progress updates to users Combined usage: [code block] Step Results Each step returns a StepResult object with execution details: [code block] Example Usage [code block] RetryConfig Configuration for retry behavior: [code block] Examples [code block] Utility Functions mcp(url, options?): MCPHandle Create an MCP handle for a tool server with optional authentication: [code block] MCP Specification: Per the official MCP spec, authentication uses OAuth 2.1. Volcano supports OAuth (automatic token acquisition) and Bearer (custom tokens). discoverTools(handles): Promise\\<ToolDefinition\\[\\]\\> Manually discover tools from MCP servers: [code block] Type Reference LLMHandle [code block] MCPHandle [code block] ToolDefinition [code block]",
+    "content": "API Reference API documentation for Volcano Agent SDK: agent creation, step types, results, and utility functions. agent(options?): AgentBuilder Create an agent workflow builder. [code block] Options Option Type Default Description ------------------------------ ----------- -------------------------- ------------------------------------------------------------- llm LLMHandle - Default LLM provider for all steps instructions string - Global system instructions timeout number 60 Default timeout per step (seconds) retry RetryConfig Retry configuration contextMaxChars number 20480 Soft cap for injected context size contextMaxToolResults number 8 Number of recent tool results to include maxToolIterations number 4 Max tool calls per automatic step disableParallelToolExecution boolean false Disable automatic parallel tool execution (forces sequential) hideProgress boolean false Suppress progress output telemetry object - OpenTelemetry configuration mcpAuth object - Agent-level MCP authentication tools ToolHandle[] - Native tools available to all steps (merged with step-level) name string - Agent name (for crews/composition) description string - Agent description (for crews) Methods Basic Methods Method Description ----------------- ---------------------------------------------------------------------------- .then(step) Add a sequential step to the workflow .resetHistory() Clear context/history for subsequent steps .run(options?) Execute workflow and return all results (supports onStep, onToken callbacks) Advanced Pattern Methods Method Description ----------------------------------- ----------------------------------------------- .parallel(steps) Execute steps concurrently (array or dict mode) .branch(condition, branches) Conditional if/else routing .switch(selector, cases) Multi-way branching with default .while(condition, body, opts?) Loop until condition is false .forEach(items, body) Iterate over array of items .retryUntil(body, success, opts?) Retry until success condition is met .runAgent(subAgent) Compose and run sub-agents AgentResults The run() method returns an enhanced array with conversational analysis methods. [code block] Methods ask(llm, question): Promise<string> Ask any natural language question about the workflow execution: [code block] The LLM analyzes all step results (prompts, outputs, tool calls, timing) and provides contextual answers. summary(llm): Promise<string> Get a high-level overview of what the agent accomplished: [code block] toolsUsed(llm): Promise<string> Understand which MCP tools were called and why: [code block] errors(llm): Promise<string> Check if there were any errors or issues: [code block] Usage Example [code block] Step Types Volcano Agent SDK supports the following step types: LLM-Only Step Generate text with an LLM without tools: [code block] Automatic MCP Tool Selection Let the LLM automatically choose which tools to call: [code block] Callbacks: onToken: Called for each token streamed from the LLM (real-time text output) onToolCall: Called immediately when each tool completes (real-time tool progress) Explicit MCP Tool Call Call a specific tool directly: [code block] Native Tool Auto-Selection Let the LLM automatically choose which native tools to call — no MCP server needed: [code block] Native tools can also be mixed with MCP tools in the same step by including both tools and mcps. Explicit Native Tool Call Call a native tool directly without an LLM: [code block] Multi-Agent Coordination Let a coordinator LLM autonomously delegate to specialized agents: [code block] How it works: The coordinator LLM reads agent name and description fields Autonomously decides which agent to delegate to based on the task Continues delegating until the overall task is complete Context flows between coordinator and delegated agents Example: [code block] Common Step Fields Field Type Description -------------- -------------------------------------------------- ---------------------------------------------------- llm LLMHandle Override the LLM for this step instructions string Override system instructions for this step timeout number Step timeout in seconds (overrides agent default) retry RetryConfig Retry config for this step (overrides agent default) pre () => void Hook called before step execution post () => void Hook called after successful step execution onToken (token: string) => void Real-time callback for each LLM token (streaming) onToolCall (toolName: string, args: any, result: any) => void Real-time callback when each tool completes Real-Time Callbacks onToken - LLM Streaming Called for each token as the LLM generates text. Perfect for showing real-time responses to users: [code block] When it fires: Only when the LLM is generating text (not during tool calls) onToolCall - Tool Progress Called immediately when each tool call completes. Perfect for showing progress during long operations: [code block] When it fires: Immediately after each tool call completes (real-time progress) Use cases: Show which emails/files/items are being processed Display progress bars or counters Log tool activity for debugging Stream progress updates to users Combined usage: [code block] Step Results Each step returns a StepResult object with execution details: [code block] Example Usage [code block] RetryConfig Configuration for retry behavior: [code block] Examples [code block] Utility Functions mcp(url, options?): MCPHandle Create an MCP handle for a tool server with optional authentication: [code block] MCP Specification: Per the official MCP spec, authentication uses OAuth 2.1. Volcano supports OAuth (automatic token acquisition) and Bearer (custom tokens). tool(config): ToolHandle Define a tool as a plain JavaScript function: [code block] Option Type Description -------- ------ ------------- name string Unique tool name (required) description string Description for LLM tool selection parameters object JSON Schema for arguments execute function (args) => string \\ Promise<string> (required) discoverTools(handles): Promise\\<ToolDefinition\\[\\]\\> Manually discover tools from MCP servers: [code block] Type Reference LLMHandle [code block] MCPHandle [code block] ToolHandle [code block] ToolConfig [code block] ToolDefinition [code block]",
     "headings": [
       "API Reference",
       "agent(options?): AgentBuilder",
@@ -656,6 +717,8 @@
       "LLM-Only Step",
       "Automatic MCP Tool Selection",
       "Explicit MCP Tool Call",
+      "Native Tool Auto-Selection",
+      "Explicit Native Tool Call",
       "Multi-Agent Coordination",
       "Common Step Fields",
       "Real-Time Callbacks",
@@ -667,10 +730,13 @@
       "Examples",
       "Utility Functions",
       "mcp(url, options?): MCPHandle",
+      "tool(config): ToolHandle",
       "discoverTools(handles): Promise\\<ToolDefinition\\[\\]\\>",
       "Type Reference",
       "LLMHandle",
       "MCPHandle",
+      "ToolHandle",
+      "ToolConfig",
       "ToolDefinition"
     ],
     "path": "/docs/api",
@@ -683,14 +749,14 @@
       "[code",
       "block]",
       "description",
+      "tools",
+      "string",
       "called",
       "number",
       "retry",
-      "progress",
-      "workflow",
-      "default"
+      "native"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
       "import { agent, llmOpenAI } from \"@volcano.dev/agent\";\n\nconst llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });\n\nconst myAgent = agent({\n  llm,\n  instructions: \"You are a helpful assistant\",\n  timeout: 60,\n  retry: { retries: 3 },\n});\n",
       "interface AgentResults extends Array<StepResult> {\n  ask(llm: LLMHandle, question: string): Promise<string>;\n  summary(llm: LLMHandle): Promise<string>;\n  toolsUsed(llm: LLMHandle): Promise<string>;\n  errors(llm: LLMHandle): Promise<string>;\n}\n",
@@ -702,6 +768,8 @@
       "{\n  prompt: string;\n  llm?: LLMHandle;\n  instructions?: string;\n  timeout?: number;\n  retry?: RetryConfig;\n  contextMaxChars?: number;\n  contextMaxToolResults?: number;\n  pre?: () => void;\n  post?: () => void;\n}\n",
       "{\n  prompt: string;\n  mcps: MCPHandle[];\n  llm?: LLMHandle;\n  instructions?: string;\n  timeout?: number;\n  retry?: RetryConfig;\n  contextMaxChars?: number;\n  contextMaxToolResults?: number;\n  maxToolIterations?: number;\n  pre?: () => void;\n  post?: () => void;\n  onToken?: (token: string) => void;\n  onToolCall?: (toolName: string, args: any, result: any) => void;\n}\n",
       "{\n  mcp: MCPHandle;\n  tool: string;\n  args?: Record<string, any>;\n  prompt?: string;         // Optional LLM step before tool\n  llm?: LLMHandle;\n  instructions?: string;\n  timeout?: number;\n  retry?: RetryConfig;\n  contextMaxChars?: number;\n  contextMaxToolResults?: number;\n  pre?: () => void;\n  post?: () => void;\n  onToolCall?: (toolName: string, args: any, result: any) => void;\n}\n",
+      "{\n  prompt: string;\n  tools: ToolHandle[];\n  llm?: LLMHandle;\n  instructions?: string;\n  timeout?: number;\n  retry?: RetryConfig;\n  contextMaxChars?: number;\n  contextMaxToolResults?: number;\n  maxToolIterations?: number;\n  pre?: () => void;\n  post?: () => void;\n  onToken?: (token: string) => void;\n  onToolCall?: (toolName: string, args: any, result: any) => void;\n}\n",
+      "{\n  tool: ToolHandle;\n  args?: Record<string, any>;\n  timeout?: number;\n  retry?: RetryConfig;\n  pre?: () => void;\n  post?: () => void;\n  onToolCall?: (toolName: string, args: any, result: any) => void;\n}\n",
       "{\n  prompt: string;\n  agents: AgentBuilder[];  // Array of specialized agents\n  llm?: LLMHandle;\n  instructions?: string;\n  timeout?: number;\n  retry?: RetryConfig;\n  contextMaxChars?: number;\n  contextMaxToolResults?: number;\n  pre?: () => void;\n  post?: () => void;\n}\n",
       "const researcher = agent({\n  llm,\n  name: \"researcher\",\n  description: \"Expert researcher\",\n}).then({ prompt: \"Research the topic.\" });\n\nconst writer = agent({\n  llm,\n  name: \"writer\",\n  description: \"Content creator\",\n}).then({ prompt: \"Write content.\" });\n\nawait agent({ llm })\n  .then({\n    prompt: \"Create a blog post about AI\",\n    agents: [researcher, writer],\n  })\n  .run();\n// Coordinator autonomously uses researcher, then writer, then finalizes\n",
       "await agent({ llm })\n  .then({\n    prompt: \"Explain quantum computing\",\n    onToken: (token) => {\n      process.stdout.write(token); // Stream to console\n      // Or: websocket.send(token);\n      // Or: res.write(`data: ${token}\\n\\n`); // SSE\n    },\n  })\n  .run();\n",
@@ -712,10 +780,13 @@
       "type RetryConfig = {\n  delay?: number; // Seconds to wait between retries (default: 0, mutually exclusive with backoff)\n  backoff?: number; // Exponential factor (waits 1s, factor^n each retry)\n  retries?: number; // Total attempts including first (default: 3)\n};\n",
       "// Immediate retry (default)\n{ retries: 3, delay: 0 }\n\n// Delayed retry (wait 20s between attempts)\n{ delay: 20, retries: 3 }\n\n// Exponential backoff (1s, 2s, 4s, 8s)\n{ backoff: 2, retries: 4 }\n",
       "import { mcp } from \"@volcano.dev/agent\";\n\n// No authentication\nconst astro = mcp(\"http://localhost:3211/mcp\");\n\n// OAuth authentication\nconst protectedMcp = mcp(\"https://api.example.com/mcp\", {\n  auth: {\n    type: \"oauth\",\n    clientId: \"your-client-id\",\n    clientSecret: \"your-client-secret\",\n    tokenEndpoint: \"https://api.example.com/oauth/token\",\n  },\n});\n\n// Bearer token\nconst bearerMcp = mcp(\"https://api.example.com/mcp\", {\n  auth: {\n    type: \"bearer\",\n    token: \"your-bearer-token\",\n  },\n});\n",
+      "import { tool } from \"@volcano.dev/agent\";\n\nconst calculator = tool({\n  name: \"calculate\",\n  description: \"Evaluate a math expression\",\n  parameters: {\n    type: \"object\",\n    properties: {\n      expression: { type: \"string\", description: \"e.g. '2 + 2'\" }\n    },\n    required: [\"expression\"]\n  },\n  execute: ({ expression }) => {\n    return JSON.stringify({ result: Function(`\"use strict\"; return (${expression})`)() });\n  }\n});\n\n// Use in a step\nawait agent({ llm })\n  .then({ prompt: \"Calculate 2 + 2\", tools: [calculator] })\n  .run();\n\n// Or call directly\nawait agent({})\n  .then({ tool: calculator, args: { expression: \"2 + 2\" } })\n  .run();\n",
       "import { discoverTools, mcp } from \"@volcano.dev/agent\";\n\nconst handles = [\n  mcp(\"http://localhost:3211/mcp\"),\n  mcp(\"http://localhost:3212/mcp\"),\n];\n\nconst tools = await discoverTools(handles);\nconsole.log(tools); // Array of tool definitions\n",
       "type LLMHandle = {\n  model: string;\n  gen(prompt: string): Promise<string>;\n  genWithTools(prompt: string, tools: ToolDefinition[]): Promise<LLMToolResult>;\n  genStream?(prompt: string): AsyncGenerator<string, void, unknown>;\n};\n",
       "type MCPHandle = {\n  id: string;\n  url: string;\n};\n",
-      "type ToolDefinition = {\n  name: string;\n  description: string;\n  parameters: any; // JSON Schema\n  mcpHandle?: MCPHandle;\n};\n"
+      "type ToolHandle = {\n  id: string;\n  name: string;\n  description: string;\n  parameters: Record<string, any>; // JSON Schema\n  execute: (args: Record<string, any>) => Promise<string> | string;\n};\n",
+      "type ToolConfig = {\n  name: string;\n  description: string;\n  parameters: Record<string, any>; // JSON Schema\n  execute: (args: Record<string, any>) => Promise<string> | string;\n};\n",
+      "type ToolDefinition = {\n  name: string;\n  description: string;\n  parameters: any; // JSON Schema\n  mcpHandle?: MCPHandle;\n  toolHandle?: ToolHandle;\n};\n"
     ]
   },
   {
@@ -740,12 +811,42 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "await agent({ llm })\n  .parallel([\n    { prompt: \"Analyze sentiment\" },\n    { prompt: \"Extract entities\" },\n    { prompt: \"Categorize topic\" },\n  ])\n  .then({ prompt: \"Combine all analysis results\" })\n  .run();\n"
     ],
     "anchor": "array-mode",
     "parentTitle": "Advanced Patterns - Volcano Agent SDK"
+  },
+  {
+    "id": "Documentation-native-tools-async-tools",
+    "title": "Async Tools",
+    "description": "Async Tools Tools can be async — useful for database queries, file I/O, or API calls that don't need a full MCP server: [code block]",
+    "content": "Async Tools Tools can be async — useful for database queries, file I/O, or API calls that don't need a full MCP server: [code block]",
+    "headings": [
+      "Async Tools"
+    ],
+    "path": "/docs/native-tools#async-tools",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "async",
+      "tools",
+      "useful",
+      "database",
+      "queries,",
+      "calls",
+      "don't",
+      "server:",
+      "[code",
+      "block]"
+    ],
+    "lastModified": "2026-04-01T19:30:50.630Z",
+    "codeBlocks": [
+      "const dbLookup = tool({\n  name: \"lookup_user\",\n  description: \"Look up a user by email\",\n  parameters: {\n    type: \"object\",\n    properties: { email: { type: \"string\" } },\n    required: [\"email\"]\n  },\n  execute: async ({ email }) => {\n    const user = await db.users.findOne({ email });\n    return JSON.stringify(user);\n  }\n});\n"
+    ],
+    "anchor": "async-tools",
+    "parentTitle": "Native Tools - Volcano Agent SDK"
   },
   {
     "id": "Documentation-providers-authentication",
@@ -770,7 +871,7 @@
       "openai",
       "platform.openai.com"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "authentication",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -797,7 +898,7 @@
       "------------",
       "--------------------------------------------------------"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "authentication",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -824,7 +925,7 @@
       "mistral",
       "console.mistral.ai"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "authentication",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -851,7 +952,7 @@
       "-----------------------------------------------------------------------",
       "baseurl"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "authentication",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -878,7 +979,7 @@
       "methods",
       "priority"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "authentication",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -905,7 +1006,7 @@
       "google",
       "studio"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "authentication",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -932,7 +1033,7 @@
       "priority",
       "order):"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "authentication",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -952,7 +1053,7 @@
       "configuration",
       "reference"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "authentication-configuration-reference",
     "parentTitle": "MCP Tools - Volcano Agent SDK"
   },
@@ -973,7 +1074,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "codeBlocks": [
       "// 1. Explicit credentials\nconst bedrock1 = llmBedrock({\n  model: \"anthropic.claude-3-sonnet-20240229-v1:0\",\n  region: \"us-east-1\",\n  accessKeyId: process.env.AWS_ACCESS_KEY_ID!,\n  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,\n  sessionToken: process.env.AWS_SESSION_TOKEN, // Optional\n});\n\n// 2. Bearer token\nconst bedrock2 = llmBedrock({\n  model: \"anthropic.claude-3-sonnet-20240229-v1:0\",\n  region: \"us-east-1\",\n  bearerToken: process.env.AWS_BEARER_TOKEN_BEDROCK!,\n});\n\n// 3. AWS Profile\nconst bedrock3 = llmBedrock({\n  model: \"anthropic.claude-3-sonnet-20240229-v1:0\",\n  region: \"us-east-1\",\n  profile: \"my-aws-profile\",\n});\n\n// 4. IAM Role\nconst bedrock4 = llmBedrock({\n  model: \"anthropic.claude-3-sonnet-20240229-v1:0\",\n  region: \"us-east-1\",\n  roleArn: \"arn:aws:iam::123456789012:role/my-bedrock-role\",\n});\n\n// 5. Default chain (recommended)\nconst bedrock5 = llmBedrock({\n  model: \"anthropic.claude-3-sonnet-20240229-v1:0\",\n  region: \"us-east-1\",\n  // Automatically uses environment, instance profiles, etc.\n});\n"
     ],
@@ -997,7 +1098,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "codeBlocks": [
       "// 1. API Key (simplest)\nconst azure1 = llmAzure({\n  model: \"gpt-4o-mini\",\n  endpoint: \"https://your-resource.openai.azure.com/openai/responses\",\n  apiKey: process.env.AZURE_AI_API_KEY!,\n});\n\n// 2. Entra ID Access Token\nconst azure2 = llmAzure({\n  model: \"gpt-4o-mini\",\n  endpoint: \"https://your-resource.openai.azure.com/openai/responses\",\n  accessToken: process.env.AZURE_ACCESS_TOKEN!,\n});\n\n// 3. Azure Default Credential Chain\nconst azure3 = llmAzure({\n  model: \"gpt-4o-mini\",\n  endpoint: \"https://your-resource.openai.azure.com/openai/responses\",\n  // Uses Azure SDK credential providers automatically\n});\n"
     ],
@@ -1027,7 +1128,7 @@
       "cached",
       "reused"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "authentication-features",
     "parentTitle": "MCP Tools - Volcano Agent SDK"
   },
@@ -1055,7 +1156,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
       "{\n  prompt: string;\n  mcps: MCPHandle[];\n  llm?: LLMHandle;\n  instructions?: string;\n  timeout?: number;\n  retry?: RetryConfig;\n  contextMaxChars?: number;\n  contextMaxToolResults?: number;\n  maxToolIterations?: number;\n  pre?: () => void;\n  post?: () => void;\n  onToken?: (token: string) => void;\n  onToolCall?: (toolName: string, args: any, result: any) => void;\n}\n"
     ],
@@ -1085,7 +1186,7 @@
       "oauth",
       "tokens"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "// With automatic token refresh\nconst gmail = mcp(\"https://api.gmail.com/mcp\", {\n  auth: {\n    type: \"bearer\",\n    token: process.env.GMAIL_ACCESS_TOKEN, // Can be expired!\n    refreshToken: process.env.GMAIL_REFRESH_TOKEN, // Long-lived refresh token\n    tokenEndpoint: \"https://oauth2.googleapis.com/token\",\n    clientId: process.env.GMAIL_CLIENT_ID,\n    clientSecret: process.env.GMAIL_CLIENT_SECRET,\n  },\n});\n\n// Even if your access token expires during this workflow,\n// Volcano automatically refreshes it and retries the request\nawait agent({ llm })\n  .then({\n    prompt: \"Analyze all my unread emails for spam\",\n    mcps: [gmail],\n  })\n  .run();\n",
       "// Start with an expired token - Volcano will refresh it automatically!\nconst gmail = mcp(\"http://localhost:3800/mcp\", {\n  auth: {\n    type: \"bearer\",\n    token: \"ya29.expired_token\", // Can be expired\n    refreshToken: \"1//refresh_token_here\",\n    tokenEndpoint: \"https://oauth2.googleapis.com/token\",\n    clientId: \"your-app.apps.googleusercontent.com\",\n    clientSecret: \"your-client-secret\",\n  },\n});\n\n// This can run for hours - tokens auto-refresh as needed\nwhile (true) {\n  await agent({ llm })\n    .then({\n      prompt: \"Check for spam in new emails\",\n      mcps: [gmail],\n    })\n    .run();\n\n  await new Promise((resolve) => setTimeout(resolve, 300000)); // Every 5 min\n}\n"
@@ -1117,12 +1218,43 @@
       "approach",
       "cases."
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "import { agent, llmOpenAI, mcp } from \"@volcano.dev/agent\";\n\nconst weather = mcp(\"http://localhost:3000/mcp\");\nconst notifications = mcp(\"http://localhost:4000/mcp\");\nconst llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });\n\nawait agent({ llm })\n  .then({\n    prompt: \"Check SF weather for tomorrow and send me a notification.\",\n    mcps: [weather, notifications],\n  })\n  .run();\n\n// The LLM automatically:\n// 1. Discovers available tools from both servers\n// 2. Selects the appropriate tools\n// 3. Calls them with correct arguments\n// 4. Returns the results\n"
     ],
     "anchor": "automatic-tool-selection",
     "parentTitle": "MCP Tools - Volcano Agent SDK"
+  },
+  {
+    "id": "Documentation-native-tools-automatic-tool-selection",
+    "title": "Automatic Tool Selection",
+    "description": "Automatic Tool Selection Let the LLM decide which tools to call based on the prompt: [code block] This works exactly like MCP automatic tool selection",
+    "content": "Automatic Tool Selection Let the LLM decide which tools to call based on the prompt: [code block] This works exactly like MCP automatic tool selection — the LLM sees all available tools, picks the right ones, calls them, reads the results, and continues reasoning.",
+    "headings": [
+      "Automatic Tool Selection"
+    ],
+    "path": "/docs/native-tools#automatic-tool-selection",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "automatic",
+      "tool",
+      "selection",
+      "decide",
+      "tools",
+      "based",
+      "prompt:",
+      "[code",
+      "block]",
+      "works",
+      "exactly"
+    ],
+    "lastModified": "2026-04-01T19:30:50.630Z",
+    "codeBlocks": [
+      "const calculator = tool({ name: \"calculate\", ... });\nconst converter = tool({ name: \"convert_units\", ... });\n\nconst results = await agent({ llm })\n  .then({\n    prompt: \"What is 15% tip on $84.50? Also convert 26.2 miles to km.\",\n    tools: [calculator, converter],\n    maxToolIterations: 3\n  })\n  .run();\n"
+    ],
+    "anchor": "automatic-tool-selection",
+    "parentTitle": "Native Tools - Volcano Agent SDK"
   },
   {
     "id": "Documentation-features-autonomous-multi-agent-crews-",
@@ -1147,7 +1279,7 @@
       "other—like",
       "automatic"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "autonomous-multi-agent-crews-",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -1166,7 +1298,7 @@
       "available",
       "methods"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "available-methods",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -1194,7 +1326,7 @@
       "v1.0.3):",
       "duration"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "available-metrics",
     "parentTitle": "Observability - Volcano Agent SDK"
   },
@@ -1223,7 +1355,7 @@
       "count",
       "attribute)"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "available-metrics",
     "parentTitle": "Observability - Volcano Agent SDK"
   },
@@ -1250,7 +1382,7 @@
       "using",
       "converse"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "codeBlocks": [
       "import { llmBedrock } from \"@volcano.dev/agent\";\n\nconst bedrock = llmBedrock({\n  model: \"anthropic.claude-3-sonnet-20240229-v1:0\",\n  region: \"us-east-1\",\n  // Uses AWS credential chain by default\n  options: {\n    temperature: 0.7,\n    max_tokens: 2000,\n    top_p: 0.9,\n    stop_sequences: [\"\\n\\n\"],\n  },\n});\n"
     ],
@@ -1279,7 +1411,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "codeBlocks": [
       "import { llmAzure } from \"@volcano.dev/agent\";\n\nconst azure = llmAzure({\n  model: \"gpt-4o-mini\",\n  endpoint: \"https://your-resource.openai.azure.com/openai/responses\",\n  apiKey: process.env.AZURE_AI_API_KEY!,\n  apiVersion: \"2025-04-01-preview\", // Optional\n});\n"
     ],
@@ -1304,7 +1436,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "import { agent, llmOpenAI, llmAnthropic, llmMistral } from \"@volcano.dev/agent\";\n\nconst gpt = llmOpenAI({\n  apiKey: process.env.OPENAI_API_KEY!,\n  model: \"gpt-4o-mini\",\n});\n\nconst claude = llmAnthropic({\n  apiKey: process.env.ANTHROPIC_API_KEY!,\n  model: \"claude-3-5-haiku-20241022\",\n});\n\nconst mistral = llmMistral({\n  apiKey: process.env.MISTRAL_API_KEY!,\n  model: \"mistral-small-latest\",\n});\n\n// Each step uses a different LLM\nawait agent()\n  .then({ llm: gpt, prompt: \"Extract key data from this report...\" })\n  .then({ llm: claude, prompt: \"Analyze the extracted data for patterns\" })\n  .then({ llm: mistral, prompt: \"Write a creative summary in French\" })\n  .run();\n\n// Context flows automatically between steps, regardless of provider\n"
     ],
@@ -1328,7 +1460,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "const results = await agent({ llm })\n  .then({ prompt: \"Analyze sales data\", mcps: [database] })\n  .then({ prompt: \"Generate report\" })\n  .run();\n\n// Ask questions in natural language\nconst summary = await results.summary(llm);\nconsole.log(summary);\n// \"The agent analyzed sales data from Q3 2025 and generated a comprehensive report...\"\n\nconst tools = await results.toolsUsed(llm);\nconsole.log(tools);\n// \"The agent used database.query_sales to fetch sales data...\"\n"
     ],
@@ -1349,7 +1481,7 @@
     "keywords": [
       "basics"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "anchor": "basics",
     "parentTitle": "Examples - Volcano Agent SDK"
   },
@@ -1375,7 +1507,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "const authMcp = mcp(\"https://api.example.com/mcp\", {\n  auth: {\n    type: \"bearer\",\n    token: process.env.MCP_BEARER_TOKEN!,\n  },\n});\n\nawait agent({ llm })\n  .then({ mcp: authMcp, tool: \"secure_action\", args: {} })\n  .run();\n"
     ],
@@ -1405,7 +1537,7 @@
       "answers",
       "clean"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "benefits",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -1432,7 +1564,7 @@
       "automatic",
       "context:"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "anchor": "benefits",
     "parentTitle": "Advanced Patterns - Volcano Agent SDK"
   },
@@ -1459,7 +1591,7 @@
       "suitable",
       "independent"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "anchor": "benefits",
     "parentTitle": "Advanced Patterns - Volcano Agent SDK"
   },
@@ -1486,7 +1618,7 @@
       "clear",
       "responsibility"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "anchor": "benefits",
     "parentTitle": "Advanced Patterns - Volcano Agent SDK"
   },
@@ -1514,7 +1646,7 @@
       "production,",
       "disable"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "best-practices",
     "parentTitle": "Observability - Volcano Agent SDK"
   },
@@ -1541,7 +1673,7 @@
       "enabled",
       "default"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "agent({ llm })\n  .then({ prompt: \"Analyze data\" })\n  .then({ prompt: \"Generate insights\", agents: [researcher, writer] })\n  .run();\n",
       "agent({ llm, hideProgress: true }).then({ prompt: \"Silent execution\" }).run();\n",
@@ -1573,7 +1705,7 @@
       "metrics:",
       "final"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "characteristics",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -1597,7 +1729,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "await agent({ llm })\n  // Parallel analysis\n  .parallel({\n    sentiment: { prompt: \"Analyze sentiment\" },\n    intent: { prompt: \"Extract intent\" },\n    priority: { prompt: \"Determine priority\" },\n  })\n\n  // Route based on priority\n  .switch((h) => h[0].parallel?.priority.llmOutput?.trim() || \"\", {\n    URGENT: (a) =>\n      a.then({ mcp: slack, tool: \"alert_team\" }).runAgent(escalationAgent),\n\n    NORMAL: (a) =>\n      a.forEach(responders, (person, ag) =>\n        ag.then({ prompt: `Assign to ${person}` })\n      ),\n\n    default: (a) => a.then({ prompt: \"Queue for review\" }),\n  })\n\n  // Final step\n  .then({ prompt: \"Log outcome\" })\n  .run();\n"
     ],
@@ -1623,12 +1755,40 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "import { agent, llmOpenAI, mcpStdio, mcp } from \"@volcano.dev/agent\";\n\nconst llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });\n\n// Local stdio server for file access\nconst filesMcp = mcpStdio({\n  command: \"npx\",\n  args: [\"-y\", \"@modelcontextprotocol/server-filesystem\"],\n  env: { ALLOWED_PATHS: process.cwd() },\n});\n\n// Remote HTTP server for cloud services\nconst cloudMcp = mcp(\"https://api.example.com/mcp\", {\n  auth: { type: \"bearer\", token: process.env.CLOUD_TOKEN! },\n});\n\n// Use both in the same workflow\nawait agent({ llm })\n  .then({\n    prompt: \"Read local files and analyze them\",\n    mcps: [filesMcp],\n    maxToolIterations: 3,\n  })\n  .then({\n    prompt: \"Upload results to cloud storage\",\n    mcps: [cloudMcp],\n    maxToolIterations: 2,\n  })\n  .run();\n\n// Cleanup stdio server\nawait filesMcp.cleanup?.();\n"
     ],
     "anchor": "combining-transports",
     "parentTitle": "MCP Tools - Volcano Agent SDK"
+  },
+  {
+    "id": "Documentation-native-tools-combining-with-mcp-tools",
+    "title": "Combining with MCP Tools",
+    "description": "Combining with MCP Tools Use native and MCP tools together in the same step. The LLM sees all tools from both sources: [code block]",
+    "content": "Combining with MCP Tools Use native and MCP tools together in the same step. The LLM sees all tools from both sources: [code block]",
+    "headings": [
+      "Combining with MCP Tools"
+    ],
+    "path": "/docs/native-tools#combining-with-mcp-tools",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "combining",
+      "tools",
+      "native",
+      "together",
+      "step.",
+      "sources:",
+      "[code",
+      "block]"
+    ],
+    "lastModified": "2026-04-01T19:30:50.630Z",
+    "codeBlocks": [
+      "import { agent, llmOpenAI, tool, mcp } from \"@volcano.dev/agent\";\n\nconst calculator = tool({\n  name: \"calculate\",\n  description: \"Evaluate math expressions\",\n  parameters: { type: \"object\", properties: { expression: { type: \"string\" } } },\n  execute: ({ expression }) => JSON.stringify({ result: Function(`\"use strict\"; return (${expression})`)() })\n});\n\nconst calendar = mcp(\"http://localhost:3000/mcp\");\n\nawait agent({ llm })\n  .then({\n    prompt: \"Calculate a 20% tip on $65, then create a calendar reminder to pay\",\n    tools: [calculator],\n    mcps: [calendar],\n  })\n  .run();\n"
+    ],
+    "anchor": "combining-with-mcp-tools",
+    "parentTitle": "Native Tools - Volcano Agent SDK"
   },
   {
     "id": "Documentation-mcp-tools-common-patterns",
@@ -1653,7 +1813,7 @@
       "multiple",
       "stdio"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "const server = mcpStdio({ command: \"node\", args: [\"server.js\"] });\ntry {\n  const result = await server.callTool(\"my_tool\", { arg: \"value\" });\n  console.log(result);\n} finally {\n  await server.cleanup?.();\n}\n",
       "const server = mcpStdio({\n  command: \"npx\",\n  args: [\"-y\", \"@your/mcp-server\"],\n  env: { API_KEY: process.env.API_KEY! },\n});\n\ntry {\n  // Use server across multiple steps\n  await agent({ llm })\n    .then({ prompt: \"Step 1\", mcps: [server] })\n    .then({ prompt: \"Step 2\", mcps: [server] })\n    .then({ prompt: \"Step 3\", mcps: [server] })\n    .run();\n} finally {\n  await server.cleanup?.();\n}\n",
@@ -1688,7 +1848,7 @@
       "execution",
       "real-time"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "anchor": "common-step-fields",
     "parentTitle": "API Reference - Volcano Agent SDK"
   },
@@ -1712,7 +1872,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "const contentAnalyzer = agent({ llm }).parallel({\n  sentiment: { prompt: \"Analyze sentiment\" },\n  topics: { prompt: \"Extract main topics\" },\n  tone: { prompt: \"Determine tone\" },\n});\n\nconst contentModerator = agent({ llm })\n  .then({ prompt: \"Check for policy violations\" })\n  .branch((h) => h[0].llmOutput?.includes(\"VIOLATION\") || false, {\n    true: (a) => a.then({ mcp: moderation, tool: \"flag_content\" }),\n    false: (a) => a.then({ prompt: \"Approve content\" }),\n  });\n\n// Main workflow\nawait agent({ llm })\n  .then({ mcp: cms, tool: \"fetch_pending_posts\" })\n  .forEach(posts, (post, a) =>\n    a.runAgent(contentAnalyzer).runAgent(contentModerator)\n  )\n  .then({ prompt: \"Generate moderation report\" })\n  .run();\n"
     ],
@@ -1736,7 +1896,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "// Compose them in a larger workflow\nawait agent({ llm })\n  .then({ mcp: gmail, tool: \"fetch_unread\" })\n  .runAgent(emailAnalyzer) // Run first sub-agent\n  .runAgent(responseGenerator) // Run second sub-agent\n  .runAgent(qualityChecker) // Run third sub-agent\n  .then({ mcp: gmail, tool: \"send_reply\" })\n  .run();\n"
     ],
@@ -1757,7 +1917,7 @@
     "keywords": [
       "composition"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "anchor": "composition",
     "parentTitle": "Examples - Volcano Agent SDK"
   },
@@ -1784,7 +1944,7 @@
       "questions",
       "about"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "comprehensive-metrics",
     "parentTitle": "Observability - Volcano Agent SDK"
   },
@@ -1807,7 +1967,7 @@
       "based",
       "conditions."
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "anchor": "conditional-branching",
     "parentTitle": "Advanced Patterns - Volcano Agent SDK"
   },
@@ -1833,7 +1993,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "await agent()\n  .then({ llm: gpt, prompt: \"Classify this task as SIMPLE or COMPLEX\" })\n  .switch((h) => (h[0].llmOutput?.includes(\"COMPLEX\") ? \"complex\" : \"simple\"), {\n    complex: (a) =>\n      a\n        .then({ llm: gpt4, prompt: \"Handle complex reasoning\" })\n        .then({ llm: claude, prompt: \"Verify the analysis\" }),\n\n    simple: (a) => a.then({ llm: llama, prompt: \"Handle simple task quickly\" }),\n  })\n  .run();\n"
     ],
@@ -1863,7 +2023,7 @@
       "internal",
       "cases"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "import {\n  __internal_setPoolConfig,\n  __internal_setDiscoveryTtl,\n  __internal_clearDiscoveryCache,\n  __internal_clearOAuthTokenCache,\n} from \"@volcano.dev/agent\";\n\n// Configure connection pool\n__internal_setPoolConfig(32, 60_000); // max 32 connections, 60s idle\n\n// Configure tool discovery cache TTL\n__internal_setDiscoveryTtl(120_000); // 120s cache\n\n// Clear caches (useful for testing)\n__internal_clearDiscoveryCache();\n__internal_clearOAuthTokenCache();\n"
     ],
@@ -1893,7 +2053,7 @@
       "--------------------------------------------",
       "identifier"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "configuration",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -1920,7 +2080,7 @@
       "identifier",
       "(e.g.,"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "configuration",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -1947,7 +2107,7 @@
       "identifier",
       "apikey"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "configuration",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -1974,7 +2134,7 @@
       "-----------------------------------------------",
       "identifier"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "configuration",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -2001,7 +2161,7 @@
       "------------",
       "-------------------------------"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "configuration",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -2028,7 +2188,7 @@
       "gemini",
       "identifier"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "configuration",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -2055,7 +2215,7 @@
       "endpoint",
       "azure"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "configuration",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -2082,7 +2242,7 @@
       "steps",
       "eviction:"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "connection-pooling",
     "parentTitle": "MCP Tools - Volcano Agent SDK"
   },
@@ -2109,7 +2269,7 @@
       "optimal",
       "performance."
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "connection-pooling-performance",
     "parentTitle": "MCP Tools - Volcano Agent SDK"
   },
@@ -2136,7 +2296,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "// Parent establishes context\nconst results = await agent({ llm })\n  .then({\n    prompt: \"Get issue #123 from repo acme/project\",\n    mcps: [githubMcp],\n  })\n  .then({\n    prompt: \"Analyze the issue and determine it needs security review\",\n  })\n  .runAgent(securityReviewAgent) // ← Receives all parent context!\n  .run();\n\n// securityReviewAgent knows:\n// - Issue number (#123)\n// - Repository (acme/project)\n// - Issue details from the tool call\n// - The analysis from previous step\n"
     ],
@@ -2161,7 +2321,7 @@
       "submit",
       "example!"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "anchor": "contributing",
     "parentTitle": "Examples - Volcano Agent SDK"
   },
@@ -2189,7 +2349,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "// Agent-level (default for all steps)\nawait agent({\n  llm,\n  maxToolIterations: 2, // Limit to 2 iterations (faster)\n})\n  .then({ prompt: \"Task\", mcps: [tools] })\n  .run();\n\n// Per-step override\nawait agent({ llm, maxToolIterations: 4 }) // Default 4\n  .then({\n    prompt: \"Simple task\",\n    mcps: [tools],\n    maxToolIterations: 1, // Fast: only 1 tool call\n  })\n  .then({\n    prompt: \"Complex task\",\n    mcps: [tools],\n    maxToolIterations: 4, // More iterations for complexity\n  })\n  .run();\n"
     ],
@@ -2219,7 +2379,7 @@
       "manually",
       "parsing"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "conversational-results",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -2244,7 +2404,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "const workLlm = llmOpenAI({ model: \"gpt-5\" }); // Expensive, for actual work\nconst summaryLlm = llmOpenAI({ model: \"gpt-4o-mini\" }); // Cheap, for summaries\n\nconst results = await agent({ llm: workLlm })\n  .then({ prompt: \"Complex analysis\", mcps: [tools] })\n  .run();\n\n// Use cheap model for post-analysis\nawait results.summary(summaryLlm);\nawait results.ask(summaryLlm, \"What were the key findings?\");\n"
     ],
@@ -2274,7 +2434,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "import { agent, llmLlama, llmOpenAI } from \"@volcano.dev/agent\";\n\nconst llama = llmLlama({\n  baseURL: \"http://127.0.0.1:11434\",\n  model: \"llama3.2:3b\", // Free, local\n});\n\nconst gpt4 = llmOpenAI({\n  apiKey: process.env.OPENAI_API_KEY!,\n  model: \"gpt-4o\", // Expensive, high-quality\n});\n\n// Process 100 documents\nawait agent()\n  .forEach(\n    documents,\n    (doc, a) => a.then({ llm: llama, prompt: `Summarize: ${doc}` }) // Cheap preprocessing\n  )\n  .then({ llm: gpt4, prompt: \"Analyze all summaries and create final report\" }) // Quality output\n  .run();\n"
     ],
@@ -2301,7 +2461,7 @@
       "llmhandle",
       "interface:"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "creating-a-custom-provider",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -2328,7 +2488,7 @@
       "agent",
       "execution"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "// Stream execution progress to client\nawait agent({ llm })\n  .then({\n    prompt: \"Analyze customer feedback and generate report\",\n    agents: [researcher, writer],\n    mcps: [database],\n\n    onToken: (token, meta) => {\n      // Stream LLM output in real-time\n      console.log(`[${meta.llmProvider}] ${token}`);\n    },\n  })\n  .run({\n    onStep: (stepResult, stepIndex) => {\n      // Stream step completion updates\n      console.log(\n        `✓ Step ${stepIndex + 1} complete in ${stepResult.durationMs}ms`\n      );\n      sendToClient({\n        type: \"step_complete\",\n        step: stepIndex,\n        result: stepResult,\n      });\n    },\n  });\n"
     ],
@@ -2355,7 +2515,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "import { trace, metrics } from \"@opentelemetry/api\";\nimport { createVolcanoTelemetry } from \"@volcano.dev/agent\";\n\nconst tracer = trace.getTracer(\"my-custom-tracer\");\nconst meter = metrics.getMeter(\"my-custom-meter\");\n\nconst telemetry = createVolcanoTelemetry({\n  serviceName: \"my-agent\",\n  tracer,\n  meter,\n});\n"
     ],
@@ -2385,13 +2545,44 @@
       "endpoint",
       "manual"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "import { createVolcanoTelemetry } from \"@volcano.dev/agent\";\n\nconst telemetry = createVolcanoTelemetry({\n  serviceName: \"my-agent\",\n  endpoint: process.env.OTEL_EXPORTER_OTLP_ENDPOINT,\n});\n\n// Set these environment variables:\n// OTEL_EXPORTER_OTLP_ENDPOINT=\"https://your-backend.com\"\n// OTEL_EXPORTER_OTLP_HEADERS=\"DD-API-KEY=your-key\" (for DataDog)\n",
       "import { OTLPTraceExporter } from \"@opentelemetry/exporter-otlp-http\";\nimport { NodeSDK } from \"@opentelemetry/sdk-node\";\n\nconst sdk = new NodeSDK({\n  serviceName: \"my-agent\",\n  traceExporter: new OTLPTraceExporter({\n    url: process.env.OTEL_EXPORTER_OTLP_ENDPOINT,\n    headers: {\n      \"DD-API-KEY\": process.env.DD_API_KEY, // DataDog\n      // or 'X-License-Key': process.env.NEW_RELIC_KEY\n      // or 'Authorization': `Bearer ${process.env.GRAFANA_TOKEN}`\n    },\n  }),\n});\n\nsdk.start();\n\n// Then create telemetry without endpoint\nconst telemetry = createVolcanoTelemetry({\n  serviceName: \"my-agent\",\n});\n"
     ],
     "anchor": "datadog-newrelic-grafana-cloud",
     "parentTitle": "Observability - Volcano Agent SDK"
+  },
+  {
+    "id": "Documentation-native-tools-defining-a-tool",
+    "title": "Defining a Tool",
+    "description": "Defining a Tool Give your tool a name, description, parameter schema, and an execute function: [code block] Configuration: Field Type Description ----",
+    "content": "Defining a Tool Give your tool a name, description, parameter schema, and an execute function: [code block] Configuration: Field Type Description ------- ------ ------------- name string Unique identifier the LLM uses to call the tool description string Tells the LLM when to use this tool parameters JSON Schema Describes the arguments the tool accepts execute function The function that runs when called (sync or async)",
+    "headings": [
+      "Defining a Tool"
+    ],
+    "path": "/docs/native-tools#defining-a-tool",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "defining",
+      "tool",
+      "execute",
+      "description",
+      "string",
+      "function",
+      "name,",
+      "description,",
+      "parameter",
+      "schema,",
+      "function:"
+    ],
+    "lastModified": "2026-04-01T19:30:50.630Z",
+    "codeBlocks": [
+      "import { agent, llmOpenAI, tool } from \"@volcano.dev/agent\";\n\nconst llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY!, model: \"gpt-4o-mini\" });\n\nconst calculator = tool({\n  name: \"calculate\",\n  description: \"Evaluate a math expression and return the result\",\n  parameters: {\n    type: \"object\",\n    properties: {\n      expression: { type: \"string\", description: \"Math expression, e.g. '2 + 2'\" }\n    },\n    required: [\"expression\"]\n  },\n  execute: ({ expression }) => {\n    const result = Function(`\"use strict\"; return (${expression})`)();\n    return JSON.stringify({ expression, result });\n  }\n});\n"
+    ],
+    "anchor": "defining-a-tool",
+    "parentTitle": "Native Tools - Volcano Agent SDK"
   },
   {
     "id": "Documentation-patterns-defining-reusable-sub-agents",
@@ -2411,7 +2602,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "// Define specialized sub-agents\nconst emailAnalyzer = agent({ llm: claude })\n  .then({ prompt: \"Extract sender intent\" })\n  .then({ prompt: \"Classify urgency level\" });\n\nconst responseGenerator = agent({ llm: openai })\n  .then({ prompt: \"Draft professional response\" })\n  .then({ prompt: \"Add signature\" });\n\nconst qualityChecker = agent({ llm: mistral })\n  .then({ prompt: \"Check response quality\" })\n  .then({ prompt: \"Suggest improvements\" });\n"
     ],
@@ -2436,7 +2627,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "// Only traces, no metrics\nconst telemetry = createVolcanoTelemetry({\n  serviceName: \"my-agent\",\n  traces: true,\n  metrics: false,\n});\n\n// Only metrics, no traces\nconst telemetry = createVolcanoTelemetry({\n  serviceName: \"my-agent\",\n  traces: false,\n  metrics: true,\n});\n"
     ],
@@ -2466,7 +2657,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "await agent({\n  llm,\n  disableParallelToolExecution: true, // Force sequential execution\n})\n  .then({ prompt: \"Bulk operation\", mcps: [mcp] })\n  .run();\n\n// All tools will execute sequentially, even if they would be safe to parallelize\n"
     ],
@@ -2494,7 +2685,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
       "import { discoverTools, mcp } from \"@volcano.dev/agent\";\n\nconst handles = [\n  mcp(\"http://localhost:3211/mcp\"),\n  mcp(\"http://localhost:3212/mcp\"),\n];\n\nconst tools = await discoverTools(handles);\nconsole.log(tools); // Array of tool definitions\n"
     ],
@@ -2524,7 +2715,7 @@
       "execution",
       "agent"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "distributed-tracing",
     "parentTitle": "Observability - Volcano Agent SDK"
   },
@@ -2547,7 +2738,7 @@
       "configuration:",
       "```bash"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "environment-variables",
     "parentTitle": "Observability - Volcano Agent SDK"
   },
@@ -2572,9 +2763,39 @@
       "metadata",
       "debugging."
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "error-handling",
     "parentTitle": "Features - Volcano Agent SDK"
+  },
+  {
+    "id": "Documentation-native-tools-error-handling",
+    "title": "Error Handling",
+    "description": "Error Handling When a tool's execute function throws, the error is wrapped in a ToolError with metadata: [code block]",
+    "content": "Error Handling When a tool's execute function throws, the error is wrapped in a ToolError with metadata: [code block]",
+    "headings": [
+      "Error Handling"
+    ],
+    "path": "/docs/native-tools#error-handling",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "error",
+      "handling",
+      "tool's",
+      "execute",
+      "function",
+      "throws,",
+      "wrapped",
+      "toolerror",
+      "metadata:",
+      "[code"
+    ],
+    "lastModified": "2026-04-01T19:30:50.630Z",
+    "codeBlocks": [
+      "import { agent, tool, ToolError } from \"@volcano.dev/agent\";\n\nconst riskyTool = tool({\n  name: \"risky\",\n  description: \"Might fail\",\n  parameters: { type: \"object\", properties: {} },\n  execute: () => { throw new Error(\"something went wrong\"); }\n});\n\ntry {\n  await agent({ llm })\n    .then({ prompt: \"Use the risky tool\", tools: [riskyTool] })\n    .run();\n} catch (e) {\n  if (e instanceof ToolError) {\n    console.log(e.message); // \"Native tool 'risky' failed: something went wrong\"\n    console.log(e.meta);    // { stepId: 0, retryable: false }\n  }\n}\n"
+    ],
+    "anchor": "error-handling",
+    "parentTitle": "Native Tools - Volcano Agent SDK"
   },
   {
     "id": "Documentation-features-error-metadata",
@@ -2597,7 +2818,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "try {\n  await agent({ llm, retry: { backoff: 2, retries: 4 }, timeout: 30 })\n    .then({ prompt: \"auto\", mcps: [mcp(\"http://localhost:3211/mcp\")] })\n    .run();\n} catch (err) {\n  if (err && typeof err === \"object\" && \"meta\" in err) {\n    const e = err as VolcanoError;\n\n    console.error(e.name, e.message);\n    console.error(\"Metadata:\", {\n      stepId: e.meta.stepId, // 0-based step index\n      provider: e.meta.provider, // llm:openai or mcp:localhost\n      requestId: e.meta.requestId, // Upstream request ID\n      retryable: e.meta.retryable, // Should retry?\n    });\n\n    if (e.meta?.retryable) {\n      // Maybe enqueue for retry later\n    }\n  }\n}\n"
     ],
@@ -2627,7 +2848,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "// Errors are automatically recorded in spans\ntry {\n  await agent({ llm, telemetry }).then({ prompt: \"This might fail\" }).run();\n} catch (error) {\n  // Span will have:\n  // - status: ERROR\n  // - exception details\n  // - stack trace\n}\n"
     ],
@@ -2638,7 +2859,7 @@
     "id": "Documentation-features-error-types",
     "title": "Error Types",
     "description": "Error Types Error Type Description ----------------------- ----------------------------------- AgentConcurrencyError run() called twice on same instan",
-    "content": "Error Types Error Type Description ----------------------- ----------------------------------- AgentConcurrencyError run() called twice on same instance TimeoutError Step exceeded timeout limit ValidationError Tool args failed schema validation RetryExhaustedError Final failure after all retries LLMError LLM provider error MCPToolError MCP tool execution error MCPConnectionError MCP connection error",
+    "content": "Error Types Error Type Description ----------------------- ----------------------------------- AgentConcurrencyError run() called twice on same instance TimeoutError Step exceeded timeout limit ValidationError Tool args failed schema validation RetryExhaustedError Final failure after all retries LLMError LLM provider error MCPToolError MCP tool execution error MCPConnectionError MCP connection error ToolError Native tool execution error",
     "headings": [
       "Error Types"
     ],
@@ -2648,16 +2869,16 @@
     "keywords": [
       "error",
       "types",
+      "execution",
       "description",
       "-----------------------",
       "-----------------------------------",
       "agentconcurrencyerror",
       "run()",
       "called",
-      "twice",
-      "instance"
+      "twice"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "error-types",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -2684,7 +2905,7 @@
       "built-in",
       "output"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "events-progress-tracking",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -2707,7 +2928,7 @@
       "analytics:",
       "```promql"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "example-prometheus-queries",
     "parentTitle": "Observability - Volcano Agent SDK"
   },
@@ -2728,7 +2949,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
       "const results = await agent({ llm })\n  .then({ prompt: \"Analyze sentiment\", mcps: [analytics] })\n  .then({ prompt: \"Generate summary\" })\n  .run();\n\n// Access first step results\nconsole.log(results[0].prompt); // \"Analyze sentiment\"\nconsole.log(results[0].llmOutput); // LLM response\nconsole.log(results[0].toolCalls); // Tools that were called\nconsole.log(results[0].durationMs); // Step duration\nconsole.log(results[0].llmMs); // LLM time\n\n// Access aggregated metrics (on last step)\nconst last = results.at(-1);\nconsole.log(last.totalDurationMs); // Total workflow time\nconsole.log(last.totalLlmMs); // Total LLM time\nconsole.log(last.totalMcpMs); // Total MCP time\n"
     ],
@@ -2753,7 +2974,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "codeBlocks": [
       "import type {\n  LLMHandle,\n  ToolDefinition,\n  LLMToolResult,\n} from \"@volcano.dev/agent\";\n\nexport function llmCustom(config: {\n  apiKey: string;\n  model: string;\n  baseURL: string;\n}): LLMHandle {\n  return {\n    id: \"custom\",\n    model: config.model,\n    client: null, // Your HTTP client or SDK instance\n\n    async gen(prompt: string): Promise<string> {\n      // Call your LLM API\n      const response = await fetch(`${config.baseURL}/generate`, {\n        method: \"POST\",\n        headers: {\n          Authorization: `Bearer ${config.apiKey}`,\n          \"Content-Type\": \"application/json\",\n        },\n        body: JSON.stringify({\n          model: config.model,\n          prompt: prompt,\n        }),\n      });\n\n      const data = await response.json();\n      return data.text;\n    },\n\n    async genWithTools(\n      prompt: string,\n      tools: ToolDefinition[]\n    ): Promise<LLMToolResult> {\n      // Call your LLM API with tool definitions\n      const response = await fetch(`${config.baseURL}/generate-with-tools`, {\n        method: \"POST\",\n        headers: {\n          Authorization: `Bearer ${config.apiKey}`,\n          \"Content-Type\": \"application/json\",\n        },\n        body: JSON.stringify({\n          model: config.model,\n          prompt: prompt,\n          tools: tools.map((t) => ({\n            name: t.name,\n            description: t.description,\n            parameters: t.parameters,\n          })),\n        }),\n      });\n\n      const data = await response.json();\n\n      // Map your API response to LLMToolResult format\n      return {\n        content: data.text,\n        toolCalls:\n          data.tool_calls?.map((tc: any) => ({\n            name: tc.name,\n            arguments: tc.arguments,\n            mcpHandle: tools.find((t) => t.name === tc.name)?.mcpHandle,\n          })) || [],\n      };\n    },\n\n    async *genStream(prompt: string): AsyncGenerator<string, void, unknown> {\n      // Implement streaming if your provider supports it\n      const response = await fetch(`${config.baseURL}/stream`, {\n        method: \"POST\",\n        headers: {\n          Authorization: `Bearer ${config.apiKey}`,\n          \"Content-Type\": \"application/json\",\n        },\n        body: JSON.stringify({\n          model: config.model,\n          prompt: prompt,\n        }),\n      });\n\n      const reader = response.body?.getReader();\n      if (!reader) return;\n\n      const decoder = new TextDecoder();\n      while (true) {\n        const { done, value } = await reader.read();\n        if (done) break;\n        yield decoder.decode(value);\n      }\n    },\n  };\n}\n"
     ],
@@ -2776,7 +2997,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
       "// Immediate retry (default)\n{ retries: 3, delay: 0 }\n\n// Delayed retry (wait 20s between attempts)\n{ delay: 20, retries: 3 }\n\n// Exponential backoff (1s, 2s, 4s, 8s)\n{ backoff: 2, retries: 4 }\n"
     ],
@@ -2786,7 +3007,7 @@
   {
     "id": "Documentation-examples",
     "title": "Examples - Volcano Agent SDK",
-    "content": "Examples Learn Volcano Agent SDK through hands-on examples, from simple to advanced. View all examples on GitHub → Start with the basics, then explore composition, patterns, and production features. Basics 01-hello-world.ts Your first agent - multi-step reasoning in ~10 lines. [code block] Demonstrates: Agent creation, basic .then() chaining, and .run() [code block] View source → 02-with-tools.ts Automatic MCP tool selection - the agent picks the right tools automatically. [code block] Demonstrates: Automatic tool discovery and selection with mcps: [...] Prerequisites: Start MCP servers first: [code block] View source → 02b-with-stdio.ts Use local tools via stdio transport (not HTTP). [code block] Demonstrates: mcpStdio() for subprocess-based MCP servers View source → 03-streaming.ts Stream tokens in real-time as they're generated. [code block] Demonstrates: Token-level streaming with onToken callback View source → 04-structured-outputs.ts Type-safe JSON extraction with guaranteed schema compliance. [code block] Demonstrates: OpenAI Responses API for structured outputs View source → Composition 05-sub-agents.ts Build modular, reusable agent components with .runAgent(). [code block] Demonstrates: Explicit agent composition for reusable workflows [code block] View source → 06-multi-agent.ts Coordinator autonomously delegates to specialist agents. [code block] Demonstrates: Autonomous agent delegation based on descriptions [code block] View source → 07-patterns.ts Advanced workflow primitives: parallel, branch, forEach, retryUntil. [code block] Demonstrates: All control flow patterns in one example View source → Production 08-context.ts Manage conversation history across multiple steps. [code block] Demonstrates: Context flow, accessing previous step results View source → 09-observability.ts Production monitoring with OpenTelemetry traces and metrics. [code block] Demonstrates: Telemetry integration, Jaeger traces, Prometheus metrics Prerequisites: Start observability stack: [code block] View source → 10-providers.ts Use multiple LLM providers and switch between them. [code block] Demonstrates: OpenAI, Anthropic, Mistral, Bedrock, Azure, Vertex integration View source → 11-email-triage.ts Real-world use case: automatically classify and respond to emails. [code block] Demonstrates: Complete workflow combining multiple features Prerequisites: Start task server: [code block] View source → Prerequisites [code block] Set Environment Variables [code block] Optional for multi-provider examples: [code block] Run an Example [code block] Tip: Start with 01-04 to learn the basics, then explore 05-07 for composition patterns. MCP Servers Some examples need MCP servers. We provide ready-to-use servers in examples/mcp/: [code block] See examples/mcp/README.md for details. Contributing Have a great use case? Submit a PR with your example!",
+    "content": "Examples Learn Volcano Agent SDK through hands-on examples, from simple to advanced. View all examples on GitHub → Start with the basics, then explore composition, patterns, and production features. Basics 01-hello-world.ts Your first agent - multi-step reasoning in ~10 lines. [code block] Demonstrates: Agent creation, basic .then() chaining, and .run() [code block] View source → 02-with-tools.ts Automatic MCP tool selection - the agent picks the right tools automatically. [code block] Demonstrates: Automatic tool discovery and selection with mcps: [...] Prerequisites: Start MCP servers first: [code block] View source → 02b-with-stdio.ts Use local tools via stdio transport (not HTTP). [code block] Demonstrates: mcpStdio() for subprocess-based MCP servers View source → 03-streaming.ts Stream tokens in real-time as they're generated. [code block] Demonstrates: Token-level streaming with onToken callback View source → 04-structured-outputs.ts Type-safe JSON extraction with guaranteed schema compliance. [code block] Demonstrates: OpenAI Responses API for structured outputs View source → Composition 05-sub-agents.ts Build modular, reusable agent components with .runAgent(). [code block] Demonstrates: Explicit agent composition for reusable workflows [code block] View source → 06-multi-agent.ts Coordinator autonomously delegates to specialist agents. [code block] Demonstrates: Autonomous agent delegation based on descriptions [code block] View source → 07-patterns.ts Advanced workflow primitives: parallel, branch, forEach, retryUntil. [code block] Demonstrates: All control flow patterns in one example View source → Production 08-context.ts Manage conversation history across multiple steps. [code block] Demonstrates: Context flow, accessing previous step results View source → 09-observability.ts Production monitoring with OpenTelemetry traces and metrics. [code block] Demonstrates: Telemetry integration, Jaeger traces, Prometheus metrics Prerequisites: Start observability stack: [code block] View source → 10-providers.ts Use multiple LLM providers and switch between them. [code block] Demonstrates: OpenAI, Anthropic, Mistral, Bedrock, Azure, Vertex integration View source → 11-email-triage.ts Real-world use case: automatically classify and respond to emails. [code block] Demonstrates: Complete workflow combining multiple features Prerequisites: Start task server: [code block] View source → 12-native-tools.ts Build agents with plain JavaScript functions — no MCP server needed. [code block] Demonstrates: Native tool creation with tool(), automatic tool selection, multiple native tools [code block] View source → Prerequisites [code block] Set Environment Variables [code block] Optional for multi-provider examples: [code block] Run an Example [code block] Tip: Start with 01-04 to learn the basics, then explore 05-07 for composition patterns. MCP Servers Some examples need MCP servers. We provide ready-to-use servers in examples/mcp/: [code block] See examples/mcp/README.md for details. Contributing Have a great use case? Submit a PR with your example!",
     "headings": [
       "Examples",
       "Basics",
@@ -2804,6 +3025,7 @@
       "09-observability.ts",
       "10-providers.ts",
       "11-email-triage.ts",
+      "12-native-tools.ts",
       "Prerequisites",
       "Clone the repository",
       "Install dependencies",
@@ -2829,10 +3051,10 @@
       "source",
       "start",
       "servers",
-      "production",
-      "prerequisites:"
+      "multiple",
+      "production"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "codeBlocks": [
       "npx tsx examples/01-hello-world.ts\n",
       "const results = await agent({ llm })\n  .then({ prompt: \"Give me 3 random words\" })\n  .then({ prompt: \"Write a haiku using those words\" })\n  .run();\n",
@@ -2852,6 +3074,8 @@
       "npx tsx examples/10-providers.ts\n",
       "npx tsx examples/11-email-triage.ts\n",
       "tsx examples/mcp/tasks/server.ts\n",
+      "npx tsx examples/12-native-tools.ts\n",
+      "import { agent, llmOpenAI, tool } from \"@volcano.dev/agent\";\n\nconst calculator = tool({\n  name: \"calculate\",\n  description: \"Evaluate a math expression\",\n  parameters: {\n    type: \"object\",\n    properties: { expression: { type: \"string\" } },\n    required: [\"expression\"]\n  },\n  execute: ({ expression }) => {\n    const result = Function(`\"use strict\"; return (${expression})`)();\n    return JSON.stringify({ expression, result });\n  }\n});\n\nconst results = await agent({ llm })\n  .then({\n    prompt: \"What is 15% tip on $84.50?\",\n    tools: [calculator],\n  })\n  .run();\n",
       "# Clone the repository\ngit clone https://github.com/Kong/volcano-agent-sdk.git\ncd volcano-agent-sdk\n\n# Install dependencies\nyarn install\n\n# Build the SDK\nyarn build\n",
       "export OPENAI_API_KEY=\"your-key-here\"\n",
       "export ANTHROPIC_API_KEY=\"your-anthropic-key\"\nexport MISTRAL_API_KEY=\"your-mistral-key\"\nexport AWS_BEARER_TOKEN_BEDROCK=\"your-bedrock-token\"\nexport GCP_VERTEX_API_KEY=\"your-vertex-key\"\nexport AZURE_AI_API_KEY=\"your-azure-key\"\n",
@@ -2879,11 +3103,39 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
       "{\n  mcp: MCPHandle;\n  tool: string;\n  args?: Record<string, any>;\n  prompt?: string;         // Optional LLM step before tool\n  llm?: LLMHandle;\n  instructions?: string;\n  timeout?: number;\n  retry?: RetryConfig;\n  contextMaxChars?: number;\n  contextMaxToolResults?: number;\n  pre?: () => void;\n  post?: () => void;\n  onToolCall?: (toolName: string, args: any, result: any) => void;\n}\n"
     ],
     "anchor": "explicit-mcp-tool-call",
+    "parentTitle": "API Reference - Volcano Agent SDK"
+  },
+  {
+    "id": "Documentation-api-explicit-native-tool-call",
+    "title": "Explicit Native Tool Call",
+    "description": "Explicit Native Tool Call Call a native tool directly without an LLM: [code block]",
+    "content": "Explicit Native Tool Call Call a native tool directly without an LLM: [code block]",
+    "headings": [
+      "Explicit Native Tool Call"
+    ],
+    "path": "/docs/api#explicit-native-tool-call",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "explicit",
+      "native",
+      "tool",
+      "call",
+      "directly",
+      "without",
+      "[code",
+      "block]"
+    ],
+    "lastModified": "2026-04-01T19:30:59.526Z",
+    "codeBlocks": [
+      "{\n  tool: ToolHandle;\n  args?: Record<string, any>;\n  timeout?: number;\n  retry?: RetryConfig;\n  pre?: () => void;\n  post?: () => void;\n  onToolCall?: (toolName: string, args: any, result: any) => void;\n}\n"
+    ],
+    "anchor": "explicit-native-tool-call",
     "parentTitle": "API Reference - Volcano Agent SDK"
   },
   {
@@ -2909,7 +3161,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "const cafe = mcp(\"http://localhost:3000/mcp\");\n\nawait agent({ llm })\n  .then({ prompt: \"Recommend a coffee for Ava from Naples\" })\n  .then({\n    mcp: cafe,\n    tool: \"order_item\",\n    args: { item_id: \"espresso\", quantity: 2 },\n  })\n  .run();\n"
     ],
@@ -2917,9 +3169,37 @@
     "parentTitle": "MCP Tools - Volcano Agent SDK"
   },
   {
+    "id": "Documentation-native-tools-explicit-tool-calls",
+    "title": "Explicit Tool Calls",
+    "description": "Explicit Tool Calls Call a tool directly without involving an LLM: [code block]",
+    "content": "Explicit Tool Calls Call a tool directly without involving an LLM: [code block]",
+    "headings": [
+      "Explicit Tool Calls"
+    ],
+    "path": "/docs/native-tools#explicit-tool-calls",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "explicit",
+      "tool",
+      "calls",
+      "directly",
+      "without",
+      "involving",
+      "[code",
+      "block]"
+    ],
+    "lastModified": "2026-04-01T19:30:50.630Z",
+    "codeBlocks": [
+      "const calculator = tool({\n  name: \"calculate\",\n  description: \"Evaluate math\",\n  parameters: { type: \"object\", properties: { expression: { type: \"string\" } } },\n  execute: ({ expression }) => JSON.stringify({ result: Function(`\"use strict\"; return (${expression})`)() })\n});\n\nconst results = await agent({})\n  .then({ tool: calculator, args: { expression: \"84.50 * 0.15\" } })\n  .run();\n\nconsole.log(results[0].mcp); // { endpoint: 'native', tool: 'calculate', result: '...', ms: 1 }\n"
+    ],
+    "anchor": "explicit-tool-calls",
+    "parentTitle": "Native Tools - Volcano Agent SDK"
+  },
+  {
     "id": "Documentation-features",
     "title": "Features - Volcano Agent SDK",
-    "content": "Features Core features for building AI agents: execution methods, streaming, retries, timeouts, hooks, error handling, and MCP tool integration. run() Method Execute the complete agent workflow and return all step results at once. [code block] With Step and Token Callbacks Pass callbacks to get real-time feedback as steps complete and tokens stream: [code block] Return Value Returns Promise<StepResult[]> with all step results: [code block] Characteristics Waits for completion: Returns only after all steps finish Aggregated metrics: Final step includes total duration, LLM time, and MCP time Error handling: Throws on first failure (use try/catch) Sequential execution: Steps run in order, one after another Full results: Access all step data for analysis or debugging When to Use run() Batch processing where you need complete results Scripts that can wait for full completion Analysis workflows needing aggregated metrics APIs returning complete responses Testing and debugging (inspect all steps together) Conversational Results Ask natural language questions about what your agent did. Instead of manually parsing results, use an LLM to analyze execution and provide contextual answers. Basic Usage [code block] Available Methods results.ask(llm, question) Ask any question about the execution: [code block] results.summary(llm) Get a high-level overview: [code block] results.toolsUsed(llm) Understand which tools were called: [code block] results.errors(llm) Check for issues: [code block] Cost Optimization Use a cheaper model for analyzing results: [code block] Real-World Example: Gmail Spam Detector [code block] Benefits ✅ Contextual - LLM understands what the agent actually did ✅ Flexible - Ask any question, get relevant answers ✅ Clean code - No manual result parsing ✅ Self-documenting - LLM explains execution in plain English ✅ Domain-agnostic - Works for any workflow ✅ Interactive - Drill down with follow-up questions How It Works When you call results.ask() or results.summary(): Volcano builds a context string with all step results The context includes prompts, LLM outputs, tool calls, and timing Your question is added to the context The LLM analyzes the full execution and answers The answer is returned as a string The LLM sees the complete execution history and can provide intelligent, contextual answers about what happened. Token-Level Streaming Stream individual tokens as they arrive from the LLM for real-time chat interfaces. Per-Step Token Streaming Stream tokens for a specific step: [code block] Run-Level Token Streaming with Metadata Stream tokens across all steps with rich metadata: [code block] 💡 Precedence: Step-level onToken takes precedence over run-level. If a step defines onToken, meta.handledByStep will be true and run-level callback won't receive those tokens. Tool Call Progress with onToolCall Show real-time progress as tools are being called. Perfect for long-running operations with many tool calls: [code block] When it fires: Immediately after each tool call completes Benefits: See progress in real-time (don't wait for the entire step to finish) Know exactly which items are being processed Debug tool calls as they happen Build better UX with live progress indicators Real-world example: [code block] Combined with onToken: [code block] Autonomous Multi-Agent Crews ⭐ Build crews of specialized agents that automatically coordinate with each other—like automatic tool selection, but for agents! Define agents with names and descriptions, then let the LLM coordinator intelligently route tasks to the right agent. No manual orchestration, no complex state machines—just describe what each agent does. How It Works [code block] Why This Matters 🎯 No Manual Routing - The LLM coordinator reads agent descriptions and decides which one to use 🔄 Automatic Coordination - Agents can call each other iteratively until the task is complete 🧩 Composable - Each agent can be a complex multi-step workflow itself ⚡ Flexible - Add/remove agents without changing coordinator logic 🎨 Natural - Just describe what each agent does—no complex orchestration code Real-World Example [code block] See Multi-Agent Crews in Advanced Patterns → Events & Progress Tracking Volcano provides rich event hooks and beautiful built-in progress output for real-time visibility into workflow execution. Built-In Progress Output Gorgeous TTY progress is enabled by default for all workflows: [code block] To disable progress output: [code block] Output: [code block] Features: ✨ Structured log format with timestamps 📊 Token counts and timing per step 🧠 Multi-agent coordination visibility ⏱️ Precise timing measurements 🎨 TTY-aware with spinner for active operations 🔄 Works for all step types (LLM, MCP, agent delegation) Custom Streaming Integration Use onStep and onToken callbacks to stream agent execution to your users: [code block] 💡 Tip: Built-in progress is shown by default. Use hideProgress: true to disable it when building custom progress UIs. SSE Integration Example Perfect for real-time web UIs: [code block] Retries & Timeouts Timeouts Set per-step or global timeouts (in seconds): [code block] Retry Strategies Immediate Retry (Default) Retry immediately without waiting: [code block] Delayed Retry Wait a fixed duration between attempts: [code block] Exponential Backoff Progressively longer waits between retries: [code block] Per-Step Override [code block] Retry Semantics Non-retryable errors (like ValidationError) abort immediately Retryable errors include: timeouts, 429, 5xx, network errors On retry exhaustion, the last error is thrown You cannot set both delay and backoff Step Hooks Add pre and post hooks for fine-grained control over execution flow: [code block] Hook Execution Order pre() hook (before step execution) Step execution (LLM/MCP calls) post() hook (after step completion) run() callback (with step result and index) Hook Characteristics Hooks are synchronous functions (() => void) Hook errors are caught and logged but don't fail the step Hooks execute on every retry attempt (pre) or only on success (post) Hooks have access to closure variables for state management Note: Hook errors are caught and logged but do not fail the step. Pre-hooks execute on every retry attempt. Post-hooks execute only on successful completion. Use Cases Performance monitoring and timing Logging and debugging State management Notifications and alerts Metrics collection Error Handling Volcano surfaces typed errors with rich metadata for easy debugging. Error Types Error Type Description ----------------------- ----------------------------------- AgentConcurrencyError run() called twice on same instance TimeoutError Step exceeded timeout limit ValidationError Tool args failed schema validation RetryExhaustedError Final failure after all retries LLMError LLM provider error MCPToolError MCP tool execution error MCPConnectionError MCP connection error Error Metadata All Volcano errors include metadata for debugging: [code block] Metadata Fields stepId: 0-based index of the failing step provider: llm:<id model> or mcp:<host> requestId: Upstream provider request ID when available retryable: Volcano's hint (true for 429/5xx/timeouts; false for validation/4xx) Parallel Tool Execution ⚡ Volcano automatically executes tool calls in parallel when it's safe to do so, providing significant performance improvements for bulk operations with zero configuration required. How It Works When the LLM requests multiple tool calls in a single iteration, Volcano analyzes them and executes in parallel if ALL these conditions are met: ✅ All calls are to the same tool ✅ All calls operate on different resources (different IDs) ✅ All arguments are different (no duplicate operations) If any condition isn't met, Volcano safely falls back to sequential execution. [code block] Performance Impact Real-world example: Gmail spam detector processing 50 emails Sequential execution: ~110 seconds Parallel execution: ~50 seconds Speedup: 2x faster automatically! 🚀 For bulk operations like processing hundreds of items, marking multiple records, or fetching data for many resources, parallelization can provide 2-10x speedups. Safety Guarantees The implementation is conservative by design: ✅ Safe by default - Only parallelizes obviously safe scenarios ✅ No configuration - Works automatically, no setup needed ✅ No breaking changes - Existing code works exactly as before ✅ Provider agnostic - Works with all LLM providers ✅ Type safe - Full TypeScript support When Parallelization Happens ✅ Will parallelize: [code block] ❌ Will NOT parallelize: [code block] Disabling Parallel Execution If you need to force sequential execution for debugging or special cases: [code block] When to disable: Debugging tool execution order Working with tools that have hidden dependencies Compliance requirements for sequential processing Performance testing/comparison Note: Parallel execution is enabled by default for optimal performance. Only disable if you have a specific reason. Observability Track parallel vs sequential execution via telemetry metrics: [code block] Learn more about Parallel Tool Execution →",
+    "content": "Features Core features for building AI agents: execution methods, streaming, retries, timeouts, hooks, error handling, and MCP tool integration. run() Method Execute the complete agent workflow and return all step results at once. [code block] With Step and Token Callbacks Pass callbacks to get real-time feedback as steps complete and tokens stream: [code block] Return Value Returns Promise<StepResult[]> with all step results: [code block] Characteristics Waits for completion: Returns only after all steps finish Aggregated metrics: Final step includes total duration, LLM time, and MCP time Error handling: Throws on first failure (use try/catch) Sequential execution: Steps run in order, one after another Full results: Access all step data for analysis or debugging When to Use run() Batch processing where you need complete results Scripts that can wait for full completion Analysis workflows needing aggregated metrics APIs returning complete responses Testing and debugging (inspect all steps together) Conversational Results Ask natural language questions about what your agent did. Instead of manually parsing results, use an LLM to analyze execution and provide contextual answers. Basic Usage [code block] Available Methods results.ask(llm, question) Ask any question about the execution: [code block] results.summary(llm) Get a high-level overview: [code block] results.toolsUsed(llm) Understand which tools were called: [code block] results.errors(llm) Check for issues: [code block] Cost Optimization Use a cheaper model for analyzing results: [code block] Real-World Example: Gmail Spam Detector [code block] Benefits ✅ Contextual - LLM understands what the agent actually did ✅ Flexible - Ask any question, get relevant answers ✅ Clean code - No manual result parsing ✅ Self-documenting - LLM explains execution in plain English ✅ Domain-agnostic - Works for any workflow ✅ Interactive - Drill down with follow-up questions How It Works When you call results.ask() or results.summary(): Volcano builds a context string with all step results The context includes prompts, LLM outputs, tool calls, and timing Your question is added to the context The LLM analyzes the full execution and answers The answer is returned as a string The LLM sees the complete execution history and can provide intelligent, contextual answers about what happened. Token-Level Streaming Stream individual tokens as they arrive from the LLM for real-time chat interfaces. Per-Step Token Streaming Stream tokens for a specific step: [code block] Run-Level Token Streaming with Metadata Stream tokens across all steps with rich metadata: [code block] 💡 Precedence: Step-level onToken takes precedence over run-level. If a step defines onToken, meta.handledByStep will be true and run-level callback won't receive those tokens. Tool Call Progress with onToolCall Show real-time progress as tools are being called. Perfect for long-running operations with many tool calls: [code block] When it fires: Immediately after each tool call completes Benefits: See progress in real-time (don't wait for the entire step to finish) Know exactly which items are being processed Debug tool calls as they happen Build better UX with live progress indicators Real-world example: [code block] Combined with onToken: [code block] Autonomous Multi-Agent Crews ⭐ Build crews of specialized agents that automatically coordinate with each other—like automatic tool selection, but for agents! Define agents with names and descriptions, then let the LLM coordinator intelligently route tasks to the right agent. No manual orchestration, no complex state machines—just describe what each agent does. How It Works [code block] Why This Matters 🎯 No Manual Routing - The LLM coordinator reads agent descriptions and decides which one to use 🔄 Automatic Coordination - Agents can call each other iteratively until the task is complete 🧩 Composable - Each agent can be a complex multi-step workflow itself ⚡ Flexible - Add/remove agents without changing coordinator logic 🎨 Natural - Just describe what each agent does—no complex orchestration code Real-World Example [code block] See Multi-Agent Crews in Advanced Patterns → Events & Progress Tracking Volcano provides rich event hooks and beautiful built-in progress output for real-time visibility into workflow execution. Built-In Progress Output Gorgeous TTY progress is enabled by default for all workflows: [code block] To disable progress output: [code block] Output: [code block] Features: ✨ Structured log format with timestamps 📊 Token counts and timing per step 🧠 Multi-agent coordination visibility ⏱️ Precise timing measurements 🎨 TTY-aware with spinner for active operations 🔄 Works for all step types (LLM, MCP, agent delegation) Custom Streaming Integration Use onStep and onToken callbacks to stream agent execution to your users: [code block] 💡 Tip: Built-in progress is shown by default. Use hideProgress: true to disable it when building custom progress UIs. SSE Integration Example Perfect for real-time web UIs: [code block] Retries & Timeouts Timeouts Set per-step or global timeouts (in seconds): [code block] Retry Strategies Immediate Retry (Default) Retry immediately without waiting: [code block] Delayed Retry Wait a fixed duration between attempts: [code block] Exponential Backoff Progressively longer waits between retries: [code block] Per-Step Override [code block] Retry Semantics Non-retryable errors (like ValidationError) abort immediately Retryable errors include: timeouts, 429, 5xx, network errors On retry exhaustion, the last error is thrown You cannot set both delay and backoff Step Hooks Add pre and post hooks for fine-grained control over execution flow: [code block] Hook Execution Order pre() hook (before step execution) Step execution (LLM/MCP calls) post() hook (after step completion) run() callback (with step result and index) Hook Characteristics Hooks are synchronous functions (() => void) Hook errors are caught and logged but don't fail the step Hooks execute on every retry attempt (pre) or only on success (post) Hooks have access to closure variables for state management Note: Hook errors are caught and logged but do not fail the step. Pre-hooks execute on every retry attempt. Post-hooks execute only on successful completion. Use Cases Performance monitoring and timing Logging and debugging State management Notifications and alerts Metrics collection Error Handling Volcano surfaces typed errors with rich metadata for easy debugging. Error Types Error Type Description ----------------------- ----------------------------------- AgentConcurrencyError run() called twice on same instance TimeoutError Step exceeded timeout limit ValidationError Tool args failed schema validation RetryExhaustedError Final failure after all retries LLMError LLM provider error MCPToolError MCP tool execution error MCPConnectionError MCP connection error ToolError Native tool execution error Error Metadata All Volcano errors include metadata for debugging: [code block] Metadata Fields stepId: 0-based index of the failing step provider: llm:<id model> or mcp:<host> requestId: Upstream provider request ID when available retryable: Volcano's hint (true for 429/5xx/timeouts; false for validation/4xx) Parallel Tool Execution ⚡ Volcano automatically executes tool calls in parallel when it's safe to do so, providing significant performance improvements for bulk operations with zero configuration required. How It Works When the LLM requests multiple tool calls in a single iteration, Volcano analyzes them and executes in parallel if ALL these conditions are met: ✅ All calls are to the same tool ✅ All calls operate on different resources (different IDs) ✅ All arguments are different (no duplicate operations) If any condition isn't met, Volcano safely falls back to sequential execution. [code block] Performance Impact Real-world example: Gmail spam detector processing 50 emails Sequential execution: ~110 seconds Parallel execution: ~50 seconds Speedup: 2x faster automatically! 🚀 For bulk operations like processing hundreds of items, marking multiple records, or fetching data for many resources, parallelization can provide 2-10x speedups. Safety Guarantees The implementation is conservative by design: ✅ Safe by default - Only parallelizes obviously safe scenarios ✅ No configuration - Works automatically, no setup needed ✅ No breaking changes - Existing code works exactly as before ✅ Provider agnostic - Works with all LLM providers ✅ Type safe - Full TypeScript support When Parallelization Happens ✅ Will parallelize: [code block] ❌ Will NOT parallelize: [code block] Disabling Parallel Execution If you need to force sequential execution for debugging or special cases: [code block] When to disable: Debugging tool execution order Working with tools that have hidden dependencies Compliance requirements for sequential processing Performance testing/comparison Note: Parallel execution is enabled by default for optimal performance. Only disable if you have a specific reason. Observability Track parallel vs sequential execution via telemetry metrics: [code block] Learn more about Parallel Tool Execution →",
     "headings": [
       "Features",
       "run() Method",
@@ -2984,13 +3264,13 @@
       "[code",
       "block]",
       "execution",
-      "progress",
       "error",
+      "progress",
       "works",
       "retry",
       "parallel"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "const results = await agent({ llm })\n  .then({ prompt: \"Analyze user data\", mcps: [analytics] })\n  .then({ prompt: \"Generate insights\" })\n  .then({ prompt: \"Create recommendations\" })\n  .run();\n\n// All steps complete before results are returned\nconsole.log(results); // Array of all StepResult objects\nconsole.log(results[0].llmOutput); // First step output\nconsole.log(results[1].llmOutput); // Second step output\nconsole.log(results.at(-1).totalDurationMs); // Total time\n",
       "// Simple callback syntax\nconst results = await agent({ llm })\n  .then({ prompt: \"Step 1\" })\n  .then({ prompt: \"Step 2\" })\n  .then({ prompt: \"Step 3\" })\n  .run((stepResult, stepIndex) => {\n    console.log(`Step ${stepIndex + 1} completed`);\n    console.log(`Duration: ${stepResult.durationMs}ms`);\n    console.log(`Output: ${stepResult.llmOutput}`);\n  });\n\n// Options syntax with onStep and onToken\nconst results = await agent({ llm })\n  .then({ prompt: \"Step 1\" })\n  .then({ prompt: \"Step 2\" })\n  .run({\n    onStep: (stepResult, stepIndex) => {\n      console.log(`✓ Step ${stepIndex + 1} done`);\n    },\n    onToken: (token, meta) => {\n      // Stream tokens in real-time with metadata\n      process.stdout.write(token);\n      // meta includes: stepIndex, handledByStep, stepPrompt, llmProvider\n    },\n  });\n\n// Callbacks are called as each step/token completes\n// Final results array is returned when all steps finish\n",
@@ -3048,7 +3328,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "const customers = [\n  \"alice@example.com\",\n  \"bob@example.com\",\n  \"charlie@example.com\",\n];\n\nawait agent({ llm })\n  .forEach(customers, (email, a) =>\n    a\n      .then({ prompt: `Generate personalized email for ${email}` })\n      .then({ mcp: sendgrid, tool: \"send\", args: { to: email } })\n  )\n  .then({ prompt: \"Summarize campaign results\" })\n  .run();\n"
     ],
@@ -3074,7 +3354,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "// Set default LLM at agent level\nawait agent({ llm: gpt })\n  .then({ prompt: \"Step 1 uses default GPT\" })\n  .then({ llm: claude, prompt: \"Step 2 overrides with Claude\" })\n  .then({ prompt: \"Step 3 back to default GPT\" })\n  .then({ llm: mistral, prompt: \"Step 4 uses Mistral\" })\n  .run();\n"
     ],
@@ -3104,7 +3384,7 @@
       "calling",
       "[code"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "codeBlocks": [
       "import { llmVertexStudio } from \"@volcano.dev/agent\";\n\nconst vertex = llmVertexStudio({\n  model: \"gemini-2.0-flash-exp\",\n  apiKey: process.env.GCP_VERTEX_API_KEY!,\n  baseURL: \"https://aiplatform.googleapis.com/v1\", // Optional\n  options: {\n    temperature: 0.8,\n    max_output_tokens: 2048,\n    top_k: 40,\n    top_p: 0.95,\n    stop_sequences: [\"\\n\\n\"],\n    candidate_count: 1,\n    response_mime_type: \"text/plain\",\n  },\n});\n"
     ],
@@ -3131,7 +3411,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "// OAuth on handle\nconst protectedMcp = mcp(\"https://api.example.com/mcp\", {\n  auth: {\n    type: \"oauth\",\n    clientId: process.env.MCP_CLIENT_ID!,\n    clientSecret: process.env.MCP_CLIENT_SECRET!,\n    tokenEndpoint: \"https://api.example.com/oauth/token\",\n  },\n});\n\n// Bearer token on handle\nconst bearerMcp = mcp(\"https://api.example.com/mcp\", {\n  auth: {\n    type: \"bearer\",\n    token: process.env.MCP_BEARER_TOKEN!,\n  },\n});\n"
     ],
@@ -3162,7 +3442,7 @@
       "synchronous",
       "functions"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "hook-characteristics",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -3190,7 +3470,7 @@
       "(after",
       "completion)"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "hook-execution-order",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -3217,7 +3497,7 @@
       "builds",
       "results"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "how-it-works",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -3237,7 +3517,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "import { agent, llmOpenAI } from \"@volcano.dev/agent\";\n\nconst llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! });\n\n// 1. Define specialized agents with clear roles\nconst researcher = agent({\n  llm,\n  name: \"researcher\",\n  description:\n    \"Analyzes topics, gathers data, and provides factual information. Use when you need research or analysis.\",\n});\n\nconst writer = agent({\n  llm,\n  name: \"writer\",\n  description:\n    \"Creates engaging, well-structured articles and content. Use when you need creative writing.\",\n});\n\n// 2. Create a coordinator that autonomously delegates tasks\nconst results = await agent({ llm })\n  .then({\n    prompt: \"Create a comprehensive blog post about AI safety\",\n    agents: [researcher, writer], // Coordinator decides when complete\n  })\n  .run();\n\n// The coordinator automatically:\n// - Decides which agent to use based on descriptions\n// - Delegates \"research AI safety\" to researcher\n// - Delegates \"write blog post\" to writer\n// - Coordinates between them until task complete\n"
     ],
@@ -3267,7 +3547,7 @@
       "analyzes",
       "executes"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "const gmail = mcp(\"http://localhost:3800/mcp\", {\n  auth: {\n    /* ... */\n  },\n});\n\nawait agent({ llm })\n  .then({\n    prompt: \"Mark emails 123, 456, and 789 as spam\",\n    mcps: [gmail],\n  })\n  .run();\n\n// If the LLM generates:\n// - mark_as_spam(emailId: \"123\")\n// - mark_as_spam(emailId: \"456\")\n// - mark_as_spam(emailId: \"789\")\n//\n// Volcano detects: same tool, different IDs → executes all 3 in parallel!\n// Result: 3x faster execution\n"
     ],
@@ -3297,7 +3577,7 @@
       "available",
       "servers"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "how-it-works",
     "parentTitle": "MCP Tools - Volcano Agent SDK"
   },
@@ -3324,7 +3604,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "import { mcp } from \"@volcano.dev/agent\";\n\n// Basic HTTP connection\nconst remoteMcp = mcp(\"https://api.example.com/mcp\");\n\n// With authentication\nconst authMcp = mcp(\"https://api.example.com/mcp\", {\n  auth: {\n    type: \"bearer\",\n    token: process.env.API_TOKEN!,\n  },\n});\n"
     ],
@@ -3352,7 +3632,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "await agent({ llm })\n  .then({ prompt: \"Is this email spam? Reply YES or NO\" })\n  .branch((history) => history[0].llmOutput?.includes(\"YES\") || false, {\n    true: (a) =>\n      a\n        .then({ prompt: \"Categorize spam type\" })\n        .then({ mcp: notifications, tool: \"alert\" }),\n    false: (a) =>\n      a\n        .then({ prompt: \"Extract action items\" })\n        .then({ prompt: \"Draft reply\" }),\n  })\n  .run();\n"
     ],
@@ -3382,7 +3662,7 @@
       "configuration",
       "(advanced):"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "npm install @opentelemetry/api \\\n  @opentelemetry/sdk-node \\\n  @opentelemetry/exporter-trace-otlp-http \\\n  @opentelemetry/exporter-metrics-otlp-http\n"
     ],
@@ -3412,7 +3692,7 @@
       "---------------------",
       "fastest"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "iteration-trade-offs",
     "parentTitle": "MCP Tools - Volcano Agent SDK"
   },
@@ -3434,7 +3714,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "import { NodeSDK } from \"@opentelemetry/sdk-node\";\nimport { JaegerExporter } from \"@opentelemetry/exporter-jaeger\";\nimport { createVolcanoTelemetry } from \"@volcano.dev/agent\";\n\n// Setup OTEL SDK\nconst sdk = new NodeSDK({\n  serviceName: \"my-agent\",\n  traceExporter: new JaegerExporter({\n    endpoint: \"http://localhost:14268/api/traces\",\n  }),\n});\n\nsdk.start();\n\n// Use with Volcano\nconst telemetry = createVolcanoTelemetry({\n  serviceName: \"my-agent\",\n});\n\nawait agent({ llm, telemetry }).then({ prompt: \"...\" }).run();\n\n// View traces in Jaeger UI at http://localhost:16686\n"
     ],
@@ -3464,7 +3744,7 @@
       "servers",
       "prevent"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "const server = mcpStdio({ command: \"node\", args: [\"server.js\"] });\n\ntry {\n  // Use the server\n  await server.listTools();\n  await server.callTool(\"my_tool\", { arg: \"value\" });\n} finally {\n  // Always cleanup, even on errors\n  await server.cleanup?.();\n}\n",
       "const localMcp = mcpStdio({ command: \"node\", args: [\"server.js\"] });\n\ntry {\n  await agent({ llm })\n    .then({ prompt: \"Do something\", mcps: [localMcp] })\n    .run();\n} finally {\n  await localMcp.cleanup?.();\n}\n",
@@ -3496,7 +3776,7 @@
       "block]",
       "setup:"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "codeBlocks": [
       "import { llmLlama } from \"@volcano.dev/agent\";\n\n// Local Ollama setup\nconst llama = llmLlama({\n  baseURL: \"http://127.0.0.1:11434\",\n  model: \"llama3.2:3b\",\n  apiKey: \"\", // Optional, not needed for local Ollama\n  options: {\n    temperature: 0.7,\n    max_tokens: 2000,\n    top_p: 0.9,\n    top_k: 40,\n    repeat_penalty: 1.1,\n    seed: 42,\n    num_predict: 2000,\n  },\n});\n"
     ],
@@ -3569,7 +3849,7 @@
       "provider",
       "[code"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "codeBlocks": [
       "import { llmOpenAI } from \"@volcano.dev/agent\";\n\nconst openai = llmOpenAI({\n  apiKey: process.env.OPENAI_API_KEY!,\n  model: \"gpt-4o-mini\",\n  baseURL: \"https://api.openai.com/v1\", // Optional\n  options: {\n    temperature: 0.7,\n    max_completion_tokens: 2000,\n    top_p: 0.9,\n    seed: 42,\n  },\n});\n",
       "import { llmOpenAIResponses } from \"@volcano.dev/agent\";\n\nconst llm = llmOpenAIResponses({\n  apiKey: process.env.OPENAI_API_KEY!,\n  model: \"gpt-4o-mini\",\n  options: {\n    jsonSchema: {\n      name: \"order_response\",\n      description: \"Order information\",\n      schema: {\n        type: \"object\",\n        properties: {\n          item: { type: \"string\" },\n          price: { type: \"number\" },\n          category: { type: \"string\" },\n        },\n        required: [\"item\", \"price\", \"category\"],\n        additionalProperties: false,\n      },\n    },\n  },\n});\n\nconst response = await llm.gen(\"Info for Espresso: $5.25, Coffee\");\nconst data = JSON.parse(response);\n// Guaranteed: { item: \"Espresso\", price: 5.25, category: \"Coffee\" }\n",
@@ -3607,7 +3887,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
       "{\n  prompt: string;\n  llm?: LLMHandle;\n  instructions?: string;\n  timeout?: number;\n  retry?: RetryConfig;\n  contextMaxChars?: number;\n  contextMaxToolResults?: number;\n  pre?: () => void;\n  post?: () => void;\n}\n"
     ],
@@ -3630,7 +3910,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
       "type LLMHandle = {\n  model: string;\n  gen(prompt: string): Promise<string>;\n  genWithTools(prompt: string, tools: ToolDefinition[]): Promise<LLMToolResult>;\n  genStream?(prompt: string): AsyncGenerator<string, void, unknown>;\n};\n"
     ],
@@ -3654,7 +3934,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "codeBlocks": [
       "type LLMHandle = {\n  id: string;\n  model: string;\n  gen: (prompt: string) => Promise<string>;\n  genWithTools: (\n    prompt: string,\n    tools: ToolDefinition[]\n  ) => Promise<LLMToolResult>;\n  genStream: (prompt: string) => AsyncGenerator<string, void, unknown>;\n  client: any; // Your provider-specific client\n};\n"
     ],
@@ -3678,7 +3958,7 @@
       "until",
       "conditions"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "anchor": "loops",
     "parentTitle": "Advanced Patterns - Volcano Agent SDK"
   },
@@ -3705,7 +3985,7 @@
       "configured",
       "handle"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "mcp-authentication",
     "parentTitle": "MCP Tools - Volcano Agent SDK"
   },
@@ -3729,7 +4009,7 @@
       "examples/mcp/:",
       "```bash"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "anchor": "mcp-servers",
     "parentTitle": "Examples - Volcano Agent SDK"
   },
@@ -3796,7 +4076,7 @@
       "multiple",
       "servers"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "import { mcp } from \"@volcano.dev/agent\";\n\n// Basic HTTP connection\nconst remoteMcp = mcp(\"https://api.example.com/mcp\");\n\n// With authentication\nconst authMcp = mcp(\"https://api.example.com/mcp\", {\n  auth: {\n    type: \"bearer\",\n    token: process.env.API_TOKEN!,\n  },\n});\n",
       "import { mcpStdio } from \"@volcano.dev/agent\";\n\n// Basic stdio connection\nconst localMcp = mcpStdio({\n  command: \"node\",\n  args: [\"dist/index.js\"],\n  cwd: \"/path/to/mcp-server\",\n});\n\n// With environment variables\nconst configuredMcp = mcpStdio({\n  command: \"npx\",\n  args: [\"-y\", \"@your-org/mcp-server\"],\n  env: {\n    API_KEY: process.env.API_KEY!,\n    DATABASE_URL: process.env.DATABASE_URL!,\n    DEBUG: \"true\",\n  },\n});\n\n// Remember to cleanup when done\nawait configuredMcp.cleanup?.();\n",
@@ -3863,7 +4143,7 @@
       "authentication:",
       "[code"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
       "import { mcp } from \"@volcano.dev/agent\";\n\n// No authentication\nconst astro = mcp(\"http://localhost:3211/mcp\");\n\n// OAuth authentication\nconst protectedMcp = mcp(\"https://api.example.com/mcp\", {\n  auth: {\n    type: \"oauth\",\n    clientId: \"your-client-id\",\n    clientSecret: \"your-client-secret\",\n    tokenEndpoint: \"https://api.example.com/oauth/token\",\n  },\n});\n\n// Bearer token\nconst bearerMcp = mcp(\"https://api.example.com/mcp\", {\n  auth: {\n    type: \"bearer\",\n    token: \"your-bearer-token\",\n  },\n});\n"
     ],
@@ -3886,7 +4166,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
       "type MCPHandle = {\n  id: string;\n  url: string;\n};\n"
     ],
@@ -3916,7 +4196,7 @@
       "model>",
       "mcp:<host>"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "metadata-fields",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -3934,7 +4214,7 @@
     "keywords": [
       "methods"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "anchor": "methods",
     "parentTitle": "API Reference - Volcano Agent SDK"
   },
@@ -3952,7 +4232,7 @@
     "keywords": [
       "methods"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "anchor": "methods",
     "parentTitle": "API Reference - Volcano Agent SDK"
   },
@@ -3979,7 +4259,7 @@
       "(openai,",
       "anthropic,"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "metric-labels",
     "parentTitle": "Observability - Volcano Agent SDK"
   },
@@ -4001,7 +4281,7 @@
       "dashboards",
       "alerting."
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "metrics",
     "parentTitle": "Observability - Volcano Agent SDK"
   },
@@ -4027,7 +4307,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "codeBlocks": [
       "import { llmMistral } from \"@volcano.dev/agent\";\n\nconst mistral = llmMistral({\n  apiKey: process.env.MISTRAL_API_KEY!,\n  model: \"mistral-small-latest\",\n  baseURL: \"https://api.mistral.ai\", // Optional\n  options: {\n    temperature: 0.7,\n    max_tokens: 2000,\n    top_p: 0.9,\n    safe_prompt: true,\n    random_seed: 42,\n  },\n});\n"
     ],
@@ -4057,7 +4337,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "const publicMcp = mcp(\"http://localhost:3000/mcp\"); // No auth\nconst privateMcp = mcp(\"https://api.example.com/mcp\", {\n  auth: {\n    type: \"oauth\",\n    clientId: process.env.CLIENT_ID!,\n    clientSecret: process.env.CLIENT_SECRET!,\n    tokenEndpoint: \"https://api.example.com/oauth/token\",\n  },\n});\n\nawait agent({ llm })\n  .then({ mcp: publicMcp, tool: \"get_public_data\", args: {} })\n  .then({ mcp: privateMcp, tool: \"store_private_data\", args: {} })\n  .run();\n\n// Each server uses its own authentication (or none)\n"
     ],
@@ -4087,7 +4367,7 @@
       "specialized",
       "agents:"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
       "{\n  prompt: string;\n  agents: AgentBuilder[];  // Array of specialized agents\n  llm?: LLMHandle;\n  instructions?: string;\n  timeout?: number;\n  retry?: RetryConfig;\n  contextMaxChars?: number;\n  contextMaxToolResults?: number;\n  pre?: () => void;\n  post?: () => void;\n}\n",
       "const researcher = agent({\n  llm,\n  name: \"researcher\",\n  description: \"Expert researcher\",\n}).then({ prompt: \"Research the topic.\" });\n\nconst writer = agent({\n  llm,\n  name: \"writer\",\n  description: \"Content creator\",\n}).then({ prompt: \"Write content.\" });\n\nawait agent({ llm })\n  .then({\n    prompt: \"Create a blog post about AI\",\n    agents: [researcher, writer],\n  })\n  .run();\n// Coordinator autonomously uses researcher, then writer, then finalizes\n"
@@ -4118,7 +4398,7 @@
       "workflow.",
       "match"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "anchor": "multi-llm-workflows",
     "parentTitle": "Advanced Patterns - Volcano Agent SDK"
   },
@@ -4143,7 +4423,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "const database = mcp(\"http://localhost:5000/mcp\");\nconst analytics = mcp(\"http://localhost:5001/mcp\");\n\nawait agent()\n  .then({\n    llm: gpt,\n    prompt: \"Query user data from database\",\n    mcps: [database],\n  })\n  .then({\n    llm: claude,\n    prompt: \"Perform statistical analysis\",\n    mcps: [analytics],\n  })\n  .then({\n    llm: mistral,\n    prompt: \"Generate executive summary\",\n  })\n  .run();\n"
     ],
@@ -4170,7 +4450,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "const database = mcp(\"http://localhost:5000/mcp\");\nconst email = mcp(\"http://localhost:5001/mcp\");\nconst analytics = mcp(\"http://localhost:5002/mcp\");\n\nawait agent({ llm })\n  .then({\n    prompt:\n      \"Query user data, analyze it, and email the report to admin@example.com\",\n    mcps: [database, email, analytics],\n  })\n  .run();\n\n// The LLM automatically orchestrates tools across all three servers\n"
     ],
@@ -4199,7 +4479,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "await agent({ llm })\n  .parallel({\n    sentiment: { prompt: \"What's the sentiment?\" },\n    entities: { prompt: \"Extract key entities\" },\n    summary: { prompt: \"Summarize in 5 words\" },\n  })\n  .then((history) => {\n    const results = history[0].parallel;\n    // Access: results.sentiment, results.entities, results.summary\n    return { prompt: \"Generate report based on analysis\" };\n  })\n  .run();\n"
     ],
@@ -4229,13 +4509,91 @@
       "block]",
       "\"step"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "const results = await agent({\n  llm,\n  telemetry,\n  name: \"data-pipeline\", // ✨ Shows in metrics and traces\n  description: \"Analyzes data\", // For agent crews (LLM sees this)\n});\n",
       ".then({\n  name: 'data-validation',   // ✨ Shows in Jaeger as \"Step 1: data-validation\"\n  prompt: 'Validate input'\n})\n"
     ],
     "anchor": "naming-agents-and-steps",
     "parentTitle": "Observability - Volcano Agent SDK"
+  },
+  {
+    "id": "Documentation-api-native-tool-auto-selection",
+    "title": "Native Tool Auto-Selection",
+    "description": "Native Tool Auto-Selection Let the LLM automatically choose which native tools to call — no MCP server needed: [code block] Native tools can also be m",
+    "content": "Native Tool Auto-Selection Let the LLM automatically choose which native tools to call — no MCP server needed: [code block] Native tools can also be mixed with MCP tools in the same step by including both tools and mcps.",
+    "headings": [
+      "Native Tool Auto-Selection"
+    ],
+    "path": "/docs/api#native-tool-auto-selection",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "native",
+      "tool",
+      "auto-selection",
+      "tools",
+      "automatically",
+      "choose",
+      "server",
+      "needed:",
+      "[code",
+      "block]",
+      "mixed"
+    ],
+    "lastModified": "2026-04-01T19:30:59.526Z",
+    "codeBlocks": [
+      "{\n  prompt: string;\n  tools: ToolHandle[];\n  llm?: LLMHandle;\n  instructions?: string;\n  timeout?: number;\n  retry?: RetryConfig;\n  contextMaxChars?: number;\n  contextMaxToolResults?: number;\n  maxToolIterations?: number;\n  pre?: () => void;\n  post?: () => void;\n  onToken?: (token: string) => void;\n  onToolCall?: (toolName: string, args: any, result: any) => void;\n}\n"
+    ],
+    "anchor": "native-tool-auto-selection",
+    "parentTitle": "API Reference - Volcano Agent SDK"
+  },
+  {
+    "id": "Documentation-native-tools",
+    "title": "Native Tools - Volcano Agent SDK",
+    "content": "Native Tools Define tools as plain JavaScript functions — no MCP server needed. The LLM automatically selects and calls your tools, just like with MCP. Why native tools? MCP is great for connecting to external services, but many tools are just internal functions: calculations, formatting, validation, lookups. Native tools let you define these inline without running a server. Defining a Tool Give your tool a name, description, parameter schema, and an execute function: [code block] Configuration: Field Type Description ------- ------ ------------- name string Unique identifier the LLM uses to call the tool description string Tells the LLM when to use this tool parameters JSON Schema Describes the arguments the tool accepts execute function The function that runs when called (sync or async) Automatic Tool Selection Let the LLM decide which tools to call based on the prompt: [code block] This works exactly like MCP automatic tool selection — the LLM sees all available tools, picks the right ones, calls them, reads the results, and continues reasoning. Combining with MCP Tools Use native and MCP tools together in the same step. The LLM sees all tools from both sources: [code block] Agent-Level Tools Make tools available to every step in an agent without repeating them: [code block] Both tools are available in both steps automatically. Explicit Tool Calls Call a tool directly without involving an LLM: [code block] Real-Time Callbacks Track tool execution as it happens with onToolCall: [code block] Error Handling When a tool's execute function throws, the error is wrapped in a ToolError with metadata: [code block] Async Tools Tools can be async — useful for database queries, file I/O, or API calls that don't need a full MCP server: [code block] Return Values The execute function should return a string. Non-string return values are automatically JSON-stringified: [code block] When to Use Native vs MCP Tools Native Tools MCP Tools --- --- --- Setup Inline function Run a server Best for Calculations, business logic, utilities, DB queries External APIs (Gmail, Slack, GitHub), shared services Latency Instant (no network) Network round-trip Auth Built into function OAuth, Bearer tokens Sharing Per-codebase Any MCP client can connect Discovery Static (defined in code) Dynamic (server advertises tools) Rule of thumb: If the tool is internal logic or a direct function call, use native tools. If it's an external service or needs to be shared across clients, use MCP.",
+    "headings": [
+      "Native Tools",
+      "Defining a Tool",
+      "Automatic Tool Selection",
+      "Combining with MCP Tools",
+      "Agent-Level Tools",
+      "Explicit Tool Calls",
+      "Real-Time Callbacks",
+      "Error Handling",
+      "Async Tools",
+      "Return Values",
+      "When to Use Native vs MCP Tools"
+    ],
+    "path": "/docs/native-tools",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "native",
+      "tools",
+      "volcano",
+      "agent",
+      "[code",
+      "block]",
+      "function",
+      "calls",
+      "execute",
+      "external",
+      "without",
+      "available"
+    ],
+    "lastModified": "2026-04-01T19:30:50.630Z",
+    "codeBlocks": [
+      "import { agent, llmOpenAI, tool } from \"@volcano.dev/agent\";\n\nconst llm = llmOpenAI({ apiKey: process.env.OPENAI_API_KEY!, model: \"gpt-4o-mini\" });\n\nconst calculator = tool({\n  name: \"calculate\",\n  description: \"Evaluate a math expression and return the result\",\n  parameters: {\n    type: \"object\",\n    properties: {\n      expression: { type: \"string\", description: \"Math expression, e.g. '2 + 2'\" }\n    },\n    required: [\"expression\"]\n  },\n  execute: ({ expression }) => {\n    const result = Function(`\"use strict\"; return (${expression})`)();\n    return JSON.stringify({ expression, result });\n  }\n});\n",
+      "const calculator = tool({ name: \"calculate\", ... });\nconst converter = tool({ name: \"convert_units\", ... });\n\nconst results = await agent({ llm })\n  .then({\n    prompt: \"What is 15% tip on $84.50? Also convert 26.2 miles to km.\",\n    tools: [calculator, converter],\n    maxToolIterations: 3\n  })\n  .run();\n",
+      "import { agent, llmOpenAI, tool, mcp } from \"@volcano.dev/agent\";\n\nconst calculator = tool({\n  name: \"calculate\",\n  description: \"Evaluate math expressions\",\n  parameters: { type: \"object\", properties: { expression: { type: \"string\" } } },\n  execute: ({ expression }) => JSON.stringify({ result: Function(`\"use strict\"; return (${expression})`)() })\n});\n\nconst calendar = mcp(\"http://localhost:3000/mcp\");\n\nawait agent({ llm })\n  .then({\n    prompt: \"Calculate a 20% tip on $65, then create a calendar reminder to pay\",\n    tools: [calculator],\n    mcps: [calendar],\n  })\n  .run();\n",
+      "const calculator = tool({ name: \"calculate\", ... });\nconst converter = tool({ name: \"convert_units\", ... });\n\nawait agent({ llm, tools: [calculator, converter] })\n  .then({ prompt: \"What is 15% of $84.50?\" })\n  .then({ prompt: \"Convert the result to euros at 0.92 rate\" })\n  .run();\n",
+      "const calculator = tool({\n  name: \"calculate\",\n  description: \"Evaluate math\",\n  parameters: { type: \"object\", properties: { expression: { type: \"string\" } } },\n  execute: ({ expression }) => JSON.stringify({ result: Function(`\"use strict\"; return (${expression})`)() })\n});\n\nconst results = await agent({})\n  .then({ tool: calculator, args: { expression: \"84.50 * 0.15\" } })\n  .run();\n\nconsole.log(results[0].mcp); // { endpoint: 'native', tool: 'calculate', result: '...', ms: 1 }\n",
+      "await agent({ llm })\n  .then({\n    prompt: \"Calculate tips for $50, $75, and $100 bills\",\n    tools: [calculator],\n    onToolCall: (toolName, args, result) => {\n      console.log(`${toolName}(${JSON.stringify(args)}) → ${result}`);\n    }\n  })\n  .run();\n",
+      "import { agent, tool, ToolError } from \"@volcano.dev/agent\";\n\nconst riskyTool = tool({\n  name: \"risky\",\n  description: \"Might fail\",\n  parameters: { type: \"object\", properties: {} },\n  execute: () => { throw new Error(\"something went wrong\"); }\n});\n\ntry {\n  await agent({ llm })\n    .then({ prompt: \"Use the risky tool\", tools: [riskyTool] })\n    .run();\n} catch (e) {\n  if (e instanceof ToolError) {\n    console.log(e.message); // \"Native tool 'risky' failed: something went wrong\"\n    console.log(e.meta);    // { stepId: 0, retryable: false }\n  }\n}\n",
+      "const dbLookup = tool({\n  name: \"lookup_user\",\n  description: \"Look up a user by email\",\n  parameters: {\n    type: \"object\",\n    properties: { email: { type: \"string\" } },\n    required: [\"email\"]\n  },\n  execute: async ({ email }) => {\n    const user = await db.users.findOne({ email });\n    return JSON.stringify(user);\n  }\n});\n",
+      "// String return — passed through directly\nexecute: ({ x }) => `The answer is ${x}`\n\n// Object return — automatically JSON.stringify'd\nexecute: ({ x }) => ({ answer: x, computed: true })\n"
+    ]
   },
   {
     "id": "Documentation-mcp-tools-oauth-authentication-client-credentials",
@@ -4260,7 +4618,7 @@
       "automatically",
       "acquires"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "const protectedMcp = mcp(\"https://api.example.com/mcp\", {\n  auth: {\n    type: \"oauth\",\n    clientId: process.env.MCP_CLIENT_ID!,\n    clientSecret: process.env.MCP_CLIENT_SECRET!,\n    tokenEndpoint: \"https://api.example.com/oauth/token\",\n  },\n});\n\nawait agent({ llm })\n  .then({\n    prompt: \"Use protected tools\",\n    mcps: [protectedMcp],\n  })\n  .run();\n\n// Volcano automatically:\n// 1. Requests OAuth token from tokenEndpoint\n// 2. Caches the token until expiration\n// 3. Refreshes automatically when needed\n// 4. Includes Authorization header in all requests\n"
     ],
@@ -4290,7 +4648,7 @@
       "block]",
       "learn"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "import { createVolcanoTelemetry } from \"@volcano.dev/agent\";\n\nconst telemetry = createVolcanoTelemetry({\n  /* config */\n});\n\nawait agent({ llm, telemetry })\n  .then({ prompt: \"Bulk operation\", mcps: [mcp] })\n  .run();\n\n// Metrics recorded:\n// - tool.execution.parallel (count: number of tools)\n// - tool.execution.sequential (count: number of tools)\n"
     ],
@@ -4367,7 +4725,7 @@
       "provider",
       "tools"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "import { agent, llmOpenAI, createVolcanoTelemetry } from \"@volcano.dev/agent\";\n\n// Create telemetry with endpoint - auto-configures everything!\nconst telemetry = createVolcanoTelemetry({\n  serviceName: \"my-agent-service\",\n  endpoint: \"http://localhost:4318\", // Your OTLP collector\n});\n\n// Enable telemetry in your agent with names for better debugging\nconst results = await agent({\n  llm: llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! }),\n  telemetry,\n  name: \"data-analyzer\", // Shows in traces and metrics!\n})\n  .then({\n    name: \"data-analysis\", // Shows as \"Step 1: data-analysis\" in Jaeger\n    prompt: \"Analyze data\",\n  })\n  .then({\n    name: \"report-generation\",\n    prompt: \"Generate report\",\n  })\n  .run();\n\n// Traces and metrics automatically sent to your collector!\n",
       "const results = await agent({\n  llm,\n  telemetry,\n  name: \"data-pipeline\", // ✨ Shows in metrics and traces\n  description: \"Analyzes data\", // For agent crews (LLM sees this)\n});\n",
@@ -4410,7 +4768,7 @@
       "opentelemetry-compatible",
       "backend."
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "observability-backends",
     "parentTitle": "Observability - Volcano Agent SDK"
   },
@@ -4437,7 +4795,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "codeBlocks": [
       "import { llmOpenAI } from \"@volcano.dev/agent\";\n\nconst openai = llmOpenAI({\n  apiKey: process.env.OPENAI_API_KEY!,\n  model: \"gpt-4o-mini\",\n  baseURL: \"https://api.openai.com/v1\", // Optional\n  options: {\n    temperature: 0.7,\n    max_completion_tokens: 2000,\n    top_p: 0.9,\n    seed: 42,\n  },\n});\n"
     ],
@@ -4467,7 +4825,7 @@
       "export",
       "traces"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "opentelemetry-integration",
     "parentTitle": "Observability - Volcano Agent SDK"
   },
@@ -4475,7 +4833,7 @@
     "id": "Documentation-api-options",
     "title": "Options",
     "description": "Options Option Type Default Description ------------------------------ ----------- -------------------------- ----------------------------------------",
-    "content": "Options Option Type Default Description ------------------------------ ----------- -------------------------- ------------------------------------------------------------- llm LLMHandle - Default LLM provider for all steps instructions string - Global system instructions timeout number 60 Default timeout per step (seconds) retry RetryConfig Retry configuration contextMaxChars number 20480 Soft cap for injected context size contextMaxToolResults number 8 Number of recent tool results to include maxToolIterations number 4 Max tool calls per automatic step disableParallelToolExecution boolean false Disable automatic parallel tool execution (forces sequential) hideProgress boolean false Suppress progress output telemetry object - OpenTelemetry configuration mcpAuth object - Agent-level MCP authentication name string - Agent name (for crews/composition) description string - Agent description (for crews)",
+    "content": "Options Option Type Default Description ------------------------------ ----------- -------------------------- ------------------------------------------------------------- llm LLMHandle - Default LLM provider for all steps instructions string - Global system instructions timeout number 60 Default timeout per step (seconds) retry RetryConfig Retry configuration contextMaxChars number 20480 Soft cap for injected context size contextMaxToolResults number 8 Number of recent tool results to include maxToolIterations number 4 Max tool calls per automatic step disableParallelToolExecution boolean false Disable automatic parallel tool execution (forces sequential) hideProgress boolean false Suppress progress output telemetry object - OpenTelemetry configuration mcpAuth object - Agent-level MCP authentication tools ToolHandle[] - Native tools available to all steps (merged with step-level) name string - Agent name (for crews/composition) description string - Agent description (for crews)",
     "headings": [
       "Options"
     ],
@@ -4488,14 +4846,14 @@
       "default",
       "description",
       "string",
+      "steps",
       "instructions",
       "timeout",
       "retry",
       "configuration",
-      "automatic",
-      "boolean"
+      "automatic"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "anchor": "options",
     "parentTitle": "API Reference - Volcano Agent SDK"
   },
@@ -4522,7 +4880,7 @@
       "--------------------",
       "-----------------------------------------------------------------"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "options-parameters",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -4549,7 +4907,7 @@
       "-------------------------------------------------",
       "temperature"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "options-parameters",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -4576,7 +4934,7 @@
       "temperature",
       "controls"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "options-parameters",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -4603,7 +4961,7 @@
       "----------------------------------------------------",
       "temperature"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "options-parameters",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -4630,7 +4988,7 @@
       "controls",
       "randomness"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "options-parameters",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -4657,7 +5015,7 @@
       "temperature",
       "controls"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "options-parameters",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -4684,7 +5042,7 @@
       "configuration",
       "parameters."
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "options-parameters",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -4709,7 +5067,7 @@
       "faster",
       "workflows."
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "anchor": "parallel-execution",
     "parentTitle": "Advanced Patterns - Volcano Agent SDK"
   },
@@ -4737,7 +5095,7 @@
       "executes",
       "performance"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "const gmail = mcp(\"http://localhost:3800/mcp\", {\n  auth: {\n    /* ... */\n  },\n});\n\n// The LLM might generate these tool calls:\n// mark_as_spam(emailId: \"123\")\n// mark_as_spam(emailId: \"456\")\n// mark_as_spam(emailId: \"789\")\n\n// Volcano detects: same tool, different IDs → executes in parallel! ⚡\nawait agent({ llm })\n  .then({\n    prompt: \"Mark emails 123, 456, and 789 as spam\",\n    mcps: [gmail],\n  })\n  .run();\n\n// Result: 3x faster execution (all API calls happen simultaneously)\n",
       "// Gmail spam detection on 50 emails\nconst gmail = mcp(\"http://localhost:3800/mcp\", {\n  auth: {\n    /* ... */\n  },\n});\n\nawait agent({ llm })\n  .then({\n    prompt: \"Get all unread emails, analyze for spam, mark any spam\",\n    mcps: [gmail],\n    maxToolIterations: 20,\n  })\n  .run();\n\n// Sequential execution: ~110 seconds (50 × 0.5s per call = 25s for tools)\n// Parallel execution:   ~50 seconds  (all calls in ~1-2s)\n// Speedup:              2x faster! 🚀\n",
@@ -4772,7 +5130,7 @@
       "performance",
       "improvements"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "parallel-tool-execution-",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -4801,7 +5159,7 @@
       "example:",
       "batch"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "parallel-tool-execution-metrics",
     "parentTitle": "Observability - Volcano Agent SDK"
   },
@@ -4822,7 +5180,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "await agent({ llm, retry: { delay: 20 } })\n  .then({ prompt: \"override to immediate\", retry: { delay: 0 } })\n  .run();\n"
     ],
@@ -4851,7 +5209,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "await agent({ llm })\n  .then({\n    prompt: \"Explain AI\",\n    onToken: (token: string) => {\n      process.stdout.write(token);\n      // Or: res.write(`data: ${token}\\n\\n`);\n    },\n  })\n  .run();\n"
     ],
@@ -4881,7 +5239,7 @@
       "detector",
       "emails"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "performance-impact",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -4900,7 +5258,7 @@
       "prerequisites",
       "```bash"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "anchor": "prerequisites",
     "parentTitle": "Examples - Volcano Agent SDK"
   },
@@ -4927,7 +5285,7 @@
       "reused",
       "configuration"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "const server = mcpStdio({ command: \"node\", args: [\"server.js\"] });\n\n// First call spawns the process\nawait server.listTools();\n\n// Subsequent calls reuse the same process (faster!)\nawait server.callTool(\"tool1\", {});\nawait server.callTool(\"tool2\", {});\n\n// Cleanup terminates the process\nawait server.cleanup?.();\n"
     ],
@@ -4948,7 +5306,7 @@
     "keywords": [
       "production"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "anchor": "production",
     "parentTitle": "Examples - Volcano Agent SDK"
   },
@@ -4969,7 +5327,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "import { NodeSDK } from \"@opentelemetry/sdk-node\";\nimport { PrometheusExporter } from \"@opentelemetry/exporter-prometheus\";\n\nconst prometheusExporter = new PrometheusExporter({\n  port: 9464,\n});\n\nconst sdk = new NodeSDK({\n  serviceName: \"my-agent\",\n  metricReader: prometheusExporter,\n});\n\nsdk.start();\n\n// Metrics available at http://localhost:9464/metrics\n// volcano_agent_duration_bucket{le=\"100\"} 42\n// volcano_llm_calls_total{provider=\"openai\"} 156\n"
     ],
@@ -4999,7 +5357,7 @@
       "calling",
       "streaming"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "provider-support-matrix",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -5028,7 +5386,7 @@
       "volcanollmtokenstotal",
       "model"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "questions-you-can-answer",
     "parentTitle": "Observability - Volcano Agent SDK"
   },
@@ -5055,7 +5413,7 @@
       "opentelemetry",
       "[code"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "import { agent, llmOpenAI, createVolcanoTelemetry } from \"@volcano.dev/agent\";\n\n// Create telemetry with endpoint - auto-configures everything!\nconst telemetry = createVolcanoTelemetry({\n  serviceName: \"my-agent-service\",\n  endpoint: \"http://localhost:4318\", // Your OTLP collector\n});\n\n// Enable telemetry in your agent with names for better debugging\nconst results = await agent({\n  llm: llmOpenAI({ apiKey: process.env.OPENAI_API_KEY! }),\n  telemetry,\n  name: \"data-analyzer\", // Shows in traces and metrics!\n})\n  .then({\n    name: \"data-analysis\", // Shows as \"Step 1: data-analysis\" in Jaeger\n    prompt: \"Analyze data\",\n  })\n  .then({\n    name: \"report-generation\",\n    prompt: \"Generate report\",\n  })\n  .run();\n\n// Traces and metrics automatically sent to your collector!\n"
     ],
@@ -5077,9 +5435,37 @@
       "real-time",
       "callbacks"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "anchor": "real-time-callbacks",
     "parentTitle": "API Reference - Volcano Agent SDK"
+  },
+  {
+    "id": "Documentation-native-tools-real-time-callbacks",
+    "title": "Real-Time Callbacks",
+    "description": "Real-Time Callbacks Track tool execution as it happens with onToolCall: [code block]",
+    "content": "Real-Time Callbacks Track tool execution as it happens with onToolCall: [code block]",
+    "headings": [
+      "Real-Time Callbacks"
+    ],
+    "path": "/docs/native-tools#real-time-callbacks",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "real-time",
+      "callbacks",
+      "track",
+      "execution",
+      "happens",
+      "ontoolcall:",
+      "[code",
+      "block]"
+    ],
+    "lastModified": "2026-04-01T19:30:50.630Z",
+    "codeBlocks": [
+      "await agent({ llm })\n  .then({\n    prompt: \"Calculate tips for $50, $75, and $100 bills\",\n    tools: [calculator],\n    onToolCall: (toolName, args, result) => {\n      console.log(`${toolName}(${JSON.stringify(args)}) → ${result}`);\n    }\n  })\n  .run();\n"
+    ],
+    "anchor": "real-time-callbacks",
+    "parentTitle": "Native Tools - Volcano Agent SDK"
   },
   {
     "id": "Documentation-features-real-world-example",
@@ -5102,7 +5488,7 @@
       "advanced",
       "patterns"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "const dataAnalyst = agent({\n  llm,\n  name: \"dataAnalyst\",\n  description: \"Analyzes data, creates reports, extracts insights from numbers\",\n})\n  .then({ prompt: \"Load dataset\" })\n  .then({ prompt: \"Run statistical analysis\" })\n  .then({ prompt: \"Identify trends\" });\n\nconst codeReviewer = agent({\n  llm,\n  name: \"codeReviewer\",\n  description: \"Reviews code, finds bugs, suggests improvements\",\n});\n\nconst documentor = agent({\n  llm,\n  name: \"documentor\",\n  description: \"Writes clear documentation and technical guides\",\n});\n\n// Coordinator handles complex task automatically\nawait agent({ llm })\n  .then({\n    prompt:\n      \"Analyze our user data from Q4 and create a comprehensive report with recommendations\",\n    agents: [dataAnalyst, codeReviewer, documentor],\n  })\n  .run();\n\n// Coordinator autonomously:\n// 1. Uses dataAnalyst to crunch numbers\n// 2. Might use codeReviewer if code issues found\n// 3. Uses documentor to write the final report\n"
     ],
@@ -5129,7 +5515,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "// Before: 40 lines of manual result parsing\nconst toolCalls = results[0].toolCalls || [];\nconst spamMarked = toolCalls.filter((t) => t.name.includes(\"mark_as_spam\"));\n// ... complex parsing logic ...\n\n// After: 2 lines with conversational API\nawait results.summary(summaryLlm);\nawait results.ask(summaryLlm, \"List all spam emails with sender and subject\");\n"
     ],
@@ -5159,7 +5545,7 @@
       "function",
       "calling"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "anchor": "requirements",
     "parentTitle": "LLM Providers - Volcano Agent SDK"
   },
@@ -5178,7 +5564,7 @@
       "retries",
       "timeouts"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "retries-timeouts",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -5205,7 +5591,7 @@
       "retryable",
       "include:"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "retry-semantics",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -5224,7 +5610,7 @@
       "retry",
       "strategies"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "retry-strategies",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -5249,7 +5635,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "await agent({ llm })\n  .retryUntil(\n    (a) => a.then({ prompt: \"Generate a haiku about AI\" }),\n    (result) => {\n      // Validate 5-7-5 syllable structure\n      const lines = result.llmOutput?.split(\"\\n\") || [];\n      return lines.length === 3; // Simple validation\n    },\n    { maxAttempts: 5, backoff: 1.5 }\n  )\n  .run();\n"
     ],
@@ -5275,7 +5661,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
       "type RetryConfig = {\n  delay?: number; // Seconds to wait between retries (default: 0, mutually exclusive with backoff)\n  backoff?: number; // Exponential factor (waits 1s, factor^n each retry)\n  retries?: number; // Total attempts including first (default: 3)\n};\n"
     ],
@@ -5302,12 +5688,42 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "type StepResult = {\n  prompt?: string;\n  llmOutput?: string;\n  durationMs?: number;\n  llmMs?: number;\n  toolCalls?: Array<{ name: string; result: any; ms?: number }>;\n  // Aggregated metrics (on final step only):\n  totalDurationMs?: number;\n  totalLlmMs?: number;\n  totalMcpMs?: number;\n};\n"
     ],
     "anchor": "return-value",
     "parentTitle": "Features - Volcano Agent SDK"
+  },
+  {
+    "id": "Documentation-native-tools-return-values",
+    "title": "Return Values",
+    "description": "Return Values The execute function should return a string. Non-string return values are automatically JSON-stringified: [code block]",
+    "content": "Return Values The execute function should return a string. Non-string return values are automatically JSON-stringified: [code block]",
+    "headings": [
+      "Return Values"
+    ],
+    "path": "/docs/native-tools#return-values",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "return",
+      "values",
+      "execute",
+      "function",
+      "should",
+      "string.",
+      "non-string",
+      "automatically",
+      "json-stringified:",
+      "[code"
+    ],
+    "lastModified": "2026-04-01T19:30:50.630Z",
+    "codeBlocks": [
+      "// String return — passed through directly\nexecute: ({ x }) => `The answer is ${x}`\n\n// Object return — automatically JSON.stringify'd\nexecute: ({ x }) => ({ answer: x, computed: true })\n"
+    ],
+    "anchor": "return-values",
+    "parentTitle": "Native Tools - Volcano Agent SDK"
   },
   {
     "id": "Documentation-examples-run-an-example",
@@ -5332,7 +5748,7 @@
       "05-07",
       "composition"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "codeBlocks": [
       "npx tsx examples/01-hello-world.ts\n"
     ],
@@ -5362,7 +5778,7 @@
       "metadata:",
       "[code"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "await agent({ llm })\n  .then({ prompt: \"Analyze data\" })\n  .then({ prompt: \"Generate report\" })\n  .run({\n    onToken: (token, meta) => {\n      // meta.stepIndex, meta.handledByStep, meta.stepPrompt, meta.llmProvider\n      res.write(`data: ${JSON.stringify({ token, step: meta.stepIndex })}\\n\\n`);\n    },\n    onStep: (step, index) => {\n      console.log(`Step ${index} complete`);\n    },\n  });\n"
     ],
@@ -5392,7 +5808,7 @@
       "once.",
       "[code"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "const results = await agent({ llm })\n  .then({ prompt: \"Analyze user data\", mcps: [analytics] })\n  .then({ prompt: \"Generate insights\" })\n  .then({ prompt: \"Create recommendations\" })\n  .run();\n\n// All steps complete before results are returned\nconsole.log(results); // Array of all StepResult objects\nconsole.log(results[0].llmOutput); // First step output\nconsole.log(results[1].llmOutput); // Second step output\nconsole.log(results.at(-1).totalDurationMs); // Total time\n"
     ],
@@ -5422,7 +5838,7 @@
       "obviously",
       "scenarios"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "safety-guarantees",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -5448,7 +5864,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "// If the MCP tool has this schema:\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"city\": { \"type\": \"string\" },\n    \"units\": { \"type\": \"string\", \"enum\": [\"celsius\", \"fahrenheit\"] }\n  },\n  \"required\": [\"city\"]\n}\n\n// This call would fail validation:\nawait agent({ llm })\n  .then({\n    mcp: weather,\n    tool: \"get_weather\",\n    args: { units: \"kelvin\" }  // ❌ Missing required \"city\", invalid enum\n  })\n  .run();\n\n// Error: ValidationError\n// Message: \"arguments failed schema validation: city is required; units must be one of...\"\n"
     ],
@@ -5475,7 +5891,7 @@
       "multi-provider",
       "examples:"
     ],
-    "lastModified": "2026-02-11T21:36:41.841Z",
+    "lastModified": "2026-04-01T17:10:28.896Z",
     "codeBlocks": [
       "export OPENAI_API_KEY=\"your-key-here\"\n",
       "export ANTHROPIC_API_KEY=\"your-anthropic-key\"\nexport MISTRAL_API_KEY=\"your-mistral-key\"\nexport AWS_BEARER_TOKEN_BEDROCK=\"your-bedrock-token\"\nexport GCP_VERTEX_API_KEY=\"your-vertex-key\"\nexport AZURE_AI_API_KEY=\"your-azure-key\"\n"
@@ -5507,7 +5923,7 @@
       "----------------------------------------------------------------------------------",
       "agent.run"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "span-attributes",
     "parentTitle": "Observability - Volcano Agent SDK"
   },
@@ -5530,7 +5946,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "app.post(\"/api/create-content\", async (req, res) => {\n  res.setHeader(\"Content-Type\", \"text/event-stream\");\n\n  await agent({ llm, hideProgress: true }) // Disable default progress\n    .then({\n      prompt: req.body.prompt,\n      agents: [researcher, writer],\n\n      onToken: (token, meta) => {\n        res.write(\n          `data: ${JSON.stringify({\n            type: \"token\",\n            token,\n            provider: meta.llmProvider,\n            step: meta.stepIndex,\n          })}\\n\\n`\n        );\n      },\n    })\n    .run({\n      onStep: (stepResult, stepIndex) => {\n        res.write(\n          `data: ${JSON.stringify({\n            type: \"step_complete\",\n            step: stepIndex,\n            duration: stepResult.durationMs,\n            tokens: stepResult.llmOutput?.length,\n          })}\\n\\n`\n        );\n      },\n    });\n\n  res.write(\"data: [DONE]\\n\\n\");\n  res.end();\n});\n"
     ],
@@ -5560,7 +5976,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "import { mcpStdio } from \"@volcano.dev/agent\";\n\n// Basic stdio connection\nconst localMcp = mcpStdio({\n  command: \"node\",\n  args: [\"dist/index.js\"],\n  cwd: \"/path/to/mcp-server\",\n});\n\n// With environment variables\nconst configuredMcp = mcpStdio({\n  command: \"npx\",\n  args: [\"-y\", \"@your-org/mcp-server\"],\n  env: {\n    API_KEY: process.env.API_KEY!,\n    DATABASE_URL: process.env.DATABASE_URL!,\n    DEBUG: \"true\",\n  },\n});\n\n// Remember to cleanup when done\nawait configuredMcp.cleanup?.();\n"
     ],
@@ -5583,7 +5999,7 @@
       "transport",
       "reference"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "stdio-transport-api-reference",
     "parentTitle": "MCP Tools - Volcano Agent SDK"
   },
@@ -5608,7 +6024,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "await agent({ llm })\n  .then({\n    prompt: \"Analyze the user data\",\n    mcps: [analytics],\n    pre: () => {\n      console.log(\"Starting analysis...\");\n    },\n    post: () => {\n      console.log(\"Analysis complete!\");\n    },\n  })\n  .then({\n    prompt: \"Generate report\",\n    pre: () => {\n      startTimer();\n    },\n    post: () => {\n      endTimer();\n      saveMetrics();\n    },\n  })\n  .run((step, stepIndex) => {\n    console.log(`Step ${stepIndex + 1} finished`);\n  });\n"
     ],
@@ -5637,7 +6053,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
       "type StepResult = {\n  // Basic fields\n  prompt?: string;\n  llmOutput?: string;\n\n  // Timing metrics (milliseconds)\n  durationMs?: number; // Total step wall time\n  llmMs?: number; // Time spent in LLM calls\n\n  // MCP tool results (explicit call)\n  mcp?: {\n    endpoint: string;\n    tool: string;\n    result: any;\n    ms?: number; // Tool execution time\n  };\n\n  // MCP tool calls (automatic selection)\n  toolCalls?: Array<{\n    name: string;\n    endpoint: string;\n    result: any;\n    ms?: number; // Tool execution time\n  }>;\n\n  // Parallel execution results\n  parallel?: Record<string, StepResult>;\n  parallelResults?: StepResult[];\n\n  // Aggregated metrics (on final step only)\n  totalDurationMs?: number;\n  totalLlmMs?: number;\n  totalMcpMs?: number;\n};\n"
     ],
@@ -5647,8 +6063,8 @@
   {
     "id": "Documentation-api-step-types",
     "title": "Step Types",
-    "description": "Step Types Volcano Agent SDK supports three types of steps:",
-    "content": "Step Types Volcano Agent SDK supports three types of steps:",
+    "description": "Step Types Volcano Agent SDK supports the following step types:",
+    "content": "Step Types Volcano Agent SDK supports the following step types:",
     "headings": [
       "Step Types"
     ],
@@ -5661,10 +6077,10 @@
       "volcano",
       "agent",
       "supports",
-      "three",
-      "steps:"
+      "following",
+      "types:"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "anchor": "step-types",
     "parentTitle": "API Reference - Volcano Agent SDK"
   },
@@ -5691,7 +6107,7 @@
       "matches",
       "exactly."
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "codeBlocks": [
       "import { llmOpenAIResponses } from \"@volcano.dev/agent\";\n\nconst llm = llmOpenAIResponses({\n  apiKey: process.env.OPENAI_API_KEY!,\n  model: \"gpt-4o-mini\",\n  options: {\n    jsonSchema: {\n      name: \"order_response\",\n      description: \"Order information\",\n      schema: {\n        type: \"object\",\n        properties: {\n          item: { type: \"string\" },\n          price: { type: \"number\" },\n          category: { type: \"string\" },\n        },\n        required: [\"item\", \"price\", \"category\"],\n        additionalProperties: false,\n      },\n    },\n  },\n});\n\nconst response = await llm.gen(\"Info for Espresso: $5.25, Coffee\");\nconst data = JSON.parse(response);\n// Guaranteed: { item: \"Espresso\", price: 5.25, category: \"Coffee\" }\n"
     ],
@@ -5721,7 +6137,7 @@
       "compose",
       "larger"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "anchor": "sub-agent-composition",
     "parentTitle": "Advanced Patterns - Volcano Agent SDK"
   },
@@ -5747,7 +6163,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "await agent({ llm })\n  .then({ prompt: \"Classify ticket priority: HIGH, MEDIUM, or LOW\" })\n  .switch((history) => history[0].llmOutput?.toUpperCase().trim() || \"\", {\n    HIGH: (a) => a.then({ mcp: pagerduty, tool: \"create_incident\" }),\n    MEDIUM: (a) => a.then({ mcp: jira, tool: \"create_ticket\" }),\n    LOW: (a) => a.then({ mcp: email, tool: \"queue_for_review\" }),\n    default: (a) => a.then({ prompt: \"Escalate unknown priority\" }),\n  })\n  .run();\n"
     ],
@@ -5773,7 +6189,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "await agent({ llm, timeout: 60 })\n  .then({ prompt: \"Quick check\", timeout: 5 }) // Override to 5s\n  .then({ prompt: \"Next step uses agent default (60s)\" })\n  .run();\n"
     ],
@@ -5801,7 +6217,7 @@
       "real-time",
       "interfaces."
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "token-level-streaming",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -5831,7 +6247,7 @@
       "perfect",
       "long-running"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "let processedCount = 0;\n\nawait agent({ llm })\n  .then({\n    prompt: \"Analyze all 50 emails for spam\",\n    mcps: [gmail],\n    maxToolIterations: 20,\n    onToolCall: (toolName, args, result) => {\n      const name = toolName.split(\".\").pop(); // Remove MCP prefix\n\n      if (name === \"list_all_unread_emails\") {\n        const emails = JSON.parse(result.content[0].text);\n        console.log(`📬 Found ${emails.length} unread emails`);\n      } else if (name === \"get_message\") {\n        processedCount++;\n        const data = JSON.parse(result.content[0].text);\n        console.log(`📧 [${processedCount}/50] Analyzing: ${data.subject}`);\n      } else if (name === \"add_label\") {\n        console.log(`  🏷️  Marked as SPAM!`);\n      }\n    },\n  })\n  .run();\n",
       "// Processing Aha ideas with progress tracking\nconst ahaMcp = mcpStdio({\n  command: \"node\",\n  args: [\"build/index.js\"],\n  env: { AHA_DOMAIN: \"...\", AHA_API_TOKEN: \"...\" },\n});\n\nlet searchCount = 0;\nlet detailsCount = 0;\n\nawait agent({ llm })\n  .then({\n    prompt: \"List all ideas with full details\",\n    mcps: [ahaMcp],\n    maxToolIterations: 100,\n    onToolCall: (toolName, args, result) => {\n      const name = toolName.split(\".\").pop();\n\n      if (name === \"search_documents\") {\n        searchCount++;\n        const data = JSON.parse(result.content[0].text);\n        console.log(\n          `🔍 Search ${searchCount}: Found ${data.documents?.length || 0} items`\n        );\n      } else if (name === \"get_page\") {\n        detailsCount++;\n        const data = JSON.parse(result.content[0].text);\n        console.log(`📄 [${detailsCount}] ${args.reference}: ${data.name}`);\n      }\n    },\n  })\n  .run();\n\nconsole.log(`\\n✅ Processed ${detailsCount} ideas with full details`);\n",
@@ -5864,9 +6280,62 @@
       "independently",
       "invalidation"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "tool-discovery-cache",
     "parentTitle": "MCP Tools - Volcano Agent SDK"
+  },
+  {
+    "id": "Documentation-api-toolconfig-toolhandle",
+    "title": "tool(config): ToolHandle",
+    "description": "tool(config): ToolHandle Define a tool as a plain JavaScript function: [code block] Option Type Description -------- ------ ------------- name string ",
+    "content": "tool(config): ToolHandle Define a tool as a plain JavaScript function: [code block] Option Type Description -------- ------ ------------- name string Unique tool name (required) description string Description for LLM tool selection parameters object JSON Schema for arguments execute function (args) => string \\ Promise<string> (required)",
+    "headings": [
+      "tool(config): ToolHandle"
+    ],
+    "path": "/docs/api#toolconfig-toolhandle",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "tool(config):",
+      "toolhandle",
+      "description",
+      "string",
+      "(required)",
+      "define",
+      "plain",
+      "javascript",
+      "function:",
+      "[code"
+    ],
+    "lastModified": "2026-04-01T19:30:59.526Z",
+    "codeBlocks": [
+      "import { tool } from \"@volcano.dev/agent\";\n\nconst calculator = tool({\n  name: \"calculate\",\n  description: \"Evaluate a math expression\",\n  parameters: {\n    type: \"object\",\n    properties: {\n      expression: { type: \"string\", description: \"e.g. '2 + 2'\" }\n    },\n    required: [\"expression\"]\n  },\n  execute: ({ expression }) => {\n    return JSON.stringify({ result: Function(`\"use strict\"; return (${expression})`)() });\n  }\n});\n\n// Use in a step\nawait agent({ llm })\n  .then({ prompt: \"Calculate 2 + 2\", tools: [calculator] })\n  .run();\n\n// Or call directly\nawait agent({})\n  .then({ tool: calculator, args: { expression: \"2 + 2\" } })\n  .run();\n"
+    ],
+    "anchor": "toolconfig-toolhandle",
+    "parentTitle": "API Reference - Volcano Agent SDK"
+  },
+  {
+    "id": "Documentation-api-toolconfig",
+    "title": "ToolConfig",
+    "description": "ToolConfig [code block]",
+    "content": "ToolConfig [code block]",
+    "headings": [
+      "ToolConfig"
+    ],
+    "path": "/docs/api#toolconfig",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "toolconfig",
+      "[code",
+      "block]"
+    ],
+    "lastModified": "2026-04-01T19:30:59.526Z",
+    "codeBlocks": [
+      "type ToolConfig = {\n  name: string;\n  description: string;\n  parameters: Record<string, any>; // JSON Schema\n  execute: (args: Record<string, any>) => Promise<string> | string;\n};\n"
+    ],
+    "anchor": "toolconfig",
+    "parentTitle": "API Reference - Volcano Agent SDK"
   },
   {
     "id": "Documentation-api-tooldefinition",
@@ -5884,11 +6353,34 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
-      "type ToolDefinition = {\n  name: string;\n  description: string;\n  parameters: any; // JSON Schema\n  mcpHandle?: MCPHandle;\n};\n"
+      "type ToolDefinition = {\n  name: string;\n  description: string;\n  parameters: any; // JSON Schema\n  mcpHandle?: MCPHandle;\n  toolHandle?: ToolHandle;\n};\n"
     ],
     "anchor": "tooldefinition",
+    "parentTitle": "API Reference - Volcano Agent SDK"
+  },
+  {
+    "id": "Documentation-api-toolhandle",
+    "title": "ToolHandle",
+    "description": "ToolHandle [code block]",
+    "content": "ToolHandle [code block]",
+    "headings": [
+      "ToolHandle"
+    ],
+    "path": "/docs/api#toolhandle",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "toolhandle",
+      "[code",
+      "block]"
+    ],
+    "lastModified": "2026-04-01T19:30:59.526Z",
+    "codeBlocks": [
+      "type ToolHandle = {\n  id: string;\n  name: string;\n  description: string;\n  parameters: Record<string, any>; // JSON Schema\n  execute: (args: Record<string, any>) => Promise<string> | string;\n};\n"
+    ],
+    "anchor": "toolhandle",
     "parentTitle": "API Reference - Volcano Agent SDK"
   },
   {
@@ -5908,7 +6400,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.021Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "Trace: agent-run-abc123\n├── Span: agent.run (parent)\n│   │   agent.name: \"data-analyzer\"\n│   │\n│   ├── Span: Step 1: weather-check\n│   │   │   step.type: mcp_auto\n│   │   │   llm.provider: OpenAI-gpt-4o-mini\n│   │   │   llm.model: gpt-4o-mini\n│   │   │\n│   │   ├── Span: llm.generate (provider: openai, model: gpt-4o-mini)\n│   │   ├── Span: mcp.discover_tools (endpoint: http://...)\n│   │   └── Span: mcp.call_tool (tool: get_weather)\n│   │\n│   ├── Span: Step 2: analyze-data\n│   │   │   step.type: llm\n│   │   │   llm.provider: Anthropic-claude-3-haiku\n│   │   │\n│   │   └── Span: llm.generate (provider: anthropic, model: claude-3-haiku)\n│   │\n│   └── Span: Step 3 (no name provided)\n│       │   step.type: mcp_explicit\n│       │\n│       └── Span: mcp.call_tool (tool: send_notification)\n"
     ],
@@ -5934,7 +6426,7 @@
       "supports",
       "types:"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "transport-types",
     "parentTitle": "MCP Tools - Volcano Agent SDK"
   },
@@ -5953,7 +6445,7 @@
       "type",
       "reference"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "anchor": "type-reference",
     "parentTitle": "API Reference - Volcano Agent SDK"
   },
@@ -5974,7 +6466,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "codeBlocks": [
       "const workLlm = llmOpenAI({ model: \"gpt-5\" });\nconst summaryLlm = llmOpenAI({ model: \"gpt-4o-mini\" }); // Cheaper for summaries\n\nconst results = await agent({ llm: workLlm })\n  .then({ prompt: \"Complex task\", mcps: [tools] })\n  .run();\n\n// Use cheap model to analyze expensive model's work\nconst summary = await results.summary(summaryLlm);\nconst nextSteps = await results.ask(summaryLlm, \"What should I do next?\");\n"
     ],
@@ -6004,7 +6496,7 @@
       "notifications",
       "alerts"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "use-cases",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -6031,7 +6523,7 @@
       "customer",
       "support"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "anchor": "use-cases",
     "parentTitle": "Advanced Patterns - Volcano Agent SDK"
   },
@@ -6058,7 +6550,7 @@
       "content",
       "generation"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "anchor": "use-cases",
     "parentTitle": "Advanced Patterns - Volcano Agent SDK"
   },
@@ -6081,7 +6573,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.095Z",
+    "lastModified": "2026-03-31T14:21:39.007Z",
     "codeBlocks": [
       "import { agent } from \"@volcano.dev/agent\";\nimport { llmCustom } from \"./my-custom-provider\";\n\nconst customLLM = llmCustom({\n  apiKey: process.env.CUSTOM_API_KEY!,\n  model: \"my-model-v1\",\n  baseURL: \"https://api.myservice.com/v1\",\n});\n\nconst results = await agent({ llm: customLLM })\n  .then({ prompt: \"Hello from custom provider!\" })\n  .run();\n\nconsole.log(results[0].llmOutput);\n"
     ],
@@ -6103,7 +6595,7 @@
       "utility",
       "functions"
     ],
-    "lastModified": "2026-02-11T21:36:41.824Z",
+    "lastModified": "2026-04-01T19:30:59.526Z",
     "anchor": "utility-functions",
     "parentTitle": "API Reference - Volcano Agent SDK"
   },
@@ -6126,7 +6618,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "// Same tool, different email IDs\nmark_as_spam(emailId: \"123\")\nmark_as_spam(emailId: \"456\")\nmark_as_spam(emailId: \"789\")\n",
       "// Different tools (may have dependencies)\nlist_emails(maxResults: 50)\nmark_as_spam(emailId: \"123\")\n\n// Duplicate IDs (prevents race conditions)\nmark_as_spam(emailId: \"123\")\nmark_as_spam(emailId: \"123\")\n\n// No resource IDs (can't determine safety)\nsend_notification(message: \"Hello\")\nsend_notification(message: \"World\")\n"
@@ -6158,9 +6650,37 @@
       "order",
       "you're"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "anchor": "when-to-use-explicit-calling",
     "parentTitle": "MCP Tools - Volcano Agent SDK"
+  },
+  {
+    "id": "Documentation-native-tools-when-to-use-native-vs-mcp-tools",
+    "title": "When to Use Native vs MCP Tools",
+    "description": "When to Use Native vs MCP Tools Native Tools MCP Tools --- --- --- Setup Inline function Run a server Best for Calculations, business logic, utilities",
+    "content": "When to Use Native vs MCP Tools Native Tools MCP Tools --- --- --- Setup Inline function Run a server Best for Calculations, business logic, utilities, DB queries External APIs (Gmail, Slack, GitHub), shared services Latency Instant (no network) Network round-trip Auth Built into function OAuth, Bearer tokens Sharing Per-codebase Any MCP client can connect Discovery Static (defined in code) Dynamic (server advertises tools) Rule of thumb: If the tool is internal logic or a direct function call, use native tools. If it's an external service or needs to be shared across clients, use MCP.",
+    "headings": [
+      "When to Use Native vs MCP Tools"
+    ],
+    "path": "/docs/native-tools#when-to-use-native-vs-mcp-tools",
+    "section": "Documentation",
+    "type": "Documentation",
+    "keywords": [
+      "when",
+      "native",
+      "tools",
+      "function",
+      "external",
+      "shared",
+      "setup",
+      "inline",
+      "server",
+      "calculations,",
+      "business"
+    ],
+    "lastModified": "2026-04-01T19:30:50.630Z",
+    "anchor": "when-to-use-native-vs-mcp-tools",
+    "parentTitle": "Native Tools - Volcano Agent SDK"
   },
   {
     "id": "Documentation-features-when-to-use-run",
@@ -6186,7 +6706,7 @@
       "workflows",
       "needing"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "when-to-use-run",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -6212,7 +6732,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:42.052Z",
+    "lastModified": "2026-03-30T21:04:06.745Z",
     "codeBlocks": [
       "await agent({ llm })\n  .while(\n    (history) => {\n      if (history.length === 0) return true;\n      const last = history[history.length - 1];\n      return !last.llmOutput?.includes(\"COMPLETE\");\n    },\n    (a) => a.then({ prompt: \"Process next chunk\", mcps: [database] }),\n    { maxIterations: 10 }\n  )\n  .then({ prompt: \"Generate final summary\" })\n  .run();\n"
     ],
@@ -6242,7 +6762,7 @@
       "descriptions",
       "decides"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "anchor": "why-this-matters",
     "parentTitle": "Features - Volcano Agent SDK"
   },
@@ -6266,7 +6786,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.993Z",
+    "lastModified": "2026-03-30T21:04:06.744Z",
     "codeBlocks": [
       "await agent({ llm })\n  .then({\n    mcp: database,\n    tool: \"query_users\",\n    args: { status: \"active\" },\n    prompt: \"Analyze the results and summarize\", // LLM processes tool output\n  })\n  .run();\n"
     ],
@@ -6297,7 +6817,7 @@
       "[code",
       "block]"
     ],
-    "lastModified": "2026-02-11T21:36:41.904Z",
+    "lastModified": "2026-04-01T17:34:28.442Z",
     "codeBlocks": [
       "// Simple callback syntax\nconst results = await agent({ llm })\n  .then({ prompt: \"Step 1\" })\n  .then({ prompt: \"Step 2\" })\n  .then({ prompt: \"Step 3\" })\n  .run((stepResult, stepIndex) => {\n    console.log(`Step ${stepIndex + 1} completed`);\n    console.log(`Duration: ${stepResult.durationMs}ms`);\n    console.log(`Output: ${stepResult.llmOutput}`);\n  });\n\n// Options syntax with onStep and onToken\nconst results = await agent({ llm })\n  .then({ prompt: \"Step 1\" })\n  .then({ prompt: \"Step 2\" })\n  .run({\n    onStep: (stepResult, stepIndex) => {\n      console.log(`✓ Step ${stepIndex + 1} done`);\n    },\n    onToken: (token, meta) => {\n      // Stream tokens in real-time with metadata\n      process.stdout.write(token);\n      // meta includes: stepIndex, handledByStep, stepPrompt, llmProvider\n    },\n  });\n\n// Callbacks are called as each step/token completes\n// Final results array is returned when all steps finish\n"
     ],

@@ -5,6 +5,7 @@ import {
   GitBranch,
   Code2,
   Settings,
+  Wrench,
   BarChart3,
   BookOpenText,
   Braces,
@@ -28,6 +29,7 @@ const sectionIcons: Record<string, LucideIcon> = {
   "Getting Started": BookOpenText,
   Examples: Braces,
   Providers: Code2,
+  "Native Tools": Wrench,
   "MCP Tools": Settings,
   "Advanced Patterns": GitBranch,
   Features: Zap,
@@ -40,11 +42,12 @@ const sectionConfig: Record<string, { title: string; order: number }> = {
   "/docs": { title: "Getting Started", order: 1 },
   "/docs/examples": { title: "Examples", order: 2 },
   "/docs/providers": { title: "Providers", order: 3 },
-  "/docs/mcp-tools": { title: "MCP Tools", order: 4 },
-  "/docs/patterns": { title: "Advanced Patterns", order: 5 },
-  "/docs/features": { title: "Features", order: 6 },
-  "/docs/observability": { title: "Observability", order: 7 },
-  "/docs/api": { title: "API Reference", order: 8 },
+  "/docs/native-tools": { title: "Native Tools", order: 4 },
+  "/docs/mcp-tools": { title: "MCP Tools", order: 5 },
+  "/docs/patterns": { title: "Advanced Patterns", order: 6 },
+  "/docs/features": { title: "Features", order: 7 },
+  "/docs/observability": { title: "Observability", order: 8 },
+  "/docs/api": { title: "API Reference", order: 9 },
 };
 
 export function buildNavigation(): NavigationSection[] {
