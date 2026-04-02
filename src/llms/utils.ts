@@ -56,11 +56,13 @@ export function parseOpenAICompatibleResponse(
     const argsJson = call?.function?.arguments ?? call?.arguments ?? "{}";
     const parsedArgs = parseToolArguments(argsJson);
     const mcpHandle = mapped?.def.mcpHandle;
-    
+    const toolHandle = mapped?.def.toolHandle;
+
     return {
       name: mapped?.dottedName ?? sanitizedName,
       arguments: parsedArgs,
       mcpHandle,
+      toolHandle,
     };
   });
 

@@ -6,7 +6,7 @@
 
 **The TypeScript SDK for Multi-Provider AI Agents**
 
-Build agents that chain LLM reasoning with MCP tools. Mix OpenAI, Claude, Mistral in one workflow. Parallel execution, branching, loops. Native retries, streaming, and typed errors.
+Build agents that chain LLM reasoning with native tools and MCP servers. Mix OpenAI, Claude, Mistral in one workflow. Parallel execution, branching, loops. Native retries, streaming, and typed errors.
 
 📚 **[Read the full documentation at volcano.dev →](https://volcano.dev/)**
 
@@ -17,7 +17,7 @@ Build agents that chain LLM reasoning with MCP tools. Mix OpenAI, Claude, Mistra
 <td width="33%">
 
 ### 🤖 Automatic Tool Selection
-LLM automatically picks which MCP tools to call based on your prompt. No manual routing needed.
+LLM automatically picks which tools to call based on your prompt. Define tools as plain functions or connect MCP servers.
 
 </td>
 <td width="33%">
@@ -154,7 +154,7 @@ console.log(post);
 - **[LLM Providers](https://volcano.dev/docs/providers)** - OpenAI, Anthropic, Mistral, Llama, Bedrock, Vertex, Azure
 - **[MCP Tools](https://volcano.dev/docs/mcp-tools)** - Automatic selection, OAuth authentication, connection pooling
 - **[Advanced Patterns](https://volcano.dev/docs/patterns)** - Parallel, branching, loops, multi-LLM workflows
-- **[Features](https://volcano.dev/docs/features)** - Streaming, retries, timeouts, hooks, error handling
+- **[Features](https://volcano.dev/docs/features)** - Native tools, streaming, retries, parallel execution, error handling
 - **[Observability](https://volcano.dev/docs/observability)** - OpenTelemetry traces and metrics
 - **[API Reference](https://volcano.dev/docs/api)** - Complete API documentation
 - **[Examples](https://volcano.dev/docs/examples)** - Ready-to-run code examples

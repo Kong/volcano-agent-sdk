@@ -38,6 +38,7 @@ const myAgent = agent({
 | `hideProgress`                 | boolean     | false                      | Suppress progress output                                      |
 | `telemetry`                    | object      | -                          | OpenTelemetry configuration                                   |
 | `mcpAuth`                      | object      | -                          | Agent-level MCP authentication                                |
+| `tools`                        | ToolHandle[]| -                          | Native tools available to all steps (merged with step-level)  |
 | `name`                         | string      | -                          | Agent name (for crews/composition)                            |
 | `description`                  | string      | -                          | Agent description (for crews)                                 |
 
@@ -137,7 +138,7 @@ const nextSteps = await results.ask(summaryLlm, "What should I do next?");
 
 ## Step Types
 
-Volcano Agent SDK supports three types of steps:
+Volcano Agent SDK supports the following step types:
 
 ### LLM-Only Step
 
@@ -200,6 +201,46 @@ Call a specific tool directly:
   retry?: RetryConfig;
   contextMaxChars?: number;
   contextMaxToolResults?: number;
+  pre?: () => void;
+  post?: () => void;
+  onToolCall?: (toolName: string, args: any, result: any) => void;
+}
+```
+
+### Native Tool Auto-Selection
+
+Let the LLM automatically choose which native tools to call — no MCP server needed:
+
+```typescript
+{
+  prompt: string;
+  tools: ToolHandle[];
+  llm?: LLMHandle;
+  instructions?: string;
+  timeout?: number;
+  retry?: RetryConfig;
+  contextMaxChars?: number;
+  contextMaxToolResults?: number;
+  maxToolIterations?: number;
+  pre?: () => void;
+  post?: () => void;
+  onToken?: (token: string) => void;
+  onToolCall?: (toolName: string, args: any, result: any) => void;
+}
+```
+
+Native tools can also be mixed with MCP tools in the same step by including both `tools` and `mcps`.
+
+### Explicit Native Tool Call
+
+Call a native tool directly without an LLM:
+
+```typescript
+{
+  tool: ToolHandle;
+  args?: Record<string, any>;
+  timeout?: number;
+  retry?: RetryConfig;
   pre?: () => void;
   post?: () => void;
   onToolCall?: (toolName: string, args: any, result: any) => void;
@@ -464,6 +505,46 @@ const bearerMcp = mcp("https://api.example.com/mcp", {
 
 **MCP Specification:** Per the official MCP spec, authentication uses OAuth 2.1. Volcano supports OAuth (automatic token acquisition) and Bearer (custom tokens).
 
+### tool(config): ToolHandle
+
+Define a tool as a plain JavaScript function:
+
+```typescript
+import { tool } from "@volcano.dev/agent";
+
+const calculator = tool({
+  name: "calculate",
+  description: "Evaluate a math expression",
+  parameters: {
+    type: "object",
+    properties: {
+      expression: { type: "string", description: "e.g. '2 + 2'" }
+    },
+    required: ["expression"]
+  },
+  execute: ({ expression }) => {
+    return JSON.stringify({ result: Function(`"use strict"; return (${expression})`)() });
+  }
+});
+
+// Use in a step
+await agent({ llm })
+  .then({ prompt: "Calculate 2 + 2", tools: [calculator] })
+  .run();
+
+// Or call directly
+await agent({})
+  .then({ tool: calculator, args: { expression: "2 + 2" } })
+  .run();
+```
+
+| Option | Type | Description |
+|--------|------|-------------|
+| `name` | string | Unique tool name (required) |
+| `description` | string | Description for LLM tool selection |
+| `parameters` | object | JSON Schema for arguments |
+| `execute` | function | `(args) => string \| Promise<string>` (required) |
+
 ### discoverTools(handles): Promise\<ToolDefinition\[\]\>
 
 Manually discover tools from MCP servers:
@@ -502,6 +583,29 @@ type MCPHandle = {
 };
 ```
 
+### ToolHandle
+
+```typescript
+type ToolHandle = {
+  id: string;
+  name: string;
+  description: string;
+  parameters: Record<string, any>; // JSON Schema
+  execute: (args: Record<string, any>) => Promise<string> | string;
+};
+```
+
+### ToolConfig
+
+```typescript
+type ToolConfig = {
+  name: string;
+  description: string;
+  parameters: Record<string, any>; // JSON Schema
+  execute: (args: Record<string, any>) => Promise<string> | string;
+};
+```
+
 ### ToolDefinition
 
 ```typescript
@@ -510,5 +614,6 @@ type ToolDefinition = {
   description: string;
   parameters: any; // JSON Schema
   mcpHandle?: MCPHandle;
+  toolHandle?: ToolHandle;
 };
 ```

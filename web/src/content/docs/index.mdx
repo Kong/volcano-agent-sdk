@@ -1,10 +1,10 @@
 ---
-title: "Volcano Agent SDK - Build MCP-powered AI Agents"
+title: "Volcano Agent SDK - Build AI Agents with Native Tools and MCP"
 ---
 
 # Volcano Agent SDK 🌋
 
-A TypeScript SDK for building AI agents that combine LLM reasoning with real-world actions via MCP tools.
+A TypeScript SDK for building AI agents that combine LLM reasoning with real-world actions via native tools and MCP servers.
 
 **Design Philosophy:** Volcano provides a fluent, chainable API that scales from simple single-step agents to complex multi-provider workflows with parallel execution, retries, and streaming.
 
@@ -12,7 +12,7 @@ A TypeScript SDK for building AI agents that combine LLM reasoning with real-wor
 
 ### Automatic Tool Selection
 
-LLM automatically picks which MCP tools to call based on your prompt. No manual routing needed.
+LLM automatically picks which tools to call based on your prompt. Define tools as plain functions or connect MCP servers — no manual routing needed.
 
 ### Multi-Agent Crews
 
@@ -165,6 +165,8 @@ const results = await agent()
 
 ### Next Steps
 
+- Define tools with [Native Tools](native-tools) — plain functions, no server needed
+- Connect external services with [MCP Tools](mcp-tools) — auto-discovery and OAuth
 - Explore [LLM Providers](providers) for configuration options
 - Learn [Advanced Patterns](patterns) for complex workflows
 - Discover [Features](features) like streaming and error handling
@@ -247,7 +249,7 @@ Factual comparison with other AI frameworks:
 | Feature                      | Volcano Agent SDK                                        | AI SDK                | LangChain             |
 | ---------------------------- | -------------------------------------------------------- | --------------------- | --------------------- |
 | **API Style**                | Fluent, chainable `.then()`                              | Function-based        | Class-based chains    |
-| **MCP Integration**          | Native, first-class                                      | Via custom tools      | Via custom tools      |
+| **Tool Calling**             | Native functions + MCP, first-class                      | Via custom tools      | Via custom tools      |
 | **Multi-Provider Workflows** | Built-in, per-step LLM switching                         | Manual configuration  | Supported via chains  |
 | **Advanced Patterns**        | Parallel, branching, loops, sub-agents                   | Manual implementation | Via agents framework  |
 | **Retry Strategies**         | 3 modes: immediate, delayed, exponential                 | Basic retry           | Via callbacks         |
@@ -261,7 +263,7 @@ Factual comparison with other AI frameworks:
 
 ### When to Choose Volcano
 
-- **MCP-first applications:** Native support for Model Context Protocol
+- **Tool-rich applications:** First-class native tools and MCP support
 - **Multi-provider workflows:** Need to mix different LLMs in one workflow
 - **Complex control flow:** Parallel execution, branching, loops required
 - **Production reliability:** Need retries, timeouts, and error metadata
@@ -291,7 +293,7 @@ const myAgent = agent({
 Each step in a workflow can perform one or more of the following:
 
 - **Generate text** using any supported LLM provider
-- **Call MCP tools** either explicitly or via automatic selection
+- **Call tools** — native functions and/or MCP servers, explicitly or via automatic selection
 - **Override configuration** such as timeout, LLM provider, or retry strategy
 - **Access context** from previous steps automatically
 - **Execute hooks** before or after execution
@@ -301,7 +303,7 @@ Each step in a workflow can perform one or more of the following:
 Each step automatically receives context from previous steps. This includes:
 
 - **Previous LLM responses** from earlier steps
-- **Tool results** from MCP tool calls
+- **Tool results** from native and MCP tool calls
 - **Automatic compaction** to stay within token limits
 
 Use `resetHistory()` to clear context:

@@ -5,6 +5,21 @@ All notable changes to Volcano Agent SDK will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+#### Native Tool Calling
+- **`tool()` factory function**: Create tools from plain JavaScript functions without running an MCP server
+- **`ToolHandle` type**: Returned by `tool()`, passed to steps via `tools: [...]`
+- **Native tool auto-selection**: LLM automatically chooses which native tools to call, just like MCP tools
+- **Explicit native tool calls**: Call native tools directly with `{ tool: handle, args: {...} }`
+- **Agent-level tools**: Define `tools` in agent options to make them available to all steps
+- **Mixed native + MCP tools**: Use `tools` and `mcps` in the same step
+- **`ToolError` class**: Thrown when a native tool's execute function fails
+- **Full provider support**: Native tools work with all LLM providers (OpenAI, Anthropic, Mistral, Bedrock, Vertex, Azure, Llama)
+- **Telemetry**: `tool.native.call` and `tool.native.duration` metrics for observability
+
 ## [1.1.0] - 2025-11-11
 
 ### Added

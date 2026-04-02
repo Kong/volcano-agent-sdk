@@ -201,6 +201,7 @@ export function llmVertexStudio(cfg: VertexStudioConfig): LLMHandle {
             name: mapped?.dottedName ?? sanitizedName,
             arguments: functionCall.args || {},
             mcpHandle: mapped?.def.mcpHandle,
+            toolHandle: mapped?.def.toolHandle,
           });
         } else if (part?.text) {
           textContent += part.text;

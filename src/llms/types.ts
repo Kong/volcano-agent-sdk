@@ -1,8 +1,26 @@
+export type ToolExecuteFn = (args: Record<string, any>) => Promise<string> | string;
+
+export type ToolConfig = {
+  name: string;
+  description: string;
+  parameters: Record<string, any>;
+  execute: ToolExecuteFn;
+};
+
+export type ToolHandle = {
+  id: string;
+  name: string;
+  description: string;
+  parameters: Record<string, any>;
+  execute: ToolExecuteFn;
+};
+
 export type ToolDefinition = {
   name: string;
   description: string;
   parameters: Record<string, any>;
   mcpHandle?: import("../volcano-agent-sdk").MCPHandle;
+  toolHandle?: ToolHandle;
 };
 
 export type TokenUsage = {
@@ -17,6 +35,7 @@ export type LLMToolResult = {
     name: string; // dotted name: <handleId>.<toolName>
     arguments: Record<string, any>;
     mcpHandle?: import("../volcano-agent-sdk").MCPHandle;
+    toolHandle?: ToolHandle;
   }>;
   usage?: TokenUsage;
 };

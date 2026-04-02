@@ -53,6 +53,9 @@ Switch between OpenAI, Claude, etc.
 **11-email-triage.ts** - Real use case  
 Full workflow: classify, extract, respond
 
+**12-native-tools.ts** - Native tool calling  
+Plain JavaScript functions as tools — no MCP server needed
+
 ## Running MCP Servers
 
 Some examples need MCP servers:
@@ -75,5 +78,6 @@ See [mcp/README.md](mcp/README.md) for details.
 - Start with 01-04 to learn the basics
 - Try 05-06 to understand composition
 - Check 11 for a real-world example
+- Check 12 for native tools (no MCP server needed)
 - All examples are standalone and copy-paste ready
 

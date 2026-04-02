@@ -191,6 +191,7 @@ export function llmAzure(cfg: AzureConfig): LLMHandle {
             name: mapped?.dottedName ?? sanitizedName,
             arguments: parsedArgs,
             mcpHandle: mapped?.def.mcpHandle,
+            toolHandle: mapped?.def.toolHandle,
           });
         } else if (item?.type === 'message') {
           // Extract text from message content

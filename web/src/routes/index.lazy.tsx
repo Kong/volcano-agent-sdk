@@ -21,7 +21,7 @@ function HomePage() {
     "@type": "SoftwareApplication",
     name: "Volcano Agent SDK",
     description:
-      "The TypeScript SDK for Multi‑Provider AI Agents. Build agents that chain LLM reasoning with MCP tools.",
+      "The TypeScript SDK for Multi‑Provider AI Agents. Build agents that chain LLM reasoning with native tools and MCP servers.",
     applicationCategory: "DeveloperApplication",
     operatingSystem: "Node.js",
     programmingLanguage: "TypeScript",
@@ -41,8 +41,8 @@ function HomePage() {
   return (
     <>
       <SEOHead
-        title="Volcano Agent SDK — Build MCP-powered AI agents in minutes"
-        description="TypeScript SDK for building production-ready AI agents. Chain LLM reasoning with MCP tools. Mix OpenAI, Claude, Mistral in one workflow. Parallel execution, streaming, retries, and OpenTelemetry observability."
+        title="Volcano Agent SDK — Build AI agents with native tools and MCP"
+        description="TypeScript SDK for building production-ready AI agents. Define tools as plain functions or connect MCP servers. Mix OpenAI, Claude, Mistral in one workflow. Parallel execution, streaming, retries, and OpenTelemetry observability."
         canonicalUrl="/"
       />
       <script

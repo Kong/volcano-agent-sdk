@@ -220,6 +220,43 @@ tsx examples/mcp/tasks/server.ts
 
 [View source →](https://github.com/Kong/volcano-agent-sdk/blob/main/examples/11-email-triage.ts)
 
+### 12-native-tools.ts
+
+Build agents with plain JavaScript functions — no MCP server needed.
+
+```bash
+npx tsx examples/12-native-tools.ts
+```
+
+**Demonstrates:** Native tool creation with `tool()`, automatic tool selection, multiple native tools
+
+```typescript
+import { agent, llmOpenAI, tool } from "@volcano.dev/agent";
+
+const calculator = tool({
+  name: "calculate",
+  description: "Evaluate a math expression",
+  parameters: {
+    type: "object",
+    properties: { expression: { type: "string" } },
+    required: ["expression"]
+  },
+  execute: ({ expression }) => {
+    const result = Function(`"use strict"; return (${expression})`)();
+    return JSON.stringify({ expression, result });
+  }
+});
+
+const results = await agent({ llm })
+  .then({
+    prompt: "What is 15% tip on $84.50?",
+    tools: [calculator],
+  })
+  .run();
+```
+
+[View source →](https://github.com/Kong/volcano-agent-sdk/blob/main/examples/12-native-tools.ts)
+
 ### Prerequisites
 
 ```bash

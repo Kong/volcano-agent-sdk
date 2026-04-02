@@ -202,6 +202,7 @@ export function llmBedrock(cfg: BedrockConfig): LLMHandle {
             name: mapped?.dottedName ?? sanitizedName,
             arguments: toolUse.input || {},
             mcpHandle: mapped?.def.mcpHandle,
+            toolHandle: mapped?.def.toolHandle,
           });
         } else if (block?.text) {
           textContent += block.text;

@@ -105,6 +105,16 @@ export const generatedNavigation: NavigationDoc[] = [
       },
       {
         "level": 3,
+        "text": "Native Tool Auto-Selection",
+        "id": "native-tool-auto-selection"
+      },
+      {
+        "level": 3,
+        "text": "Explicit Native Tool Call",
+        "id": "explicit-native-tool-call"
+      },
+      {
+        "level": 3,
         "text": "Multi-Agent Coordination",
         "id": "multi-agent-coordination"
       },
@@ -160,6 +170,11 @@ export const generatedNavigation: NavigationDoc[] = [
       },
       {
         "level": 3,
+        "text": "tool(config): ToolHandle",
+        "id": "toolconfig-toolhandle"
+      },
+      {
+        "level": 3,
         "text": "discoverTools(handles): Promise\\<ToolDefinition\\[\\]\\>",
         "id": "discovertoolshandles-promisetooldefinition"
       },
@@ -177,6 +192,16 @@ export const generatedNavigation: NavigationDoc[] = [
         "level": 3,
         "text": "MCPHandle",
         "id": "mcphandle"
+      },
+      {
+        "level": 3,
+        "text": "ToolHandle",
+        "id": "toolhandle"
+      },
+      {
+        "level": 3,
+        "text": "ToolConfig",
+        "id": "toolconfig"
       },
       {
         "level": 3,
@@ -268,6 +293,11 @@ export const generatedNavigation: NavigationDoc[] = [
         "level": 3,
         "text": "11-email-triage.ts",
         "id": "11-email-triagets"
+      },
+      {
+        "level": 3,
+        "text": "12-native-tools.ts",
+        "id": "12-native-toolsts"
       },
       {
         "level": 3,
@@ -563,7 +593,7 @@ export const generatedNavigation: NavigationDoc[] = [
     ]
   },
   {
-    "title": "Volcano Agent SDK - Build MCP-powered AI Agents",
+    "title": "Volcano Agent SDK - Build AI Agents with Native Tools and MCP",
     "path": "/docs",
     "headings": [
       {
@@ -941,6 +971,67 @@ export const generatedNavigation: NavigationDoc[] = [
         "level": 3,
         "text": "Common Patterns",
         "id": "common-patterns"
+      }
+    ]
+  },
+  {
+    "title": "Native Tools - Volcano Agent SDK",
+    "path": "/docs/native-tools",
+    "headings": [
+      {
+        "level": 1,
+        "text": "Native Tools",
+        "id": "native-tools"
+      },
+      {
+        "level": 2,
+        "text": "Defining a Tool",
+        "id": "defining-a-tool"
+      },
+      {
+        "level": 2,
+        "text": "Automatic Tool Selection",
+        "id": "automatic-tool-selection"
+      },
+      {
+        "level": 2,
+        "text": "Combining with MCP Tools",
+        "id": "combining-with-mcp-tools"
+      },
+      {
+        "level": 2,
+        "text": "Agent-Level Tools",
+        "id": "agent-level-tools"
+      },
+      {
+        "level": 2,
+        "text": "Explicit Tool Calls",
+        "id": "explicit-tool-calls"
+      },
+      {
+        "level": 2,
+        "text": "Real-Time Callbacks",
+        "id": "real-time-callbacks"
+      },
+      {
+        "level": 2,
+        "text": "Error Handling",
+        "id": "error-handling"
+      },
+      {
+        "level": 2,
+        "text": "Async Tools",
+        "id": "async-tools"
+      },
+      {
+        "level": 2,
+        "text": "Return Values",
+        "id": "return-values"
+      },
+      {
+        "level": 2,
+        "text": "When to Use Native vs MCP Tools",
+        "id": "when-to-use-native-vs-mcp-tools"
       }
     ]
   },
